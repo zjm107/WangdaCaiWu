@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FileDataSet" targetNamespace="http://tempuri.org/FileDataSet.xsd" xmlns:mstns="http://tempuri.org/FileDataSet.xsd" xmlns="http://tempuri.org/FileDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="WangDaFileConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WangDaFileConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WangDaDll.Properties.Settings.GlobalReference.Default.WangDaFileConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FileDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FileDataSet" msprop:Generator_UserDSName="FileDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TF_FILE" msprop:Generator_TableClassName="TF_FILEDataTable" msprop:Generator_TableVarName="tableTF_FILE" msprop:Generator_TablePropName="TF_FILE" msprop:Generator_RowDeletingName="TF_FILERowDeleting" msprop:Generator_RowChangingName="TF_FILERowChanging" msprop:Generator_RowEvHandlerName="TF_FILERowChangeEventHandler" msprop:Generator_RowDeletedName="TF_FILERowDeleted" msprop:Generator_UserTableName="TF_FILE" msprop:Generator_RowChangedName="TF_FILERowChanged" msprop:Generator_RowEvArgName="TF_FILERowChangeEvent" msprop:Generator_RowClassName="TF_FILERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FileByte" msdata:Caption="文件" msprop:Generator_ColumnVarNameInTable="columnFileByte" msprop:Generator_ColumnPropNameInRow="FileByte" msprop:Generator_ColumnPropNameInTable="FileByteColumn" msprop:Generator_UserColumnName="FileByte" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="FileName" msdata:Caption="文件名" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_UserColumnName="FileName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FileID" msprop:Generator_ColumnVarNameInTable="columnFileID" msprop:Generator_ColumnPropNameInRow="FileID" msprop:Generator_ColumnPropNameInTable="FileIDColumn" msprop:Generator_UserColumnName="FileID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FKID" msdata:Caption="外键" msprop:Generator_ColumnVarNameInTable="columnFKID" msprop:Generator_ColumnPropNameInRow="FKID" msprop:Generator_ColumnPropNameInTable="FKIDColumn" msprop:Generator_UserColumnName="FKID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Uploader" msdata:Caption="上传人" msprop:Generator_ColumnVarNameInTable="columnUploader" msprop:Generator_ColumnPropNameInRow="Uploader" msprop:Generator_ColumnPropNameInTable="UploaderColumn" msprop:Generator_UserColumnName="Uploader" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Upload_Date" msdata:Caption="上传时间" msprop:Generator_ColumnVarNameInTable="columnUpload_Date" msprop:Generator_ColumnPropNameInRow="Upload_Date" msprop:Generator_ColumnPropNameInTable="Upload_DateColumn" msprop:Generator_UserColumnName="Upload_Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="FileType" msdata:Caption="文件类型" msprop:Generator_ColumnVarNameInTable="columnFileType" msprop:Generator_ColumnPropNameInRow="FileType" msprop:Generator_ColumnPropNameInTable="FileTypeColumn" msprop:Generator_UserColumnName="FileType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TF_FILE" />
+      <xs:field xpath="mstns:FileID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

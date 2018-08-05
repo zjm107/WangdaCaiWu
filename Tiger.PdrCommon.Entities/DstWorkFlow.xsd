@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DstWorkFlow" targetNamespace="http://tempuri.org/DstWorkFlow.xsd" xmlns:mstns="http://tempuri.org/DstWorkFlow.xsd" xmlns="http://tempuri.org/DstWorkFlow.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Tiger_COMMONConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="Tiger_COMMONConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Tiger.PdrCommon.Entities.Properties.Settings.GlobalReference.Default.Tiger_COMMONConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DstWorkFlow" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DstWorkFlow" msprop:Generator_DataSetName="DstWorkFlow">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TS_WorkFlow" msprop:Generator_UserTableName="TS_WorkFlow" msprop:Generator_RowDeletedName="TS_WorkFlowRowDeleted" msprop:Generator_TableClassName="TS_WorkFlowDataTable" msprop:Generator_RowChangedName="TS_WorkFlowRowChanged" msprop:Generator_RowClassName="TS_WorkFlowRow" msprop:Generator_RowChangingName="TS_WorkFlowRowChanging" msprop:Generator_RowEvArgName="TS_WorkFlowRowChangeEvent" msprop:Generator_RowEvHandlerName="TS_WorkFlowRowChangeEventHandler" msprop:Generator_TablePropName="TS_WorkFlow" msprop:Generator_TableVarName="tableTS_WorkFlow" msprop:Generator_RowDeletingName="TS_WorkFlowRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="流程名称" msprop:Generator_UserColumnName="流程名称" msprop:Generator_ColumnPropNameInRow="流程名称" msprop:Generator_ColumnVarNameInTable="column流程名称" msprop:Generator_ColumnPropNameInTable="流程名称Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="有效" msprop:Generator_UserColumnName="有效" msprop:Generator_ColumnPropNameInRow="有效" msprop:Generator_ColumnVarNameInTable="column有效" msprop:Generator_ColumnPropNameInTable="有效Column" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TS_WorkFlow" />
+      <xs:field xpath="mstns:流程名称" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

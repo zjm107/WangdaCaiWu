@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strLogName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_strPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSystemFunction">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSystemFunctionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemFunctionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemFunctionByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemFunctionByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemFunctionByUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemMenu">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSystemMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemMenuResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemMenuByParent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strParentMenuName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemMenuByParentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemMenuByParentResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemMenubyUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemMenubyUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemMenubyUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemCSMenuByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemCSMenuByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemCSMenuByUserResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemRoot">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strUserID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSystemRootResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSystemRootResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommonDateSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCommonDateSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommonDateSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExeCommonSql">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExeCommonSqlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExeCommonSqlResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTCONF_WORDData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="word" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTCONF_WORDDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTCONF_WORDDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTable" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemFunctionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemFunction" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemFunctionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemFunctionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemFunctionByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemFunctionByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemFunctionByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemFunctionByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemMenu" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemMenuByParentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemMenuByParent" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemMenuByParentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemMenuByParentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemMenubyUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemMenubyUser" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemMenubyUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemMenubyUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemCSMenuByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemCSMenuByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemCSMenuByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemCSMenuByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemRootSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSystemRoot" />
+  </wsdl:message>
+  <wsdl:message name="GetSystemRootSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSystemRootResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonDateSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommonDateSet" />
+  </wsdl:message>
+  <wsdl:message name="GetCommonDateSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommonDateSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExeCommonSqlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExeCommonSql" />
+  </wsdl:message>
+  <wsdl:message name="ExeCommonSqlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExeCommonSqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTCONF_WORDDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTCONF_WORDData" />
+  </wsdl:message>
+  <wsdl:message name="GetTCONF_WORDDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTCONF_WORDDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConfigSoap">
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input message="tns:GetUserInfoSoapIn" />
+      <wsdl:output message="tns:GetUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTable">
+      <wsdl:input message="tns:SaveTableSoapIn" />
+      <wsdl:output message="tns:SaveTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemFunction">
+      <wsdl:input message="tns:GetSystemFunctionSoapIn" />
+      <wsdl:output message="tns:GetSystemFunctionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemFunctionByUser">
+      <wsdl:input message="tns:GetSystemFunctionByUserSoapIn" />
+      <wsdl:output message="tns:GetSystemFunctionByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenu">
+      <wsdl:input message="tns:GetSystemMenuSoapIn" />
+      <wsdl:output message="tns:GetSystemMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenuByParent">
+      <wsdl:input message="tns:GetSystemMenuByParentSoapIn" />
+      <wsdl:output message="tns:GetSystemMenuByParentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenubyUser">
+      <wsdl:input message="tns:GetSystemMenubyUserSoapIn" />
+      <wsdl:output message="tns:GetSystemMenubyUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemCSMenuByUser">
+      <wsdl:input message="tns:GetSystemCSMenuByUserSoapIn" />
+      <wsdl:output message="tns:GetSystemCSMenuByUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemRoot">
+      <wsdl:input message="tns:GetSystemRootSoapIn" />
+      <wsdl:output message="tns:GetSystemRootSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonDateSet">
+      <wsdl:input message="tns:GetCommonDateSetSoapIn" />
+      <wsdl:output message="tns:GetCommonDateSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExeCommonSql">
+      <wsdl:input message="tns:ExeCommonSqlSoapIn" />
+      <wsdl:output message="tns:ExeCommonSqlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTCONF_WORDData">
+      <wsdl:input message="tns:GetTCONF_WORDDataSoapIn" />
+      <wsdl:output message="tns:GetTCONF_WORDDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConfigSoap" type="tns:ConfigSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTable">
+      <soap:operation soapAction="http://tempuri.org/SaveTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemFunction">
+      <soap:operation soapAction="http://tempuri.org/GetSystemFunction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemFunctionByUser">
+      <soap:operation soapAction="http://tempuri.org/GetSystemFunctionByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenu">
+      <soap:operation soapAction="http://tempuri.org/GetSystemMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenuByParent">
+      <soap:operation soapAction="http://tempuri.org/GetSystemMenuByParent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenubyUser">
+      <soap:operation soapAction="http://tempuri.org/GetSystemMenubyUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemCSMenuByUser">
+      <soap:operation soapAction="http://tempuri.org/GetSystemCSMenuByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemRoot">
+      <soap:operation soapAction="http://tempuri.org/GetSystemRoot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonDateSet">
+      <soap:operation soapAction="http://tempuri.org/GetCommonDateSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExeCommonSql">
+      <soap:operation soapAction="http://tempuri.org/ExeCommonSql" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTCONF_WORDData">
+      <soap:operation soapAction="http://tempuri.org/GetTCONF_WORDData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConfigSoap12" type="tns:ConfigSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTable">
+      <soap12:operation soapAction="http://tempuri.org/SaveTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemFunction">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemFunction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemFunctionByUser">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemFunctionByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenu">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenuByParent">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemMenuByParent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemMenubyUser">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemMenubyUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemCSMenuByUser">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemCSMenuByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSystemRoot">
+      <soap12:operation soapAction="http://tempuri.org/GetSystemRoot" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommonDateSet">
+      <soap12:operation soapAction="http://tempuri.org/GetCommonDateSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExeCommonSql">
+      <soap12:operation soapAction="http://tempuri.org/ExeCommonSql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTCONF_WORDData">
+      <soap12:operation soapAction="http://tempuri.org/GetTCONF_WORDData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Config">
+    <wsdl:port name="ConfigSoap" binding="tns:ConfigSoap">
+      <soap:address location="http://localhost:2849/Config.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConfigSoap12" binding="tns:ConfigSoap12">
+      <soap12:address location="http://localhost:2849/Config.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

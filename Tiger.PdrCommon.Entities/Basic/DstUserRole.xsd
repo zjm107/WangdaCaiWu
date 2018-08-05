@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DstUserRole" targetNamespace="http://tempuri.org/DstUserRole.xsd" xmlns:mstns="http://tempuri.org/DstUserRole.xsd" xmlns="http://tempuri.org/DstUserRole.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HyExpConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HyExpConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Tiger.PdrCommon.Entities.Properties.Settings.GlobalReference.Default.HyExpConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DstUserRole" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DstUserRole" msprop:Generator_UserDSName="DstUserRole">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TCOM_ROLESMENU" msprop:Generator_TableClassName="TCOM_ROLESMENUDataTable" msprop:Generator_TableVarName="tableTCOM_ROLESMENU" msprop:Generator_TablePropName="TCOM_ROLESMENU" msprop:Generator_RowDeletingName="TCOM_ROLESMENURowDeleting" msprop:Generator_UserTableName="TCOM_ROLESMENU" msprop:Generator_RowChangingName="TCOM_ROLESMENURowChanging" msprop:Generator_RowEvHandlerName="TCOM_ROLESMENURowChangeEventHandler" msprop:Generator_RowDeletedName="TCOM_ROLESMENURowDeleted" msprop:Generator_RowEvArgName="TCOM_ROLESMENURowChangeEvent" msprop:Generator_RowChangedName="TCOM_ROLESMENURowChanged" msprop:Generator_RowClassName="TCOM_ROLESMENURow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ROLEID" msprop:Generator_ColumnVarNameInTable="columnROLEID" msprop:Generator_ColumnPropNameInRow="ROLEID" msprop:Generator_ColumnPropNameInTable="ROLEIDColumn" msprop:Generator_UserColumnName="ROLEID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MENUID" msprop:Generator_ColumnVarNameInTable="columnMENUID" msprop:Generator_ColumnPropNameInRow="MENUID" msprop:Generator_ColumnPropNameInTable="MENUIDColumn" msprop:Generator_UserColumnName="MENUID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK" msprop:Generator_ColumnVarNameInTable="columnREMARK" msprop:Generator_ColumnPropNameInRow="REMARK" msprop:Generator_ColumnPropNameInTable="REMARKColumn" msprop:Generator_UserColumnName="REMARK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TCOM_USERSROLE" msprop:Generator_TableClassName="TCOM_USERSROLEDataTable" msprop:Generator_TableVarName="tableTCOM_USERSROLE" msprop:Generator_TablePropName="TCOM_USERSROLE" msprop:Generator_RowDeletingName="TCOM_USERSROLERowDeleting" msprop:Generator_UserTableName="TCOM_USERSROLE" msprop:Generator_RowChangingName="TCOM_USERSROLERowChanging" msprop:Generator_RowEvHandlerName="TCOM_USERSROLERowChangeEventHandler" msprop:Generator_RowDeletedName="TCOM_USERSROLERowDeleted" msprop:Generator_RowEvArgName="TCOM_USERSROLERowChangeEvent" msprop:Generator_RowChangedName="TCOM_USERSROLERowChanged" msprop:Generator_RowClassName="TCOM_USERSROLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="USERID" msprop:Generator_ColumnVarNameInTable="columnUSERID" msprop:Generator_ColumnPropNameInRow="USERID" msprop:Generator_ColumnPropNameInTable="USERIDColumn" msprop:Generator_UserColumnName="USERID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ROLEID" msprop:Generator_ColumnVarNameInTable="columnROLEID" msprop:Generator_ColumnPropNameInRow="ROLEID" msprop:Generator_ColumnPropNameInTable="ROLEIDColumn" msprop:Generator_UserColumnName="ROLEID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remark" msprop:Generator_ColumnVarNameInTable="columnRemark" msprop:Generator_ColumnPropNameInRow="Remark" msprop:Generator_ColumnPropNameInTable="RemarkColumn" msprop:Generator_UserColumnName="Remark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TCOM_ROLE" msprop:Generator_TableClassName="TCOM_ROLEDataTable" msprop:Generator_TableVarName="tableTCOM_ROLE" msprop:Generator_TablePropName="TCOM_ROLE" msprop:Generator_RowDeletingName="TCOM_ROLERowDeleting" msprop:Generator_UserTableName="TCOM_ROLE" msprop:Generator_RowChangingName="TCOM_ROLERowChanging" msprop:Generator_RowEvHandlerName="TCOM_ROLERowChangeEventHandler" msprop:Generator_RowDeletedName="TCOM_ROLERowDeleted" msprop:Generator_RowEvArgName="TCOM_ROLERowChangeEvent" msprop:Generator_RowChangedName="TCOM_ROLERowChanged" msprop:Generator_RowClassName="TCOM_ROLERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ROLEID" msprop:Generator_ColumnVarNameInTable="columnROLEID" msprop:Generator_ColumnPropNameInRow="ROLEID" msprop:Generator_ColumnPropNameInTable="ROLEIDColumn" msprop:Generator_UserColumnName="ROLEID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ROLENAME" msprop:Generator_ColumnVarNameInTable="columnROLENAME" msprop:Generator_ColumnPropNameInRow="ROLENAME" msprop:Generator_ColumnPropNameInTable="ROLENAMEColumn" msprop:Generator_UserColumnName="ROLENAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK" msprop:Generator_ColumnVarNameInTable="columnREMARK" msprop:Generator_ColumnPropNameInRow="REMARK" msprop:Generator_ColumnPropNameInTable="REMARKColumn" msprop:Generator_UserColumnName="REMARK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ROLETYPE" msprop:Generator_ColumnVarNameInTable="columnROLETYPE" msprop:Generator_ColumnPropNameInRow="ROLETYPE" msprop:Generator_ColumnPropNameInTable="ROLETYPEColumn" msprop:Generator_UserColumnName="ROLETYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TCOM_ROLE1" msprop:Generator_TableClassName="TCOM_ROLE1DataTable" msprop:Generator_TableVarName="tableTCOM_ROLE1" msprop:Generator_TablePropName="TCOM_ROLE1" msprop:Generator_RowDeletingName="TCOM_ROLE1RowDeleting" msprop:Generator_UserTableName="TCOM_ROLE1" msprop:Generator_RowChangingName="TCOM_ROLE1RowChanging" msprop:Generator_RowEvHandlerName="TCOM_ROLE1RowChangeEventHandler" msprop:Generator_RowDeletedName="TCOM_ROLE1RowDeleted" msprop:Generator_RowEvArgName="TCOM_ROLE1RowChangeEvent" msprop:Generator_RowChangedName="TCOM_ROLE1RowChanged" msprop:Generator_RowClassName="TCOM_ROLE1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ROLEID" msprop:Generator_ColumnVarNameInTable="columnROLEID" msprop:Generator_ColumnPropNameInRow="ROLEID" msprop:Generator_ColumnPropNameInTable="ROLEIDColumn" msprop:Generator_UserColumnName="ROLEID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ROLENAME" msprop:Generator_ColumnVarNameInTable="columnROLENAME" msprop:Generator_ColumnPropNameInRow="ROLENAME" msprop:Generator_ColumnPropNameInTable="ROLENAMEColumn" msprop:Generator_UserColumnName="ROLENAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK" msprop:Generator_ColumnVarNameInTable="columnREMARK" msprop:Generator_ColumnPropNameInRow="REMARK" msprop:Generator_ColumnPropNameInTable="REMARKColumn" msprop:Generator_UserColumnName="REMARK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ROLETYPE" msprop:Generator_ColumnVarNameInTable="columnROLETYPE" msprop:Generator_ColumnPropNameInRow="ROLETYPE" msprop:Generator_ColumnPropNameInTable="ROLETYPEColumn" msprop:Generator_UserColumnName="ROLETYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TCOM_ROLESMENU" />
+      <xs:field xpath="mstns:ROLEID" />
+      <xs:field xpath="mstns:MENUID" />
+    </xs:unique>
+    <xs:unique name="TCOM_USERSROLE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TCOM_USERSROLE" />
+      <xs:field xpath="mstns:USERID" />
+      <xs:field xpath="mstns:ROLEID" />
+    </xs:unique>
+    <xs:unique name="TCOM_ROLE_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TCOM_ROLE" />
+      <xs:field xpath="mstns:ROLEID" />
+    </xs:unique>
+    <xs:unique name="TCOM_ROLE1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TCOM_ROLE1" />
+      <xs:field xpath="mstns:ROLEID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

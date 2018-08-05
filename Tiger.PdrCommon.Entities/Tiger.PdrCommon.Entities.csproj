@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{17DBB73E-D254-46AF-80C5-F4048F347077}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tiger.PdrCommon.Entities</RootNamespace>
+    <AssemblyName>Tiger.PdrCommon.Entities</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Tiger.PdrCommon.Entities.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Tiger.PdrCommon.Entities.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Tiger.PdrCommon.Entities.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Tiger.PdrCommon.Entities.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tiger.Tools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Tiger.Dll\Tiger.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Tiger.WinTools, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Tiger.Dll\Tiger.WinTools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Basic\DstDepartment.cs">
+      <DependentUpon>DstDepartment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstDepartment.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstDepartment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstEmployee.cs">
+      <DependentUpon>DstEmployee.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstEmployee.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstEmployee.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstMachiningConfig.cs">
+      <DependentUpon>DstMachiningConfig.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstMachiningConfig.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstMachiningConfig.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstUserRole.cs">
+      <DependentUpon>DstUserRole.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstUserRole.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstUserRole.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstWorkFlowConfig.cs">
+      <DependentUpon>DstWorkFlowConfig.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Basic\DstWorkFlowConfig.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstWorkFlowConfig.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstPrint.cs">
+      <DependentUpon>DstPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstPrint.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstPrint.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstWorkFlow.cs">
+      <DependentUpon>DstWorkFlow.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstWorkFlow.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstWorkFlow.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UserDialog\UserDialogSet.cs">
+      <DependentUpon>UserDialogSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UserDialog\UserDialogSet.Designer.cs">
+      <DependentUpon>UserDialogSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Basic\DstDepartment.xsc">
+      <DependentUpon>DstDepartment.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstDepartment.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstDepartment.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Basic\DstDepartment.xss">
+      <DependentUpon>DstDepartment.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstEmployee.xsc">
+      <DependentUpon>DstEmployee.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstEmployee.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstEmployee.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Basic\DstEmployee.xss">
+      <DependentUpon>DstEmployee.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstMachiningConfig.xsc">
+      <DependentUpon>DstMachiningConfig.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstMachiningConfig.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstMachiningConfig.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Basic\DstMachiningConfig.xss">
+      <DependentUpon>DstMachiningConfig.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstUserRole.xsc">
+      <DependentUpon>DstUserRole.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstUserRole.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstUserRole.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Basic\DstUserRole.xss">
+      <DependentUpon>DstUserRole.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstWorkFlowConfig.xsc">
+      <DependentUpon>DstWorkFlowConfig.xsd</DependentUpon>
+    </None>
+    <None Include="Basic\DstWorkFlowConfig.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstWorkFlowConfig.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Basic\DstWorkFlowConfig.xss">
+      <DependentUpon>DstWorkFlowConfig.xsd</DependentUpon>
+    </None>
+    <None Include="DstPrint.xsc">
+      <DependentUpon>DstPrint.xsd</DependentUpon>
+    </None>
+    <None Include="DstPrint.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstPrint.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DstPrint.xss">
+      <DependentUpon>DstPrint.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UserDialog\UserDialogSet.xsc">
+      <DependentUpon>UserDialogSet.xsd</DependentUpon>
+    </None>
+    <None Include="UserDialog\UserDialogSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserDialogSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UserDialog\UserDialogSet.xss">
+      <DependentUpon>UserDialogSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DstWorkFlow.xsc">
+      <DependentUpon>DstWorkFlow.xsd</DependentUpon>
+    </None>
+    <None Include="DstWorkFlow.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstWorkFlow.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DstWorkFlow.xss">
+      <DependentUpon>DstWorkFlow.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tiger.ConfigApp\Tiger.ConfigApp.csproj">
+      <Project>{214E6E98-CEB5-4031-BC89-A415657FE059}</Project>
+      <Name>Tiger.ConfigApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TService\TService.csproj">
+      <Project>{9CB73D1A-8B05-49B0-A254-34C27B9067AE}</Project>
+      <Name>TService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

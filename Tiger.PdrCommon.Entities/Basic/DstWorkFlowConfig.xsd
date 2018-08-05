@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DstWorkFlowConfig" targetNamespace="http://tempuri.org/DstWorkFlowConfig.xsd" xmlns:mstns="http://tempuri.org/DstWorkFlowConfig.xsd" xmlns="http://tempuri.org/DstWorkFlowConfig.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HyExpConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HyExpConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Tiger.PdrCommon.Entities.Properties.Settings.GlobalReference.Default.HyExpConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DstWorkFlowConfig" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DstWorkFlowConfig" msprop:Generator_UserDSName="DstWorkFlowConfig">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TWD_WORKFLOW" msprop:Generator_TableClassName="TWD_WORKFLOWDataTable" msprop:Generator_TableVarName="tableTWD_WORKFLOW" msprop:Generator_TablePropName="TWD_WORKFLOW" msprop:Generator_RowDeletingName="TWD_WORKFLOWRowDeleting" msprop:Generator_UserTableName="TWD_WORKFLOW" msprop:Generator_RowChangingName="TWD_WORKFLOWRowChanging" msprop:Generator_RowEvHandlerName="TWD_WORKFLOWRowChangeEventHandler" msprop:Generator_RowDeletedName="TWD_WORKFLOWRowDeleted" msprop:Generator_RowEvArgName="TWD_WORKFLOWRowChangeEvent" msprop:Generator_RowChangedName="TWD_WORKFLOWRowChanged" msprop:Generator_RowClassName="TWD_WORKFLOWRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FLOW_CODE" msprop:Generator_ColumnVarNameInTable="columnFLOW_CODE" msprop:Generator_ColumnPropNameInRow="FLOW_CODE" msprop:Generator_ColumnPropNameInTable="FLOW_CODEColumn" msprop:Generator_UserColumnName="FLOW_CODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FLOWID" msprop:Generator_ColumnVarNameInTable="columnFLOWID" msprop:Generator_ColumnPropNameInRow="FLOWID" msprop:Generator_ColumnPropNameInTable="FLOWIDColumn" msprop:Generator_UserColumnName="FLOWID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FLOW_NAME" msprop:Generator_ColumnVarNameInTable="columnFLOW_NAME" msprop:Generator_ColumnPropNameInRow="FLOW_NAME" msprop:Generator_ColumnPropNameInTable="FLOW_NAMEColumn" msprop:Generator_UserColumnName="FLOW_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK1" msprop:Generator_ColumnVarNameInTable="columnREMARK1" msprop:Generator_ColumnPropNameInRow="REMARK1" msprop:Generator_ColumnPropNameInTable="REMARK1Column" msprop:Generator_UserColumnName="REMARK1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK2" msprop:Generator_ColumnVarNameInTable="columnREMARK2" msprop:Generator_ColumnPropNameInRow="REMARK2" msprop:Generator_ColumnPropNameInTable="REMARK2Column" msprop:Generator_UserColumnName="REMARK2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK3" msprop:Generator_ColumnVarNameInTable="columnREMARK3" msprop:Generator_ColumnPropNameInRow="REMARK3" msprop:Generator_ColumnPropNameInTable="REMARK3Column" msprop:Generator_UserColumnName="REMARK3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SETTING" msprop:Generator_ColumnVarNameInTable="columnSETTING" msprop:Generator_ColumnPropNameInRow="SETTING" msprop:Generator_ColumnPropNameInTable="SETTINGColumn" msprop:Generator_UserColumnName="SETTING" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TWD_WORKFLOW_DETAIL" msprop:Generator_TableClassName="TWD_WORKFLOW_DETAILDataTable" msprop:Generator_TableVarName="tableTWD_WORKFLOW_DETAIL" msprop:Generator_TablePropName="TWD_WORKFLOW_DETAIL" msprop:Generator_RowDeletingName="TWD_WORKFLOW_DETAILRowDeleting" msprop:Generator_UserTableName="TWD_WORKFLOW_DETAIL" msprop:Generator_RowChangingName="TWD_WORKFLOW_DETAILRowChanging" msprop:Generator_RowEvHandlerName="TWD_WORKFLOW_DETAILRowChangeEventHandler" msprop:Generator_RowDeletedName="TWD_WORKFLOW_DETAILRowDeleted" msprop:Generator_RowEvArgName="TWD_WORKFLOW_DETAILRowChangeEvent" msprop:Generator_RowChangedName="TWD_WORKFLOW_DETAILRowChanged" msprop:Generator_RowClassName="TWD_WORKFLOW_DETAILRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="STEP_NAME" msprop:Generator_ColumnVarNameInTable="columnSTEP_NAME" msprop:Generator_ColumnPropNameInRow="STEP_NAME" msprop:Generator_ColumnPropNameInTable="STEP_NAMEColumn" msprop:Generator_UserColumnName="STEP_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="STEPID" msprop:Generator_ColumnVarNameInTable="columnSTEPID" msprop:Generator_ColumnPropNameInRow="STEPID" msprop:Generator_ColumnPropNameInTable="STEPIDColumn" msprop:Generator_UserColumnName="STEPID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FLOWID" msprop:Generator_ColumnVarNameInTable="columnFLOWID" msprop:Generator_ColumnPropNameInRow="FLOWID" msprop:Generator_ColumnPropNameInTable="FLOWIDColumn" msprop:Generator_UserColumnName="FLOWID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SEQNO" msprop:Generator_ColumnVarNameInTable="columnSEQNO" msprop:Generator_ColumnPropNameInRow="SEQNO" msprop:Generator_ColumnPropNameInTable="SEQNOColumn" msprop:Generator_UserColumnName="SEQNO" type="xs:int" minOccurs="0" />
+              <xs:element name="STEP_DEPTNAME" msprop:Generator_ColumnVarNameInTable="columnSTEP_DEPTNAME" msprop:Generator_ColumnPropNameInRow="STEP_DEPTNAME" msprop:Generator_ColumnPropNameInTable="STEP_DEPTNAMEColumn" msprop:Generator_UserColumnName="STEP_DEPTNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK1" msprop:Generator_ColumnVarNameInTable="columnREMARK1" msprop:Generator_ColumnPropNameInRow="REMARK1" msprop:Generator_ColumnPropNameInTable="REMARK1Column" msprop:Generator_UserColumnName="REMARK1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK2" msprop:Generator_ColumnVarNameInTable="columnREMARK2" msprop:Generator_ColumnPropNameInRow="REMARK2" msprop:Generator_ColumnPropNameInTable="REMARK2Column" msprop:Generator_UserColumnName="REMARK2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK3" msprop:Generator_ColumnVarNameInTable="columnREMARK3" msprop:Generator_ColumnPropNameInRow="REMARK3" msprop:Generator_ColumnPropNameInTable="REMARK3Column" msprop:Generator_UserColumnName="REMARK3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SETTING" msprop:Generator_ColumnVarNameInTable="columnSETTING" msprop:Generator_ColumnPropNameInRow="SETTING" msprop:Generator_ColumnPropNameInTable="SETTINGColumn" msprop:Generator_UserColumnName="SETTING" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="STEP_MEMO" msprop:Generator_ColumnVarNameInTable="columnSTEP_MEMO" msprop:Generator_ColumnPropNameInRow="STEP_MEMO" msprop:Generator_ColumnPropNameInTable="STEP_MEMOColumn" msprop:Generator_UserColumnName="STEP_MEMO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EXAMINE_TYPE" msprop:Generator_ColumnVarNameInTable="columnEXAMINE_TYPE" msprop:Generator_ColumnPropNameInRow="EXAMINE_TYPE" msprop:Generator_ColumnPropNameInTable="EXAMINE_TYPEColumn" msprop:Generator_UserColumnName="EXAMINE_TYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TWD_WORKFLOW" />
+      <xs:field xpath="mstns:FLOWID" />
+    </xs:unique>
+    <xs:unique name="TWD_WORKFLOW_DETAIL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TWD_WORKFLOW_DETAIL" />
+      <xs:field xpath="mstns:STEPID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

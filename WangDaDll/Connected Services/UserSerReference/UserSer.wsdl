@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetUserByDeptName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByDeptNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByDeptNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUserAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RelationshipType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WorkType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EMPLOYEETYPE" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByTypeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByTeacherID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="teacherID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByTeacherIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByTeacherIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMaxNO">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMaxNOResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMaxNOResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangeEmployee">
+        <s:complexType />
+      </s:element>
+      <s:element name="ChangeEmployeeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDeptAll">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDeptAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeptAllResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDept">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDeptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDeptResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserByDeptNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByDeptName" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByDeptNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByDeptNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserAll" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByType" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByTeacherIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByTeacherID" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByTeacherIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByTeacherIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxNOSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMaxNO" />
+  </wsdl:message>
+  <wsdl:message name="GetMaxNOSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMaxNOResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangeEmployeeSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeEmployee" />
+  </wsdl:message>
+  <wsdl:message name="ChangeEmployeeSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptAllSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDeptAll" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptAllSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeptAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDept" />
+  </wsdl:message>
+  <wsdl:message name="GetDeptSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDeptResponse" />
+  </wsdl:message>
+  <wsdl:portType name="UserSerSoap">
+    <wsdl:operation name="GetUserByDeptName">
+      <wsdl:input message="tns:GetUserByDeptNameSoapIn" />
+      <wsdl:output message="tns:GetUserByDeptNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAll">
+      <wsdl:input message="tns:GetUserAllSoapIn" />
+      <wsdl:output message="tns:GetUserAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByType">
+      <wsdl:input message="tns:GetUserByTypeSoapIn" />
+      <wsdl:output message="tns:GetUserByTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByTeacherID">
+      <wsdl:input message="tns:GetUserByTeacherIDSoapIn" />
+      <wsdl:output message="tns:GetUserByTeacherIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxNO">
+      <wsdl:input message="tns:GetMaxNOSoapIn" />
+      <wsdl:output message="tns:GetMaxNOSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeEmployee">
+      <wsdl:input message="tns:ChangeEmployeeSoapIn" />
+      <wsdl:output message="tns:ChangeEmployeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptAll">
+      <wsdl:input message="tns:GetDeptAllSoapIn" />
+      <wsdl:output message="tns:GetDeptAllSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDept">
+      <wsdl:input message="tns:GetDeptSoapIn" />
+      <wsdl:output message="tns:GetDeptSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserSerSoap" type="tns:UserSerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserByDeptName">
+      <soap:operation soapAction="http://tempuri.org/GetUserByDeptName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAll">
+      <soap:operation soapAction="http://tempuri.org/GetUserAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByType">
+      <soap:operation soapAction="http://tempuri.org/GetUserByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByTeacherID">
+      <soap:operation soapAction="http://tempuri.org/GetUserByTeacherID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxNO">
+      <soap:operation soapAction="http://tempuri.org/GetMaxNO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeEmployee">
+      <soap:operation soapAction="http://tempuri.org/ChangeEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptAll">
+      <soap:operation soapAction="http://tempuri.org/GetDeptAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDept">
+      <soap:operation soapAction="http://tempuri.org/GetDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserSerSoap12" type="tns:UserSerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserByDeptName">
+      <soap12:operation soapAction="http://tempuri.org/GetUserByDeptName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserAll">
+      <soap12:operation soapAction="http://tempuri.org/GetUserAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByType">
+      <soap12:operation soapAction="http://tempuri.org/GetUserByType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByTeacherID">
+      <soap12:operation soapAction="http://tempuri.org/GetUserByTeacherID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMaxNO">
+      <soap12:operation soapAction="http://tempuri.org/GetMaxNO" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeEmployee">
+      <soap12:operation soapAction="http://tempuri.org/ChangeEmployee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDeptAll">
+      <soap12:operation soapAction="http://tempuri.org/GetDeptAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDept">
+      <soap12:operation soapAction="http://tempuri.org/GetDept" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserSer">
+    <wsdl:port name="UserSerSoap" binding="tns:UserSerSoap">
+      <soap:address location="http://localhost:2849/UserSer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserSerSoap12" binding="tns:UserSerSoap12">
+      <soap12:address location="http://localhost:2849/UserSer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

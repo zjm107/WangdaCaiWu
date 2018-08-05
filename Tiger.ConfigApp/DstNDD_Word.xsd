@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DstNDD_Word" targetNamespace="http://tempuri.org/DstNDD_Word.xsd" xmlns:mstns="http://tempuri.org/DstNDD_Word.xsd" xmlns="http://tempuri.org/DstNDD_Word.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HyExpConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HyExpConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Tiger.ConfigApp.Properties.Settings.GlobalReference.Default.HyExpConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DstNDD_Word" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DstNDD_Word" msprop:Generator_UserDSName="DstNDD_Word">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="NDD_WORD" msprop:Generator_TableClassName="NDD_WORDDataTable" msprop:Generator_TableVarName="tableNDD_WORD" msprop:Generator_TablePropName="NDD_WORD" msprop:Generator_RowDeletingName="NDD_WORDRowDeleting" msprop:Generator_UserTableName="NDD_WORD" msprop:Generator_RowChangingName="NDD_WORDRowChanging" msprop:Generator_RowEvHandlerName="NDD_WORDRowChangeEventHandler" msprop:Generator_RowDeletedName="NDD_WORDRowDeleted" msprop:Generator_RowEvArgName="NDD_WORDRowChangeEvent" msprop:Generator_RowChangedName="NDD_WORDRowChanged" msprop:Generator_RowClassName="NDD_WORDRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WORDID" msprop:Generator_ColumnVarNameInTable="columnWORDID" msprop:Generator_ColumnPropNameInRow="WORDID" msprop:Generator_ColumnPropNameInTable="WORDIDColumn" msprop:Generator_UserColumnName="WORDID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GROUPNAME" msprop:Generator_ColumnVarNameInTable="columnGROUPNAME" msprop:Generator_ColumnPropNameInRow="GROUPNAME" msprop:Generator_ColumnPropNameInTable="GROUPNAMEColumn" msprop:Generator_UserColumnName="GROUPNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MATERIALTYPE" msprop:Generator_ColumnVarNameInTable="columnMATERIALTYPE" msprop:Generator_ColumnPropNameInRow="MATERIALTYPE" msprop:Generator_ColumnPropNameInTable="MATERIALTYPEColumn" msprop:Generator_UserColumnName="MATERIALTYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MATERAILBREED" msprop:Generator_ColumnVarNameInTable="columnMATERAILBREED" msprop:Generator_ColumnPropNameInRow="MATERAILBREED" msprop:Generator_ColumnPropNameInTable="MATERAILBREEDColumn" msprop:Generator_UserColumnName="MATERAILBREED" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WORD" msprop:Generator_ColumnVarNameInTable="columnWORD" msprop:Generator_ColumnPropNameInRow="WORD" msprop:Generator_ColumnPropNameInTable="WORDColumn" msprop:Generator_UserColumnName="WORD" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NDD_WORD" />
+      <xs:field xpath="mstns:WORDID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

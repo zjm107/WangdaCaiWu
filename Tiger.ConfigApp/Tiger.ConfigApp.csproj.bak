@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{214E6E98-CEB5-4031-BC89-A415657FE059}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tiger.ConfigApp</RootNamespace>
+    <AssemblyName>Tiger.ConfigApp</AssemblyName>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Tiger.ConfigApp.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\Tiger.ConfigApp.XML</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\Tiger.ConfigApp.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\Tiger.ConfigApp.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppParaConfig\DsParaConfig.cs">
+      <DependentUpon>DsParaConfig.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AppParaConfig\DsParaConfig.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsParaConfig.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AppParaConfig\FrmSysPara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppParaConfig\FrmSysPara.Designer.cs">
+      <DependentUpon>FrmSysPara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppParaConfig\ParaConfigCls.cs" />
+    <Compile Include="AppParaConfig\ParaTypeItem.cs" />
+    <Compile Include="DstCOMPANY.cs">
+      <DependentUpon>DstCOMPANY.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstCOMPANY.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstCOMPANY.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstLogName.cs">
+      <DependentUpon>DstLogName.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstLogName.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstLogName.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstNDD_Word.cs">
+      <DependentUpon>DstNDD_Word.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstNDD_Word.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstNDD_Word.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstTCONF_WORD.cs">
+      <DependentUpon>DstTCONF_WORD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstTCONF_WORD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstTCONF_WORD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstTEB_WORD.cs">
+      <DependentUpon>DstTEB_WORD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstTEB_WORD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstTEB_WORD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstUrl.cs">
+      <DependentUpon>DstUrl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DstUrl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DstUrl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompanyInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompanyInfo.Designer.cs">
+      <DependentUpon>FrmCompanyInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNDD_Word.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNDD_Word.Designer.cs">
+      <DependentUpon>FrmNDD_Word.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRePassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRePassWord.Designer.cs">
+      <DependentUpon>FrmRePassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmURLSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmURLSet.Designer.cs">
+      <DependentUpon>FrmURLSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BaseSerReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BasicServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ConfigReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UserSerReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SysMenu\MenuNode.cs" />
+    <Compile Include="SysMenu\MenuTree.cs" />
+    <Compile Include="SysTools.cs" />
+    <Compile Include="FrmTCONF_WORD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTCONF_WORD.Designer.cs">
+      <DependentUpon>FrmTCONF_WORD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTEB_Word.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTEB_Word.Designer.cs">
+      <DependentUpon>FrmTEB_Word.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebServiceConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppParaConfig\FrmSysPara.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmSysPara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompanyInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmCompanyInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNDD_Word.resx">
+      <DependentUpon>FrmNDD_Word.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRePassWord.resx">
+      <DependentUpon>FrmRePassWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmURLSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmURLSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTCONF_WORD.resx">
+      <DependentUpon>FrmTCONF_WORD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTEB_Word.resx">
+      <DependentUpon>FrmTEB_Word.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="AppParaConfig\DsParaConfig.xsc">
+      <DependentUpon>DsParaConfig.xsd</DependentUpon>
+    </None>
+    <None Include="AppParaConfig\DsParaConfig.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsParaConfig.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AppParaConfig\DsParaConfig.xss">
+      <DependentUpon>DsParaConfig.xsd</DependentUpon>
+    </None>
+    <None Include="DstNDD_Word.xsc">
+      <DependentUpon>DstNDD_Word.xsd</DependentUpon>
+    </None>
+    <None Include="DstNDD_Word.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstNDD_Word.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DstNDD_Word.xss">
+      <DependentUpon>DstNDD_Word.xsd</DependentUpon>
+    </None>
+    <None Include="DstTCONF_WORD.xsc">
+      <DependentUpon>DstTCONF_WORD.xsd</DependentUpon>
+    </None>
+    <None Include="DstTCONF_WORD.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstTCONF_WORD.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DstTCONF_WORD.xss">
+      <DependentUpon>DstTCONF_WORD.xsd</DependentUpon>
+    </None>
+    <None Include="DstTEB_WORD.xsc">
+      <DependentUpon>DstTEB_WORD.xsd</DependentUpon>
+    </None>
+    <None Include="DstTEB_WORD.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstTEB_WORD.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DstTEB_WORD.xss">
+      <DependentUpon>DstTEB_WORD.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BaseSerReference\BaseSer.wsdl" />
+    <None Include="Service References\BasicServiceReference\BasicService.wsdl" />
+    <None Include="Service References\ConfigReference\Config.wsdl" />
+    <None Include="Service References\UserSerReference\UserSer.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DstLogName.xsc">
+      <DependentUpon>DstLogName.xsd</DependentUpon>
+    </None>
+    <None Include="DstLogName.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstLogName.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DstLogName.xss">
+      <DependentUpon>DstLogName.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login.jpg" />
+    <None Include="DstCOMPANY.xsc">
+      <DependentUpon>DstCOMPANY.xsd</DependentUpon>
+    </None>
+    <None Include="DstCOMPANY.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstCOMPANY.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DstCOMPANY.xss">
+      <DependentUpon>DstCOMPANY.xsd</DependentUpon>
+    </None>
+    <None Include="DstUrl.xsc">
+      <DependentUpon>DstUrl.xsd</DependentUpon>
+    </None>
+    <None Include="DstUrl.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DstUrl.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DstUrl.xss">
+      <DependentUpon>DstUrl.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\BaseSerReference\" />
+    <WCFMetadataStorage Include="Service References\BasicServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ConfigReference\" />
+    <WCFMetadataStorage Include="Service References\UserSerReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BaseSerReference\BaseSer.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BaseSerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BaseSerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BaseSerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BasicServiceReference\BasicService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BasicServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BasicServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BasicServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConfigReference\Config.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConfigReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConfigReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ConfigReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserSerReference\UserSer.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserSerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserSerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserSerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

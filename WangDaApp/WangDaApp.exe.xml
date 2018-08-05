@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<DstUrl xmlns="http://tempuri.org/DstUrl.xsd">
+	<ServiceURL>
+		<URLKey>ServerIP</URLKey>
+		<URLValue>localhost:2849</URLValue>
+		<MEMO>服务器地址</MEMO>
+	</ServiceURL>
+</DstUrl>

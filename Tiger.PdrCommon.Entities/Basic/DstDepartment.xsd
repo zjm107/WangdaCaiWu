@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DstDepartment" targetNamespace="http://tempuri.org/DstDepartment.xsd" xmlns:mstns="http://tempuri.org/DstDepartment.xsd" xmlns="http://tempuri.org/DstDepartment.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HyExpConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HyExpConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Tiger.PdrCommon.Entities.Properties.Settings.GlobalReference.Default.HyExpConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DstDepartment" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="DstDepartment" msprop:Generator_UserDSName="DstDepartment">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TCOM_DEPT" msprop:Generator_TableClassName="TCOM_DEPTDataTable" msprop:Generator_TableVarName="tableTCOM_DEPT" msprop:Generator_TablePropName="TCOM_DEPT" msprop:Generator_RowDeletingName="TCOM_DEPTRowDeleting" msprop:Generator_UserTableName="TCOM_DEPT" msprop:Generator_RowChangingName="TCOM_DEPTRowChanging" msprop:Generator_RowEvHandlerName="TCOM_DEPTRowChangeEventHandler" msprop:Generator_RowDeletedName="TCOM_DEPTRowDeleted" msprop:Generator_RowEvArgName="TCOM_DEPTRowChangeEvent" msprop:Generator_RowChangedName="TCOM_DEPTRowChanged" msprop:Generator_RowClassName="TCOM_DEPTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DEPTID" msprop:Generator_ColumnVarNameInTable="columnDEPTID" msprop:Generator_ColumnPropNameInRow="DEPTID" msprop:Generator_ColumnPropNameInTable="DEPTIDColumn" msprop:Generator_UserColumnName="DEPTID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PARENTDEPTID" msprop:Generator_ColumnVarNameInTable="columnPARENTDEPTID" msprop:Generator_ColumnPropNameInRow="PARENTDEPTID" msprop:Generator_ColumnPropNameInTable="PARENTDEPTIDColumn" msprop:Generator_UserColumnName="PARENTDEPTID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DEPTNAME" msprop:Generator_ColumnVarNameInTable="columnDEPTNAME" msprop:Generator_ColumnPropNameInRow="DEPTNAME" msprop:Generator_ColumnPropNameInTable="DEPTNAMEColumn" msprop:Generator_UserColumnName="DEPTNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REMARK" msprop:Generator_ColumnVarNameInTable="columnREMARK" msprop:Generator_ColumnPropNameInRow="REMARK" msprop:Generator_ColumnPropNameInTable="REMARKColumn" msprop:Generator_UserColumnName="REMARK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DEPTCATEGORY" msprop:Generator_ColumnVarNameInTable="columnDEPTCATEGORY" msprop:Generator_ColumnPropNameInRow="DEPTCATEGORY" msprop:Generator_ColumnPropNameInTable="DEPTCATEGORYColumn" msprop:Generator_UserColumnName="DEPTCATEGORY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PDEPARTMENTNAME" msprop:Generator_ColumnVarNameInTable="columnPDEPARTMENTNAME" msprop:Generator_ColumnPropNameInRow="PDEPARTMENTNAME" msprop:Generator_ColumnPropNameInTable="PDEPARTMENTNAMEColumn" msprop:Generator_UserColumnName="PDEPARTMENTNAME" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TCOM_DEPT" />
+      <xs:field xpath="mstns:DEPTID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

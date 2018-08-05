@@ -1,0 +1,1611 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckCompanyName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="companyName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckCompanyNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckCompanyNameResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCUserID">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateCUserIDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateUserID">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateUserIDResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetClientId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fkID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImageResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImagebyID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FileID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetImagebyIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetImagebyIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientLevel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientPropety" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountant" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEndDateClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientLevel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientPropety" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEndDateClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEndDateClientResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleClientResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessRegData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="businessMan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginRegDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endRegDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="companyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isPayment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wqState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regTag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wqTag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="frmType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FbeginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FendDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessRegDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessRegDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessRegDataEdit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="businessMan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginRegDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endRegDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="companyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isPayment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wqState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regTag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wqTag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="frmType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regWC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fBeginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fEndDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessRegDataEditResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessRegDataEditResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessRegByID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TW_BusinessRegID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessRegByIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessRegByIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessExamineData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="businessMan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginRegDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endRegDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="companyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isPayment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wqState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deptName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="regTag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="wqTag" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isExamine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessExamineDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessExamineDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNoPaymentReg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gsName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isPayment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNoPaymentRegResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNoPaymentRegResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dst">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePaymentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPayment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentByInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unitName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endPaymentDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="manager" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isPay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zeroAccount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentByInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentByInfoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentByInfoSP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="spType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="unitName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endPaymentDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isPay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zeroAccount" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentByInfoSPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentByInfoSPResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentDetailID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentDetailIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentDetailIDResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessSum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="businessID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessSumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessSumResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBusinessSum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userManagerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBusinessSumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBusinessSumResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBusinessSumOther">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userManagerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBusinessSumOtherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBusinessSumOtherResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBussinessManagerDept">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="businessID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBussinessManagerDeptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBussinessManagerDeptResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBussinessSumByYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="businessManID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBussinessSumByYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBussinessSumByYearResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessLastYear">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessLastYearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessLastYearResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegSum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegSumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegSumResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegSumDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRegSumDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRegSumDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountantSum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountantSumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountantSumResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountantSumDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountantSumDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountantSumDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountantDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccountantDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountantDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLSBAccountantDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLSBAccountantDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLSBAccountantDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateYWY">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateYWYResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckCompanyNameSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckCompanyName" />
+  </wsdl:message>
+  <wsdl:message name="CheckCompanyNameSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckCompanyNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCUserID" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserID" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientId" />
+  </wsdl:message>
+  <wsdl:message name="GetClientIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImage" />
+  </wsdl:message>
+  <wsdl:message name="GetImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetImagebyIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetImagebyID" />
+  </wsdl:message>
+  <wsdl:message name="GetImagebyIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetImagebyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetClientInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetClientInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEndDateClientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEndDateClient" />
+  </wsdl:message>
+  <wsdl:message name="GetEndDateClientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEndDateClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleClientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleClient" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleClientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessRegDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessRegData" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessRegDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessRegDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessRegDataEditSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessRegDataEdit" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessRegDataEditSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessRegDataEditResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessRegByIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessRegByID" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessRegByIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessRegByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessExamineDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessExamineData" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessExamineDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessExamineDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNoPaymentRegSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNoPaymentReg" />
+  </wsdl:message>
+  <wsdl:message name="GetNoPaymentRegSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNoPaymentRegResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePayment" />
+  </wsdl:message>
+  <wsdl:message name="SavePaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPayment" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentByInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentByInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentByInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentByInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentByInfoSPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentByInfoSP" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentByInfoSPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentByInfoSPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentDetailIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentDetailID" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentDetailIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentDetailIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessSumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessSum" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessSumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBusinessSumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBusinessSum" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBusinessSumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBusinessSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBusinessSumOtherSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBusinessSumOther" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBusinessSumOtherSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBusinessSumOtherResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBussinessManagerDeptSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBussinessManagerDept" />
+  </wsdl:message>
+  <wsdl:message name="GetBussinessManagerDeptSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBussinessManagerDeptResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBussinessSumByYearSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBussinessSumByYear" />
+  </wsdl:message>
+  <wsdl:message name="GetBussinessSumByYearSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBussinessSumByYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessLastYearSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessLastYear" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessLastYearSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessLastYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegSumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegSum" />
+  </wsdl:message>
+  <wsdl:message name="GetRegSumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRegSumDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRegSumDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetRegSumDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRegSumDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountantSumSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountantSum" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountantSumSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountantSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountantSumDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountantSumDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountantSumDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountantSumDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountantDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountantDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountantDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountantDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLSBAccountantDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLSBAccountantDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetLSBAccountantDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLSBAccountantDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateYWYSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateYWY" />
+  </wsdl:message>
+  <wsdl:message name="UpdateYWYSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateYWYResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WangDaSerSoap">
+    <wsdl:operation name="CheckCompanyName">
+      <wsdl:input message="tns:CheckCompanyNameSoapIn" />
+      <wsdl:output message="tns:CheckCompanyNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCUserID">
+      <wsdl:input message="tns:UpdateCUserIDSoapIn" />
+      <wsdl:output message="tns:UpdateCUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserID">
+      <wsdl:input message="tns:UpdateUserIDSoapIn" />
+      <wsdl:output message="tns:UpdateUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientId">
+      <wsdl:input message="tns:GetClientIdSoapIn" />
+      <wsdl:output message="tns:GetClientIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <wsdl:input message="tns:GetImageSoapIn" />
+      <wsdl:output message="tns:GetImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImagebyID">
+      <wsdl:input message="tns:GetImagebyIDSoapIn" />
+      <wsdl:output message="tns:GetImagebyIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientInfo">
+      <wsdl:input message="tns:GetClientInfoSoapIn" />
+      <wsdl:output message="tns:GetClientInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEndDateClient">
+      <wsdl:input message="tns:GetEndDateClientSoapIn" />
+      <wsdl:output message="tns:GetEndDateClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleClient">
+      <wsdl:input message="tns:GetSingleClientSoapIn" />
+      <wsdl:output message="tns:GetSingleClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegData">
+      <wsdl:input message="tns:GetBusinessRegDataSoapIn" />
+      <wsdl:output message="tns:GetBusinessRegDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegDataEdit">
+      <wsdl:input message="tns:GetBusinessRegDataEditSoapIn" />
+      <wsdl:output message="tns:GetBusinessRegDataEditSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegByID">
+      <wsdl:input message="tns:GetBusinessRegByIDSoapIn" />
+      <wsdl:output message="tns:GetBusinessRegByIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessExamineData">
+      <wsdl:input message="tns:GetBusinessExamineDataSoapIn" />
+      <wsdl:output message="tns:GetBusinessExamineDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNoPaymentReg">
+      <wsdl:input message="tns:GetNoPaymentRegSoapIn" />
+      <wsdl:output message="tns:GetNoPaymentRegSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePayment">
+      <wsdl:input message="tns:SavePaymentSoapIn" />
+      <wsdl:output message="tns:SavePaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPayment">
+      <wsdl:input message="tns:GetPaymentSoapIn" />
+      <wsdl:output message="tns:GetPaymentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfo">
+      <wsdl:input message="tns:GetPaymentByInfoSoapIn" />
+      <wsdl:output message="tns:GetPaymentByInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfoSP">
+      <wsdl:input message="tns:GetPaymentByInfoSPSoapIn" />
+      <wsdl:output message="tns:GetPaymentByInfoSPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentDetailID">
+      <wsdl:input message="tns:GetPaymentDetailIDSoapIn" />
+      <wsdl:output message="tns:GetPaymentDetailIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessSum">
+      <wsdl:input message="tns:GetBusinessSumSoapIn" />
+      <wsdl:output message="tns:GetBusinessSumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBusinessSum">
+      <wsdl:input message="tns:GetAllBusinessSumSoapIn" />
+      <wsdl:output message="tns:GetAllBusinessSumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBusinessSumOther">
+      <wsdl:input message="tns:GetAllBusinessSumOtherSoapIn" />
+      <wsdl:output message="tns:GetAllBusinessSumOtherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBussinessManagerDept">
+      <wsdl:input message="tns:GetBussinessManagerDeptSoapIn" />
+      <wsdl:output message="tns:GetBussinessManagerDeptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBussinessSumByYear">
+      <wsdl:input message="tns:GetBussinessSumByYearSoapIn" />
+      <wsdl:output message="tns:GetBussinessSumByYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessLastYear">
+      <wsdl:input message="tns:GetBusinessLastYearSoapIn" />
+      <wsdl:output message="tns:GetBusinessLastYearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegSum">
+      <wsdl:input message="tns:GetRegSumSoapIn" />
+      <wsdl:output message="tns:GetRegSumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegSumDetail">
+      <wsdl:input message="tns:GetRegSumDetailSoapIn" />
+      <wsdl:output message="tns:GetRegSumDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantSum">
+      <wsdl:input message="tns:GetAccountantSumSoapIn" />
+      <wsdl:output message="tns:GetAccountantSumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantSumDetail">
+      <wsdl:input message="tns:GetAccountantSumDetailSoapIn" />
+      <wsdl:output message="tns:GetAccountantSumDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantDetail">
+      <wsdl:input message="tns:GetAccountantDetailSoapIn" />
+      <wsdl:output message="tns:GetAccountantDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLSBAccountantDetail">
+      <wsdl:input message="tns:GetLSBAccountantDetailSoapIn" />
+      <wsdl:output message="tns:GetLSBAccountantDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYWY">
+      <wsdl:input message="tns:UpdateYWYSoapIn" />
+      <wsdl:output message="tns:UpdateYWYSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckCompanyName">
+      <soap:operation soapAction="http://tempuri.org/CheckCompanyName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCUserID">
+      <soap:operation soapAction="http://tempuri.org/UpdateCUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserID">
+      <soap:operation soapAction="http://tempuri.org/UpdateUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientId">
+      <soap:operation soapAction="http://tempuri.org/GetClientId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <soap:operation soapAction="http://tempuri.org/GetImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImagebyID">
+      <soap:operation soapAction="http://tempuri.org/GetImagebyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientInfo">
+      <soap:operation soapAction="http://tempuri.org/GetClientInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEndDateClient">
+      <soap:operation soapAction="http://tempuri.org/GetEndDateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleClient">
+      <soap:operation soapAction="http://tempuri.org/GetSingleClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegData">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessRegData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegDataEdit">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessRegDataEdit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegByID">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessRegByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessExamineData">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessExamineData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoPaymentReg">
+      <soap:operation soapAction="http://tempuri.org/GetNoPaymentReg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePayment">
+      <soap:operation soapAction="http://tempuri.org/SavePayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayment">
+      <soap:operation soapAction="http://tempuri.org/GetPayment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfo">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentByInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfoSP">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentByInfoSP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentDetailID">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentDetailID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessSum">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBusinessSum">
+      <soap:operation soapAction="http://tempuri.org/GetAllBusinessSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBusinessSumOther">
+      <soap:operation soapAction="http://tempuri.org/GetAllBusinessSumOther" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBussinessManagerDept">
+      <soap:operation soapAction="http://tempuri.org/GetBussinessManagerDept" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBussinessSumByYear">
+      <soap:operation soapAction="http://tempuri.org/GetBussinessSumByYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessLastYear">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessLastYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegSum">
+      <soap:operation soapAction="http://tempuri.org/GetRegSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegSumDetail">
+      <soap:operation soapAction="http://tempuri.org/GetRegSumDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantSum">
+      <soap:operation soapAction="http://tempuri.org/GetAccountantSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantSumDetail">
+      <soap:operation soapAction="http://tempuri.org/GetAccountantSumDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantDetail">
+      <soap:operation soapAction="http://tempuri.org/GetAccountantDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLSBAccountantDetail">
+      <soap:operation soapAction="http://tempuri.org/GetLSBAccountantDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYWY">
+      <soap:operation soapAction="http://tempuri.org/UpdateYWY" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WangDaSerSoap12" type="tns:WangDaSerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckCompanyName">
+      <soap12:operation soapAction="http://tempuri.org/CheckCompanyName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCUserID">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserID">
+      <soap12:operation soapAction="http://tempuri.org/UpdateUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientId">
+      <soap12:operation soapAction="http://tempuri.org/GetClientId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImage">
+      <soap12:operation soapAction="http://tempuri.org/GetImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImagebyID">
+      <soap12:operation soapAction="http://tempuri.org/GetImagebyID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetClientInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEndDateClient">
+      <soap12:operation soapAction="http://tempuri.org/GetEndDateClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleClient">
+      <soap12:operation soapAction="http://tempuri.org/GetSingleClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegData">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessRegData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegDataEdit">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessRegDataEdit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessRegByID">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessRegByID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessExamineData">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessExamineData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoPaymentReg">
+      <soap12:operation soapAction="http://tempuri.org/GetNoPaymentReg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePayment">
+      <soap12:operation soapAction="http://tempuri.org/SavePayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayment">
+      <soap12:operation soapAction="http://tempuri.org/GetPayment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentByInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfoSP">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentByInfoSP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentDetailID">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentDetailID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessSum">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessSum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBusinessSum">
+      <soap12:operation soapAction="http://tempuri.org/GetAllBusinessSum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBusinessSumOther">
+      <soap12:operation soapAction="http://tempuri.org/GetAllBusinessSumOther" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBussinessManagerDept">
+      <soap12:operation soapAction="http://tempuri.org/GetBussinessManagerDept" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBussinessSumByYear">
+      <soap12:operation soapAction="http://tempuri.org/GetBussinessSumByYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessLastYear">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessLastYear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegSum">
+      <soap12:operation soapAction="http://tempuri.org/GetRegSum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRegSumDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetRegSumDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantSum">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountantSum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantSumDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountantSumDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountantDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetAccountantDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLSBAccountantDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetLSBAccountantDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateYWY">
+      <soap12:operation soapAction="http://tempuri.org/UpdateYWY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WangDaSer">
+    <wsdl:port name="WangDaSerSoap" binding="tns:WangDaSerSoap">
+      <soap:address location="http://localhost:2849/WangDaSer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WangDaSerSoap12" binding="tns:WangDaSerSoap12">
+      <soap12:address location="http://localhost:2849/WangDaSer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

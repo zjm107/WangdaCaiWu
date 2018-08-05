@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProceedsDataSet" targetNamespace="http://tempuri.org/ProceedsDataSet.xsd" xmlns:mstns="http://tempuri.org/ProceedsDataSet.xsd" xmlns="http://tempuri.org/ProceedsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="WangDaDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WangDaDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WangDaDll.Properties.Settings.GlobalReference.Default.WangDaDBConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProceedsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ProceedsDataSet" msprop:Generator_UserDSName="ProceedsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TW_Payment" msprop:Generator_TableClassName="TW_PaymentDataTable" msprop:Generator_TableVarName="tableTW_Payment" msprop:Generator_TablePropName="TW_Payment" msprop:Generator_RowDeletingName="TW_PaymentRowDeleting" msprop:Generator_RowChangingName="TW_PaymentRowChanging" msprop:Generator_RowEvHandlerName="TW_PaymentRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_PaymentRowDeleted" msprop:Generator_UserTableName="TW_Payment" msprop:Generator_RowChangedName="TW_PaymentRowChanged" msprop:Generator_RowEvArgName="TW_PaymentRowChangeEvent" msprop:Generator_RowClassName="TW_PaymentRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TW_PaymentID" msprop:Generator_ColumnVarNameInTable="columnTW_PaymentID" msprop:Generator_ColumnPropNameInRow="TW_PaymentID" msprop:Generator_ColumnPropNameInTable="TW_PaymentIDColumn" msprop:Generator_UserColumnName="TW_PaymentID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="支付单位" msprop:Generator_ColumnVarNameInTable="column支付单位" msprop:Generator_ColumnPropNameInRow="支付单位" msprop:Generator_ColumnPropNameInTable="支付单位Column" msprop:Generator_UserColumnName="支付单位" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="支付金额" msprop:Generator_ColumnVarNameInTable="column支付金额" msprop:Generator_ColumnPropNameInRow="支付金额" msprop:Generator_ColumnPropNameInTable="支付金额Column" msprop:Generator_UserColumnName="支付金额" type="xs:decimal" default="0" />
+              <xs:element name="支付日期" msprop:Generator_ColumnVarNameInTable="column支付日期" msprop:Generator_ColumnPropNameInRow="支付日期" msprop:Generator_ColumnPropNameInTable="支付日期Column" msprop:Generator_UserColumnName="支付日期" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="支付方式" msprop:Generator_ColumnVarNameInTable="column支付方式" msprop:Generator_ColumnPropNameInRow="支付方式" msprop:Generator_ColumnPropNameInTable="支付方式Column" msprop:Generator_UserColumnName="支付方式" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="收款人" msprop:Generator_ColumnVarNameInTable="column收款人" msprop:Generator_ColumnPropNameInRow="收款人" msprop:Generator_ColumnPropNameInTable="收款人Column" msprop:Generator_UserColumnName="收款人" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="收款类别" msprop:Generator_ColumnVarNameInTable="column收款类别" msprop:Generator_ColumnPropNameInRow="收款类别" msprop:Generator_ColumnPropNameInTable="收款类别Column" msprop:Generator_UserColumnName="收款类别" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="备注" msprop:Generator_ColumnVarNameInTable="column备注" msprop:Generator_ColumnPropNameInRow="备注" msprop:Generator_ColumnPropNameInTable="备注Column" msprop:Generator_UserColumnName="备注" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="客户名称ID" msprop:Generator_ColumnVarNameInTable="column客户名称ID" msprop:Generator_ColumnPropNameInRow="客户名称ID" msprop:Generator_ColumnPropNameInTable="客户名称IDColumn" msprop:Generator_UserColumnName="客户名称ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="操作人" msprop:Generator_ColumnVarNameInTable="column操作人" msprop:Generator_ColumnPropNameInRow="操作人" msprop:Generator_ColumnPropNameInTable="操作人Column" msprop:Generator_UserColumnName="操作人" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="操作时间" msprop:Generator_ColumnVarNameInTable="column操作时间" msprop:Generator_ColumnPropNameInRow="操作时间" msprop:Generator_ColumnPropNameInTable="操作时间Column" msprop:Generator_UserColumnName="操作时间" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="工本费" msprop:Generator_ColumnVarNameInTable="column工本费" msprop:Generator_ColumnPropNameInRow="工本费" msprop:Generator_ColumnPropNameInTable="工本费Column" msprop:Generator_UserColumnName="工本费" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="开票费" msprop:Generator_ColumnVarNameInTable="column开票费" msprop:Generator_ColumnPropNameInRow="开票费" msprop:Generator_ColumnPropNameInTable="开票费Column" msprop:Generator_UserColumnName="开票费" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="做账会计" msprop:Generator_ColumnVarNameInTable="column做账会计" msprop:Generator_ColumnPropNameInRow="做账会计" msprop:Generator_ColumnPropNameInTable="做账会计Column" msprop:Generator_UserColumnName="做账会计" type="xs:string" minOccurs="0" />
+              <xs:element name="上次到期月份" msdata:Caption="开始时间" msprop:Generator_ColumnVarNameInTable="column上次到期月份" msprop:Generator_ColumnPropNameInRow="上次到期月份" msprop:Generator_ColumnPropNameInTable="上次到期月份Column" msprop:Generator_UserColumnName="上次到期月份" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="本次到期月份" msdata:Caption="结束时间" msprop:Generator_ColumnVarNameInTable="column本次到期月份" msprop:Generator_ColumnPropNameInRow="本次到期月份" msprop:Generator_ColumnPropNameInTable="本次到期月份Column" msprop:Generator_UserColumnName="本次到期月份" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="做账会计ID" msprop:Generator_ColumnVarNameInTable="column做账会计ID" msprop:Generator_ColumnPropNameInRow="做账会计ID" msprop:Generator_ColumnPropNameInTable="做账会计IDColumn" msprop:Generator_UserColumnName="做账会计ID" type="xs:string" minOccurs="0" />
+              <xs:element name="总额" msdata:ReadOnly="true" msdata:Expression="支付金额+开票费+工本费" msprop:Generator_ColumnVarNameInTable="column总额" msprop:Generator_ColumnPropNameInRow="总额" msprop:Generator_ColumnPropNameInTable="总额Column" msprop:Generator_UserColumnName="总额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="缴费月数" msprop:Generator_ColumnVarNameInTable="column缴费月数" msprop:Generator_ColumnPropNameInRow="缴费月数" msprop:Generator_ColumnPropNameInTable="缴费月数Column" msprop:Generator_UserColumnName="缴费月数" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="月平均费" msprop:Generator_ColumnVarNameInTable="column月平均费" msprop:Generator_ColumnPropNameInRow="月平均费" msprop:Generator_ColumnPropNameInTable="月平均费Column" msprop:Generator_UserColumnName="月平均费" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="不收款" msprop:Generator_ColumnVarNameInTable="column不收款" msprop:Generator_ColumnPropNameInRow="不收款" msprop:Generator_ColumnPropNameInTable="不收款Column" msprop:Generator_UserColumnName="不收款" type="xs:boolean" minOccurs="0" />
+              <xs:element name="银行账号" msprop:Generator_ColumnVarNameInTable="column银行账号" msprop:Generator_ColumnPropNameInRow="银行账号" msprop:Generator_ColumnPropNameInTable="银行账号Column" msprop:Generator_UserColumnName="银行账号" type="xs:string" minOccurs="0" />
+              <xs:element name="是否审核" msprop:Generator_ColumnVarNameInTable="column是否审核" msprop:Generator_ColumnPropNameInRow="是否审核" msprop:Generator_ColumnPropNameInTable="是否审核Column" msprop:Generator_UserColumnName="是否审核" type="xs:boolean" minOccurs="0" />
+              <xs:element name="审核人" msprop:Generator_ColumnVarNameInTable="column审核人" msprop:Generator_ColumnPropNameInRow="审核人" msprop:Generator_ColumnPropNameInTable="审核人Column" msprop:Generator_UserColumnName="审核人" type="xs:string" minOccurs="0" />
+              <xs:element name="审核时间" msprop:Generator_ColumnVarNameInTable="column审核时间" msprop:Generator_ColumnPropNameInRow="审核时间" msprop:Generator_ColumnPropNameInTable="审核时间Column" msprop:Generator_UserColumnName="审核时间" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="业务员" msprop:Generator_ColumnVarNameInTable="column业务员" msprop:Generator_ColumnPropNameInRow="业务员" msprop:Generator_ColumnPropNameInTable="业务员Column" msprop:Generator_UserColumnName="业务员" type="xs:string" minOccurs="0" />
+              <xs:element name="业务员ID" msprop:Generator_ColumnVarNameInTable="column业务员ID" msprop:Generator_ColumnPropNameInRow="业务员ID" msprop:Generator_ColumnPropNameInTable="业务员IDColumn" msprop:Generator_UserColumnName="业务员ID" type="xs:string" minOccurs="0" />
+              <xs:element name="注册员" msprop:Generator_ColumnVarNameInTable="column注册员" msprop:Generator_ColumnPropNameInRow="注册员" msprop:Generator_ColumnPropNameInTable="注册员Column" msprop:Generator_UserColumnName="注册员" type="xs:string" minOccurs="0" />
+              <xs:element name="注册员ID" msprop:Generator_ColumnVarNameInTable="column注册员ID" msprop:Generator_ColumnPropNameInRow="注册员ID" msprop:Generator_ColumnPropNameInTable="注册员IDColumn" msprop:Generator_UserColumnName="注册员ID" type="xs:string" minOccurs="0" />
+              <xs:element name="补缴款" msprop:Generator_ColumnVarNameInTable="column补缴款" msprop:Generator_ColumnPropNameInRow="补缴款" msprop:Generator_ColumnPropNameInTable="补缴款Column" msprop:Generator_UserColumnName="补缴款" type="xs:boolean" minOccurs="0" />
+              <xs:element name="零申报" msprop:Generator_ColumnVarNameInTable="column零申报" msprop:Generator_ColumnPropNameInRow="零申报" msprop:Generator_ColumnPropNameInTable="零申报Column" msprop:Generator_UserColumnName="零申报" type="xs:boolean" minOccurs="0" />
+              <xs:element name="注册提成月" msprop:Generator_ColumnVarNameInTable="column注册提成月" msprop:Generator_ColumnPropNameInRow="注册提成月" msprop:Generator_ColumnPropNameInTable="注册提成月Column" msprop:Generator_UserColumnName="注册提成月" type="xs:string" minOccurs="0" />
+              <xs:element name="业务提成月" msprop:Generator_ColumnVarNameInTable="column业务提成月" msprop:Generator_ColumnPropNameInRow="业务提成月" msprop:Generator_ColumnPropNameInTable="业务提成月Column" msprop:Generator_UserColumnName="业务提成月" type="xs:string" minOccurs="0" />
+              <xs:element name="做账提成月" msprop:Generator_ColumnVarNameInTable="column做账提成月" msprop:Generator_ColumnPropNameInRow="做账提成月" msprop:Generator_ColumnPropNameInTable="做账提成月Column" msprop:Generator_UserColumnName="做账提成月" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TW_PaymentDetail" msprop:Generator_TableClassName="TW_PaymentDetailDataTable" msprop:Generator_TableVarName="tableTW_PaymentDetail" msprop:Generator_TablePropName="TW_PaymentDetail" msprop:Generator_RowDeletingName="TW_PaymentDetailRowDeleting" msprop:Generator_RowChangingName="TW_PaymentDetailRowChanging" msprop:Generator_RowEvHandlerName="TW_PaymentDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_PaymentDetailRowDeleted" msprop:Generator_UserTableName="TW_PaymentDetail" msprop:Generator_RowChangedName="TW_PaymentDetailRowChanged" msprop:Generator_RowEvArgName="TW_PaymentDetailRowChangeEvent" msprop:Generator_RowClassName="TW_PaymentDetailRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TW_PaymentDetailID" msprop:Generator_ColumnVarNameInTable="columnTW_PaymentDetailID" msprop:Generator_ColumnPropNameInRow="TW_PaymentDetailID" msprop:Generator_ColumnPropNameInTable="TW_PaymentDetailIDColumn" msprop:Generator_UserColumnName="TW_PaymentDetailID" type="xs:string" />
+              <xs:element name="客户名称" msprop:Generator_ColumnVarNameInTable="column客户名称" msprop:Generator_ColumnPropNameInRow="客户名称" msprop:Generator_ColumnPropNameInTable="客户名称Column" msprop:Generator_UserColumnName="客户名称" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="客户名称ID" msprop:Generator_ColumnVarNameInTable="column客户名称ID" msprop:Generator_ColumnPropNameInRow="客户名称ID" msprop:Generator_ColumnPropNameInTable="客户名称IDColumn" msprop:Generator_UserColumnName="客户名称ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="业务员" msprop:Generator_ColumnVarNameInTable="column业务员" msprop:Generator_ColumnPropNameInRow="业务员" msprop:Generator_ColumnPropNameInTable="业务员Column" msprop:Generator_UserColumnName="业务员" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="业务员ID" msprop:Generator_ColumnVarNameInTable="column业务员ID" msprop:Generator_ColumnPropNameInRow="业务员ID" msprop:Generator_ColumnPropNameInTable="业务员IDColumn" msprop:Generator_UserColumnName="业务员ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="注册员" msprop:Generator_ColumnVarNameInTable="column注册员" msprop:Generator_ColumnPropNameInRow="注册员" msprop:Generator_ColumnPropNameInTable="注册员Column" msprop:Generator_UserColumnName="注册员" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="注册员ID" msprop:Generator_ColumnVarNameInTable="column注册员ID" msprop:Generator_ColumnPropNameInRow="注册员ID" msprop:Generator_ColumnPropNameInTable="注册员IDColumn" msprop:Generator_UserColumnName="注册员ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="做账会计" msprop:Generator_ColumnVarNameInTable="column做账会计" msprop:Generator_ColumnPropNameInRow="做账会计" msprop:Generator_ColumnPropNameInTable="做账会计Column" msprop:Generator_UserColumnName="做账会计" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="做账会计ID" msprop:Generator_ColumnVarNameInTable="column做账会计ID" msprop:Generator_ColumnPropNameInRow="做账会计ID" msprop:Generator_ColumnPropNameInTable="做账会计IDColumn" msprop:Generator_UserColumnName="做账会计ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="注册费收款额" msprop:Generator_ColumnVarNameInTable="column注册费收款额" msprop:Generator_ColumnPropNameInRow="注册费收款额" msprop:Generator_ColumnPropNameInTable="注册费收款额Column" msprop:Generator_UserColumnName="注册费收款额" type="xs:decimal" default="0" />
+              <xs:element name="做账费收款额" msprop:Generator_ColumnVarNameInTable="column做账费收款额" msprop:Generator_ColumnPropNameInRow="做账费收款额" msprop:Generator_ColumnPropNameInTable="做账费收款额Column" msprop:Generator_UserColumnName="做账费收款额" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="做账到期月" msdata:Caption="结束时间" msprop:Generator_ColumnVarNameInTable="column做账到期月" msprop:Generator_ColumnPropNameInRow="做账到期月" msprop:Generator_ColumnPropNameInTable="做账到期月Column" msprop:Generator_UserColumnName="做账到期月" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="收款日期" msprop:Generator_ColumnVarNameInTable="column收款日期" msprop:Generator_ColumnPropNameInRow="收款日期" msprop:Generator_ColumnPropNameInTable="收款日期Column" msprop:Generator_UserColumnName="收款日期" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TW_BusinessRegID" msprop:Generator_ColumnVarNameInTable="columnTW_BusinessRegID" msprop:Generator_ColumnPropNameInRow="TW_BusinessRegID" msprop:Generator_ColumnPropNameInTable="TW_BusinessRegIDColumn" msprop:Generator_UserColumnName="TW_BusinessRegID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="工本费收款额" msprop:Generator_ColumnVarNameInTable="column工本费收款额" msprop:Generator_ColumnPropNameInRow="工本费收款额" msprop:Generator_ColumnPropNameInTable="工本费收款额Column" msprop:Generator_UserColumnName="工本费收款额" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="开票费收款额" msprop:Generator_ColumnVarNameInTable="column开票费收款额" msprop:Generator_ColumnPropNameInRow="开票费收款额" msprop:Generator_ColumnPropNameInTable="开票费收款额Column" msprop:Generator_UserColumnName="开票费收款额" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="上次到期月" msdata:Caption="开始时间" msprop:Generator_ColumnVarNameInTable="column上次到期月" msprop:Generator_ColumnPropNameInRow="上次到期月" msprop:Generator_ColumnPropNameInTable="上次到期月Column" msprop:Generator_UserColumnName="上次到期月" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="注册费" msprop:Generator_ColumnVarNameInTable="column注册费" msprop:Generator_ColumnPropNameInRow="注册费" msprop:Generator_ColumnPropNameInTable="注册费Column" msprop:Generator_UserColumnName="注册费" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="月做账费" msprop:Generator_ColumnVarNameInTable="column月做账费" msprop:Generator_ColumnPropNameInRow="月做账费" msprop:Generator_ColumnPropNameInTable="月做账费Column" msprop:Generator_UserColumnName="月做账费" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="工本费" msprop:Generator_ColumnVarNameInTable="column工本费" msprop:Generator_ColumnPropNameInRow="工本费" msprop:Generator_ColumnPropNameInTable="工本费Column" msprop:Generator_UserColumnName="工本费" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="开票费" msprop:Generator_ColumnVarNameInTable="column开票费" msprop:Generator_ColumnPropNameInRow="开票费" msprop:Generator_ColumnPropNameInTable="开票费Column" msprop:Generator_UserColumnName="开票费" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="总额" msdata:ReadOnly="true" msdata:Expression="注册费收款额+做账费收款额+工本费收款额+开票费收款额" msprop:Generator_ColumnVarNameInTable="column总额" msprop:Generator_ColumnPropNameInRow="总额" msprop:Generator_ColumnPropNameInTable="总额Column" msprop:Generator_UserColumnName="总额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TW_PaymentID" msprop:Generator_ColumnVarNameInTable="columnTW_PaymentID" msprop:Generator_ColumnPropNameInRow="TW_PaymentID" msprop:Generator_ColumnPropNameInTable="TW_PaymentIDColumn" msprop:Generator_UserColumnName="TW_PaymentID" type="xs:string" minOccurs="0" />
+              <xs:element name="注册类型" msprop:Generator_ColumnVarNameInTable="column注册类型" msprop:Generator_ColumnPropNameInRow="注册类型" msprop:Generator_ColumnPropNameInTable="注册类型Column" msprop:Generator_UserColumnName="注册类型" type="xs:string" minOccurs="0" />
+              <xs:element name="缴费月数" msprop:Generator_ColumnVarNameInTable="column缴费月数" msprop:Generator_ColumnPropNameInRow="缴费月数" msprop:Generator_ColumnPropNameInTable="缴费月数Column" msprop:Generator_UserColumnName="缴费月数" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="月平均费" msprop:Generator_ColumnVarNameInTable="column月平均费" msprop:Generator_ColumnPropNameInRow="月平均费" msprop:Generator_ColumnPropNameInTable="月平均费Column" msprop:Generator_UserColumnName="月平均费" type="xs:decimal" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VW_PaymentDetail" msprop:Generator_TableClassName="VW_PaymentDetailDataTable" msprop:Generator_TableVarName="tableVW_PaymentDetail" msprop:Generator_TablePropName="VW_PaymentDetail" msprop:Generator_RowDeletingName="VW_PaymentDetailRowDeleting" msprop:Generator_RowChangingName="VW_PaymentDetailRowChanging" msprop:Generator_RowEvHandlerName="VW_PaymentDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_PaymentDetailRowDeleted" msprop:Generator_UserTableName="VW_PaymentDetail" msprop:Generator_RowChangedName="VW_PaymentDetailRowChanged" msprop:Generator_RowEvArgName="VW_PaymentDetailRowChangeEvent" msprop:Generator_RowClassName="VW_PaymentDetailRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="公司预核名称" msprop:Generator_ColumnVarNameInTable="column公司预核名称" msprop:Generator_ColumnPropNameInRow="公司预核名称" msprop:Generator_ColumnPropNameInTable="公司预核名称Column" msprop:Generator_UserColumnName="公司预核名称" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="业务员" msprop:Generator_ColumnVarNameInTable="column业务员" msprop:Generator_ColumnPropNameInRow="业务员" msprop:Generator_ColumnPropNameInTable="业务员Column" msprop:Generator_UserColumnName="业务员" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="注册费" msprop:Generator_ColumnVarNameInTable="column注册费" msprop:Generator_ColumnPropNameInRow="注册费" msprop:Generator_ColumnPropNameInTable="注册费Column" msprop:Generator_UserColumnName="注册费" type="xs:decimal" minOccurs="0" />
+              <xs:element name="图章" msprop:Generator_ColumnVarNameInTable="column图章" msprop:Generator_ColumnPropNameInRow="图章" msprop:Generator_ColumnPropNameInTable="图章Column" msprop:Generator_UserColumnName="图章" type="xs:decimal" minOccurs="0" />
+              <xs:element name="银行" msprop:Generator_ColumnVarNameInTable="column银行" msprop:Generator_ColumnPropNameInRow="银行" msprop:Generator_ColumnPropNameInTable="银行Column" msprop:Generator_UserColumnName="银行" type="xs:decimal" minOccurs="0" />
+              <xs:element name="其他" msprop:Generator_ColumnVarNameInTable="column其他" msprop:Generator_ColumnPropNameInRow="其他" msprop:Generator_ColumnPropNameInTable="其他Column" msprop:Generator_UserColumnName="其他" type="xs:decimal" minOccurs="0" />
+              <xs:element name="注册利润" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column注册利润" msprop:Generator_ColumnPropNameInRow="注册利润" msprop:Generator_ColumnPropNameInTable="注册利润Column" msprop:Generator_UserColumnName="注册利润" type="xs:decimal" minOccurs="0" />
+              <xs:element name="月做账费" msprop:Generator_ColumnVarNameInTable="column月做账费" msprop:Generator_ColumnPropNameInRow="月做账费" msprop:Generator_ColumnPropNameInTable="月做账费Column" msprop:Generator_UserColumnName="月做账费" type="xs:decimal" minOccurs="0" />
+              <xs:element name="工本费" msprop:Generator_ColumnVarNameInTable="column工本费" msprop:Generator_ColumnPropNameInRow="工本费" msprop:Generator_ColumnPropNameInTable="工本费Column" msprop:Generator_UserColumnName="工本费" type="xs:decimal" minOccurs="0" />
+              <xs:element name="开票费" msprop:Generator_ColumnVarNameInTable="column开票费" msprop:Generator_ColumnPropNameInRow="开票费" msprop:Generator_ColumnPropNameInTable="开票费Column" msprop:Generator_UserColumnName="开票费" type="xs:decimal" minOccurs="0" />
+              <xs:element name="开始时间" msprop:Generator_ColumnVarNameInTable="column开始时间" msprop:Generator_ColumnPropNameInRow="开始时间" msprop:Generator_ColumnPropNameInTable="开始时间Column" msprop:Generator_UserColumnName="开始时间" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="预计注册完成时间" msprop:Generator_ColumnVarNameInTable="column预计注册完成时间" msprop:Generator_ColumnPropNameInRow="预计注册完成时间" msprop:Generator_ColumnPropNameInTable="预计注册完成时间Column" msprop:Generator_UserColumnName="预计注册完成时间" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="备注" msprop:Generator_ColumnVarNameInTable="column备注" msprop:Generator_ColumnPropNameInRow="备注" msprop:Generator_ColumnPropNameInTable="备注Column" msprop:Generator_UserColumnName="备注" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="登记日期" msprop:Generator_ColumnVarNameInTable="column登记日期" msprop:Generator_ColumnPropNameInRow="登记日期" msprop:Generator_ColumnPropNameInTable="登记日期Column" msprop:Generator_UserColumnName="登记日期" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="修改人" msprop:Generator_ColumnVarNameInTable="column修改人" msprop:Generator_ColumnPropNameInRow="修改人" msprop:Generator_ColumnPropNameInTable="修改人Column" msprop:Generator_UserColumnName="修改人" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="修改时间" msprop:Generator_ColumnVarNameInTable="column修改时间" msprop:Generator_ColumnPropNameInRow="修改时间" msprop:Generator_ColumnPropNameInTable="修改时间Column" msprop:Generator_UserColumnName="修改时间" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TW_BusinessRegID" msprop:Generator_ColumnVarNameInTable="columnTW_BusinessRegID" msprop:Generator_ColumnPropNameInRow="TW_BusinessRegID" msprop:Generator_ColumnPropNameInTable="TW_BusinessRegIDColumn" msprop:Generator_UserColumnName="TW_BusinessRegID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="办理成本" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column办理成本" msprop:Generator_ColumnPropNameInRow="办理成本" msprop:Generator_ColumnPropNameInTable="办理成本Column" msprop:Generator_UserColumnName="办理成本" type="xs:decimal" minOccurs="0" />
+              <xs:element name="年做账费" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column年做账费" msprop:Generator_ColumnPropNameInRow="年做账费" msprop:Generator_ColumnPropNameInTable="年做账费Column" msprop:Generator_UserColumnName="年做账费" type="xs:decimal" minOccurs="0" />
+              <xs:element name="注册进度" msprop:Generator_ColumnVarNameInTable="column注册进度" msprop:Generator_ColumnPropNameInRow="注册进度" msprop:Generator_ColumnPropNameInTable="注册进度Column" msprop:Generator_UserColumnName="注册进度" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="外勤进度" msprop:Generator_ColumnVarNameInTable="column外勤进度" msprop:Generator_ColumnPropNameInRow="外勤进度" msprop:Generator_ColumnPropNameInTable="外勤进度Column" msprop:Generator_UserColumnName="外勤进度" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="业务员ID" msprop:Generator_ColumnVarNameInTable="column业务员ID" msprop:Generator_ColumnPropNameInRow="业务员ID" msprop:Generator_ColumnPropNameInTable="业务员IDColumn" msprop:Generator_UserColumnName="业务员ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="注册员ID" msprop:Generator_ColumnVarNameInTable="column注册员ID" msprop:Generator_ColumnPropNameInRow="注册员ID" msprop:Generator_ColumnPropNameInTable="注册员IDColumn" msprop:Generator_UserColumnName="注册员ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="注册员" msprop:Generator_ColumnVarNameInTable="column注册员" msprop:Generator_ColumnPropNameInRow="注册员" msprop:Generator_ColumnPropNameInTable="注册员Column" msprop:Generator_UserColumnName="注册员" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="做账会计" msprop:Generator_ColumnVarNameInTable="column做账会计" msprop:Generator_ColumnPropNameInRow="做账会计" msprop:Generator_ColumnPropNameInTable="做账会计Column" msprop:Generator_UserColumnName="做账会计" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="做账会计ID" msprop:Generator_ColumnVarNameInTable="column做账会计ID" msprop:Generator_ColumnPropNameInRow="做账会计ID" msprop:Generator_ColumnPropNameInTable="做账会计IDColumn" msprop:Generator_UserColumnName="做账会计ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="部门" msprop:Generator_ColumnVarNameInTable="column部门" msprop:Generator_ColumnPropNameInRow="部门" msprop:Generator_ColumnPropNameInTable="部门Column" msprop:Generator_UserColumnName="部门" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="注册派单标记" msprop:Generator_ColumnVarNameInTable="column注册派单标记" msprop:Generator_ColumnPropNameInRow="注册派单标记" msprop:Generator_ColumnPropNameInTable="注册派单标记Column" msprop:Generator_UserColumnName="注册派单标记" type="xs:boolean" minOccurs="0" />
+              <xs:element name="外勤派单标记" msprop:Generator_ColumnVarNameInTable="column外勤派单标记" msprop:Generator_ColumnPropNameInRow="外勤派单标记" msprop:Generator_ColumnPropNameInTable="外勤派单标记Column" msprop:Generator_UserColumnName="外勤派单标记" type="xs:boolean" minOccurs="0" />
+              <xs:element name="零申报" msprop:Generator_ColumnVarNameInTable="column零申报" msprop:Generator_ColumnPropNameInRow="零申报" msprop:Generator_ColumnPropNameInTable="零申报Column" msprop:Generator_UserColumnName="零申报" type="xs:boolean" minOccurs="0" />
+              <xs:element name="公司类型" msprop:Generator_ColumnVarNameInTable="column公司类型" msprop:Generator_ColumnPropNameInRow="公司类型" msprop:Generator_ColumnPropNameInTable="公司类型Column" msprop:Generator_UserColumnName="公司类型" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="交接确认完成" msprop:Generator_ColumnVarNameInTable="column交接确认完成" msprop:Generator_ColumnPropNameInRow="交接确认完成" msprop:Generator_ColumnPropNameInTable="交接确认完成Column" msprop:Generator_UserColumnName="交接确认完成" type="xs:boolean" minOccurs="0" />
+              <xs:element name="外勤审批确认" msprop:Generator_ColumnVarNameInTable="column外勤审批确认" msprop:Generator_ColumnPropNameInRow="外勤审批确认" msprop:Generator_ColumnPropNameInTable="外勤审批确认Column" msprop:Generator_UserColumnName="外勤审批确认" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="外勤审批完成时间" msprop:Generator_ColumnVarNameInTable="column外勤审批完成时间" msprop:Generator_ColumnPropNameInRow="外勤审批完成时间" msprop:Generator_ColumnPropNameInTable="外勤审批完成时间Column" msprop:Generator_UserColumnName="外勤审批完成时间" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="收款情况" msprop:Generator_ColumnVarNameInTable="column收款情况" msprop:Generator_ColumnPropNameInRow="收款情况" msprop:Generator_ColumnPropNameInTable="收款情况Column" msprop:Generator_UserColumnName="收款情况" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="工本费收款额" msprop:Generator_ColumnVarNameInTable="column工本费收款额" msprop:Generator_ColumnPropNameInRow="工本费收款额" msprop:Generator_ColumnPropNameInTable="工本费收款额Column" msprop:Generator_UserColumnName="工本费收款额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="开票费收款额" msprop:Generator_ColumnVarNameInTable="column开票费收款额" msprop:Generator_ColumnPropNameInRow="开票费收款额" msprop:Generator_ColumnPropNameInTable="开票费收款额Column" msprop:Generator_UserColumnName="开票费收款额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="客户名称" msprop:Generator_ColumnVarNameInTable="column客户名称" msprop:Generator_ColumnPropNameInRow="客户名称" msprop:Generator_ColumnPropNameInTable="客户名称Column" msprop:Generator_UserColumnName="客户名称" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="客户名称ID" msprop:Generator_ColumnVarNameInTable="column客户名称ID" msprop:Generator_ColumnPropNameInRow="客户名称ID" msprop:Generator_ColumnPropNameInTable="客户名称IDColumn" msprop:Generator_UserColumnName="客户名称ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="收款日期" msprop:Generator_ColumnVarNameInTable="column收款日期" msprop:Generator_ColumnPropNameInRow="收款日期" msprop:Generator_ColumnPropNameInTable="收款日期Column" msprop:Generator_UserColumnName="收款日期" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="注册费收款额" msprop:Generator_ColumnVarNameInTable="column注册费收款额" msprop:Generator_ColumnPropNameInRow="注册费收款额" msprop:Generator_ColumnPropNameInTable="注册费收款额Column" msprop:Generator_UserColumnName="注册费收款额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="做账到期月" msdata:Caption="结束时间" msprop:Generator_ColumnVarNameInTable="column做账到期月" msprop:Generator_ColumnPropNameInRow="做账到期月" msprop:Generator_ColumnPropNameInTable="做账到期月Column" msprop:Generator_UserColumnName="做账到期月" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="做账费收款额" msprop:Generator_ColumnVarNameInTable="column做账费收款额" msprop:Generator_ColumnPropNameInRow="做账费收款额" msprop:Generator_ColumnPropNameInTable="做账费收款额Column" msprop:Generator_UserColumnName="做账费收款额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="注册费未收款" msdata:ReadOnly="true" msdata:Expression="注册费-注册费收款额" msprop:Generator_ColumnVarNameInTable="column注册费未收款" msprop:Generator_ColumnPropNameInRow="注册费未收款" msprop:Generator_ColumnPropNameInTable="注册费未收款Column" msprop:Generator_UserColumnName="注册费未收款" type="xs:decimal" minOccurs="0" />
+              <xs:element name="工本费未收款" msdata:ReadOnly="true" msdata:Expression="工本费-工本费收款额" msprop:Generator_ColumnVarNameInTable="column工本费未收款" msprop:Generator_ColumnPropNameInRow="工本费未收款" msprop:Generator_ColumnPropNameInTable="工本费未收款Column" msprop:Generator_UserColumnName="工本费未收款" type="xs:decimal" minOccurs="0" />
+              <xs:element name="开票费未收款" msdata:ReadOnly="true" msdata:Expression="开票费-开票费收款额" msprop:Generator_ColumnVarNameInTable="column开票费未收款" msprop:Generator_ColumnPropNameInRow="开票费未收款" msprop:Generator_ColumnPropNameInTable="开票费未收款Column" msprop:Generator_UserColumnName="开票费未收款" type="xs:decimal" minOccurs="0" />
+              <xs:element name="上次到期月" msdata:Caption="开始时间" msprop:Generator_ColumnVarNameInTable="column上次到期月" msprop:Generator_ColumnPropNameInRow="上次到期月" msprop:Generator_ColumnPropNameInTable="上次到期月Column" msprop:Generator_UserColumnName="上次到期月" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VW_PaymentRegSum" msprop:Generator_TableClassName="VW_PaymentRegSumDataTable" msprop:Generator_TableVarName="tableVW_PaymentRegSum" msprop:Generator_TablePropName="VW_PaymentRegSum" msprop:Generator_RowDeletingName="VW_PaymentRegSumRowDeleting" msprop:Generator_RowChangingName="VW_PaymentRegSumRowChanging" msprop:Generator_RowEvHandlerName="VW_PaymentRegSumRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_PaymentRegSumRowDeleted" msprop:Generator_UserTableName="VW_PaymentRegSum" msprop:Generator_RowChangedName="VW_PaymentRegSumRowChanged" msprop:Generator_RowEvArgName="VW_PaymentRegSumRowChangeEvent" msprop:Generator_RowClassName="VW_PaymentRegSumRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="开票费收款额" msprop:Generator_ColumnVarNameInTable="column开票费收款额" msprop:Generator_ColumnPropNameInRow="开票费收款额" msprop:Generator_ColumnPropNameInTable="开票费收款额Column" msprop:Generator_UserColumnName="开票费收款额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="工本费收款额" msprop:Generator_ColumnVarNameInTable="column工本费收款额" msprop:Generator_ColumnPropNameInRow="工本费收款额" msprop:Generator_ColumnPropNameInTable="工本费收款额Column" msprop:Generator_UserColumnName="工本费收款额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="做账费收款额" msprop:Generator_ColumnVarNameInTable="column做账费收款额" msprop:Generator_ColumnPropNameInRow="做账费收款额" msprop:Generator_ColumnPropNameInTable="做账费收款额Column" msprop:Generator_UserColumnName="做账费收款额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="注册费收款额" msprop:Generator_ColumnVarNameInTable="column注册费收款额" msprop:Generator_ColumnPropNameInRow="注册费收款额" msprop:Generator_ColumnPropNameInTable="注册费收款额Column" msprop:Generator_UserColumnName="注册费收款额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="收款日期" msprop:Generator_ColumnVarNameInTable="column收款日期" msprop:Generator_ColumnPropNameInRow="收款日期" msprop:Generator_ColumnPropNameInTable="收款日期Column" msprop:Generator_UserColumnName="收款日期" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="做账到期月" msprop:Generator_ColumnVarNameInTable="column做账到期月" msprop:Generator_ColumnPropNameInRow="做账到期月" msprop:Generator_ColumnPropNameInTable="做账到期月Column" msprop:Generator_UserColumnName="做账到期月" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="客户名称" msprop:Generator_ColumnVarNameInTable="column客户名称" msprop:Generator_ColumnPropNameInRow="客户名称" msprop:Generator_ColumnPropNameInTable="客户名称Column" msprop:Generator_UserColumnName="客户名称" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="客户名称ID" msprop:Generator_ColumnVarNameInTable="column客户名称ID" msprop:Generator_ColumnPropNameInRow="客户名称ID" msprop:Generator_ColumnPropNameInTable="客户名称IDColumn" msprop:Generator_UserColumnName="客户名称ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TW_BusinessRegID" msprop:Generator_ColumnVarNameInTable="columnTW_BusinessRegID" msprop:Generator_ColumnPropNameInRow="TW_BusinessRegID" msprop:Generator_ColumnPropNameInTable="TW_BusinessRegIDColumn" msprop:Generator_UserColumnName="TW_BusinessRegID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TW_Payment" />
+      <xs:field xpath="mstns:TW_PaymentID" />
+    </xs:unique>
+    <xs:unique name="TW_PaymentDetail_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TW_PaymentDetail" />
+      <xs:field xpath="mstns:TW_PaymentDetailID" />
+    </xs:unique>
+    <xs:unique name="VW_PaymentDetail_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:VW_PaymentDetail" />
+      <xs:field xpath="mstns:TW_BusinessRegID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

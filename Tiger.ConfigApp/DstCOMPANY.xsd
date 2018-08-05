@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DstCOMPANY" targetNamespace="http://tempuri.org/DstCOMPANY.xsd" xmlns:mstns="http://tempuri.org/DstCOMPANY.xsd" xmlns="http://tempuri.org/DstCOMPANY.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Tiger_COMMONConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="Tiger_COMMONConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Tiger.ConfigApp.Properties.Settings.GlobalReference.Default.Tiger_COMMONConnectionString1" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DstCOMPANY" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DstCOMPANY" msprop:Generator_DataSetName="DstCOMPANY">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TS_COMPANY" msprop:Generator_UserTableName="TS_COMPANY" msprop:Generator_RowDeletedName="TS_COMPANYRowDeleted" msprop:Generator_TableClassName="TS_COMPANYDataTable" msprop:Generator_RowChangedName="TS_COMPANYRowChanged" msprop:Generator_RowClassName="TS_COMPANYRow" msprop:Generator_RowChangingName="TS_COMPANYRowChanging" msprop:Generator_RowEvArgName="TS_COMPANYRowChangeEvent" msprop:Generator_RowEvHandlerName="TS_COMPANYRowChangeEventHandler" msprop:Generator_TablePropName="TS_COMPANY" msprop:Generator_TableVarName="tableTS_COMPANY" msprop:Generator_RowDeletingName="TS_COMPANYRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="company" msprop:Generator_UserColumnName="company" msprop:Generator_ColumnPropNameInRow="company" msprop:Generator_ColumnVarNameInTable="columncompany" msprop:Generator_ColumnPropNameInTable="companyColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phone1" msprop:Generator_UserColumnName="phone1" msprop:Generator_ColumnPropNameInRow="phone1" msprop:Generator_ColumnVarNameInTable="columnphone1" msprop:Generator_ColumnPropNameInTable="phone1Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phone2" msprop:Generator_UserColumnName="phone2" msprop:Generator_ColumnPropNameInRow="phone2" msprop:Generator_ColumnVarNameInTable="columnphone2" msprop:Generator_ColumnPropNameInTable="phone2Column" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fax" msprop:Generator_UserColumnName="fax" msprop:Generator_ColumnPropNameInRow="fax" msprop:Generator_ColumnVarNameInTable="columnfax" msprop:Generator_ColumnPropNameInTable="faxColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_UserColumnName="email" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInTable="emailColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="weblink" msprop:Generator_UserColumnName="weblink" msprop:Generator_ColumnPropNameInRow="weblink" msprop:Generator_ColumnVarNameInTable="columnweblink" msprop:Generator_ColumnPropNameInTable="weblinkColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_UserColumnName="address" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInTable="addressColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BeginDate" msprop:Generator_UserColumnName="BeginDate" msprop:Generator_ColumnPropNameInRow="BeginDate" msprop:Generator_ColumnVarNameInTable="columnBeginDate" msprop:Generator_ColumnPropNameInTable="BeginDateColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EndDate" msprop:Generator_UserColumnName="EndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TS_COMPANY" />
+      <xs:field xpath="mstns:company" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

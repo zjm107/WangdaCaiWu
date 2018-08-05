@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DstTCONF_WORD" targetNamespace="http://tempuri.org/DstTCONF_WORD.xsd" xmlns:mstns="http://tempuri.org/DstTCONF_WORD.xsd" xmlns="http://tempuri.org/DstTCONF_WORD.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="HyExpConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="HyExpConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Tiger.PdrCommon.Properties.Settings.GlobalReference.Default.HyExpConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DstTCONF_WORD" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DstTCONF_WORD" msprop:Generator_UserDSName="DstTCONF_WORD">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TCONF_WORD" msprop:Generator_TableClassName="TCONF_WORDDataTable" msprop:Generator_TableVarName="tableTCONF_WORD" msprop:Generator_RowChangedName="TCONF_WORDRowChanged" msprop:Generator_TablePropName="TCONF_WORD" msprop:Generator_RowDeletingName="TCONF_WORDRowDeleting" msprop:Generator_RowChangingName="TCONF_WORDRowChanging" msprop:Generator_RowEvHandlerName="TCONF_WORDRowChangeEventHandler" msprop:Generator_RowDeletedName="TCONF_WORDRowDeleted" msprop:Generator_RowClassName="TCONF_WORDRow" msprop:Generator_UserTableName="TCONF_WORD" msprop:Generator_RowEvArgName="TCONF_WORDRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GROUPNAME" msprop:Generator_ColumnVarNameInTable="columnGROUPNAME" msprop:Generator_ColumnPropNameInRow="GROUPNAME" msprop:Generator_ColumnPropNameInTable="GROUPNAMEColumn" msprop:Generator_UserColumnName="GROUPNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GROUPLISTITEM" msprop:Generator_ColumnVarNameInTable="columnGROUPLISTITEM" msprop:Generator_ColumnPropNameInRow="GROUPLISTITEM" msprop:Generator_ColumnPropNameInTable="GROUPLISTITEMColumn" msprop:Generator_UserColumnName="GROUPLISTITEM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GROUPID" msprop:Generator_ColumnVarNameInTable="columnGROUPID" msprop:Generator_ColumnPropNameInRow="GROUPID" msprop:Generator_ColumnPropNameInTable="GROUPIDColumn" msprop:Generator_UserColumnName="GROUPID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WORDID" msprop:Generator_ColumnVarNameInTable="columnWORDID" msprop:Generator_ColumnPropNameInRow="WORDID" msprop:Generator_ColumnPropNameInTable="WORDIDColumn" msprop:Generator_UserColumnName="WORDID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="APPLICATIONID" msprop:Generator_ColumnVarNameInTable="columnAPPLICATIONID" msprop:Generator_ColumnPropNameInRow="APPLICATIONID" msprop:Generator_ColumnPropNameInTable="APPLICATIONIDColumn" msprop:Generator_UserColumnName="APPLICATIONID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TCONF_WORD" />
+      <xs:field xpath="mstns:WORDID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{54B31332-A5B8-45E5-836B-EE6B0BC6A4A9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WangDaDll</RootNamespace>
+    <AssemblyName>WangDaDll</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.1, Version=14.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccontManager\FrmAccountExamine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccontManager\FrmAccountExamine.Designer.cs">
+      <DependentUpon>FrmAccountExamine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccontManager\FrmAccountManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccontManager\FrmAccountManager.Designer.cs">
+      <DependentUpon>FrmAccountManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccontManager\FrmConnectManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccontManager\FrmConnectManager.Designer.cs">
+      <DependentUpon>FrmConnectManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessStart\FrmBusinessRegQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusinessStart\FrmBusinessRegQuery.Designer.cs">
+      <DependentUpon>FrmBusinessRegQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientFile.Designer.cs">
+      <DependentUpon>FrmClientFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmImageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmImageView.Designer.cs">
+      <DependentUpon>FrmImageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BusinessDataSet.cs">
+      <DependentUpon>BusinessDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessStart\FrmBusinessReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusinessStart\FrmBusinessReg.Designer.cs">
+      <DependentUpon>FrmBusinessReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessStart\FrmRegBusiness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusinessStart\FrmRegBusiness.Designer.cs">
+      <DependentUpon>FrmRegBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BusinessDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BusinessDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CsDataSet.cs">
+      <DependentUpon>CsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientEdit.Designer.cs">
+      <DependentUpon>FrmClientEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientManager.Designer.cs">
+      <DependentUpon>FrmClientManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientQuery.Designer.cs">
+      <DependentUpon>FrmClientQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientSingleQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientSingleQuery.Designer.cs">
+      <DependentUpon>FrmClientSingleQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FileDataSet.cs">
+      <DependentUpon>FileDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FileDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FrmClientSelectDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\FrmClientSelectDlg.Designer.cs">
+      <DependentUpon>FrmClientSelectDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\BaseSerReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserSerReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WangDaReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmEndDateQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmEndDateQuery.Designer.cs">
+      <DependentUpon>FrmEndDateQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmNoPaymentDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmNoPaymentDlg.Designer.cs">
+      <DependentUpon>FrmNoPaymentDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FrmStateList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\FrmStateList.Designer.cs">
+      <DependentUpon>FrmStateList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FrmUserSelectDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\FrmUserSelectDlg.Designer.cs">
+      <DependentUpon>FrmUserSelectDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProceedsDataSet.cs">
+      <DependentUpon>ProceedsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ProceedsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProceedsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserDataSet.cs">
+      <DependentUpon>UserDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\UserDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmNoPaymentReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmNoPaymentReg.Designer.cs">
+      <DependentUpon>FrmNoPaymentReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentGeneral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentGeneral.Designer.cs">
+      <DependentUpon>FrmPaymentGeneral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentGeneralEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentGeneralEdit.Designer.cs">
+      <DependentUpon>FrmPaymentGeneralEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentGeneralView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentGeneralView.Designer.cs">
+      <DependentUpon>FrmPaymentGeneralView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentManager.Designer.cs">
+      <DependentUpon>FrmPaymentManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentManagerSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentManagerSP.Designer.cs">
+      <DependentUpon>FrmPaymentManagerSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmPayMentReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPayMentReg.Designer.cs">
+      <DependentUpon>FrmPayMentReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmPayMentRegEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPayMentRegEdit.Designer.cs">
+      <DependentUpon>FrmPayMentRegEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\FrmPayMentRegView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPayMentRegView.Designer.cs">
+      <DependentUpon>FrmPayMentRegView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Common\SysTools.cs" />
+    <Compile Include="Common\WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\WaitForm.Designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Register\FrmRegManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register\FrmRegManager.Designer.cs">
+      <DependentUpon>FrmRegManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\FrmAccountantSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmAccountantSalary.Designer.cs">
+      <DependentUpon>FrmAccountantSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\FrmAccountantSalaryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmAccountantSalaryDetail.Designer.cs">
+      <DependentUpon>FrmAccountantSalaryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\FrmBusinessSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmBusinessSalary.Designer.cs">
+      <DependentUpon>FrmBusinessSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\FrmBusinessSalaryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmBusinessSalaryDetail.Designer.cs">
+      <DependentUpon>FrmBusinessSalaryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\FrmRegSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmRegSalary.Designer.cs">
+      <DependentUpon>FrmRegSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\FrmRegSalaryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmRegSalaryDetail.Designer.cs">
+      <DependentUpon>FrmRegSalaryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\SalaryDataSet.cs">
+      <DependentUpon>SalaryDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\SalaryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalaryDataSet.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Common\FileDataSet.xsc">
+      <DependentUpon>FileDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\FileDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FileDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Common\FileDataSet.xss">
+      <DependentUpon>FileDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Connected Services\BaseSerReference\BaseSer.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AccontManager\FrmAccountExamine.resx">
+      <DependentUpon>FrmAccountExamine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccontManager\FrmAccountManager.resx">
+      <DependentUpon>FrmAccountManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccontManager\FrmConnectManager.resx">
+      <DependentUpon>FrmConnectManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessStart\FrmBusinessReg.resx">
+      <DependentUpon>FrmBusinessReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessStart\FrmBusinessRegQuery.resx">
+      <DependentUpon>FrmBusinessRegQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BusinessStart\FrmRegBusiness.resx">
+      <DependentUpon>FrmRegBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmClientEdit.resx">
+      <DependentUpon>FrmClientEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmClientManager.resx">
+      <DependentUpon>FrmClientManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmClientQuery.resx">
+      <DependentUpon>FrmClientQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmClientSingleQuery.resx">
+      <DependentUpon>FrmClientSingleQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmImageView.resx">
+      <DependentUpon>FrmImageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\FrmClientSelectDlg.resx">
+      <DependentUpon>FrmClientSelectDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmEndDateQuery.resx">
+      <DependentUpon>FrmEndDateQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmNoPaymentDlg.resx">
+      <DependentUpon>FrmNoPaymentDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\FrmStateList.resx">
+      <DependentUpon>FrmStateList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\FrmUserSelectDlg.resx">
+      <DependentUpon>FrmUserSelectDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmNoPaymentReg.resx">
+      <DependentUpon>FrmNoPaymentReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPaymentGeneral.resx">
+      <DependentUpon>FrmPaymentGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPaymentGeneralEdit.resx">
+      <DependentUpon>FrmPaymentGeneralEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPaymentGeneralView.resx">
+      <DependentUpon>FrmPaymentGeneralView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPaymentManager.resx">
+      <DependentUpon>FrmPaymentManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPaymentManagerSP.resx">
+      <DependentUpon>FrmPaymentManagerSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPayMentReg.resx">
+      <DependentUpon>FrmPayMentReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPayMentRegEdit.resx">
+      <DependentUpon>FrmPayMentRegEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPayMentRegView.resx">
+      <DependentUpon>FrmPayMentRegView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Common\WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register\FrmRegManager.resx">
+      <DependentUpon>FrmRegManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmAccountantSalary.resx">
+      <DependentUpon>FrmAccountantSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmAccountantSalaryDetail.resx">
+      <DependentUpon>FrmAccountantSalaryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmBusinessSalary.resx">
+      <DependentUpon>FrmBusinessSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmBusinessSalaryDetail.resx">
+      <DependentUpon>FrmBusinessSalaryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmRegSalary.resx">
+      <DependentUpon>FrmRegSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmRegSalaryDetail.resx">
+      <DependentUpon>FrmRegSalaryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Common\BusinessDataSet.xsc">
+      <DependentUpon>BusinessDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\BusinessDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BusinessDataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Common\BusinessDataSet.xss">
+      <DependentUpon>BusinessDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\CsDataSet.xsc">
+      <DependentUpon>CsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\CsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Common\CsDataSet.xss">
+      <DependentUpon>CsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\ProceedsDataSet.xsc">
+      <DependentUpon>ProceedsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\ProceedsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProceedsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Common\ProceedsDataSet.xss">
+      <DependentUpon>ProceedsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\UserDataSet.xsc">
+      <DependentUpon>UserDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\UserDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Common\UserDataSet.xss">
+      <DependentUpon>UserDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Connected Services\BaseSerReference\BaseSer.wsdl" />
+    <None Include="Connected Services\UserSerReference\UserSer.wsdl" />
+    <None Include="Connected Services\WangDaReference\WangDaSer.wsdl" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SalaryServer\SalaryDataSet.xsc">
+      <DependentUpon>SalaryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SalaryServer\SalaryDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalaryDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SalaryServer\SalaryDataSet.xss">
+      <DependentUpon>SalaryDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BaseSerReference\" />
+    <WCFMetadataStorage Include="Connected Services\UserSerReference\" />
+    <WCFMetadataStorage Include="Connected Services\WangDaReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tiger.PdrCommon\Tiger.PdrCommon.csproj">
+      <Project>{91657811-80a0-4230-b194-2a5f7544e313}</Project>
+      <Name>Tiger.PdrCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tiger.WinTools\Tiger.WinTools.csproj">
+      <Project>{dc3a1e13-af73-49bf-b5b3-50293e6fe4b7}</Project>
+      <Name>Tiger.WinTools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BaseSerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BaseSerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BaseSerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserSerReference\UserSer.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserSerReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserSerReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\UserSerReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WangDaReference\WangDaSer.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WangDaReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WangDaReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\WangDaReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

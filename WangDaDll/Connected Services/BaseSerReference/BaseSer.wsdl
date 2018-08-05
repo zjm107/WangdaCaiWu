@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ExeSQL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExeSQLResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExeSelectSQL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strSql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExeSelectSQLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExeSelectSQLResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strSql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataSetForField">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_strFindField" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_strFindValue" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataSetForFieldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataSetForFieldResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataSetForTableName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataSetForTableNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataSetForTableNameResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSysDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSysDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetSysDateResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDataSetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveFileDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveFileDataSetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveRDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveRDataSetResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveTableError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_dst">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveTableErrorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableIgnoreError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableIgnoreErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveTableIgnoreErrorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveOnlyTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="table">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveOnlyTableResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_dst">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveCommonTableError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_dst">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCommonTableErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveCommonTableErrorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableDataBase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_DataBaseName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableDataBaseResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveTableIError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableIErrorResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveTableWithCommandBuilder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveTableWithCommandBuilderResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectTopCount">
+        <s:complexType />
+      </s:element>
+      <s:element name="SelectTopCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SelectTopCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveViewTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="p_strViewName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_strTableName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="p_blnIgnore" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveViewTableResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataBaseDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSql" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTableName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDataBase" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataBaseDataSetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataBaseDataSetResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExeSQLSoapIn">
+    <wsdl:part name="parameters" element="tns:ExeSQL" />
+  </wsdl:message>
+  <wsdl:message name="ExeSQLSoapOut">
+    <wsdl:part name="parameters" element="tns:ExeSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExeSelectSQLSoapIn">
+    <wsdl:part name="parameters" element="tns:ExeSelectSQL" />
+  </wsdl:message>
+  <wsdl:message name="ExeSelectSQLSoapOut">
+    <wsdl:part name="parameters" element="tns:ExeSelectSQLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSetForFieldSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataSetForField" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSetForFieldSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataSetForFieldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSetForTableNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataSetForTableName" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSetForTableNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataSetForTableNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSysDateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSysDate" />
+  </wsdl:message>
+  <wsdl:message name="GetSysDateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSysDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveDataSet" />
+  </wsdl:message>
+  <wsdl:message name="SaveDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveFileDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveFileDataSet" />
+  </wsdl:message>
+  <wsdl:message name="SaveFileDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveFileDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveRDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveRDataSet" />
+  </wsdl:message>
+  <wsdl:message name="SaveRDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveRDataSetResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTableError" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTableErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableIgnoreErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTableIgnoreError" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableIgnoreErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTableIgnoreErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveOnlyTableSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveOnlyTable" />
+  </wsdl:message>
+  <wsdl:message name="SaveOnlyTableSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveOnlyTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTable" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveCommonTableErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveCommonTableError" />
+  </wsdl:message>
+  <wsdl:message name="SaveCommonTableErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveCommonTableErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableDataBaseSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTableDataBase" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableDataBaseSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTableDataBaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableIErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTableIError" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableIErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTableIErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableWithCommandBuilderSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveTableWithCommandBuilder" />
+  </wsdl:message>
+  <wsdl:message name="SaveTableWithCommandBuilderSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveTableWithCommandBuilderResponse" />
+  </wsdl:message>
+  <wsdl:message name="SelectTopCountSoapIn">
+    <wsdl:part name="parameters" element="tns:SelectTopCount" />
+  </wsdl:message>
+  <wsdl:message name="SelectTopCountSoapOut">
+    <wsdl:part name="parameters" element="tns:SelectTopCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveViewTableSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveViewTable" />
+  </wsdl:message>
+  <wsdl:message name="SaveViewTableSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveViewTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataBaseDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataBaseDataSet" />
+  </wsdl:message>
+  <wsdl:message name="GetDataBaseDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataBaseDataSetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BaseSerSoap">
+    <wsdl:operation name="ExeSQL">
+      <wsdl:input message="tns:ExeSQLSoapIn" />
+      <wsdl:output message="tns:ExeSQLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExeSelectSQL">
+      <wsdl:input message="tns:ExeSelectSQLSoapIn" />
+      <wsdl:output message="tns:ExeSelectSQLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSet">
+      <wsdl:input message="tns:GetDataSetSoapIn" />
+      <wsdl:output message="tns:GetDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSetForField">
+      <wsdl:input message="tns:GetDataSetForFieldSoapIn" />
+      <wsdl:output message="tns:GetDataSetForFieldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSetForTableName">
+      <wsdl:input message="tns:GetDataSetForTableNameSoapIn" />
+      <wsdl:output message="tns:GetDataSetForTableNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDate">
+      <wsdl:input message="tns:GetSysDateSoapIn" />
+      <wsdl:output message="tns:GetSysDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDataSet">
+      <wsdl:input message="tns:SaveDataSetSoapIn" />
+      <wsdl:output message="tns:SaveDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFileDataSet">
+      <wsdl:input message="tns:SaveFileDataSetSoapIn" />
+      <wsdl:output message="tns:SaveFileDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRDataSet">
+      <wsdl:input message="tns:SaveRDataSetSoapIn" />
+      <wsdl:output message="tns:SaveRDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableError">
+      <wsdl:input message="tns:SaveTableErrorSoapIn" />
+      <wsdl:output message="tns:SaveTableErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableIgnoreError">
+      <wsdl:input message="tns:SaveTableIgnoreErrorSoapIn" />
+      <wsdl:output message="tns:SaveTableIgnoreErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveOnlyTable">
+      <wsdl:input message="tns:SaveOnlyTableSoapIn" />
+      <wsdl:output message="tns:SaveOnlyTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTable">
+      <wsdl:input message="tns:SaveTableSoapIn" />
+      <wsdl:output message="tns:SaveTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCommonTableError">
+      <wsdl:input message="tns:SaveCommonTableErrorSoapIn" />
+      <wsdl:output message="tns:SaveCommonTableErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableDataBase">
+      <wsdl:input message="tns:SaveTableDataBaseSoapIn" />
+      <wsdl:output message="tns:SaveTableDataBaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableIError">
+      <wsdl:input message="tns:SaveTableIErrorSoapIn" />
+      <wsdl:output message="tns:SaveTableIErrorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableWithCommandBuilder">
+      <wsdl:input message="tns:SaveTableWithCommandBuilderSoapIn" />
+      <wsdl:output message="tns:SaveTableWithCommandBuilderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectTopCount">
+      <wsdl:input message="tns:SelectTopCountSoapIn" />
+      <wsdl:output message="tns:SelectTopCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveViewTable">
+      <wsdl:input message="tns:SaveViewTableSoapIn" />
+      <wsdl:output message="tns:SaveViewTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataBaseDataSet">
+      <wsdl:input message="tns:GetDataBaseDataSetSoapIn" />
+      <wsdl:output message="tns:GetDataBaseDataSetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BaseSerSoap" type="tns:BaseSerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExeSQL">
+      <soap:operation soapAction="http://tempuri.org/ExeSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExeSelectSQL">
+      <soap:operation soapAction="http://tempuri.org/ExeSelectSQL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSet">
+      <soap:operation soapAction="http://tempuri.org/GetDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSetForField">
+      <soap:operation soapAction="http://tempuri.org/GetDataSetForField" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSetForTableName">
+      <soap:operation soapAction="http://tempuri.org/GetDataSetForTableName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDate">
+      <soap:operation soapAction="http://tempuri.org/GetSysDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDataSet">
+      <soap:operation soapAction="http://tempuri.org/SaveDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFileDataSet">
+      <soap:operation soapAction="http://tempuri.org/SaveFileDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRDataSet">
+      <soap:operation soapAction="http://tempuri.org/SaveRDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableError">
+      <soap:operation soapAction="http://tempuri.org/SaveTableError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableIgnoreError">
+      <soap:operation soapAction="http://tempuri.org/SaveTableIgnoreError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOnlyTable">
+      <soap:operation soapAction="http://tempuri.org/SaveOnlyTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTable">
+      <soap:operation soapAction="http://tempuri.org/SaveTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCommonTableError">
+      <soap:operation soapAction="http://tempuri.org/SaveCommonTableError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableDataBase">
+      <soap:operation soapAction="http://tempuri.org/SaveTableDataBase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableIError">
+      <soap:operation soapAction="http://tempuri.org/SaveTableIError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableWithCommandBuilder">
+      <soap:operation soapAction="http://tempuri.org/SaveTableWithCommandBuilder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTopCount">
+      <soap:operation soapAction="http://tempuri.org/SelectTopCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveViewTable">
+      <soap:operation soapAction="http://tempuri.org/SaveViewTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataBaseDataSet">
+      <soap:operation soapAction="http://tempuri.org/GetDataBaseDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BaseSerSoap12" type="tns:BaseSerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExeSQL">
+      <soap12:operation soapAction="http://tempuri.org/ExeSQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExeSelectSQL">
+      <soap12:operation soapAction="http://tempuri.org/ExeSelectSQL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSet">
+      <soap12:operation soapAction="http://tempuri.org/GetDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSetForField">
+      <soap12:operation soapAction="http://tempuri.org/GetDataSetForField" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSetForTableName">
+      <soap12:operation soapAction="http://tempuri.org/GetDataSetForTableName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysDate">
+      <soap12:operation soapAction="http://tempuri.org/GetSysDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDataSet">
+      <soap12:operation soapAction="http://tempuri.org/SaveDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFileDataSet">
+      <soap12:operation soapAction="http://tempuri.org/SaveFileDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveRDataSet">
+      <soap12:operation soapAction="http://tempuri.org/SaveRDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableError">
+      <soap12:operation soapAction="http://tempuri.org/SaveTableError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableIgnoreError">
+      <soap12:operation soapAction="http://tempuri.org/SaveTableIgnoreError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOnlyTable">
+      <soap12:operation soapAction="http://tempuri.org/SaveOnlyTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTable">
+      <soap12:operation soapAction="http://tempuri.org/SaveTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCommonTableError">
+      <soap12:operation soapAction="http://tempuri.org/SaveCommonTableError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableDataBase">
+      <soap12:operation soapAction="http://tempuri.org/SaveTableDataBase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableIError">
+      <soap12:operation soapAction="http://tempuri.org/SaveTableIError" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveTableWithCommandBuilder">
+      <soap12:operation soapAction="http://tempuri.org/SaveTableWithCommandBuilder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectTopCount">
+      <soap12:operation soapAction="http://tempuri.org/SelectTopCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveViewTable">
+      <soap12:operation soapAction="http://tempuri.org/SaveViewTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataBaseDataSet">
+      <soap12:operation soapAction="http://tempuri.org/GetDataBaseDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BaseSer">
+    <wsdl:port name="BaseSerSoap" binding="tns:BaseSerSoap">
+      <soap:address location="http://localhost:2849/BaseSer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BaseSerSoap12" binding="tns:BaseSerSoap12">
+      <soap12:address location="http://localhost:2849/BaseSer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

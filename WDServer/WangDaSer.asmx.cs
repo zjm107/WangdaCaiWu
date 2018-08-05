@@ -1885,7 +1885,7 @@ and 首年提成结束期 is null";
            and t3.EMPLOYEETYPE='学徒'
            and isnull(t.零申报,0)=0
            and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
-           and  '" + pdate.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
+           and  '" + pdate.ToString("yyyy-MM-dd") + @"' >= t.本次到期月份
             and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
            and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.收款类别 = '常规收款'
@@ -2376,7 +2376,7 @@ and 首年提成结束期 is null";
            and t3.EMPLOYEETYPE='学徒'
            and isnull(t.零申报,0)=0
            and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
-           and  '" + pdate.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
+           and  '" + pdate.ToString("yyyy-MM-dd") + @"' >= t.本次到期月份
            and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
            and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.收款类别 = '常规收款'

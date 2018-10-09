@@ -232,6 +232,12 @@
     <Compile Include="Proceeds\FrmPaymentGeneralView.Designer.cs">
       <DependentUpon>FrmPaymentGeneralView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proceeds\FrmPaymentGeneralX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentGeneralX.Designer.cs">
+      <DependentUpon>FrmPaymentGeneralX.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proceeds\FrmPaymentManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmPaymentGeneralView.resx">
       <DependentUpon>FrmPaymentGeneralView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPaymentGeneralX.resx">
+      <DependentUpon>FrmPaymentGeneralX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmPaymentManager.resx">
       <DependentUpon>FrmPaymentManager.cs</DependentUpon>

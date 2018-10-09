@@ -248,5 +248,24 @@ namespace WangDaDll
         {
             proceedsDataSet.DBHelper.WangDaSer.UpdateUserID();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmPaymentGeneralX frmDlg = new FrmPaymentGeneralX();
+                frmDlg.StartPosition = FormStartPosition.CenterScreen;
+                if (frmDlg.ShowDialog() == DialogResult.OK)
+                {
+                    proceedsDataSet.TW_Payment.ImportRow(frmDlg.paymentRow);
+                    proceedsDataSet.TW_Payment.AcceptChanges();
+                    UserMessages.ShowInfoBox("完成收款!");
+                }
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+        }
     }
 }

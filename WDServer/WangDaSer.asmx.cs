@@ -1502,7 +1502,7 @@ and 首年提成结束期 is null";
             and t.注册员ID='" + userID + @"'
             and t.是否审核=1 and t2.初始做账时间>'2017-12-31'
             and t2.客户名称= t3.公司预核名称 and ( t3.注册类型 like '%注册%' or t3.注册类型='设立')  and t.注册员ID=t3.注册员ID ";
-
+            //验资也做提成
 
          //   @" union
 	        //select

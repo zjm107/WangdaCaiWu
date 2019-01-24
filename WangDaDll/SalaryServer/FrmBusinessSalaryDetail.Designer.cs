@@ -55,8 +55,11 @@ namespace WangDaDll
             this.col注册利润 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col工资统计类型 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col客户名称 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col初始做账时间 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col首年提成结束期 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.col本次到期月份 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -77,9 +80,10 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.tW_SalarySumGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(992, 698);
+            this.layoutControl1.Size = new System.Drawing.Size(1134, 897);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -87,10 +91,12 @@ namespace WangDaDll
             // 
             this.tW_SalarySumGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tW_SalarySumGridControl.DataSource = this.tW_SalarySumBindingSourceYW;
-            this.tW_SalarySumGridControl.Location = new System.Drawing.Point(12, 12);
+            this.tW_SalarySumGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tW_SalarySumGridControl.Location = new System.Drawing.Point(16, 16);
             this.tW_SalarySumGridControl.MainView = this.gridView1;
+            this.tW_SalarySumGridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tW_SalarySumGridControl.Name = "tW_SalarySumGridControl";
-            this.tW_SalarySumGridControl.Size = new System.Drawing.Size(968, 674);
+            this.tW_SalarySumGridControl.Size = new System.Drawing.Size(1102, 865);
             this.tW_SalarySumGridControl.TabIndex = 4;
             this.tW_SalarySumGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -231,7 +237,10 @@ namespace WangDaDll
             this.col其他,
             this.col注册利润,
             this.col工资统计类型,
-            this.col客户名称});
+            this.col客户名称,
+            this.col初始做账时间,
+            this.col首年提成结束期,
+            this.col本次到期月份});
             this.gridView1.GridControl = this.tW_SalarySumGridControl;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "工本收款费", this.col工本收款费, ""),
@@ -409,6 +418,22 @@ namespace WangDaDll
             this.col客户名称.Visible = true;
             this.col客户名称.VisibleIndex = 1;
             // 
+            // col初始做账时间
+            // 
+            this.col初始做账时间.FieldName = "初始做账时间";
+            this.col初始做账时间.Name = "col初始做账时间";
+            this.col初始做账时间.OptionsColumn.ReadOnly = true;
+            this.col初始做账时间.Visible = true;
+            this.col初始做账时间.VisibleIndex = 16;
+            // 
+            // col首年提成结束期
+            // 
+            this.col首年提成结束期.FieldName = "首年提成结束期";
+            this.col首年提成结束期.Name = "col首年提成结束期";
+            this.col首年提成结束期.OptionsColumn.ReadOnly = true;
+            this.col首年提成结束期.Visible = true;
+            this.col首年提成结束期.VisibleIndex = 17;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
@@ -418,8 +443,7 @@ namespace WangDaDll
             this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(992, 698);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1134, 897);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -428,18 +452,25 @@ namespace WangDaDll
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(972, 678);
-            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(1108, 871);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // col本次到期月份
+            // 
+            this.col本次到期月份.FieldName = "本次到期月份";
+            this.col本次到期月份.Name = "col本次到期月份";
+            this.col本次到期月份.OptionsColumn.ReadOnly = true;
+            this.col本次到期月份.Visible = true;
+            this.col本次到期月份.VisibleIndex = 18;
             // 
             // FrmBusinessSalaryDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 698);
+            this.ClientSize = new System.Drawing.Size(1134, 897);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmBusinessSalaryDetail";
             this.Text = "业务员业绩明细";
             this.Load += new System.EventHandler(this.FrmBusinessSalaryDetail_Load);
@@ -483,5 +514,8 @@ namespace WangDaDll
         private DevExpress.XtraGrid.Columns.GridColumn col工资统计类型;
         private DevExpress.XtraGrid.Columns.GridColumn col客户名称;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn col初始做账时间;
+        private DevExpress.XtraGrid.Columns.GridColumn col首年提成结束期;
+        private DevExpress.XtraGrid.Columns.GridColumn col本次到期月份;
     }
 }

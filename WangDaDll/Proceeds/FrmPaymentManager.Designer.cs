@@ -121,6 +121,8 @@ namespace WangDaDll
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
+            this.col首年提成结束期 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col初始做账时间 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.不收款ItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -179,7 +181,7 @@ namespace WangDaDll
             this.col不收款.Name = "col不收款";
             this.col不收款.OptionsColumn.ReadOnly = true;
             this.col不收款.Visible = true;
-            this.col不收款.VisibleIndex = 18;
+            this.col不收款.VisibleIndex = 17;
             // 
             // 不收款ItemCheckEdit1
             // 
@@ -831,7 +833,9 @@ namespace WangDaDll
             this.col零申报,
             this.col上次到期月份,
             this.col缴费月数,
-            this.col月平均费});
+            this.col月平均费,
+            this.col首年提成结束期,
+            this.col初始做账时间});
             styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.Gainsboro;
             styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout);
             styleFormatCondition1.Appearance.Options.UseBackColor = true;
@@ -858,6 +862,7 @@ namespace WangDaDll
             this.col支付单位.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col支付单位.Visible = true;
             this.col支付单位.VisibleIndex = 0;
+            this.col支付单位.Width = 80;
             // 
             // col支付金额
             // 
@@ -875,6 +880,7 @@ namespace WangDaDll
             this.col支付日期.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col支付日期.Visible = true;
             this.col支付日期.VisibleIndex = 3;
+            this.col支付日期.Width = 80;
             // 
             // col支付方式
             // 
@@ -883,6 +889,7 @@ namespace WangDaDll
             this.col支付方式.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col支付方式.Visible = true;
             this.col支付方式.VisibleIndex = 4;
+            this.col支付方式.Width = 80;
             // 
             // col收款人
             // 
@@ -898,7 +905,8 @@ namespace WangDaDll
             this.col收款类别.Name = "col收款类别";
             this.col收款类别.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col收款类别.Visible = true;
-            this.col收款类别.VisibleIndex = 21;
+            this.col收款类别.VisibleIndex = 20;
+            this.col收款类别.Width = 80;
             // 
             // col备注
             // 
@@ -906,7 +914,7 @@ namespace WangDaDll
             this.col备注.Name = "col备注";
             this.col备注.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col备注.Visible = true;
-            this.col备注.VisibleIndex = 12;
+            this.col备注.VisibleIndex = 25;
             // 
             // col操作人
             // 
@@ -914,7 +922,7 @@ namespace WangDaDll
             this.col操作人.Name = "col操作人";
             this.col操作人.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col操作人.Visible = true;
-            this.col操作人.VisibleIndex = 22;
+            this.col操作人.VisibleIndex = 23;
             // 
             // col操作时间
             // 
@@ -922,8 +930,8 @@ namespace WangDaDll
             this.col操作时间.Name = "col操作时间";
             this.col操作时间.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col操作时间.Visible = true;
-            this.col操作时间.VisibleIndex = 23;
-            this.col操作时间.Width = 20;
+            this.col操作时间.VisibleIndex = 24;
+            this.col操作时间.Width = 80;
             // 
             // col工本费
             // 
@@ -952,6 +960,7 @@ namespace WangDaDll
             this.col做账会计.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col做账会计.Visible = true;
             this.col做账会计.VisibleIndex = 2;
+            this.col做账会计.Width = 80;
             // 
             // col上次到期月
             // 
@@ -966,6 +975,7 @@ namespace WangDaDll
             this.col本次到期月.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col本次到期月.Visible = true;
             this.col本次到期月.VisibleIndex = 10;
+            this.col本次到期月.Width = 80;
             // 
             // col总额
             // 
@@ -978,6 +988,7 @@ namespace WangDaDll
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "总额", "{0:0.##}")});
             this.col总额.Visible = true;
             this.col总额.VisibleIndex = 1;
+            this.col总额.Width = 80;
             // 
             // col审核人
             // 
@@ -985,7 +996,7 @@ namespace WangDaDll
             this.col审核人.Name = "col审核人";
             this.col审核人.OptionsColumn.ReadOnly = true;
             this.col审核人.Visible = true;
-            this.col审核人.VisibleIndex = 16;
+            this.col审核人.VisibleIndex = 15;
             // 
             // col审核时间
             // 
@@ -993,7 +1004,8 @@ namespace WangDaDll
             this.col审核时间.Name = "col审核时间";
             this.col审核时间.OptionsColumn.ReadOnly = true;
             this.col审核时间.Visible = true;
-            this.col审核时间.VisibleIndex = 17;
+            this.col审核时间.VisibleIndex = 16;
+            this.col审核时间.Width = 80;
             // 
             // col是否审批
             // 
@@ -1002,7 +1014,8 @@ namespace WangDaDll
             this.col是否审批.Name = "col是否审批";
             this.col是否审批.OptionsColumn.ReadOnly = true;
             this.col是否审批.Visible = true;
-            this.col是否审批.VisibleIndex = 15;
+            this.col是否审批.VisibleIndex = 14;
+            this.col是否审批.Width = 80;
             // 
             // 是否审批CheckEdit1
             // 
@@ -1018,7 +1031,7 @@ namespace WangDaDll
             this.col业务员1.Name = "col业务员1";
             this.col业务员1.OptionsColumn.ReadOnly = true;
             this.col业务员1.Visible = true;
-            this.col业务员1.VisibleIndex = 13;
+            this.col业务员1.VisibleIndex = 12;
             // 
             // col注册员1
             // 
@@ -1026,7 +1039,7 @@ namespace WangDaDll
             this.col注册员1.Name = "col注册员1";
             this.col注册员1.OptionsColumn.ReadOnly = true;
             this.col注册员1.Visible = true;
-            this.col注册员1.VisibleIndex = 14;
+            this.col注册员1.VisibleIndex = 13;
             // 
             // col补缴款
             // 
@@ -1035,7 +1048,7 @@ namespace WangDaDll
             this.col补缴款.Name = "col补缴款";
             this.col补缴款.OptionsColumn.ReadOnly = true;
             this.col补缴款.Visible = true;
-            this.col补缴款.VisibleIndex = 19;
+            this.col补缴款.VisibleIndex = 18;
             // 
             // 补缴款ItemCheckEdit1
             // 
@@ -1052,7 +1065,7 @@ namespace WangDaDll
             this.col零申报.Name = "col零申报";
             this.col零申报.OptionsColumn.ReadOnly = true;
             this.col零申报.Visible = true;
-            this.col零申报.VisibleIndex = 20;
+            this.col零申报.VisibleIndex = 19;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -1068,6 +1081,7 @@ namespace WangDaDll
             this.col上次到期月份.OptionsColumn.ReadOnly = true;
             this.col上次到期月份.Visible = true;
             this.col上次到期月份.VisibleIndex = 9;
+            this.col上次到期月份.Width = 80;
             // 
             // col缴费月数
             // 
@@ -1076,6 +1090,7 @@ namespace WangDaDll
             this.col缴费月数.OptionsColumn.ReadOnly = true;
             this.col缴费月数.Visible = true;
             this.col缴费月数.VisibleIndex = 11;
+            this.col缴费月数.Width = 80;
             // 
             // col月平均费
             // 
@@ -1086,6 +1101,7 @@ namespace WangDaDll
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "月平均费", "{0:0.##}")});
             this.col月平均费.Visible = true;
             this.col月平均费.VisibleIndex = 8;
+            this.col月平均费.Width = 80;
             // 
             // txtRY
             // 
@@ -1401,6 +1417,24 @@ namespace WangDaDll
             this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
             this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // col首年提成结束期
+            // 
+            this.col首年提成结束期.FieldName = "首年提成结束期";
+            this.col首年提成结束期.Name = "col首年提成结束期";
+            this.col首年提成结束期.OptionsColumn.ReadOnly = true;
+            this.col首年提成结束期.Visible = true;
+            this.col首年提成结束期.VisibleIndex = 21;
+            this.col首年提成结束期.Width = 125;
+            // 
+            // col初始做账时间
+            // 
+            this.col初始做账时间.FieldName = "初始做账时间";
+            this.col初始做账时间.Name = "col初始做账时间";
+            this.col初始做账时间.OptionsColumn.ReadOnly = true;
+            this.col初始做账时间.Visible = true;
+            this.col初始做账时间.VisibleIndex = 22;
+            this.col初始做账时间.Width = 110;
+            // 
             // FrmPaymentManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -1556,5 +1590,7 @@ namespace WangDaDll
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
+        private DevExpress.XtraGrid.Columns.GridColumn col首年提成结束期;
+        private DevExpress.XtraGrid.Columns.GridColumn col初始做账时间;
     }
 }

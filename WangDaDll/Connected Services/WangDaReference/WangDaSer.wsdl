@@ -378,6 +378,10 @@
             <s:element minOccurs="0" maxOccurs="1" name="endPaymentDate" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="isPay" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="zeroAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcdqDate1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcdqDate2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cszzDate1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cszzDate2" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>

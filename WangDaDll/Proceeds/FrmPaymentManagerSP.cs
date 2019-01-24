@@ -29,8 +29,31 @@ namespace WangDaDll
                 {
                     paymentEndDate = ((DateTime)本次到期月DateEdit.EditValue).ToShortDateString();
                 }
+                string bcDate1 = "";
+                if (!string.IsNullOrEmpty(zfdqdateEdit1.Text))
+                {
+                    bcDate1 = ((DateTime)zfdqdateEdit1.EditValue).ToShortDateString();
+                }
+                string bcDate2 = "";
+                if (!string.IsNullOrEmpty(zfdqdateEdit2.Text))
+                {
+                    bcDate2 = ((DateTime)zfdqdateEdit2.EditValue).ToShortDateString();
+                }
+                string cszzDate1 = "";
+                if (!string.IsNullOrEmpty(cszzdateEdit1.Text))
+                {
+                    cszzDate1 = ((DateTime)cszzdateEdit1.EditValue).ToShortDateString();
+                }
+                string cszzDate2 = "";
+                if (!string.IsNullOrEmpty(cszzdateEdit2.Text))
+                {
+                    cszzDate2 = ((DateTime)cszzdateEdit2.EditValue).ToShortDateString();
+                }
+
                 proceedsDataSet.GetPaymentByInfoSP(是否审批comboBoxEdit.Text, 支付单位TextEdit.Text, "", 支付日期DateEdit.Text
-                    , 支付日期DateEdit1.Text, 收款类别ComboBoxEdit.Text, paymentEndDate,comboBoxEditBSK.Text,comboBoxEditLSB.Text);
+                    , 支付日期DateEdit1.Text, 收款类别ComboBoxEdit.Text
+                    , paymentEndDate,comboBoxEditBSK.Text,comboBoxEditLSB.Text
+                    ,cszzDate1,cszzDate2,bcDate1,bcDate2);
                 tW_PaymentBindingSource.MoveFirst();
                 GetPaymentDetail();
 

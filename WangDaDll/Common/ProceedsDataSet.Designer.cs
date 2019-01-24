@@ -468,6 +468,10 @@ namespace WangDaDll.Common {
             
             private global::System.Data.DataColumn column做账提成月;
             
+            private global::System.Data.DataColumn column初始做账时间;
+            
+            private global::System.Data.DataColumn column首年提成结束期;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TW_PaymentDataTable() : 
@@ -784,6 +788,22 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 初始做账时间Column {
+                get {
+                    return this.column初始做账时间;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 首年提成结束期Column {
+                get {
+                    return this.column首年提成结束期;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -853,7 +873,9 @@ namespace WangDaDll.Common {
                         bool 零申报, 
                         string 注册提成月, 
                         string 业务提成月, 
-                        string 做账提成月) {
+                        string 做账提成月, 
+                        string 初始做账时间, 
+                        string 首年提成结束期) {
                 TW_PaymentRow rowTW_PaymentRow = ((TW_PaymentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TW_PaymentID,
@@ -889,7 +911,9 @@ namespace WangDaDll.Common {
                         零申报,
                         注册提成月,
                         业务提成月,
-                        做账提成月};
+                        做账提成月,
+                        初始做账时间,
+                        首年提成结束期};
                 rowTW_PaymentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTW_PaymentRow);
                 return rowTW_PaymentRow;
@@ -930,7 +954,9 @@ namespace WangDaDll.Common {
                         bool 零申报, 
                         string 注册提成月, 
                         string 业务提成月, 
-                        string 做账提成月) {
+                        string 做账提成月, 
+                        string 初始做账时间, 
+                        string 首年提成结束期) {
                 TW_PaymentRow rowTW_PaymentRow = ((TW_PaymentRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TW_PaymentID,
@@ -966,7 +992,9 @@ namespace WangDaDll.Common {
                         零申报,
                         注册提成月,
                         业务提成月,
-                        做账提成月};
+                        做账提成月,
+                        初始做账时间,
+                        首年提成结束期};
                 rowTW_PaymentRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTW_PaymentRow);
                 return rowTW_PaymentRow;
@@ -1030,6 +1058,8 @@ namespace WangDaDll.Common {
                 this.column注册提成月 = base.Columns["注册提成月"];
                 this.column业务提成月 = base.Columns["业务提成月"];
                 this.column做账提成月 = base.Columns["做账提成月"];
+                this.column初始做账时间 = base.Columns["初始做账时间"];
+                this.column首年提成结束期 = base.Columns["首年提成结束期"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1103,6 +1133,10 @@ namespace WangDaDll.Common {
                 base.Columns.Add(this.column业务提成月);
                 this.column做账提成月 = new global::System.Data.DataColumn("做账提成月", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column做账提成月);
+                this.column初始做账时间 = new global::System.Data.DataColumn("初始做账时间", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column初始做账时间);
+                this.column首年提成结束期 = new global::System.Data.DataColumn("首年提成结束期", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column首年提成结束期);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTW_PaymentID}, true));
                 this.columnTW_PaymentID.AllowDBNull = false;
@@ -3994,6 +4028,38 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string 初始做账时间 {
+                get {
+                    try {
+                        return ((string)(this[this.tableTW_Payment.初始做账时间Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_Payment”中列“初始做账时间”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_Payment.初始做账时间Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string 首年提成结束期 {
+                get {
+                    try {
+                        return ((string)(this[this.tableTW_Payment.首年提成结束期Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_Payment”中列“首年提成结束期”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_Payment.首年提成结束期Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is支付单位Null() {
                 return this.IsNull(this.tableTW_Payment.支付单位Column);
             }
@@ -4374,6 +4440,30 @@ namespace WangDaDll.Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set做账提成月Null() {
                 this[this.tableTW_Payment.做账提成月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is初始做账时间Null() {
+                return this.IsNull(this.tableTW_Payment.初始做账时间Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set初始做账时间Null() {
+                this[this.tableTW_Payment.初始做账时间Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is首年提成结束期Null() {
+                return this.IsNull(this.tableTW_Payment.首年提成结束期Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set首年提成结束期Null() {
+                this[this.tableTW_Payment.首年提成结束期Column] = global::System.Convert.DBNull;
             }
         }
         

@@ -22,11 +22,11 @@ namespace WangDaDll.Common
         /// <param name="regMan"></param>
         /// <param name="accountant"></param>
         /// <param name="isPayment"></param>
-        public void GetNoPaymentReg(string accountant, string gsName,string isPayment)
+        public void GetNoPaymentReg(string accountant, string gsName, string isPayment)
         {
             try
             {
-                DataSet dst = DBHelper.WangDaSer.GetNoPaymentReg(accountant, gsName ,isPayment);
+                DataSet dst = DBHelper.WangDaSer.GetNoPaymentReg(accountant, gsName, isPayment);
                 DataManager.ImpDataSet(dst.Tables[0], this.VW_PaymentDetail);
             }
             catch (Exception ex)
@@ -223,7 +223,7 @@ namespace WangDaDll.Common
             {
 
                 DataSet dst = DBHelper.WangDaSer.GetPaymentByInfo(unitName, account, beginDate, endDate, paymentType, endPaymentDate
-                    , manager,isPay,zeroAccount);
+                    , manager, isPay, zeroAccount);
                 DataManager.ImpDataSet(dst.Tables[0], this.TW_Payment);
             }
             catch (Exception ex)
@@ -242,12 +242,15 @@ namespace WangDaDll.Common
         /// <param name="endDate"></param>
         /// <param name="paymentType"></param>
         /// <param name="endPaymentDate"></param>
+        /// <param name="cszzDate1">初始做账</param>
+        /// <param name="dqDate1">本次到期日期</param>
         public void GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate
-            , string paymentType, string endPaymentDate,string isPay,string zeroAccount)
+            , string paymentType, string endPaymentDate, string isPay, string zeroAccount,string cszzDate1,string cszzDate2,string dqDate1,string dqDate2)
         {
             try
             {
-                DataSet dst = DBHelper.WangDaSer.GetPaymentByInfoSP(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate,isPay,zeroAccount);
+                DataSet dst = DBHelper.WangDaSer.GetPaymentByInfoSP(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate
+                    , isPay, zeroAccount,dqDate1,dqDate2,cszzDate1,cszzDate2);
                 DataManager.ImpDataSet(dst.Tables[0], this.TW_Payment);
             }
             catch (Exception ex)

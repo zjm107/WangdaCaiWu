@@ -69,6 +69,12 @@ where 初始做账时间>'1900-1-1'
 and 首年提成结束期 is null";
 
             db.ExecuteNonQuery(exeSql);
+
+            exeSql = @"update  [dbo].[TW_BusinessReg] 
+set 首年提成结束期 =(select DATEADD(year,1,初始做账时间)  from [dbo].[TW_Client] where TW_Client.客户名称 = TW_BusinessReg.公司预核名称
+and TW_Client.初始做账时间 is not null )";
+            db.ExecuteNonQuery(exeSql);
+
         }
 
         /// <summary>
@@ -106,6 +112,11 @@ set [TW_Client].首年提成结束期=DATEADD(month,12,[TW_Client].初始做账�
 where 初始做账时间>'1900-1-1'
 and 首年提成结束期 is null";
             db.ExecuteNonQuery(exeSql);
+            exeSql = @"update  [dbo].[TW_BusinessReg] 
+set 首年提成结束期 =(select DATEADD(year,1,初始做账时间)  from [dbo].[TW_Client] where TW_Client.客户名称 = TW_BusinessReg.公司预核名称
+and TW_Client.初始做账时间 is not null )";
+            db.ExecuteNonQuery(exeSql);
+
         }
 
         /// <summary>
@@ -704,57 +715,59 @@ and 首年提成结束期 is null";
             SqlStruct prc = new SqlStruct(strPrc, CommandType.StoredProcedure);
             ServiceManager.GetDatabase().ExecuteNonQuery(prc);
 
-            string strSql = "select * from TW_Payment where 1=1 ";
+            string strSql = @"select t.*,tc.初始做账时间,tc.首年提成结束期 from TW_Payment t  
+                                left join [dbo].[TW_Client] tc
+                                on t.客户名称ID =tc.客户名称ID where 1=1  ";
             if (!string.IsNullOrEmpty(unitName))
             {
-                strSql += " and 支付单位 like '%" + unitName + "%'";
+                strSql += " and t.支付单位 like '%" + unitName + "%'";
             }
             if (manager == "注册主管")
             {
                 if (!string.IsNullOrEmpty(account))
-                    strSql += " and  (注册员='" + account + "') ";
+                    strSql += " and  (t.注册员='" + account + "') ";
             }
             else
             if (!string.IsNullOrEmpty(account))
             {
-                strSql += " and  ((做账会计 = '" + account + "' or 业务员='" + account + "' or 注册员='" + account +
-                @"') or TW_PaymentID in ( select t2.TW_PaymentID from [dbo].[TW_PaymentDetail] t2 where t2.业务员 = '" + account + "' or 注册员 = '" + account + "' or 做账会计 = '" + account + "')) ";
+                strSql += " and  ((t.做账会计 = '" + account + "' or t.业务员='" + account + "' or t.注册员='" + account +
+                @"') or t.TW_PaymentID in ( select t2.TW_PaymentID from [dbo].[TW_PaymentDetail] t2 where t2.业务员 = '" + account + "' or 注册员 = '" + account + "' or 做账会计 = '" + account + "')) ";
             }
             if (!string.IsNullOrEmpty(beginDate))
             {
-                strSql += " and 支付日期>='" + beginDate + "'";
+                strSql += " and t.支付日期>='" + beginDate + "'";
             }
             if (!string.IsNullOrEmpty(endDate))
             {
-                strSql += " and 支付日期<='" + endDate + "'";
+                strSql += " and t.支付日期<='" + endDate + "'";
             }
             if (!string.IsNullOrEmpty(paymentType))
             {
-                strSql += " and 收款类别 ='" + paymentType + "'";
+                strSql += " and t.收款类别 ='" + paymentType + "'";
             }
             if (!string.IsNullOrEmpty(endPaymentDate))
             {
                 DateTime paymentEndDate = DateTime.Parse(endPaymentDate);
                 int year = paymentEndDate.Year;
                 int month = paymentEndDate.Month;
-                strSql += " and Year(本次到期月份)=" + year.ToString() + " and Month(本次到期月份)=" + month;
+                strSql += " and Year(t.本次到期月份)=" + year.ToString() + " and Month(t.本次到期月份)=" + month;
             }
 
             if (isPay == "是")
             {
-                strSql += " and 不收款=1 ";
+                strSql += " and t.不收款=1 ";
             }
             else if (isPay == "否")
             {
-                strSql += " and ( 不收款=0 or 不收款 is null ) ";
+                strSql += " and ( t.不收款=0 or t.不收款 is null ) ";
             }
             if (zeroAccount == "是")
             {
-                strSql += " and 零申报=1 ";
+                strSql += " and t.零申报=1 ";
             }
             else if (zeroAccount == "否")
             {
-                strSql += " and ( 零申报=0 or 零申报 is null ) ";
+                strSql += " and ( t.零申报=0 or t.零申报 is null ) ";
             }
 
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Payment");
@@ -774,59 +787,81 @@ and 首年提成结束期 is null";
         /// <returns></returns>
         [WebMethod]
         public DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate
-            , string paymentType, string endPaymentDate, string isPay, string zeroAccount)
+            , string paymentType, string endPaymentDate, string isPay, string zeroAccount,string bcdqDate1, string bcdqDate2
+            ,string cszzDate1,string cszzDate2)
         {
-            string strSql = "select * from TW_Payment where 1=1 ";
+            string strSql = @"
+                            select t.*,t2.初始做账时间,t2.首年提成结束期 from TW_Payment t
+                            left join[dbo].[TW_Client] t2
+                            on t.客户名称ID =t2.客户名称ID where 1=1 ";
             if (!string.IsNullOrEmpty(unitName))
             {
-                strSql += " and 支付单位 like '%" + unitName + "%'";
+                strSql += " and t.支付单位 like '%" + unitName + "%'";
             }
             if (!string.IsNullOrEmpty(account))
             {
-                strSql += " and 做账会计 like '%" + account + "%'";
+                strSql += " and t.做账会计 like '%" + account + "%'";
             }
             if (!string.IsNullOrEmpty(beginDate))
             {
-                strSql += " and 支付日期>='" + beginDate + "'";
+                strSql += " and t.支付日期>='" + beginDate + "'";
             }
             if (!string.IsNullOrEmpty(endDate))
             {
-                strSql += " and 支付日期<='" + endDate + "'";
+                strSql += " and t.支付日期<='" + endDate + "'";
             }
             if (!string.IsNullOrEmpty(paymentType))
             {
-                strSql += " and 收款类别 ='" + paymentType + "'";
+                strSql += " and t.收款类别 ='" + paymentType + "'";
             }
             if (!string.IsNullOrEmpty(endPaymentDate))
             {
                 DateTime paymentEndDate = DateTime.Parse(endPaymentDate);
                 int year = paymentEndDate.Year;
                 int month = paymentEndDate.Month;
-                strSql += " and Year(本次到期月份)=" + year.ToString() + " and Month(本次到期月份)=" + month;
+                strSql += " and Year(t.本次到期月份)=" + year.ToString() + " and Month(t.本次到期月份)=" + month;
             }
             if (spType == "未审批")
             {
-                strSql += " and ( 是否审核=0 or 是否审核 is null )";
+                strSql += " and ( t.是否审核=0 or t.是否审核 is null )";
             }
             if (spType == "已审批")
             {
-                strSql += " and 是否审核=1 ";
+                strSql += " and t.是否审核=1 ";
             }
             if (isPay == "是")
             {
-                strSql += " and 不收款=1 ";
+                strSql += " and t.不收款=1 ";
             }
             else if (isPay == "否")
             {
-                strSql += " and ( 不收款=0 or 不收款 is null ) ";
+                strSql += " and ( t.不收款=0 or t.不收款 is null ) ";
             }
             if (zeroAccount == "是")
             {
-                strSql += " and 零申报=1 ";
+                strSql += " and t.零申报=1 ";
             }
             else if (zeroAccount == "否")
             {
-                strSql += " and ( 零申报=0 or 零申报 is null ) ";
+                strSql += " and ( t.零申报=0 or t.零申报 is null ) ";
+            }
+
+            if (!string.IsNullOrEmpty(bcdqDate1))
+            {
+                strSql += " and t.本次到期月份>='" + beginDate + "'";
+            }
+
+            if (!string.IsNullOrEmpty(bcdqDate2))
+            {
+                strSql += " and t.本次到期月份<='" + endDate + "'";
+            }
+            if (!string.IsNullOrEmpty(cszzDate1))
+            {
+                strSql += " and t2.初始做账时间>='" + cszzDate1 + "'";
+            }
+            if (!string.IsNullOrEmpty(cszzDate2))
+            {
+                strSql += " and t2.初始做账时间<='" + cszzDate1 + "'";
             }
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Payment");
             return dst;
@@ -879,6 +914,9 @@ and 首年提成结束期 is null";
         0 as 其他,
         0 as 注册利润,
         '业务员做账费' as 工资统计类型
+        ,t2.初始做账时间
+        ,t2.首年提成结束期
+        ,t.本次到期月份
        from TW_Payment  t,[dbo].[TW_Client] t2
         where
 		t.客户名称ID=t2.客户名称ID
@@ -911,6 +949,9 @@ and 首年提成结束期 is null";
         t.其他,
         t.注册利润,
         '业务员注册费' as 工资统计类型
+        ,t.初始做账时间
+        ,t.首年提成结束期
+        ,t.做账到期月
         from VW_PaymentDetail t
         where  t.注册费<=t.注册费收款额
         and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
@@ -1212,6 +1253,7 @@ and 首年提成结束期 is null";
         public DataSet GetBussinessSumByYear(int Year, string businessManID)
         {
             string strSql = @"select
+                  NEWID() as TW_SalarySumID,
                   t.支付单位 as 客户名称,
                   t.客户名称ID as 客户名称Id,
                   t.支付金额 as 做账收款额,
@@ -1232,10 +1274,14 @@ and 首年提成结束期 is null";
                   0 as 银行,
                   0 as 其他,
                   0 as 注册利润,
-                  '业务员做账费上年' as 工资统计类型
-                      from [TW_Payment] t
-                      where  t.本次到期月份>  t.首年提成结束期
-                      and year(t.操作时间)=" + Year + @"
+                  '业务员做账费上年' as 工资统计类型,
+                    t2.首年提成结束期,
+                    t2.初始做账时间,
+                        t.本次到期月份
+                      from [TW_Payment] t,[TW_Client] t2
+                      where   t.客户名称ID=t2.客户名称ID
+                      and t.本次到期月份>  t2.首年提成结束期
+                      and year(t.本次到期月份)=" + Year + @"
                       and t.收款类别='常规收款'
                       and t.是否审核=1
                       and t.业务员ID='" + businessManID + "'";
@@ -1251,7 +1297,11 @@ and 首年提成结束期 is null";
         [WebMethod]
         public DataSet GetBusinessLastYear(int year, string userName)
         {
-            string strSql = string.Format(@"select tt.*,tt.做账收款额*tc.业务_做账次年提成 as 做账收款次年提层 from (
+
+            string strSql = "";
+            if (string.IsNullOrEmpty(userName))
+            {
+                strSql = string.Format(@"select tt.*,tt.做账收款额*tc.业务_做账次年提成 as 做账收款次年提层 from (
 				 select ts.员工,ts.员工ID ,sum(ts.做账收款额) as 做账收款额  from (
 				 select  t.支付单位 as 客户名称,
                   t.客户名称ID as 客户名称Id,
@@ -1274,15 +1324,52 @@ and 首年提成结束期 is null";
                   0 as 其他,
                   0 as 注册利润,
                   '业务员做账费上年' as 工资统计类型
-                      from [TW_Payment] t,TCOM_USER tu
-					  where  t.业务员ID =tu.USERID
+                      from [TW_Payment] t,TCOM_USER tu,[TW_Client] t2
+					  where t.客户名称ID=t2.客户名称ID and  t.业务员ID =tu.USERID
                       and t.是否审核=1
-                      and t.本次到期月份>  t.首年提成结束期
-                      and year(t.操作时间)={0}
+                      and t.本次到期月份>  t2.首年提成结束期
+                      and year(t.本次到期月份)={0}
                       and t.收款类别='常规收款'
                       and tu.DEPTNAME='业务部' ) ts
 					  group by ts.员工,ts.员工ID) tt,[dbo].[TWS_Commission] tc
 					  where tc.TWS_CommissionID='1' ", year);
+            }
+            else
+            {
+                strSql = string.Format(@"select tt.*,tt.做账收款额*tc.业务_做账次年提成 as 做账收款次年提层 from (
+				 select ts.员工,ts.员工ID ,sum(ts.做账收款额) as 做账收款额  from (
+				 select  t.支付单位 as 客户名称,
+                  t.客户名称ID as 客户名称Id,
+                  t.支付金额 as 做账收款额,
+                  t.工本费 as 工本收款费,
+                  t.开票费 as 开票收款费,
+                  0 as 做账提成 ,
+                  0 as 工本费开票费提成,
+                  t.业务员 as 员工,
+                  t.业务员ID as 员工ID,
+                  t.操作时间 as 支付日期,
+                  0 as 注册费收款额,
+                  0 as 注册提成,
+                  t.收款类别,
+                  t.月做账费,
+                  t.月做账费 * 12 as 年做账费,
+                  0 as 注册费,
+                  0 as 图章,
+                  0 as 银行,
+                  0 as 其他,
+                  0 as 注册利润,
+                  '业务员做账费上年' as 工资统计类型
+                      from [TW_Payment] t,TCOM_USER tu,[TW_Client] t2
+					  where t.客户名称ID=t2.客户名称ID and  t.业务员ID =tu.USERID
+                      and t.业务员='{0}'
+                      and t.是否审核=1
+                      and t.本次到期月份>  t2.首年提成结束期
+                      and year(t.本次到期月份)={1}
+                      and t.收款类别='常规收款'
+                      and tu.DEPTNAME='业务部' ) ts
+					  group by ts.员工,ts.员工ID) tt,[dbo].[TWS_Commission] tc
+					  where tc.TWS_CommissionID='1' ", userName, year);
+            }
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllBusinessSalaryYear");
             return dst;
         }

@@ -86,7 +86,7 @@ namespace WangDaDll.WangDaReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount);
+        System.Data.DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentDetailID", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -240,8 +240,8 @@ namespace WangDaDll.WangDaReference {
             return base.Channel.GetPaymentByInfo(unitName, account, beginDate, endDate, paymentType, endPaymentDate, manager, isPay, zeroAccount);
         }
         
-        public System.Data.DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount) {
-            return base.Channel.GetPaymentByInfoSP(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount);
+        public System.Data.DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2) {
+            return base.Channel.GetPaymentByInfoSP(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount, bcdqDate1, bcdqDate2, cszzDate1, cszzDate2);
         }
         
         public System.Data.DataSet GetPaymentDetailID(string paymentID) {

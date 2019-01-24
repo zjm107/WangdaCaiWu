@@ -59,6 +59,13 @@ namespace WangDaDll
                 }
                 else {
                     salaryDataSet.GetBussinessSumByLastYear(year, UserID);
+                    if (Security.UserBusiness.Contains("总经理") || Security.UserBusiness.Contains("主管"))
+                    {
+                        salaryDataSet.GetBusinessLastYear(year, "");
+                    }
+                    else {
+                        salaryDataSet.GetBusinessLastYear(year, Security.UserName);
+                    }
                 }
 
 

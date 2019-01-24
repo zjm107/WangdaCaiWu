@@ -1100,6 +1100,12 @@ namespace WangDaDll.SalaryServer {
             
             private global::System.Data.DataColumn column业务提成;
             
+            private global::System.Data.DataColumn column初始做账时间;
+            
+            private global::System.Data.DataColumn column首年提成结束期;
+            
+            private global::System.Data.DataColumn column本次到期月份;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TW_SalarySumDataTable() {
@@ -1343,6 +1349,30 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 初始做账时间Column {
+                get {
+                    return this.column初始做账时间;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 首年提成结束期Column {
+                get {
+                    return this.column首年提成结束期;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 本次到期月份Column {
+                get {
+                    return this.column本次到期月份;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1404,7 +1434,10 @@ namespace WangDaDll.SalaryServer {
                         string FK_Table, 
                         string 工资统计类型, 
                         string 注册类型, 
-                        decimal 业务提成) {
+                        decimal 业务提成, 
+                        System.DateTime 初始做账时间, 
+                        System.DateTime 首年提成结束期, 
+                        System.DateTime 本次到期月份) {
                 TW_SalarySumRow rowTW_SalarySumRow = ((TW_SalarySumRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TW_SalarySumID,
@@ -1432,7 +1465,10 @@ namespace WangDaDll.SalaryServer {
                         FK_Table,
                         工资统计类型,
                         注册类型,
-                        业务提成};
+                        业务提成,
+                        初始做账时间,
+                        首年提成结束期,
+                        本次到期月份};
                 rowTW_SalarySumRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTW_SalarySumRow);
                 return rowTW_SalarySumRow;
@@ -1488,6 +1524,9 @@ namespace WangDaDll.SalaryServer {
                 this.column工资统计类型 = base.Columns["工资统计类型"];
                 this.column注册类型 = base.Columns["注册类型"];
                 this.column业务提成 = base.Columns["业务提成"];
+                this.column初始做账时间 = base.Columns["初始做账时间"];
+                this.column首年提成结束期 = base.Columns["首年提成结束期"];
+                this.column本次到期月份 = base.Columns["本次到期月份"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1547,6 +1586,12 @@ namespace WangDaDll.SalaryServer {
                 base.Columns.Add(this.column注册类型);
                 this.column业务提成 = new global::System.Data.DataColumn("业务提成", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column业务提成);
+                this.column初始做账时间 = new global::System.Data.DataColumn("初始做账时间", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column初始做账时间);
+                this.column首年提成结束期 = new global::System.Data.DataColumn("首年提成结束期", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column首年提成结束期);
+                this.column本次到期月份 = new global::System.Data.DataColumn("本次到期月份", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column本次到期月份);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTW_SalarySumID}, true));
                 this.columnTW_SalarySumID.AllowDBNull = false;
@@ -6069,6 +6114,54 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime 初始做账时间 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTW_SalarySum.初始做账时间Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_SalarySum”中列“初始做账时间”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_SalarySum.初始做账时间Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime 首年提成结束期 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTW_SalarySum.首年提成结束期Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_SalarySum”中列“首年提成结束期”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_SalarySum.首年提成结束期Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime 本次到期月份 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTW_SalarySum.本次到期月份Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_SalarySum”中列“本次到期月份”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_SalarySum.本次到期月份Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is客户名称Null() {
                 return this.IsNull(this.tableTW_SalarySum.客户名称Column);
             }
@@ -6365,6 +6458,42 @@ namespace WangDaDll.SalaryServer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set业务提成Null() {
                 this[this.tableTW_SalarySum.业务提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is初始做账时间Null() {
+                return this.IsNull(this.tableTW_SalarySum.初始做账时间Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set初始做账时间Null() {
+                this[this.tableTW_SalarySum.初始做账时间Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is首年提成结束期Null() {
+                return this.IsNull(this.tableTW_SalarySum.首年提成结束期Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set首年提成结束期Null() {
+                this[this.tableTW_SalarySum.首年提成结束期Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is本次到期月份Null() {
+                return this.IsNull(this.tableTW_SalarySum.本次到期月份Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set本次到期月份Null() {
+                this[this.tableTW_SalarySum.本次到期月份Column] = global::System.Convert.DBNull;
             }
         }
         

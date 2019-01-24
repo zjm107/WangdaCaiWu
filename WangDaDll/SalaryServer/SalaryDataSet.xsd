@@ -123,6 +123,9 @@
               </xs:element>
               <xs:element name="注册类型" msprop:Generator_ColumnVarNameInTable="column注册类型" msprop:Generator_ColumnPropNameInRow="注册类型" msprop:Generator_ColumnPropNameInTable="注册类型Column" msprop:Generator_UserColumnName="注册类型" type="xs:string" minOccurs="0" />
               <xs:element name="业务提成" msprop:Generator_ColumnVarNameInTable="column业务提成" msprop:Generator_ColumnPropNameInRow="业务提成" msprop:Generator_ColumnPropNameInTable="业务提成Column" msprop:Generator_UserColumnName="业务提成" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="初始做账时间" msprop:Generator_ColumnVarNameInTable="column初始做账时间" msprop:Generator_ColumnPropNameInRow="初始做账时间" msprop:Generator_ColumnPropNameInTable="初始做账时间Column" msprop:Generator_UserColumnName="初始做账时间" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="首年提成结束期" msprop:Generator_ColumnVarNameInTable="column首年提成结束期" msprop:Generator_ColumnPropNameInRow="首年提成结束期" msprop:Generator_ColumnPropNameInTable="首年提成结束期Column" msprop:Generator_UserColumnName="首年提成结束期" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="本次到期月份" msprop:Generator_ColumnVarNameInTable="column本次到期月份" msprop:Generator_ColumnPropNameInRow="本次到期月份" msprop:Generator_ColumnPropNameInTable="本次到期月份Column" msprop:Generator_UserColumnName="本次到期月份" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

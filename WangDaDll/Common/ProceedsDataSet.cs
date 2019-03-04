@@ -215,7 +215,18 @@ namespace WangDaDll.Common
 
         }
 
-
+        /// <summary>
+        /// 查询收款
+        /// </summary>
+        /// <param name="unitName"></param>
+        /// <param name="account"></param>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="paymentType"></param>
+        /// <param name="endPaymentDate"></param>
+        /// <param name="manager"></param>
+        /// <param name="isPay"></param>
+        /// <param name="zeroAccount"></param>
         public void GetPaymentByInfo(string unitName, string account, string beginDate, string endDate, string paymentType
             , string endPaymentDate, string manager, string isPay, string zeroAccount)
         {
@@ -243,7 +254,7 @@ namespace WangDaDll.Common
         /// <param name="paymentType"></param>
         /// <param name="endPaymentDate"></param>
         /// <param name="cszzDate1">初始做账</param>
-        /// <param name="dqDate1">本次到期日期</param>
+        /// <param name="dqDate1">支付日期</param>
         public void GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate
             , string paymentType, string endPaymentDate, string isPay, string zeroAccount,string cszzDate1,string cszzDate2,string dqDate1,string dqDate2)
         {

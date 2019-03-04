@@ -29,6 +29,7 @@ namespace WangDaDll
                 {
                     paymentEndDate = ((DateTime)本次到期月DateEdit.EditValue).ToShortDateString();
                 }
+                //支付日期
                 string bcDate1 = "";
                 if (!string.IsNullOrEmpty(zfdqdateEdit1.Text))
                 {
@@ -39,6 +40,7 @@ namespace WangDaDll
                 {
                     bcDate2 = ((DateTime)zfdqdateEdit2.EditValue).ToShortDateString();
                 }
+                //初始做账时间
                 string cszzDate1 = "";
                 if (!string.IsNullOrEmpty(cszzdateEdit1.Text))
                 {

@@ -39,6 +39,10 @@ namespace WangDaDll
             this.col是否审批 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.zfdqdateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.zfdqdateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.cszzdateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.cszzdateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.btnCX = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxEditLSB = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEditBSK = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -123,20 +127,24 @@ namespace WangDaDll
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.cszzdateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cszzdateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.zfdqdateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.zfdqdateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem22 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditLSB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditBSK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.是否审批comboBoxEdit.Properties)).BeginInit();
@@ -182,17 +190,9 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).BeginInit();
             this.SuspendLayout();
             // 
@@ -264,6 +264,58 @@ namespace WangDaDll
             this.layoutControl1.Size = new System.Drawing.Size(1125, 900);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // zfdqdateEdit2
+            // 
+            this.zfdqdateEdit2.EditValue = null;
+            this.zfdqdateEdit2.Location = new System.Drawing.Point(775, 70);
+            this.zfdqdateEdit2.Name = "zfdqdateEdit2";
+            this.zfdqdateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.zfdqdateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.zfdqdateEdit2.Size = new System.Drawing.Size(129, 24);
+            this.zfdqdateEdit2.StyleController = this.layoutControl1;
+            this.zfdqdateEdit2.TabIndex = 28;
+            // 
+            // zfdqdateEdit1
+            // 
+            this.zfdqdateEdit1.EditValue = null;
+            this.zfdqdateEdit1.Location = new System.Drawing.Point(546, 70);
+            this.zfdqdateEdit1.Name = "zfdqdateEdit1";
+            this.zfdqdateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.zfdqdateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.zfdqdateEdit1.Size = new System.Drawing.Size(125, 24);
+            this.zfdqdateEdit1.StyleController = this.layoutControl1;
+            this.zfdqdateEdit1.TabIndex = 27;
+            // 
+            // cszzdateEdit1
+            // 
+            this.cszzdateEdit1.EditValue = null;
+            this.cszzdateEdit1.Location = new System.Drawing.Point(114, 70);
+            this.cszzdateEdit1.Name = "cszzdateEdit1";
+            this.cszzdateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cszzdateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cszzdateEdit1.Size = new System.Drawing.Size(108, 24);
+            this.cszzdateEdit1.StyleController = this.layoutControl1;
+            this.cszzdateEdit1.TabIndex = 26;
+            // 
+            // cszzdateEdit2
+            // 
+            this.cszzdateEdit2.EditValue = null;
+            this.cszzdateEdit2.Location = new System.Drawing.Point(326, 70);
+            this.cszzdateEdit2.Name = "cszzdateEdit2";
+            this.cszzdateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cszzdateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cszzdateEdit2.Size = new System.Drawing.Size(116, 24);
+            this.cszzdateEdit2.StyleController = this.layoutControl1;
+            this.cszzdateEdit2.TabIndex = 25;
             // 
             // btnCX
             // 
@@ -633,7 +685,7 @@ namespace WangDaDll
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(891, 40);
+            this.btnQuery.Location = new System.Drawing.Point(910, 70);
             this.btnQuery.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(87, 20);
@@ -644,7 +696,7 @@ namespace WangDaDll
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(984, 40);
+            this.btnClear.Location = new System.Drawing.Point(1003, 70);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(87, 20);
@@ -1174,8 +1226,6 @@ namespace WangDaDll
             this.layoutControlItem1,
             this.layoutControlItem3,
             this.layoutControlItem6,
-            this.layoutControlItem2,
-            this.layoutControlItem8,
             this.emptySpaceItem1,
             this.layoutControlItem7,
             this.layoutControlItem4,
@@ -1197,7 +1247,9 @@ namespace WangDaDll
             this.layoutControlItem19,
             this.layoutControlItem20,
             this.layoutControlItem21,
-            this.layoutControlItem22});
+            this.layoutControlItem22,
+            this.layoutControlItem8,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1125, 900);
@@ -1243,7 +1295,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem2.Control = this.btnClear;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(968, 24);
+            this.layoutControlItem2.Location = new System.Drawing.Point(987, 54);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -1256,7 +1308,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem8.Control = this.btnQuery;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(875, 24);
+            this.layoutControlItem8.Location = new System.Drawing.Point(894, 54);
             this.layoutControlItem8.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem8.Name = "layoutControlItem8";
@@ -1269,9 +1321,9 @@ namespace WangDaDll
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(1061, 24);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(875, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(38, 30);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(224, 30);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
@@ -1460,23 +1512,10 @@ namespace WangDaDll
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(894, 54);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(1080, 54);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(205, 30);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(19, 30);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // cszzdateEdit2
-            // 
-            this.cszzdateEdit2.EditValue = null;
-            this.cszzdateEdit2.Location = new System.Drawing.Point(326, 70);
-            this.cszzdateEdit2.Name = "cszzdateEdit2";
-            this.cszzdateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cszzdateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cszzdateEdit2.Size = new System.Drawing.Size(116, 24);
-            this.cszzdateEdit2.StyleController = this.layoutControl1;
-            this.cszzdateEdit2.TabIndex = 25;
             // 
             // layoutControlItem19
             // 
@@ -1487,19 +1526,6 @@ namespace WangDaDll
             this.layoutControlItem19.Text = "到:";
             this.layoutControlItem19.TextSize = new System.Drawing.Size(95, 18);
             // 
-            // cszzdateEdit1
-            // 
-            this.cszzdateEdit1.EditValue = null;
-            this.cszzdateEdit1.Location = new System.Drawing.Point(114, 70);
-            this.cszzdateEdit1.Name = "cszzdateEdit1";
-            this.cszzdateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cszzdateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cszzdateEdit1.Size = new System.Drawing.Size(108, 24);
-            this.cszzdateEdit1.StyleController = this.layoutControl1;
-            this.cszzdateEdit1.TabIndex = 26;
-            // 
             // layoutControlItem20
             // 
             this.layoutControlItem20.Control = this.cszzdateEdit1;
@@ -1509,19 +1535,6 @@ namespace WangDaDll
             this.layoutControlItem20.Text = "初始做账日期:";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(95, 18);
             // 
-            // zfdqdateEdit1
-            // 
-            this.zfdqdateEdit1.EditValue = null;
-            this.zfdqdateEdit1.Location = new System.Drawing.Point(546, 70);
-            this.zfdqdateEdit1.Name = "zfdqdateEdit1";
-            this.zfdqdateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.zfdqdateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.zfdqdateEdit1.Size = new System.Drawing.Size(125, 24);
-            this.zfdqdateEdit1.StyleController = this.layoutControl1;
-            this.zfdqdateEdit1.TabIndex = 27;
-            // 
             // layoutControlItem21
             // 
             this.layoutControlItem21.Control = this.zfdqdateEdit1;
@@ -1530,19 +1543,6 @@ namespace WangDaDll
             this.layoutControlItem21.Size = new System.Drawing.Size(229, 30);
             this.layoutControlItem21.Text = "支付到期月份:";
             this.layoutControlItem21.TextSize = new System.Drawing.Size(95, 18);
-            // 
-            // zfdqdateEdit2
-            // 
-            this.zfdqdateEdit2.EditValue = null;
-            this.zfdqdateEdit2.Location = new System.Drawing.Point(775, 70);
-            this.zfdqdateEdit2.Name = "zfdqdateEdit2";
-            this.zfdqdateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.zfdqdateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.zfdqdateEdit2.Size = new System.Drawing.Size(129, 24);
-            this.zfdqdateEdit2.StyleController = this.layoutControl1;
-            this.zfdqdateEdit2.TabIndex = 28;
             // 
             // layoutControlItem22
             // 
@@ -1567,6 +1567,14 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditLSB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditBSK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.是否审批comboBoxEdit.Properties)).EndInit();
@@ -1612,17 +1620,9 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cszzdateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zfdqdateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem22)).EndInit();
             this.ResumeLayout(false);
 

@@ -848,12 +848,12 @@ and TW_Client.初始做账时间 is not null )";
 
             if (!string.IsNullOrEmpty(bcdqDate1))
             {
-                strSql += " and t.上次到期月份>='" + bcdqDate1 + "'";
+                strSql += " and t.本次到期月份>='" + bcdqDate1 + "'";
             }
 
             if (!string.IsNullOrEmpty(bcdqDate2))
             {
-                strSql += " and t.上次到期月份<='" + bcdqDate2 + "'";
+                strSql += " and t.本次到期月份<='" + bcdqDate2 + "'";
             }
             if (!string.IsNullOrEmpty(cszzDate1))
             {

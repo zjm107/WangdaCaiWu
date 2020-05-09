@@ -29,7 +29,7 @@
     <SuiteName>旺达财务代理管理系统</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>76</ApplicationRevision>
+    <ApplicationRevision>78</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -56,10 +56,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>4AE1EC1EBA2F857FBC22236B78DA9EA1505ABAC8</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>2269AAED6606E80F025C0D53066B1D5C58EF267E</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>WangDaApp_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>WangDaApp_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -136,7 +136,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="WangDaApp_TemporaryKey.pfx" />
+    <None Include="WangDaApp_1_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

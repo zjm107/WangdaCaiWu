@@ -6,7 +6,7 @@ using Tiger.CoreClass.Data;
 namespace WDServer
 {
     /// <summary>
-    /// WangDaSer 的摘要说明
+    /// 2020年7月29日更新
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]

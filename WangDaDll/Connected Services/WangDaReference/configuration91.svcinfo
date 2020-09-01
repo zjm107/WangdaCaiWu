@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="/SwTr8ZeSXZHqSPgtuZ5IfprAc0=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="kxReTCMo4g6ls1cAiD8SJufLz19Ni2ktiZb7prU/p+0=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WangDaSerSoap">
       <properties>

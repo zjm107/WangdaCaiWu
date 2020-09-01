@@ -2770,5 +2770,31 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// 同步客户信息
+        /// </summary>
+        [WebMethod]
+        public void UpdateClient()
+        {
+            var db = ServiceManager.GetDatabase();
+            try
+            {
+                string updateSQL = @"insert Into  [TW_Client] ([客户名称ID],[客户名称],[业务员],[业务员ID],[注册员],[注册员ID],[做账会计],[做账会计ID],[收费标准],[公司类型],[零申报],自动通过)
+	    select NEWID(),a.公司预核名称,a.业务员,a.业务员ID,a.注册员,a.注册员ID,a.做账会计,a.做账会计ID,a.月做账费,a.公司类型,a.零申报,0
+	     from [dbo].[TW_BusinessReg] a
+        left join [TW_Client] b
+        on a.公司预核名称 = b.客户名称
+        where
+         b.客户名称  is null
+         and ( a.注册类型='注册' or a.注册类型='做账' or a.注册类型='设立' )";
+                db.ExecuteNonQuery(updateSQL);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+       
+        }
     }
 }

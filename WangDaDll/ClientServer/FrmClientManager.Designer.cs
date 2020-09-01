@@ -31,18 +31,19 @@ namespace WangDaDll
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.col客户状态 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col预警生日 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.btnDelFJ = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
             this.tF_FILEGridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.HTtF_FILEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.HTtF_FILEBindingSource = new System.Windows.Forms.BindingSource();
             this.HTfileDataSet = new WangDaDll.Common.FileDataSet();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileByte1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -50,7 +51,7 @@ namespace WangDaDll
             this.colUploader1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUpload_Date1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tF_FILEGridControl = new DevExpress.XtraGrid.GridControl();
-            this.tF_FILEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tF_FILEBindingSource = new System.Windows.Forms.BindingSource();
             this.fileDataSet = new WangDaDll.Common.FileDataSet();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileByte = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -70,7 +71,7 @@ namespace WangDaDll
             this.公司性质ComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.客户名称TextEdit = new DevExpress.XtraEditors.TextEdit();
             this.tW_ClientGridControl = new DevExpress.XtraGrid.GridControl();
-            this.tW_ClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tW_ClientBindingSource = new System.Windows.Forms.BindingSource();
             this.csDataSet = new WangDaDll.Common.CsDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col客户名称 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -128,19 +129,23 @@ namespace WangDaDll
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
-            this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
+            this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.btntb = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tF_FILEGridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HTtF_FILEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HTfileDataSet)).BeginInit();
@@ -182,16 +187,13 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             this.SuspendLayout();
             // 
             // col客户状态
@@ -216,6 +218,7 @@ namespace WangDaDll
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.btntb);
             this.layoutControl1.Controls.Add(this.dateEdit2);
             this.layoutControl1.Controls.Add(this.dateEdit1);
             this.layoutControl1.Controls.Add(this.btnDelFJ);
@@ -237,19 +240,45 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.tW_ClientGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1237, 885);
+            this.layoutControl1.Size = new System.Drawing.Size(1082, 688);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(393, 36);
+            this.dateEdit2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(206, 20);
+            this.dateEdit2.StyleController = this.layoutControl1;
+            this.dateEdit2.TabIndex = 22;
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(87, 36);
+            this.dateEdit1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(227, 20);
+            this.dateEdit1.StyleController = this.layoutControl1;
+            this.dateEdit1.TabIndex = 21;
+            // 
             // btnDelFJ
             // 
-            this.btnDelFJ.Location = new System.Drawing.Point(802, 70);
-            this.btnDelFJ.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDelFJ.Location = new System.Drawing.Point(889, 60);
             this.btnDelFJ.Name = "btnDelFJ";
-            this.btnDelFJ.Size = new System.Drawing.Size(87, 20);
+            this.btnDelFJ.Size = new System.Drawing.Size(89, 22);
             this.btnDelFJ.StyleController = this.layoutControl1;
             this.btnDelFJ.TabIndex = 20;
             this.btnDelFJ.Text = "删除附件";
@@ -257,10 +286,9 @@ namespace WangDaDll
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(709, 70);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpload.Location = new System.Drawing.Point(796, 60);
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(87, 20);
+            this.btnUpload.Size = new System.Drawing.Size(89, 22);
             this.btnUpload.StyleController = this.layoutControl1;
             this.btnUpload.TabIndex = 19;
             this.btnUpload.Text = "上传";
@@ -268,10 +296,9 @@ namespace WangDaDll
             // 
             // btnDownload
             // 
-            this.btnDownload.Location = new System.Drawing.Point(616, 70);
-            this.btnDownload.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDownload.Location = new System.Drawing.Point(703, 60);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(87, 20);
+            this.btnDownload.Size = new System.Drawing.Size(89, 22);
             this.btnDownload.StyleController = this.layoutControl1;
             this.btnDownload.TabIndex = 18;
             this.btnDownload.Text = "下载";
@@ -281,12 +308,10 @@ namespace WangDaDll
             // 
             this.tF_FILEGridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tF_FILEGridControl1.DataSource = this.HTtF_FILEBindingSource;
-            this.tF_FILEGridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tF_FILEGridControl1.Location = new System.Drawing.Point(31, 140);
+            this.tF_FILEGridControl1.Location = new System.Drawing.Point(24, 121);
             this.tF_FILEGridControl1.MainView = this.gridView3;
-            this.tF_FILEGridControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tF_FILEGridControl1.Name = "tF_FILEGridControl1";
-            this.tF_FILEGridControl1.Size = new System.Drawing.Size(1175, 714);
+            this.tF_FILEGridControl1.Size = new System.Drawing.Size(1034, 543);
             this.tF_FILEGridControl1.TabIndex = 17;
             this.tF_FILEGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -471,12 +496,10 @@ namespace WangDaDll
             // 
             this.tF_FILEGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tF_FILEGridControl.DataSource = this.tF_FILEBindingSource;
-            this.tF_FILEGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tF_FILEGridControl.Location = new System.Drawing.Point(31, 140);
+            this.tF_FILEGridControl.Location = new System.Drawing.Point(24, 121);
             this.tF_FILEGridControl.MainView = this.gridView2;
-            this.tF_FILEGridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tF_FILEGridControl.Name = "tF_FILEGridControl";
-            this.tF_FILEGridControl.Size = new System.Drawing.Size(1175, 714);
+            this.tF_FILEGridControl.Size = new System.Drawing.Size(1034, 543);
             this.tF_FILEGridControl.TabIndex = 16;
             this.tF_FILEGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -667,10 +690,9 @@ namespace WangDaDll
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(116, 70);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClear.Location = new System.Drawing.Point(203, 60);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(94, 20);
+            this.btnClear.Size = new System.Drawing.Size(96, 22);
             this.btnClear.StyleController = this.layoutControl1;
             this.btnClear.TabIndex = 16;
             this.btnClear.Text = "清除";
@@ -678,10 +700,9 @@ namespace WangDaDll
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(216, 70);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Location = new System.Drawing.Point(303, 60);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 20);
+            this.btnAdd.Size = new System.Drawing.Size(96, 22);
             this.btnAdd.StyleController = this.layoutControl1;
             this.btnAdd.TabIndex = 15;
             this.btnAdd.Text = "添加";
@@ -689,10 +710,9 @@ namespace WangDaDll
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(16, 70);
-            this.btnQuery.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnQuery.Location = new System.Drawing.Point(12, 60);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(94, 20);
+            this.btnQuery.Size = new System.Drawing.Size(96, 22);
             this.btnQuery.StyleController = this.layoutControl1;
             this.btnQuery.TabIndex = 14;
             this.btnQuery.Text = "查询";
@@ -700,10 +720,9 @@ namespace WangDaDll
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(416, 70);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnEdit.Location = new System.Drawing.Point(503, 60);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(94, 20);
+            this.btnEdit.Size = new System.Drawing.Size(96, 22);
             this.btnEdit.StyleController = this.layoutControl1;
             this.btnEdit.TabIndex = 13;
             this.btnEdit.Text = "修改";
@@ -711,10 +730,9 @@ namespace WangDaDll
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(316, 70);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDel.Location = new System.Drawing.Point(403, 60);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(94, 20);
+            this.btnDel.Size = new System.Drawing.Size(96, 22);
             this.btnDel.StyleController = this.layoutControl1;
             this.btnDel.TabIndex = 12;
             this.btnDel.Text = "删除";
@@ -722,10 +740,9 @@ namespace WangDaDll
             // 
             // btnSaveLayout
             // 
-            this.btnSaveLayout.Location = new System.Drawing.Point(516, 70);
-            this.btnSaveLayout.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSaveLayout.Location = new System.Drawing.Point(603, 60);
             this.btnSaveLayout.Name = "btnSaveLayout";
-            this.btnSaveLayout.Size = new System.Drawing.Size(94, 20);
+            this.btnSaveLayout.Size = new System.Drawing.Size(96, 22);
             this.btnSaveLayout.StyleController = this.layoutControl1;
             this.btnSaveLayout.TabIndex = 11;
             this.btnSaveLayout.Text = "保存样式";
@@ -733,52 +750,47 @@ namespace WangDaDll
             // 
             // 做账会计TextEdit
             // 
-            this.做账会计TextEdit.Location = new System.Drawing.Point(859, 16);
-            this.做账会计TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.做账会计TextEdit.Location = new System.Drawing.Point(837, 12);
             this.做账会计TextEdit.Name = "做账会计TextEdit";
-            this.做账会计TextEdit.Size = new System.Drawing.Size(51, 24);
+            this.做账会计TextEdit.Size = new System.Drawing.Size(71, 20);
             this.做账会计TextEdit.StyleController = this.layoutControl1;
             this.做账会计TextEdit.TabIndex = 10;
             // 
             // 公司类型ComboBoxEdit
             // 
-            this.公司类型ComboBoxEdit.Location = new System.Drawing.Point(409, 16);
-            this.公司类型ComboBoxEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.公司类型ComboBoxEdit.Location = new System.Drawing.Point(387, 12);
             this.公司类型ComboBoxEdit.Name = "公司类型ComboBoxEdit";
             this.公司类型ComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.公司类型ComboBoxEdit.Size = new System.Drawing.Size(51, 24);
+            this.公司类型ComboBoxEdit.Size = new System.Drawing.Size(71, 20);
             this.公司类型ComboBoxEdit.StyleController = this.layoutControl1;
             this.公司类型ComboBoxEdit.TabIndex = 9;
             // 
             // 客户分级ComboBoxEdit
             // 
-            this.客户分级ComboBoxEdit.Location = new System.Drawing.Point(709, 16);
-            this.客户分级ComboBoxEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.客户分级ComboBoxEdit.Location = new System.Drawing.Point(687, 12);
             this.客户分级ComboBoxEdit.Name = "客户分级ComboBoxEdit";
             this.客户分级ComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.客户分级ComboBoxEdit.Size = new System.Drawing.Size(51, 24);
+            this.客户分级ComboBoxEdit.Size = new System.Drawing.Size(71, 20);
             this.客户分级ComboBoxEdit.StyleController = this.layoutControl1;
             this.客户分级ComboBoxEdit.TabIndex = 8;
             // 
             // 公司性质ComboBoxEdit
             // 
-            this.公司性质ComboBoxEdit.Location = new System.Drawing.Point(559, 16);
-            this.公司性质ComboBoxEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.公司性质ComboBoxEdit.Location = new System.Drawing.Point(537, 12);
             this.公司性质ComboBoxEdit.Name = "公司性质ComboBoxEdit";
             this.公司性质ComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.公司性质ComboBoxEdit.Size = new System.Drawing.Size(51, 24);
+            this.公司性质ComboBoxEdit.Size = new System.Drawing.Size(71, 20);
             this.公司性质ComboBoxEdit.StyleController = this.layoutControl1;
             this.公司性质ComboBoxEdit.TabIndex = 7;
             // 
             // 客户名称TextEdit
             // 
-            this.客户名称TextEdit.Location = new System.Drawing.Point(109, 16);
-            this.客户名称TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.客户名称TextEdit.Location = new System.Drawing.Point(87, 12);
             this.客户名称TextEdit.Name = "客户名称TextEdit";
-            this.客户名称TextEdit.Size = new System.Drawing.Size(201, 24);
+            this.客户名称TextEdit.Size = new System.Drawing.Size(221, 20);
             this.客户名称TextEdit.StyleController = this.layoutControl1;
             this.客户名称TextEdit.TabIndex = 6;
             // 
@@ -786,12 +798,10 @@ namespace WangDaDll
             // 
             this.tW_ClientGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tW_ClientGridControl.DataSource = this.tW_ClientBindingSource;
-            this.tW_ClientGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tW_ClientGridControl.Location = new System.Drawing.Point(31, 140);
+            this.tW_ClientGridControl.Location = new System.Drawing.Point(24, 121);
             this.tW_ClientGridControl.MainView = this.gridView1;
-            this.tW_ClientGridControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tW_ClientGridControl.Name = "tW_ClientGridControl";
-            this.tW_ClientGridControl.Size = new System.Drawing.Size(1175, 714);
+            this.tW_ClientGridControl.Size = new System.Drawing.Size(1034, 543);
             this.tW_ClientGridControl.TabIndex = 4;
             this.tW_ClientGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -953,30 +963,30 @@ namespace WangDaDll
             this.col合同到期时间,
             this.col客户状态,
             this.col首年提成结束期});
-            styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            styleFormatCondition1.Appearance.Options.UseBackColor = true;
-            styleFormatCondition1.Appearance.Options.UseFont = true;
-            styleFormatCondition1.ApplyToRow = true;
-            styleFormatCondition1.Column = this.col客户状态;
-            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-            styleFormatCondition1.Expression = "Contains([客户状态], \'取走\') Or Contains([客户状态], \'注销\') Or Contains([客户状态], \'非正常\')";
-            styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.Salmon;
-            styleFormatCondition2.Appearance.Options.UseBackColor = true;
-            styleFormatCondition2.ApplyToRow = true;
-            styleFormatCondition2.Column = this.col预警生日;
-            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-            styleFormatCondition2.Expression = "AddDays(LocalDateTimeToday(),10 ) >= [预警生日] And LocalDateTimeToday()  <=  [预警生日]";
-            styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            styleFormatCondition3.Appearance.Options.UseBackColor = true;
-            styleFormatCondition3.ApplyToRow = true;
-            styleFormatCondition3.Column = this.col客户状态;
-            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition3.Value1 = "不收";
+            styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            styleFormatCondition4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            styleFormatCondition4.Appearance.Options.UseBackColor = true;
+            styleFormatCondition4.Appearance.Options.UseFont = true;
+            styleFormatCondition4.ApplyToRow = true;
+            styleFormatCondition4.Column = this.col客户状态;
+            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+            styleFormatCondition4.Expression = "Contains([客户状态], \'取走\') Or Contains([客户状态], \'注销\') Or Contains([客户状态], \'非正常\')";
+            styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.Salmon;
+            styleFormatCondition5.Appearance.Options.UseBackColor = true;
+            styleFormatCondition5.ApplyToRow = true;
+            styleFormatCondition5.Column = this.col预警生日;
+            styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+            styleFormatCondition5.Expression = "AddDays(LocalDateTimeToday(),10 ) >= [预警生日] And LocalDateTimeToday()  <=  [预警生日]";
+            styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            styleFormatCondition6.Appearance.Options.UseBackColor = true;
+            styleFormatCondition6.ApplyToRow = true;
+            styleFormatCondition6.Column = this.col客户状态;
+            styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition6.Value1 = "不收";
             this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2,
-            styleFormatCondition3});
+            styleFormatCondition4,
+            styleFormatCondition5,
+            styleFormatCondition6});
             this.gridView1.GridControl = this.tW_ClientGridControl;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, ""),
@@ -1341,17 +1351,18 @@ namespace WangDaDll
             this.layoutControlItem19,
             this.emptySpaceItem4,
             this.emptySpaceItem3,
-            this.emptySpaceItem5});
+            this.emptySpaceItem5,
+            this.layoutControlItem20});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1237, 885);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1082, 688);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnSaveLayout;
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
-            this.layoutControlItem2.Location = new System.Drawing.Point(500, 54);
+            this.layoutControlItem2.Location = new System.Drawing.Point(591, 48);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -1364,7 +1375,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem8.Control = this.btnDel;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(300, 54);
+            this.layoutControlItem8.Location = new System.Drawing.Point(391, 48);
             this.layoutControlItem8.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem8.Name = "layoutControlItem8";
@@ -1377,7 +1388,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem9.Control = this.btnEdit;
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem9.Location = new System.Drawing.Point(400, 54);
+            this.layoutControlItem9.Location = new System.Drawing.Point(491, 48);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem9.Name = "layoutControlItem9";
@@ -1390,7 +1401,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem10.Control = this.btnQuery;
             this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 54);
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem10.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem10.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem10.Name = "layoutControlItem10";
@@ -1403,7 +1414,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem11.Control = this.btnAdd;
             this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
-            this.layoutControlItem11.Location = new System.Drawing.Point(200, 54);
+            this.layoutControlItem11.Location = new System.Drawing.Point(291, 48);
             this.layoutControlItem11.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem11.Name = "layoutControlItem11";
@@ -1416,7 +1427,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem12.Control = this.btnClear;
             this.layoutControlItem12.CustomizationFormText = "layoutControlItem12";
-            this.layoutControlItem12.Location = new System.Drawing.Point(100, 54);
+            this.layoutControlItem12.Location = new System.Drawing.Point(191, 48);
             this.layoutControlItem12.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem12.Name = "layoutControlItem12";
@@ -1429,9 +1440,9 @@ namespace WangDaDll
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(879, 54);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(970, 48);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(332, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(92, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
@@ -1445,7 +1456,7 @@ namespace WangDaDll
             this.layoutControlItem7.Size = new System.Drawing.Size(150, 24);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "做账会计:";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(90, 18);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem6
             // 
@@ -1458,7 +1469,7 @@ namespace WangDaDll
             this.layoutControlItem6.Size = new System.Drawing.Size(150, 24);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.Text = "公司类型:";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(90, 18);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(72, 14);
             // 
             // emptySpaceItem2
             // 
@@ -1466,7 +1477,7 @@ namespace WangDaDll
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(900, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(311, 27);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(162, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -1480,7 +1491,7 @@ namespace WangDaDll
             this.layoutControlItem5.Size = new System.Drawing.Size(150, 24);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "客户分级:";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(90, 18);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem3
             // 
@@ -1493,7 +1504,7 @@ namespace WangDaDll
             this.layoutControlItem3.Size = new System.Drawing.Size(300, 24);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.Text = "客户名称:";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(90, 18);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem4
             // 
@@ -1506,16 +1517,16 @@ namespace WangDaDll
             this.layoutControlItem4.Size = new System.Drawing.Size(150, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "公司性质:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(90, 18);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(72, 14);
             // 
             // tabbedControlGroup1
             // 
             this.tabbedControlGroup1.CustomizationFormText = "tabbedControlGroup1";
-            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 80);
+            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 74);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
             this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
             this.tabbedControlGroup1.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(1211, 779);
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(1062, 594);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
             this.layoutControlGroup3,
@@ -1528,7 +1539,7 @@ namespace WangDaDll
             this.layoutControlItem1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1181, 720);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1038, 547);
             this.layoutControlGroup2.Text = "客户信息";
             // 
             // layoutControlItem1
@@ -1537,7 +1548,7 @@ namespace WangDaDll
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1181, 720);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1038, 547);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -1548,7 +1559,7 @@ namespace WangDaDll
             this.layoutControlItem14});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1181, 720);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1038, 547);
             this.layoutControlGroup3.Text = "合同信息";
             // 
             // layoutControlItem14
@@ -1557,7 +1568,7 @@ namespace WangDaDll
             this.layoutControlItem14.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(1181, 720);
+            this.layoutControlItem14.Size = new System.Drawing.Size(1038, 547);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
@@ -1568,7 +1579,7 @@ namespace WangDaDll
             this.layoutControlItem13});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(1181, 720);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(1038, 547);
             this.layoutControlGroup4.Text = "档案信息";
             // 
             // layoutControlItem13
@@ -1577,7 +1588,7 @@ namespace WangDaDll
             this.layoutControlItem13.CustomizationFormText = "layoutControlItem13";
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(1181, 720);
+            this.layoutControlItem13.Size = new System.Drawing.Size(1038, 547);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
@@ -1585,7 +1596,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem15.Control = this.btnDownload;
             this.layoutControlItem15.CustomizationFormText = "layoutControlItem15";
-            this.layoutControlItem15.Location = new System.Drawing.Point(600, 54);
+            this.layoutControlItem15.Location = new System.Drawing.Point(691, 48);
             this.layoutControlItem15.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem15.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem15.Name = "layoutControlItem15";
@@ -1598,7 +1609,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem16.Control = this.btnUpload;
             this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
-            this.layoutControlItem16.Location = new System.Drawing.Point(693, 54);
+            this.layoutControlItem16.Location = new System.Drawing.Point(784, 48);
             this.layoutControlItem16.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem16.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem16.Name = "layoutControlItem16";
@@ -1611,7 +1622,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem17.Control = this.btnDelFJ;
             this.layoutControlItem17.CustomizationFormText = "layoutControlItem17";
-            this.layoutControlItem17.Location = new System.Drawing.Point(786, 54);
+            this.layoutControlItem17.Location = new System.Drawing.Point(877, 48);
             this.layoutControlItem17.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem17.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem17.Name = "layoutControlItem17";
@@ -1619,6 +1630,48 @@ namespace WangDaDll
             this.layoutControlItem17.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem17.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem17.TextVisible = false;
+            // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.Control = this.dateEdit1;
+            this.layoutControlItem18.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(306, 24);
+            this.layoutControlItem18.Text = "初始做账日期";
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // layoutControlItem19
+            // 
+            this.layoutControlItem19.Control = this.dateEdit2;
+            this.layoutControlItem19.Location = new System.Drawing.Point(306, 24);
+            this.layoutControlItem19.Name = "layoutControlItem19";
+            this.layoutControlItem19.Size = new System.Drawing.Size(285, 24);
+            this.layoutControlItem19.Text = "-";
+            this.layoutControlItem19.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(926, 24);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(136, 24);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem3
+            // 
+            this.emptySpaceItem3.AllowHotTrack = false;
+            this.emptySpaceItem3.Location = new System.Drawing.Point(591, 24);
+            this.emptySpaceItem3.Name = "emptySpaceItem3";
+            this.emptySpaceItem3.Size = new System.Drawing.Size(225, 24);
+            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem5
+            // 
+            this.emptySpaceItem5.AllowHotTrack = false;
+            this.emptySpaceItem5.Location = new System.Drawing.Point(816, 24);
+            this.emptySpaceItem5.Name = "emptySpaceItem5";
+            this.emptySpaceItem5.Size = new System.Drawing.Size(110, 24);
+            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // dstTCONF_WORD
             // 
@@ -1629,86 +1682,43 @@ namespace WangDaDll
             // 
             this.openFileDialog.FileName = "openFileDialog1";
             // 
-            // dateEdit1
+            // btntb
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(109, 40);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Size = new System.Drawing.Size(160, 24);
-            this.dateEdit1.StyleController = this.layoutControl1;
-            this.dateEdit1.TabIndex = 21;
+            this.btntb.Location = new System.Drawing.Point(112, 60);
+            this.btntb.Name = "btntb";
+            this.btntb.Size = new System.Drawing.Size(87, 22);
+            this.btntb.StyleController = this.layoutControl1;
+            this.btntb.TabIndex = 23;
+            this.btntb.Text = "同步";
+            this.btntb.Click += new System.EventHandler(this.btntb_Click);
             // 
-            // layoutControlItem18
+            // layoutControlItem20
             // 
-            this.layoutControlItem18.Control = this.dateEdit1;
-            this.layoutControlItem18.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(259, 30);
-            this.layoutControlItem18.Text = "初始做账日期";
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(90, 18);
-            // 
-            // dateEdit2
-            // 
-            this.dateEdit2.EditValue = null;
-            this.dateEdit2.Location = new System.Drawing.Point(368, 40);
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Size = new System.Drawing.Size(142, 24);
-            this.dateEdit2.StyleController = this.layoutControl1;
-            this.dateEdit2.TabIndex = 22;
-            // 
-            // layoutControlItem19
-            // 
-            this.layoutControlItem19.Control = this.dateEdit2;
-            this.layoutControlItem19.Location = new System.Drawing.Point(259, 24);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(241, 30);
-            this.layoutControlItem19.Text = "-";
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(90, 18);
-            // 
-            // emptySpaceItem4
-            // 
-            this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(900, 27);
-            this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(311, 27);
-            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(500, 24);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(268, 30);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem5
-            // 
-            this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(768, 24);
-            this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(132, 30);
-            this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem20.Control = this.btntb;
+            this.layoutControlItem20.Location = new System.Drawing.Point(100, 48);
+            this.layoutControlItem20.MaxSize = new System.Drawing.Size(91, 26);
+            this.layoutControlItem20.MinSize = new System.Drawing.Size(91, 26);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(91, 26);
+            this.layoutControlItem20.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem20.TextVisible = false;
             // 
             // FrmClientManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1237, 885);
+            this.ClientSize = new System.Drawing.Size(1082, 688);
             this.Controls.Add(this.layoutControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmClientManager";
             this.Text = "客户信息管理";
             this.Load += new System.EventHandler(this.FrmClientManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tF_FILEGridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HTtF_FILEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HTfileDataSet)).EndInit();
@@ -1750,16 +1760,13 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1870,5 +1877,7 @@ namespace WangDaDll
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
+        private DevExpress.XtraEditors.SimpleButton btntb;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
     }
 }

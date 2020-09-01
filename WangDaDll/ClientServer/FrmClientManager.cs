@@ -391,5 +391,40 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
         }
+
+        private void btntb_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            splash.ShowWaitForm();
+            try
+            {
+                splash.SetWaitFormCaption("请等待");
+                splash.SetWaitFormDescription("正在执行客户信息同步……");
+
+                if (Security.UserBusiness.Contains("总经理") || Security.UserBusiness.Contains("注册主管") || Security.UserName.ToLower() == "admin")
+                {
+                    csDataSet.GetClientInfo(客户名称TextEdit.Text, 公司类型ComboBoxEdit.Text
+                    , 客户分级ComboBoxEdit.Text, 公司性质ComboBoxEdit.Text, 做账会计TextEdit.Text);
+                }
+                else
+                {
+                    csDataSet.GetClientInfo(客户名称TextEdit.Text, 公司类型ComboBoxEdit.Text
+                    , 客户分级ComboBoxEdit.Text, 公司性质ComboBoxEdit.Text, Security.UserName);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (splash.IsSplashFormVisible)
+                {
+                    splash.CloseWaitForm();
+                }
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }

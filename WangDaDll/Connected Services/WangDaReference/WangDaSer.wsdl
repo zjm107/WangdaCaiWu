@@ -698,6 +698,12 @@
       <s:element name="UpdateYWYResponse">
         <s:complexType />
       </s:element>
+      <s:element name="UpdateClient">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateClientResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CheckCompanyNameSoapIn">
@@ -892,6 +898,12 @@
   <wsdl:message name="UpdateYWYSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateYWYResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateClientSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateClient" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
+  </wsdl:message>
   <wsdl:portType name="WangDaSerSoap">
     <wsdl:operation name="CheckCompanyName">
       <wsdl:input message="tns:CheckCompanyNameSoapIn" />
@@ -1020,6 +1032,10 @@
     <wsdl:operation name="UpdateYWY">
       <wsdl:input message="tns:UpdateYWYSoapIn" />
       <wsdl:output message="tns:UpdateYWYSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <wsdl:input message="tns:UpdateClientSoapIn" />
+      <wsdl:output message="tns:UpdateClientSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
@@ -1312,6 +1328,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <soap:operation soapAction="http://tempuri.org/UpdateClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WangDaSerSoap12" type="tns:WangDaSerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -1596,6 +1621,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateYWY">
       <soap12:operation soapAction="http://tempuri.org/UpdateYWY" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClient">
+      <soap12:operation soapAction="http://tempuri.org/UpdateClient" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

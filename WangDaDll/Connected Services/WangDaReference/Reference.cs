@@ -143,6 +143,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateYWY", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void UpdateYWY();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClient", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdateClient();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -298,6 +302,10 @@ namespace WangDaDll.WangDaReference {
         
         public void UpdateYWY() {
             base.Channel.UpdateYWY();
+        }
+        
+        public void UpdateClient() {
+            base.Channel.UpdateClient();
         }
     }
 }

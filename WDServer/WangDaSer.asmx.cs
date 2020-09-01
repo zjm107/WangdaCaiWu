@@ -2780,6 +2780,15 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
             var db = ServiceManager.GetDatabase();
             try
             {
+
+                string strSql = @" update[TW_Client] set 客户名称 = TRIM(客户名称)";
+                db.ExecuteNonQuery(strSql);
+
+                strSql = @"update [TW_BusinessReg] set 公司预核名称=trim(公司预核名称)";
+                db.ExecuteNonQuery(strSql);
+
+
+
                 string updateSQL = @"insert Into  [TW_Client] ([客户名称ID],[客户名称],[业务员],[业务员ID],[注册员],[注册员ID],[做账会计],[做账会计ID],[收费标准],[公司类型],[零申报],自动通过)
 	    select NEWID(),a.公司预核名称,a.业务员,a.业务员ID,a.注册员,a.注册员ID,a.做账会计,a.做账会计ID,a.月做账费,a.公司类型,a.零申报,0
 	     from [dbo].[TW_BusinessReg] a

@@ -44,10 +44,9 @@ namespace Tiger.PdrCommon
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(127, 156);
-            this.btnOK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnOK.Location = new System.Drawing.Point(111, 121);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(99, 35);
+            this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.TabIndex = 2;
             this.btnOK.Text = "登录";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -56,10 +55,9 @@ namespace Tiger.PdrCommon
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(233, 156);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCancel.Location = new System.Drawing.Point(204, 121);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(99, 35);
+            this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "退出";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -67,21 +65,19 @@ namespace Tiger.PdrCommon
             // txtPassword
             // 
             this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtPassword.Location = new System.Drawing.Point(127, 120);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPassword.Location = new System.Drawing.Point(111, 93);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(258, 26);
+            this.txtPassword.Size = new System.Drawing.Size(226, 22);
             this.txtPassword.TabIndex = 1;
             // 
             // cmbUserName
             // 
             this.cmbUserName.FormattingEnabled = true;
             this.cmbUserName.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmbUserName.Location = new System.Drawing.Point(127, 72);
-            this.cmbUserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbUserName.Location = new System.Drawing.Point(111, 56);
             this.cmbUserName.Name = "cmbUserName";
-            this.cmbUserName.Size = new System.Drawing.Size(258, 26);
+            this.cmbUserName.Size = new System.Drawing.Size(226, 22);
             this.cmbUserName.TabIndex = 0;
             // 
             // dstLogName
@@ -91,10 +87,9 @@ namespace Tiger.PdrCommon
             // 
             // btnSet
             // 
-            this.btnSet.Location = new System.Drawing.Point(233, 198);
-            this.btnSet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSet.Location = new System.Drawing.Point(204, 154);
             this.btnSet.Name = "btnSet";
-            this.btnSet.Size = new System.Drawing.Size(99, 35);
+            this.btnSet.Size = new System.Drawing.Size(87, 27);
             this.btnSet.TabIndex = 5;
             this.btnSet.Text = "服务器配置";
             this.btnSet.UseVisualStyleBackColor = true;
@@ -104,20 +99,20 @@ namespace Tiger.PdrCommon
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(21, 224);
+            this.label1.Location = new System.Drawing.Point(18, 174);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 18);
+            this.label1.Size = new System.Drawing.Size(85, 14);
             this.label1.TabIndex = 6;
-            this.label1.Text = "2018年7月1日";
+            this.label1.Text = "2021年2月3日";
             // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Tile;
             this.BackgroundImageStore = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImageStore")));
-            this.ClientSize = new System.Drawing.Size(539, 261);
+            this.ClientSize = new System.Drawing.Size(472, 203);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSet);
             this.Controls.Add(this.cmbUserName);
@@ -125,7 +120,6 @@ namespace Tiger.PdrCommon
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmLogin";

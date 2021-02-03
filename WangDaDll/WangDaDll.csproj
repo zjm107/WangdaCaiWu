@@ -255,6 +255,12 @@
     <Compile Include="Proceeds\FrmPaymentManager.Designer.cs">
       <DependentUpon>FrmPaymentManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proceeds\FrmPaymentManagerQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentManagerQuery.Designer.cs">
+      <DependentUpon>FrmPaymentManagerQuery.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proceeds\FrmPaymentManagerSP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -426,6 +432,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmPaymentManager.resx">
       <DependentUpon>FrmPaymentManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPaymentManagerQuery.resx">
+      <DependentUpon>FrmPaymentManagerQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmPaymentManagerSP.resx">
       <DependentUpon>FrmPaymentManagerSP.cs</DependentUpon>

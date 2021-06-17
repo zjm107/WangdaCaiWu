@@ -18,11 +18,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:2849/WangDaSer.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:2857/WangDaSer.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WangDaSer.disco" MetadataType="Disco" ID="a5639588-80d2-45b8-bf7e-60b9911e52a0" SourceId="1" SourceUrl="http://localhost:2849/WangDaSer.asmx?disco" />
-    <MetadataFile FileName="WangDaSer.wsdl" MetadataType="Wsdl" ID="e9c4ef17-1e58-493b-923c-1a0ea7d077d6" SourceId="1" SourceUrl="http://localhost:2849/WangDaSer.asmx?wsdl" />
+    <MetadataFile FileName="WangDaSer.disco" MetadataType="Disco" ID="a5639588-80d2-45b8-bf7e-60b9911e52a0" SourceId="1" SourceUrl="http://localhost:2857/WangDaSer.asmx?disco" />
+    <MetadataFile FileName="WangDaSer.wsdl" MetadataType="Wsdl" ID="e9c4ef17-1e58-493b-923c-1a0ea7d077d6" SourceId="1" SourceUrl="http://localhost:2857/WangDaSer.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

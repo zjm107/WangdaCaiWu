@@ -635,10 +635,10 @@
   </wsdl:binding>
   <wsdl:service name="Config">
     <wsdl:port name="ConfigSoap" binding="tns:ConfigSoap">
-      <soap:address location="http://localhost:2849/Config.asmx" />
+      <soap:address location="http://localhost:2857/Config.asmx" />
     </wsdl:port>
     <wsdl:port name="ConfigSoap12" binding="tns:ConfigSoap12">
-      <soap12:address location="http://localhost:2849/Config.asmx" />
+      <soap12:address location="http://localhost:2857/Config.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

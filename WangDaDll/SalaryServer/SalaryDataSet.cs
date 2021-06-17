@@ -34,6 +34,48 @@ namespace WangDaDll.SalaryServer
             DataSet dst = DBHelper.WangDaSer.GetAllBusinessSum(year, month, userManagerID, userName);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
         }
+        /// <summary>
+        /// 获取所有业务员业绩，加绩效工资
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="userManagerID"></param>
+        /// <param name="userName"></param>
+        public void GetAllBusinessSum2021(int year, int month, string userManagerID, string userName)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSum2021(year, month, userManagerID, userName);
+            DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
+            AddPerformance();
+        }
+
+        /// <summary>
+        /// 计算业务员的绩效工资
+        /// </summary>
+        public void AddPerformance()
+        {
+            decimal tc = (decimal)0.08;
+            foreach (VW_AllBusinessSalaryRow row in VW_AllBusinessSalary.Rows)
+            {
+                if (row.做账收款额 >= 30000 && row.做账收款额 <= 40000)
+                {
+                    row.绩效 = row.做账收款额 * tc + 500;
+                }
+                else if (row.做账收款额 > 40000 && row.做账收款额 <= 50000)
+                {
+                    row.绩效 = row.做账收款额 * tc + 1000;
+                }
+                else if (row.做账收款额 > 50000)
+                {
+                    row.绩效 = row.做账收款额 * tc + 1800;
+                }
+                else
+                {
+                    row.绩效 = 0;
+                }
+
+
+            }
+        }
 
         public void GetAllBusinessSumOther(int year, int month, string userManagerID, string userName)
         {

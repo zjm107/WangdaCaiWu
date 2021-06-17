@@ -126,6 +126,23 @@
       <s:element name="SaveDataSetResponse">
         <s:complexType />
       </s:element>
+      <s:element name="SaveFileDataSet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveFileDataSetResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="SaveRDataSet">
         <s:complexType>
           <s:sequence>
@@ -416,6 +433,12 @@
   <wsdl:message name="SaveDataSetSoapOut">
     <wsdl:part name="parameters" element="tns:SaveDataSetResponse" />
   </wsdl:message>
+  <wsdl:message name="SaveFileDataSetSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveFileDataSet" />
+  </wsdl:message>
+  <wsdl:message name="SaveFileDataSetSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveFileDataSetResponse" />
+  </wsdl:message>
   <wsdl:message name="SaveRDataSetSoapIn">
     <wsdl:part name="parameters" element="tns:SaveRDataSet" />
   </wsdl:message>
@@ -516,6 +539,10 @@
     <wsdl:operation name="SaveDataSet">
       <wsdl:input message="tns:SaveDataSetSoapIn" />
       <wsdl:output message="tns:SaveDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveFileDataSet">
+      <wsdl:input message="tns:SaveFileDataSetSoapIn" />
+      <wsdl:output message="tns:SaveFileDataSetSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SaveRDataSet">
       <wsdl:input message="tns:SaveRDataSetSoapIn" />
@@ -624,6 +651,15 @@
     </wsdl:operation>
     <wsdl:operation name="SaveDataSet">
       <soap:operation soapAction="http://tempuri.org/SaveDataSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveFileDataSet">
+      <soap:operation soapAction="http://tempuri.org/SaveFileDataSet" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -805,6 +841,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SaveFileDataSet">
+      <soap12:operation soapAction="http://tempuri.org/SaveFileDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SaveRDataSet">
       <soap12:operation soapAction="http://tempuri.org/SaveRDataSet" style="document" />
       <wsdl:input>
@@ -916,10 +961,10 @@
   </wsdl:binding>
   <wsdl:service name="BaseSer">
     <wsdl:port name="BaseSerSoap" binding="tns:BaseSerSoap">
-      <soap:address location="http://localhost:2849/BaseSer.asmx" />
+      <soap:address location="http://localhost:2857/BaseSer.asmx" />
     </wsdl:port>
     <wsdl:port name="BaseSerSoap12" binding="tns:BaseSerSoap12">
-      <soap12:address location="http://localhost:2849/BaseSer.asmx" />
+      <soap12:address location="http://localhost:2857/BaseSer.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

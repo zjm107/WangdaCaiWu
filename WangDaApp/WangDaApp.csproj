@@ -29,7 +29,7 @@
     <SuiteName>旺达财务代理管理系统</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>80</ApplicationRevision>
+    <ApplicationRevision>83</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -100,10 +100,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\BaseSerReference\Reference.cs">
+    <Compile Include="Connected Services\BaseSer\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMDIX.cs">
       <SubType>Form</SubType>
@@ -113,6 +119,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMDIX.resx">
       <DependentUpon>FrmMDIX.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,7 +136,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\BaseSerReference\BaseSer.wsdl" />
+    <None Include="Connected Services\BaseSer\BaseSer.wsdl" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -158,10 +167,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\BaseSerReference\BaseSer.disco" />
-    <None Include="Connected Services\BaseSerReference\configuration91.svcinfo" />
-    <None Include="Connected Services\BaseSerReference\configuration.svcinfo" />
-    <None Include="Connected Services\BaseSerReference\Reference.svcmap">
+    <None Include="Connected Services\BaseSer\BaseSer.disco" />
+    <None Include="Connected Services\BaseSer\configuration91.svcinfo" />
+    <None Include="Connected Services\BaseSer\configuration.svcinfo" />
+    <None Include="Connected Services\BaseSer\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -170,9 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\BaseSerReference\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
@@ -188,6 +194,9 @@
       <Progid>WangDaApp</Progid>
       <DefaultIcon>invoice_32px_1208989_easyicon.net.ico</DefaultIcon>
     </FileAssociation>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BaseSer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

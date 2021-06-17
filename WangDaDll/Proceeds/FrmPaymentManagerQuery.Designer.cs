@@ -342,7 +342,7 @@ namespace WangDaDll
             // 
             // 是否审批comboBoxEdit
             // 
-            this.是否审批comboBoxEdit.EditValue = "未审批";
+            this.是否审批comboBoxEdit.EditValue = "已审批";
             this.是否审批comboBoxEdit.Location = new System.Drawing.Point(91, 12);
             this.是否审批comboBoxEdit.Name = "是否审批comboBoxEdit";
             this.是否审批comboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

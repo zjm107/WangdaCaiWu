@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WangDaApp.BaseSerReference {
+namespace WangDaApp.BaseSer {
     using System.Data;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BaseSerReference.BaseSerSoap")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BaseSer.BaseSerSoap")]
     public interface BaseSerSoap {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ExeSQL", ReplyAction="*")]
@@ -43,6 +43,10 @@ namespace WangDaApp.BaseSerReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveDataSet", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void SaveDataSet(System.Data.DataSet p_ds);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveFileDataSet", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void SaveFileDataSet(System.Data.DataSet p_ds);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveRDataSet", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -94,12 +98,12 @@ namespace WangDaApp.BaseSerReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface BaseSerSoapChannel : WangDaApp.BaseSerReference.BaseSerSoap, System.ServiceModel.IClientChannel {
+    public interface BaseSerSoapChannel : WangDaApp.BaseSer.BaseSerSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class BaseSerSoapClient : System.ServiceModel.ClientBase<WangDaApp.BaseSerReference.BaseSerSoap>, WangDaApp.BaseSerReference.BaseSerSoap {
+    public partial class BaseSerSoapClient : System.ServiceModel.ClientBase<WangDaApp.BaseSer.BaseSerSoap>, WangDaApp.BaseSer.BaseSerSoap {
         
         public BaseSerSoapClient() {
         }
@@ -146,6 +150,10 @@ namespace WangDaApp.BaseSerReference {
         
         public void SaveDataSet(System.Data.DataSet p_ds) {
             base.Channel.SaveDataSet(p_ds);
+        }
+        
+        public void SaveFileDataSet(System.Data.DataSet p_ds) {
+            base.Channel.SaveFileDataSet(p_ds);
         }
         
         public void SaveRDataSet(System.Data.DataSet p_ds) {

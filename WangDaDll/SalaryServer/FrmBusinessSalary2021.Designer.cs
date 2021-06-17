@@ -2,7 +2,7 @@
 
 namespace WangDaDll
 {
-    partial class FrmBusinessSalary
+    partial class FrmBusinessSalary2021
     {
         /// <summary>
         /// Required designer variable.
@@ -56,6 +56,11 @@ namespace WangDaDll
             this.col注册费收款额 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col团队提成 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col提成汇总 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col绩效 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col成长版 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col成长版提成 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col其他一次性业务 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col其他一次性业务提成 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pageLastYear = new DevExpress.XtraTab.XtraTabPage();
             this.vW_AllBusinessSalaryYearGridControl = new DevExpress.XtraGrid.GridControl();
             this.vW_AllBusinessSalaryYearBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -366,7 +371,12 @@ namespace WangDaDll
             this.col注册利润,
             this.col注册费收款额,
             this.col团队提成,
-            this.col提成汇总});
+            this.col提成汇总,
+            this.col绩效,
+            this.col成长版,
+            this.col成长版提成,
+            this.col其他一次性业务,
+            this.col其他一次性业务提成});
             this.vW_AllBusinessSalaryGridView.GridControl = this.vW_AllBusinessSalaryGridControl;
             this.vW_AllBusinessSalaryGridView.Name = "vW_AllBusinessSalaryGridView";
             this.vW_AllBusinessSalaryGridView.OptionsView.ColumnAutoWidth = false;
@@ -501,8 +511,58 @@ namespace WangDaDll
             this.col提成汇总.FieldName = "提成汇总";
             this.col提成汇总.Name = "col提成汇总";
             this.col提成汇总.OptionsColumn.ReadOnly = true;
+            this.col提成汇总.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "提成汇总", "{0:C3}")});
             this.col提成汇总.Visible = true;
-            this.col提成汇总.VisibleIndex = 10;
+            this.col提成汇总.VisibleIndex = 15;
+            // 
+            // col绩效
+            // 
+            this.col绩效.FieldName = "绩效";
+            this.col绩效.Name = "col绩效";
+            this.col绩效.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "绩效", "{0:C3}")});
+            this.col绩效.Visible = true;
+            this.col绩效.VisibleIndex = 14;
+            // 
+            // col成长版
+            // 
+            this.col成长版.FieldName = "成长版";
+            this.col成长版.Name = "col成长版";
+            this.col成长版.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "成长版", "{0:C3}")});
+            this.col成长版.Visible = true;
+            this.col成长版.VisibleIndex = 10;
+            // 
+            // col成长版提成
+            // 
+            this.col成长版提成.FieldName = "成长版提成";
+            this.col成长版提成.Name = "col成长版提成";
+            this.col成长版提成.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "成长版提成", "{0:C3}")});
+            this.col成长版提成.Visible = true;
+            this.col成长版提成.VisibleIndex = 11;
+            this.col成长版提成.Width = 80;
+            // 
+            // col其他一次性业务
+            // 
+            this.col其他一次性业务.FieldName = "其他一次性业务";
+            this.col其他一次性业务.Name = "col其他一次性业务";
+            this.col其他一次性业务.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "其他一次性业务", "{0:C3}")});
+            this.col其他一次性业务.Visible = true;
+            this.col其他一次性业务.VisibleIndex = 12;
+            this.col其他一次性业务.Width = 104;
+            // 
+            // col其他一次性业务提成
+            // 
+            this.col其他一次性业务提成.FieldName = "其他一次性业务提成";
+            this.col其他一次性业务提成.Name = "col其他一次性业务提成";
+            this.col其他一次性业务提成.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "其他一次性业务提成", "{0:C3}")});
+            this.col其他一次性业务提成.Visible = true;
+            this.col其他一次性业务提成.VisibleIndex = 13;
+            this.col其他一次性业务提成.Width = 128;
             // 
             // pageLastYear
             // 
@@ -841,14 +901,14 @@ namespace WangDaDll
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // FrmBusinessSalary
+            // FrmBusinessSalary2021
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(844, 592);
             this.Controls.Add(this.layoutControl1);
-            this.Name = "FrmBusinessSalary";
-            this.Text = "业务员业绩统计";
+            this.Name = "FrmBusinessSalary2021";
+            this.Text = "业务员业绩统计（2021版）";
             this.Load += new System.EventHandler(this.FrmBusinessSalary_Load);
             ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -928,5 +988,10 @@ namespace WangDaDll
         private DevExpress.XtraEditors.SimpleButton btnSCYJ;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
         private DevExpress.XtraSplashScreen.SplashScreenManager splash;
+        private DevExpress.XtraGrid.Columns.GridColumn col绩效;
+        private DevExpress.XtraGrid.Columns.GridColumn col成长版;
+        private DevExpress.XtraGrid.Columns.GridColumn col成长版提成;
+        private DevExpress.XtraGrid.Columns.GridColumn col其他一次性业务;
+        private DevExpress.XtraGrid.Columns.GridColumn col其他一次性业务提成;
     }
 }

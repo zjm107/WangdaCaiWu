@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicServiceSoap" contract="BasicServiceReference.BasicServiceSoap" bindingType="basicHttpBinding" address="http://localhost:2849/BasicService.asmx" bindingConfiguration="BasicServiceSoap">
+    <endpoint name="BasicServiceSoap" contract="BasicServiceReference.BasicServiceSoap" bindingType="basicHttpBinding" address="http://localhost:2857/BasicService.asmx" bindingConfiguration="BasicServiceSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:2849/BasicService.asmx</serializedValue>
+          <serializedValue>http://localhost:2857/BasicService.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

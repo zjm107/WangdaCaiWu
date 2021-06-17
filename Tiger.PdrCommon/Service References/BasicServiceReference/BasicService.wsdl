@@ -1218,10 +1218,10 @@
   </wsdl:binding>
   <wsdl:service name="BasicService">
     <wsdl:port name="BasicServiceSoap" binding="tns:BasicServiceSoap">
-      <soap:address location="http://localhost:2849/BasicService.asmx" />
+      <soap:address location="http://localhost:2857/BasicService.asmx" />
     </wsdl:port>
     <wsdl:port name="BasicServiceSoap12" binding="tns:BasicServiceSoap12">
-      <soap12:address location="http://localhost:2849/BasicService.asmx" />
+      <soap12:address location="http://localhost:2857/BasicService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

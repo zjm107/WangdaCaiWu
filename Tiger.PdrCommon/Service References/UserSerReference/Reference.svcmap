@@ -18,11 +18,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:2849/UserSer.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:2857/UserSer.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserSer.wsdl" MetadataType="Wsdl" ID="f09cc24b-2cfa-4b71-b172-bdcbbe3206f1" SourceId="1" SourceUrl="http://localhost:2849/UserSer.asmx?wsdl" />
-    <MetadataFile FileName="UserSer.disco" MetadataType="Disco" ID="6e755186-04c8-4cd7-9fcf-4349045b523f" SourceId="1" SourceUrl="http://localhost:2849/UserSer.asmx?disco" />
+    <MetadataFile FileName="UserSer.wsdl" MetadataType="Wsdl" ID="f09cc24b-2cfa-4b71-b172-bdcbbe3206f1" SourceId="1" SourceUrl="http://localhost:2857/UserSer.asmx?wsdl" />
+    <MetadataFile FileName="UserSer.disco" MetadataType="Disco" ID="6e755186-04c8-4cd7-9fcf-4349045b523f" SourceId="1" SourceUrl="http://localhost:2857/UserSer.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

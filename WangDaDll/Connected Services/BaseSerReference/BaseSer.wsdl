@@ -961,10 +961,10 @@
   </wsdl:binding>
   <wsdl:service name="BaseSer">
     <wsdl:port name="BaseSerSoap" binding="tns:BaseSerSoap">
-      <soap:address location="http://localhost:2849/BaseSer.asmx" />
+      <soap:address location="http://localhost:2857/BaseSer.asmx" />
     </wsdl:port>
     <wsdl:port name="BaseSerSoap12" binding="tns:BaseSerSoap12">
-      <soap12:address location="http://localhost:2849/BaseSer.asmx" />
+      <soap12:address location="http://localhost:2857/BaseSer.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

@@ -52,7 +52,15 @@ namespace WangDaDll
                     cszzDate2 = ((DateTime)cszzdateEdit2.EditValue).ToShortDateString();
                 }
 
-                proceedsDataSet.GetPaymentByInfoSP(是否审批comboBoxEdit.Text, 支付单位TextEdit.Text, "", 支付日期DateEdit.Text
+                string username = "";
+                if (Security.UserName == "秦艳" || Security.UserName == "admin")
+                {
+                    username = "";
+                }
+                else
+                    username = Security.UserName;
+
+                    proceedsDataSet.GetPaymentByInfoSP(是否审批comboBoxEdit.Text, 支付单位TextEdit.Text,username, 支付日期DateEdit.Text
                     , 支付日期DateEdit1.Text, 收款类别ComboBoxEdit.Text
                     , paymentEndDate,comboBoxEditBSK.Text,comboBoxEditLSB.Text
                     ,cszzDate1,cszzDate2,bcDate1,bcDate2);
@@ -260,12 +268,12 @@ namespace WangDaDll
 
         private void FrmPaymentManagerQuery_Load(object sender, EventArgs e)
         {
-            if (Security.UserName == "秦艳" || Security.UserName == "admin")
-            {
-                是否审批comboBoxEdit.Enabled = true;
-            }
-            else
-                是否审批comboBoxEdit.Enabled = false;
+            //if (Security.UserName == "秦艳" || Security.UserName == "admin")
+            //{
+                //是否审批comboBoxEdit.Enabled = true;
+            //}
+            //else
+            //    是否审批comboBoxEdit.Enabled = false;
 
             proceedsDataSet.DBHelper.WangDaSer.UpdateUserID();
         }

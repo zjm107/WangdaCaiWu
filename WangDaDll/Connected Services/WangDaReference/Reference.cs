@@ -100,6 +100,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetAllBusinessSum(int year, int month, string userManagerID, string userName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSum2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAllBusinessSum2021(int year, int month, string userManagerID, string userName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumOther", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetAllBusinessSumOther(int year, int month, string userManagerID, string userName);
@@ -258,6 +262,10 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetAllBusinessSum(int year, int month, string userManagerID, string userName) {
             return base.Channel.GetAllBusinessSum(year, month, userManagerID, userName);
+        }
+        
+        public System.Data.DataSet GetAllBusinessSum2021(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSum2021(year, month, userManagerID, userName);
         }
         
         public System.Data.DataSet GetAllBusinessSumOther(int year, int month, string userManagerID, string userName) {

@@ -372,10 +372,10 @@
   </wsdl:binding>
   <wsdl:service name="UserSer">
     <wsdl:port name="UserSerSoap" binding="tns:UserSerSoap">
-      <soap:address location="http://localhost:2849/UserSer.asmx" />
+      <soap:address location="http://localhost:2857/UserSer.asmx" />
     </wsdl:port>
     <wsdl:port name="UserSerSoap12" binding="tns:UserSerSoap12">
-      <soap12:address location="http://localhost:2849/UserSer.asmx" />
+      <soap12:address location="http://localhost:2857/UserSer.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

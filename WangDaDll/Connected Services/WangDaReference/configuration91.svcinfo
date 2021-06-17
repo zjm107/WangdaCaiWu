@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="kxReTCMo4g6ls1cAiD8SJufLz19Ni2ktiZb7prU/p+0=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="TJ+QxoesxwiHL2uwaPWrmCEij+XsPclcx3TY3PYeMGk=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WangDaSerSoap">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WangDaSerSoap" contract="WangDaReference.WangDaSerSoap" bindingType="basicHttpBinding" address="http://localhost:2849/WangDaSer.asmx" bindingConfiguration="WangDaSerSoap">
+    <endpoint name="WangDaSerSoap" contract="WangDaReference.WangDaSerSoap" bindingType="basicHttpBinding" address="http://localhost:2857/WangDaSer.asmx" bindingConfiguration="WangDaSerSoap">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:2849/WangDaSer.asmx</serializedValue>
+          <serializedValue>http://localhost:2857/WangDaSer.asmx</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

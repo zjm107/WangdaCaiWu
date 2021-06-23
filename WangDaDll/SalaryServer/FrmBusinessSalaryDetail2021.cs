@@ -59,6 +59,8 @@ namespace WangDaDll
                 if (SalaryType == "本年工资")
                 {
                     salaryDataSet.GetBusinessSum(UserID, Year, Month);
+                    salaryDataSetCZ.GetBusinessSumCZB(UserID, Year, Month);
+                    salaryDataSetYCX.GetBusinessSumYCX(UserID, Year, Month);
                 }
                 else if (SalaryType=="上年工资")
                 {

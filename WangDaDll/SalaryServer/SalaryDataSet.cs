@@ -23,6 +23,32 @@ namespace WangDaDll.SalaryServer
             DataSet dst = DBHelper.WangDaSer.GetBusinessSum(businessID, year, month);
             DataManager.ImpDataSet(dst.Tables[0], this.tableTW_SalarySum);
         }
+
+        /// <summary>
+        /// 获取业务员指定月份的业绩
+        /// </summary>
+        /// <param name="businessID">业务员ID</param>
+        /// <param name="year">年</param>
+        /// <param name="month">月</param>
+        public void GetBusinessSumCZB(string businessID, int year, int month)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetBusinessSumCZB2021(businessID, year, month);
+            DataManager.ImpDataSet(dst.Tables[0], this.tableTW_SalarySum);
+        }
+
+
+        /// <summary>
+        /// 获取业务员指定月份的业绩
+        /// </summary>
+        /// <param name="businessID">业务员ID</param>
+        /// <param name="year">年</param>
+        /// <param name="month">月</param>
+        public void GetBusinessSumYCX(string businessID, int year, int month)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetBusinessSumYCX2021(businessID, year, month);
+            DataManager.ImpDataSet(dst.Tables[0], this.tableTW_SalarySum);
+        }
+
         /// <summary>
         /// 获取全体业务员业绩，包括主管的业绩
         /// </summary>
@@ -56,7 +82,13 @@ namespace WangDaDll.SalaryServer
             decimal tc = (decimal)0.08;
             foreach (VW_AllBusinessSalaryRow row in VW_AllBusinessSalary.Rows)
             {
-                if (row.做账收款额 >= 30000 && row.做账收款额 <= 40000)
+                if (row.做账收款额 >= 20000 && row.做账收款额 <30000)
+                {
+                    row.绩效 = row.做账收款额 * tc ;
+
+                }
+                else
+                    if (row.做账收款额 >= 30000 && row.做账收款额 <= 40000)
                 {
                     row.绩效 = row.做账收款额 * tc + 500;
                 }

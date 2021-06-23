@@ -96,6 +96,18 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetBusinessSum(string businessID, int year, int month);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSum2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessSum2021(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumCZB2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessSumCZB2021(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumYCX2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessSumYCX2021(string businessID, int year, int month);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSum", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetAllBusinessSum(int year, int month, string userManagerID, string userName);
@@ -258,6 +270,18 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetBusinessSum(string businessID, int year, int month) {
             return base.Channel.GetBusinessSum(businessID, year, month);
+        }
+        
+        public System.Data.DataSet GetBusinessSum2021(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSum2021(businessID, year, month);
+        }
+        
+        public System.Data.DataSet GetBusinessSumCZB2021(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumCZB2021(businessID, year, month);
+        }
+        
+        public System.Data.DataSet GetBusinessSumYCX2021(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumYCX2021(businessID, year, month);
         }
         
         public System.Data.DataSet GetAllBusinessSum(int year, int month, string userManagerID, string userName) {

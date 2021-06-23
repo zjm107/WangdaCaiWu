@@ -304,6 +304,12 @@
     <Compile Include="Register\FrmRegManager.Designer.cs">
       <DependentUpon>FrmRegManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Register\FrmRegOneManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register\FrmRegOneManager.Designer.cs">
+      <DependentUpon>FrmRegOneManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalaryServer\FrmAccountantSalary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -466,6 +472,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register\FrmRegManager.resx">
       <DependentUpon>FrmRegManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register\FrmRegOneManager.resx">
+      <DependentUpon>FrmRegOneManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalaryServer\FrmAccountantSalary.resx">
       <DependentUpon>FrmAccountantSalary.cs</DependentUpon>

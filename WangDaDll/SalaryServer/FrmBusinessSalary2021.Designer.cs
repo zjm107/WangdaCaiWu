@@ -236,7 +236,7 @@ namespace WangDaDll
             this.vW_AllBusinessSalaryGridControl.Location = new System.Drawing.Point(0, 0);
             this.vW_AllBusinessSalaryGridControl.MainView = this.vW_AllBusinessSalaryGridView;
             this.vW_AllBusinessSalaryGridControl.Name = "vW_AllBusinessSalaryGridControl";
-            this.vW_AllBusinessSalaryGridControl.Size = new System.Drawing.Size(543, 326);
+            this.vW_AllBusinessSalaryGridControl.Size = new System.Drawing.Size(814, 489);
             this.vW_AllBusinessSalaryGridControl.TabIndex = 0;
             this.vW_AllBusinessSalaryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vW_AllBusinessSalaryGridView});
@@ -404,6 +404,7 @@ namespace WangDaDll
             // 
             // col做账收款额
             // 
+            this.col做账收款额.DisplayFormat.FormatString = "{0:C3}";
             this.col做账收款额.FieldName = "做账收款额";
             this.col做账收款额.Name = "col做账收款额";
             this.col做账收款额.OptionsColumn.ReadOnly = true;
@@ -416,6 +417,7 @@ namespace WangDaDll
             // 
             // col做账提成
             // 
+            this.col做账提成.DisplayFormat.FormatString = "{0:C3}";
             this.col做账提成.FieldName = "做账提成";
             this.col做账提成.Name = "col做账提成";
             this.col做账提成.OptionsColumn.ReadOnly = true;
@@ -427,6 +429,7 @@ namespace WangDaDll
             // 
             // col工本收款费
             // 
+            this.col工本收款费.DisplayFormat.FormatString = "{0:C3}";
             this.col工本收款费.FieldName = "工本收款费";
             this.col工本收款费.Name = "col工本收款费";
             this.col工本收款费.OptionsColumn.ReadOnly = true;
@@ -439,6 +442,7 @@ namespace WangDaDll
             // 
             // col开票收款费
             // 
+            this.col开票收款费.DisplayFormat.FormatString = "{0:C3}";
             this.col开票收款费.FieldName = "开票收款费";
             this.col开票收款费.Name = "col开票收款费";
             this.col开票收款费.OptionsColumn.ReadOnly = true;
@@ -451,6 +455,7 @@ namespace WangDaDll
             // 
             // col工本费开票费提成
             // 
+            this.col工本费开票费提成.DisplayFormat.FormatString = "{0:C3}";
             this.col工本费开票费提成.FieldName = "工本费开票费提成";
             this.col工本费开票费提成.Name = "col工本费开票费提成";
             this.col工本费开票费提成.OptionsColumn.ReadOnly = true;
@@ -463,6 +468,7 @@ namespace WangDaDll
             // 
             // col注册提成
             // 
+            this.col注册提成.DisplayFormat.FormatString = "{0:C3}";
             this.col注册提成.FieldName = "注册提成";
             this.col注册提成.Name = "col注册提成";
             this.col注册提成.OptionsColumn.ReadOnly = true;
@@ -474,6 +480,7 @@ namespace WangDaDll
             // 
             // col注册利润
             // 
+            this.col注册利润.DisplayFormat.FormatString = "{0:C3}";
             this.col注册利润.FieldName = "注册利润";
             this.col注册利润.Name = "col注册利润";
             this.col注册利润.OptionsColumn.ReadOnly = true;
@@ -485,6 +492,7 @@ namespace WangDaDll
             // 
             // col注册费收款额
             // 
+            this.col注册费收款额.DisplayFormat.FormatString = "{0:C3}";
             this.col注册费收款额.FieldName = "注册费收款额";
             this.col注册费收款额.Name = "col注册费收款额";
             this.col注册费收款额.OptionsColumn.ReadOnly = true;
@@ -497,6 +505,7 @@ namespace WangDaDll
             // 
             // col团队提成
             // 
+            this.col团队提成.DisplayFormat.FormatString = "{0:C3}";
             this.col团队提成.FieldName = "团队提成";
             this.col团队提成.Name = "col团队提成";
             this.col团队提成.OptionsColumn.ReadOnly = true;
@@ -508,6 +517,7 @@ namespace WangDaDll
             // 
             // col提成汇总
             // 
+            this.col提成汇总.DisplayFormat.FormatString = "{0:C3}";
             this.col提成汇总.FieldName = "提成汇总";
             this.col提成汇总.Name = "col提成汇总";
             this.col提成汇总.OptionsColumn.ReadOnly = true;
@@ -518,6 +528,7 @@ namespace WangDaDll
             // 
             // col绩效
             // 
+            this.col绩效.DisplayFormat.FormatString = "{0:C3}";
             this.col绩效.FieldName = "绩效";
             this.col绩效.Name = "col绩效";
             this.col绩效.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -527,6 +538,7 @@ namespace WangDaDll
             // 
             // col成长版
             // 
+            this.col成长版.DisplayFormat.FormatString = "{0:C3}";
             this.col成长版.FieldName = "成长版";
             this.col成长版.Name = "col成长版";
             this.col成长版.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -536,6 +548,7 @@ namespace WangDaDll
             // 
             // col成长版提成
             // 
+            this.col成长版提成.DisplayFormat.FormatString = "{0:C3}";
             this.col成长版提成.FieldName = "成长版提成";
             this.col成长版提成.Name = "col成长版提成";
             this.col成长版提成.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -546,6 +559,7 @@ namespace WangDaDll
             // 
             // col其他一次性业务
             // 
+            this.col其他一次性业务.DisplayFormat.FormatString = "{0:C3}";
             this.col其他一次性业务.FieldName = "其他一次性业务";
             this.col其他一次性业务.Name = "col其他一次性业务";
             this.col其他一次性业务.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -556,6 +570,7 @@ namespace WangDaDll
             // 
             // col其他一次性业务提成
             // 
+            this.col其他一次性业务提成.DisplayFormat.FormatString = "{0:C3}";
             this.col其他一次性业务提成.FieldName = "其他一次性业务提成";
             this.col其他一次性业务提成.Name = "col其他一次性业务提成";
             this.col其他一次性业务提成.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -579,7 +594,7 @@ namespace WangDaDll
             this.vW_AllBusinessSalaryYearGridControl.Location = new System.Drawing.Point(0, 0);
             this.vW_AllBusinessSalaryYearGridControl.MainView = this.vW_AllBusinessSalaryYearGridView;
             this.vW_AllBusinessSalaryYearGridControl.Name = "vW_AllBusinessSalaryYearGridControl";
-            this.vW_AllBusinessSalaryYearGridControl.Size = new System.Drawing.Size(543, 326);
+            this.vW_AllBusinessSalaryYearGridControl.Size = new System.Drawing.Size(814, 489);
             this.vW_AllBusinessSalaryYearGridControl.TabIndex = 0;
             this.vW_AllBusinessSalaryYearGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vW_AllBusinessSalaryYearGridView});

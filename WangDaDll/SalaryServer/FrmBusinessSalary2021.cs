@@ -132,7 +132,7 @@ namespace WangDaDll
                 
                 DataRowView rv = vW_AllBusinessSalaryBindingSource.Current as DataRowView;
                 string userID = rv["员工ID"].ToString();
-                FrmBusinessSalaryDetail frmDetailDlg = new FrmBusinessSalaryDetail("本年工资",year,month,userID);
+                FrmBusinessSalaryDetail2021 frmDetailDlg = new FrmBusinessSalaryDetail2021("本年工资",year,month,userID);
                 if (frmDetailDlg.ShowDialog() == DialogResult.OK)
                 {
                     

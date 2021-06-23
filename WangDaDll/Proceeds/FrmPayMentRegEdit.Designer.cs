@@ -204,7 +204,7 @@ namespace WangDaDll
             // 
             // btnPayAll
             // 
-            this.btnPayAll.Location = new System.Drawing.Point(198, 12);
+            this.btnPayAll.Location = new System.Drawing.Point(255, 12);
             this.btnPayAll.Name = "btnPayAll";
             this.btnPayAll.Size = new System.Drawing.Size(89, 22);
             this.btnPayAll.StyleController = this.layoutControl1;
@@ -214,7 +214,7 @@ namespace WangDaDll
             // 
             // btnPayhalf
             // 
-            this.btnPayhalf.Location = new System.Drawing.Point(105, 12);
+            this.btnPayhalf.Location = new System.Drawing.Point(162, 12);
             this.btnPayhalf.Name = "btnPayhalf";
             this.btnPayhalf.Size = new System.Drawing.Size(89, 22);
             this.btnPayhalf.StyleController = this.layoutControl1;
@@ -226,10 +226,10 @@ namespace WangDaDll
             // 
             this.btnSelectClient.Location = new System.Drawing.Point(12, 12);
             this.btnSelectClient.Name = "btnSelectClient";
-            this.btnSelectClient.Size = new System.Drawing.Size(89, 22);
+            this.btnSelectClient.Size = new System.Drawing.Size(146, 22);
             this.btnSelectClient.StyleController = this.layoutControl1;
             this.btnSelectClient.TabIndex = 18;
-            this.btnSelectClient.Text = "选择注册单位";
+            this.btnSelectClient.Text = "选择注册/一次性业务单位";
             this.btnSelectClient.Click += new System.EventHandler(this.btnSelectClient_Click);
             // 
             // tW_PaymentDetailGridControl
@@ -418,22 +418,25 @@ namespace WangDaDll
             // 
             // col注册费
             // 
+            this.col注册费.Caption = "注册/一次性业务费";
             this.col注册费.FieldName = "注册费";
             this.col注册费.Name = "col注册费";
             this.col注册费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "注册费", "{0:0.##}")});
             this.col注册费.Visible = true;
             this.col注册费.VisibleIndex = 1;
+            this.col注册费.Width = 120;
             // 
             // col注册费收款额
             // 
+            this.col注册费收款额.Caption = "注册/一次性业务收款额";
             this.col注册费收款额.FieldName = "注册费收款额";
             this.col注册费收款额.Name = "col注册费收款额";
             this.col注册费收款额.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "注册费收款额", "{0:0.##}")});
             this.col注册费收款额.Visible = true;
             this.col注册费收款额.VisibleIndex = 2;
-            this.col注册费收款额.Width = 92;
+            this.col注册费收款额.Width = 152;
             // 
             // col月做账费
             // 
@@ -571,7 +574,6 @@ namespace WangDaDll
             this.备注TextEdit.Size = new System.Drawing.Size(703, 87);
             this.备注TextEdit.StyleController = this.layoutControl1;
             this.备注TextEdit.TabIndex = 17;
-            this.备注TextEdit.UseOptimizedRendering = true;
             // 
             // 支付单位TextEdit
             // 
@@ -611,7 +613,6 @@ namespace WangDaDll
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(925, 616);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -673,9 +674,7 @@ namespace WangDaDll
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(905, 379);
-            this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem3
@@ -683,54 +682,47 @@ namespace WangDaDll
             this.layoutControlItem3.Control = this.btnSelectClient;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(93, 26);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(93, 26);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(150, 26);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(150, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(93, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(150, 26);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnPayhalf;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(93, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(150, 0);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnPayAll;
             this.layoutControlItem7.CustomizationFormText = "layoutControlItem7";
-            this.layoutControlItem7.Location = new System.Drawing.Point(186, 0);
+            this.layoutControlItem7.Location = new System.Drawing.Point(243, 0);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem7.Text = "layoutControlItem7";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextToControlDistance = 0;
             this.layoutControlItem7.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(279, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(336, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(626, 26);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(569, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem10
@@ -769,9 +761,7 @@ namespace WangDaDll
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem9.Text = "layoutControlItem9";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextToControlDistance = 0;
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlItem11
@@ -784,9 +774,7 @@ namespace WangDaDll
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem11.Text = "layoutControlItem11";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem11.TextToControlDistance = 0;
             this.layoutControlItem11.TextVisible = false;
             // 
             // emptySpaceItem2
@@ -796,7 +784,6 @@ namespace WangDaDll
             this.emptySpaceItem2.Location = new System.Drawing.Point(186, 570);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(719, 26);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem12
@@ -809,9 +796,7 @@ namespace WangDaDll
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(39, 26);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem12.Text = "layoutControlItem12";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem12.TextToControlDistance = 0;
             this.layoutControlItem12.TextVisible = false;
             // 
             // emptySpaceItem3
@@ -821,7 +806,6 @@ namespace WangDaDll
             this.emptySpaceItem3.Location = new System.Drawing.Point(762, 479);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(143, 91);
-            this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -831,7 +815,6 @@ namespace WangDaDll
             this.emptySpaceItem4.Location = new System.Drawing.Point(762, 429);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(143, 26);
-            this.emptySpaceItem4.Text = "emptySpaceItem4";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
@@ -841,7 +824,6 @@ namespace WangDaDll
             this.emptySpaceItem5.Location = new System.Drawing.Point(762, 405);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
             this.emptySpaceItem5.Size = new System.Drawing.Size(143, 24);
-            this.emptySpaceItem5.Text = "emptySpaceItem5";
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -851,7 +833,6 @@ namespace WangDaDll
             this.emptySpaceItem6.Location = new System.Drawing.Point(763, 455);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(142, 24);
-            this.emptySpaceItem6.Text = "emptySpaceItem6";
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem15
@@ -866,7 +847,6 @@ namespace WangDaDll
             this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem15.Text = "不收款:";
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem15.TextToControlDistance = 0;
             this.layoutControlItem15.TextVisible = false;
             // 
             // dstTCONF_WORD
@@ -881,7 +861,7 @@ namespace WangDaDll
             this.ClientSize = new System.Drawing.Size(925, 616);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FrmPayMentRegEdit";
-            this.Text = "注册收款";
+            this.Text = "注册/一次性业务收款";
             this.Load += new System.EventHandler(this.FrmPayMentReg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

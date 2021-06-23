@@ -153,7 +153,8 @@ namespace WangDaDll
         private void GetPaymentDetail()
         {
             DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
-            if (rv != null && rv["收款类别"].ToString() == "注册收款")
+            if (rv != null && (rv["收款类别"].ToString() == "注册收款" || rv["收款类别"].ToString() == "成长版收款" ||
+                   rv["收款类别"].ToString() == "其他一次性收款"))
             {
                 string paymentID = rv["tw_PaymentID"].ToString();
                 proceedsDataSet.GetPaymentDetailID(paymentID);

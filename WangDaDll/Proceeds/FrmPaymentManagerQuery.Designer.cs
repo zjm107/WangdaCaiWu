@@ -658,6 +658,11 @@ namespace WangDaDll
             this.收款类别ComboBoxEdit.Name = "收款类别ComboBoxEdit";
             this.收款类别ComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.收款类别ComboBoxEdit.Properties.Items.AddRange(new object[] {
+            "常规收款",
+            "注册收款",
+            "成长版收款",
+            "其他一次性业务收款"});
             this.收款类别ComboBoxEdit.Size = new System.Drawing.Size(90, 20);
             this.收款类别ComboBoxEdit.StyleController = this.layoutControl1;
             this.收款类别ComboBoxEdit.TabIndex = 10;

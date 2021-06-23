@@ -65,11 +65,25 @@ namespace WangDaDll.Common
             {
                 string payCompany = VW_PaymentDetail.Rows[0]["公司预核名称"].ToString();
                 string payCompanyID = VW_PaymentDetail.Rows[0]["TW_BusinessRegID"].ToString();
-
+                string zclx = VW_PaymentDetail.Rows[0]["注册类型"].ToString();
                 DataRow mainRow = this.TW_Payment.Rows[0];
                 mainRow.BeginEdit();
                 mainRow["支付单位"] = payCompany;
                 mainRow["客户名称ID"] = payCompanyID;
+                switch (zclx)
+                {
+                    case "成长版":
+                        mainRow["收款类别"] = "成长版收款";
+                        break;
+                    case "验资":
+                    case "审计":
+                    case "商标":
+                        mainRow["收款类别"] = "其他一次性业务收款";
+                        break;
+                    default:
+                        mainRow["收款类别"] = "注册收款";
+                        break;
+                }
                 mainRow.EndEdit();
 
             }
@@ -256,12 +270,12 @@ namespace WangDaDll.Common
         /// <param name="cszzDate1">初始做账</param>
         /// <param name="dqDate1">支付日期</param>
         public void GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate
-            , string paymentType, string endPaymentDate, string isPay, string zeroAccount,string cszzDate1,string cszzDate2,string dqDate1,string dqDate2)
+            , string paymentType, string endPaymentDate, string isPay, string zeroAccount, string cszzDate1, string cszzDate2, string dqDate1, string dqDate2)
         {
             try
             {
                 DataSet dst = DBHelper.WangDaSer.GetPaymentByInfoSP(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate
-                    , isPay, zeroAccount,dqDate1,dqDate2,cszzDate1,cszzDate2);
+                    , isPay, zeroAccount, dqDate1, dqDate2, cszzDate1, cszzDate2);
                 DataManager.ImpDataSet(dst.Tables[0], this.TW_Payment);
             }
             catch (Exception ex)

@@ -32,9 +32,11 @@ namespace WangDaDll
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.不收款CheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.tW_PaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.proceedsDataSet = new WangDaDll.Common.ProceedsDataSet();
             this.tW_PaymentDetailGridControl = new DevExpress.XtraGrid.GridControl();
             this.tW_PaymentDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.proceedsDataSet = new WangDaDll.Common.ProceedsDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col客户名称 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col业务员 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,7 +55,6 @@ namespace WangDaDll
             this.col缴费月数 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col月平均费 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.收款人TextEdit = new DevExpress.XtraEditors.TextEdit();
-            this.tW_PaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.备注TextEdit = new DevExpress.XtraEditors.MemoEdit();
             this.支付单位TextEdit = new DevExpress.XtraEditors.TextEdit();
             this.支付金额CalcEdit = new DevExpress.XtraEditors.TextEdit();
@@ -71,18 +72,18 @@ namespace WangDaDll
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
-            this.不收款CheckEdit = new DevExpress.XtraEditors.CheckEdit();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.不收款CheckEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tW_PaymentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proceedsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_PaymentDetailGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_PaymentDetailBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proceedsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.收款人TextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tW_PaymentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.备注TextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.支付单位TextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.支付金额CalcEdit.Properties)).BeginInit();
@@ -100,9 +101,8 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.不收款CheckEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -123,6 +123,26 @@ namespace WangDaDll
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // 不收款CheckEdit
+            // 
+            this.不收款CheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "不收款", true));
+            this.不收款CheckEdit.Location = new System.Drawing.Point(12, 342);
+            this.不收款CheckEdit.Name = "不收款CheckEdit";
+            this.不收款CheckEdit.Properties.Caption = "不收款";
+            this.不收款CheckEdit.Size = new System.Drawing.Size(64, 19);
+            this.不收款CheckEdit.StyleController = this.layoutControl1;
+            this.不收款CheckEdit.TabIndex = 18;
+            // 
+            // tW_PaymentBindingSource
+            // 
+            this.tW_PaymentBindingSource.DataMember = "TW_Payment";
+            this.tW_PaymentBindingSource.DataSource = this.proceedsDataSet;
+            // 
+            // proceedsDataSet
+            // 
+            this.proceedsDataSet.DataSetName = "ProceedsDataSet";
+            this.proceedsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tW_PaymentDetailGridControl
             // 
             this.tW_PaymentDetailGridControl.Cursor = System.Windows.Forms.Cursors.Default;
@@ -139,11 +159,6 @@ namespace WangDaDll
             // 
             this.tW_PaymentDetailBindingSource.DataMember = "TW_PaymentDetail";
             this.tW_PaymentDetailBindingSource.DataSource = this.proceedsDataSet;
-            // 
-            // proceedsDataSet
-            // 
-            this.proceedsDataSet.DataSetName = "ProceedsDataSet";
-            this.proceedsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -317,6 +332,7 @@ namespace WangDaDll
             // 
             // col注册费
             // 
+            this.col注册费.Caption = "注册/一次性业务费";
             this.col注册费.FieldName = "注册费";
             this.col注册费.Name = "col注册费";
             this.col注册费.OptionsColumn.ReadOnly = true;
@@ -324,9 +340,11 @@ namespace WangDaDll
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "注册费", "{0:0.##}")});
             this.col注册费.Visible = true;
             this.col注册费.VisibleIndex = 1;
+            this.col注册费.Width = 121;
             // 
             // col注册费收款额
             // 
+            this.col注册费收款额.Caption = "注册/一次性业务收款额";
             this.col注册费收款额.FieldName = "注册费收款额";
             this.col注册费收款额.Name = "col注册费收款额";
             this.col注册费收款额.OptionsColumn.ReadOnly = true;
@@ -334,7 +352,7 @@ namespace WangDaDll
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "注册费收款额", "{0:0.##}")});
             this.col注册费收款额.Visible = true;
             this.col注册费收款额.VisibleIndex = 2;
-            this.col注册费收款额.Width = 92;
+            this.col注册费收款额.Width = 183;
             // 
             // col月做账费
             // 
@@ -438,11 +456,6 @@ namespace WangDaDll
             this.收款人TextEdit.StyleController = this.layoutControl1;
             this.收款人TextEdit.TabIndex = 13;
             // 
-            // tW_PaymentBindingSource
-            // 
-            this.tW_PaymentBindingSource.DataMember = "TW_Payment";
-            this.tW_PaymentBindingSource.DataSource = this.proceedsDataSet;
-            // 
             // 备注TextEdit
             // 
             this.备注TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "备注", true));
@@ -452,7 +465,6 @@ namespace WangDaDll
             this.备注TextEdit.Size = new System.Drawing.Size(703, 87);
             this.备注TextEdit.StyleController = this.layoutControl1;
             this.备注TextEdit.TabIndex = 17;
-            this.备注TextEdit.UseOptimizedRendering = true;
             // 
             // 支付单位TextEdit
             // 
@@ -518,7 +530,6 @@ namespace WangDaDll
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(931, 569);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -578,9 +589,7 @@ namespace WangDaDll
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(911, 330);
-            this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem10
@@ -615,7 +624,6 @@ namespace WangDaDll
             this.emptySpaceItem3.Location = new System.Drawing.Point(762, 458);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(149, 91);
-            this.emptySpaceItem3.Text = "emptySpaceItem3";
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -625,7 +633,6 @@ namespace WangDaDll
             this.emptySpaceItem4.Location = new System.Drawing.Point(762, 354);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(149, 79);
-            this.emptySpaceItem4.Text = "emptySpaceItem4";
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
@@ -635,7 +642,6 @@ namespace WangDaDll
             this.emptySpaceItem5.Location = new System.Drawing.Point(762, 330);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
             this.emptySpaceItem5.Size = new System.Drawing.Size(149, 24);
-            this.emptySpaceItem5.Text = "emptySpaceItem5";
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -645,23 +651,7 @@ namespace WangDaDll
             this.emptySpaceItem6.Location = new System.Drawing.Point(762, 433);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(149, 25);
-            this.emptySpaceItem6.Text = "emptySpaceItem6";
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // dstTCONF_WORD
-            // 
-            this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
-            this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // 不收款CheckEdit
-            // 
-            this.不收款CheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "不收款", true));
-            this.不收款CheckEdit.Location = new System.Drawing.Point(12, 342);
-            this.不收款CheckEdit.Name = "不收款CheckEdit";
-            this.不收款CheckEdit.Properties.Caption = "不收款";
-            this.不收款CheckEdit.Size = new System.Drawing.Size(64, 19);
-            this.不收款CheckEdit.StyleController = this.layoutControl1;
-            this.不收款CheckEdit.TabIndex = 18;
             // 
             // layoutControlItem5
             // 
@@ -675,8 +665,12 @@ namespace WangDaDll
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "不收款:";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // dstTCONF_WORD
+            // 
+            this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
+            this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // FrmPayMentRegView
             // 
@@ -689,12 +683,13 @@ namespace WangDaDll
             this.Load += new System.EventHandler(this.FrmPayMentReg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.不收款CheckEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tW_PaymentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proceedsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_PaymentDetailGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_PaymentDetailBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.proceedsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.收款人TextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tW_PaymentBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.备注TextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.支付单位TextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.支付金额CalcEdit.Properties)).EndInit();
@@ -712,9 +707,8 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.不收款CheckEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
             this.ResumeLayout(false);
 
         }

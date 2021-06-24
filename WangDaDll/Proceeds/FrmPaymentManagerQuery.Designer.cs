@@ -559,6 +559,7 @@ namespace WangDaDll
             // 
             // col注册费收款额
             // 
+            this.col注册费收款额.Caption = "注册/一次性业务收款额";
             this.col注册费收款额.FieldName = "注册费收款额";
             this.col注册费收款额.Name = "col注册费收款额";
             this.col注册费收款额.OptionsColumn.ReadOnly = true;

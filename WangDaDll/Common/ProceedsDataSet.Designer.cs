@@ -2124,6 +2124,8 @@ namespace WangDaDll.Common {
             
             private global::System.Data.DataColumn column上次到期月;
             
+            private global::System.Data.DataColumn column注册类型;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VW_PaymentDetailDataTable() : 
@@ -2544,6 +2546,14 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn 注册类型Column {
+                get {
+                    return this.column注册类型;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2626,7 +2636,8 @@ namespace WangDaDll.Common {
                         decimal 注册费未收款, 
                         decimal 工本费未收款, 
                         decimal 开票费未收款, 
-                        System.DateTime 上次到期月) {
+                        System.DateTime 上次到期月, 
+                        string 注册类型) {
                 VW_PaymentDetailRow rowVW_PaymentDetailRow = ((VW_PaymentDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         公司预核名称,
@@ -2675,7 +2686,8 @@ namespace WangDaDll.Common {
                         注册费未收款,
                         工本费未收款,
                         开票费未收款,
-                        上次到期月};
+                        上次到期月,
+                        注册类型};
                 rowVW_PaymentDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_PaymentDetailRow);
                 return rowVW_PaymentDetailRow;
@@ -2727,7 +2739,8 @@ namespace WangDaDll.Common {
                         decimal 注册费收款额, 
                         System.DateTime 做账到期月, 
                         decimal 做账费收款额, 
-                        System.DateTime 上次到期月) {
+                        System.DateTime 上次到期月, 
+                        string 注册类型) {
                 VW_PaymentDetailRow rowVW_PaymentDetailRow = ((VW_PaymentDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         公司预核名称,
@@ -2776,7 +2789,8 @@ namespace WangDaDll.Common {
                         null,
                         null,
                         null,
-                        上次到期月};
+                        上次到期月,
+                        注册类型};
                 rowVW_PaymentDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_PaymentDetailRow);
                 return rowVW_PaymentDetailRow;
@@ -2853,6 +2867,7 @@ namespace WangDaDll.Common {
                 this.column工本费未收款 = base.Columns["工本费未收款"];
                 this.column开票费未收款 = base.Columns["开票费未收款"];
                 this.column上次到期月 = base.Columns["上次到期月"];
+                this.column注册类型 = base.Columns["注册类型"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2952,6 +2967,8 @@ namespace WangDaDll.Common {
                 base.Columns.Add(this.column开票费未收款);
                 this.column上次到期月 = new global::System.Data.DataColumn("上次到期月", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column上次到期月);
+                this.column注册类型 = new global::System.Data.DataColumn("注册类型", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册类型);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTW_BusinessRegID}, true));
                 this.column公司预核名称.MaxLength = 200;
@@ -5939,6 +5956,22 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string 注册类型 {
+                get {
+                    try {
+                        return ((string)(this[this.tableVW_PaymentDetail.注册类型Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_PaymentDetail”中列“注册类型”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_PaymentDetail.注册类型Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Is公司预核名称Null() {
                 return this.IsNull(this.tableVW_PaymentDetail.公司预核名称Column);
             }
@@ -6487,6 +6520,18 @@ namespace WangDaDll.Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Set上次到期月Null() {
                 this[this.tableVW_PaymentDetail.上次到期月Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Is注册类型Null() {
+                return this.IsNull(this.tableVW_PaymentDetail.注册类型Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Set注册类型Null() {
+                this[this.tableVW_PaymentDetail.注册类型Column] = global::System.Convert.DBNull;
             }
         }
         

@@ -50,25 +50,36 @@ namespace WangDaDll
                 if (Security.UserBusiness.Contains("总经理") || Security.UserBusiness.Contains("主管"))
                 {
                     salaryDataSet.GetRegSum(year, month, "");
-                    salaryDataSetYW.GetAllBusinessSum(year, month, "","");
+                    salaryDataSetYW.GetAllBusinessSumZC2021(year, month, "", "");
                     foreach (DataRow row in salaryDataSetYW.VW_AllBusinessSalary.Rows)
                     {
                         string userName = row["员工"].ToString();
                         decimal sumPrice = decimal.Parse(row["提成汇总"].ToString());
-                        DataRow[] selRows = salaryDataSet.VW_AllBusinessSalary.Select(string.Format("员工='{0}'", sumPrice));
+                        decimal czb = decimal.Parse(row["成长版"].ToString());
+                        decimal czbtc = decimal.Parse(row["成长版提成"].ToString());
+                        decimal ycx = decimal.Parse(row["其他一次性业务"].ToString());
+                        decimal ycxtc = decimal.Parse(row["其他一次性业务提成"].ToString());
+                        decimal jx = decimal.Parse(row["绩效"].ToString());
+                        DataRow[] selRows = salaryDataSet.VW_AllBusinessSalary.Select(string.Format("员工='{0}'", userName));
                         foreach (DataRow selRow in selRows)
                         {
                             selRow.BeginEdit();
                             selRow["业务提成"] = sumPrice;
+                            selRow["成长版"] = czb;
+                            selRow["成长版提成"] = czbtc;
+                            selRow["其他一次性业务"] = ycx;
+                            selRow["其他一次性业务提成"] = ycxtc;
+                            selRow["绩效"] = jx;
                             selRow.EndEdit();
                             selRow.AcceptChanges();
                         }
                     }
                 }
-                else {
+                else
+                {
                     salaryDataSet.GetRegSum(year, month, Security.UserName);
                     decimal sumPrice = salaryDataSetYW.GetAllBusinessSumValue(year, month, UserID, Security.UserName);
-                    if (sumPrice > 0 && salaryDataSet.VW_AllBusinessSalary.Rows.Count>0)
+                    if (sumPrice > 0 && salaryDataSet.VW_AllBusinessSalary.Rows.Count > 0)
                     {
                         DataRow row = salaryDataSet.VW_AllBusinessSalary.Rows[0];
                         row.BeginEdit();
@@ -82,7 +93,8 @@ namespace WangDaDll
             {
                 UserMessages.ShowInfoBox(ex.Message);
             }
-            finally {
+            finally
+            {
                 this.Cursor = Cursors.Default;
                 if (splash.IsSplashFormVisible)
                     splash.CloseWaitForm();

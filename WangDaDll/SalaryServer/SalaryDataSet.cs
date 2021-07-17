@@ -61,6 +61,35 @@ namespace WangDaDll.SalaryServer
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
         }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="userManagerID"></param>
+        /// <param name="userName"></param>
+        public void GetAllBusinessSumZC(int year, int month, string userManagerID, string userName)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumZC(year, month, userManagerID, userName);
+            DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
+        }
+
+        /// <summary>
+        /// 注册部业绩2021
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="userManagerID"></param>
+        /// <param name="userName"></param>
+        public void GetAllBusinessSumZC2021(int year, int month, string userManagerID, string userName)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumZC2021(year, month, userManagerID, userName);
+            DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
+
+            AddPerformance();  //计算绩效
+        }
+
+
+        /// <summary>
         /// 获取所有业务员业绩，加绩效工资
         /// </summary>
         /// <param name="year"></param>
@@ -71,7 +100,7 @@ namespace WangDaDll.SalaryServer
         {
             DataSet dst = DBHelper.WangDaSer.GetAllBusinessSum2021(year, month, userManagerID, userName);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
-            AddPerformance();
+            AddPerformance();  //计算绩效
         }
 
         /// <summary>
@@ -82,9 +111,9 @@ namespace WangDaDll.SalaryServer
             decimal tc = (decimal)0.08;
             foreach (VW_AllBusinessSalaryRow row in VW_AllBusinessSalary.Rows)
             {
-                if (row.做账收款额 >= 20000 && row.做账收款额 <30000)
+                if (row.做账收款额 >= 20000 && row.做账收款额 < 30000)
                 {
-                    row.绩效 = row.做账收款额 * tc ;
+                    row.绩效 = row.做账收款额 * tc;
 
                 }
                 else

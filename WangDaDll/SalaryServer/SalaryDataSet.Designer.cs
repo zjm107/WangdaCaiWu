@@ -567,7 +567,7 @@ namespace WangDaDll.SalaryServer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitExpressions() {
             this.VW_AllBusinessSalary.提成汇总Column.Expression = "做账提成+注册提成+团队提成+业务提成+成长版提成+绩效+其他一次性业务提成";
-            this.VW_AllAccountantSalary.提成汇总Column.Expression = "做账提成+工本费开票费提成+团队提成+学徒提成+业务提成-实习工资";
+            this.VW_AllAccountantSalary.提成汇总Column.Expression = "做账提成+工本费开票费提成+团队提成+学徒提成+业务提成-实习工资+成长版提成+其他一次性业务提成+绩效";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2667,6 +2667,16 @@ namespace WangDaDll.SalaryServer {
             
             private global::System.Data.DataColumn column业务提成;
             
+            private global::System.Data.DataColumn column成长版;
+            
+            private global::System.Data.DataColumn column成长版提成;
+            
+            private global::System.Data.DataColumn column其他一次性业务;
+            
+            private global::System.Data.DataColumn column其他一次性业务提成;
+            
+            private global::System.Data.DataColumn column绩效;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public VW_AllAccountantSalaryDataTable() : 
@@ -2815,6 +2825,46 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn 成长版Column {
+                get {
+                    return this.column成长版;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn 成长版提成Column {
+                get {
+                    return this.column成长版提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn 其他一次性业务Column {
+                get {
+                    return this.column其他一次性业务;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn 其他一次性业务提成Column {
+                get {
+                    return this.column其他一次性业务提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn 绩效Column {
+                get {
+                    return this.column绩效;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2850,7 +2900,25 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_AllAccountantSalaryRow AddVW_AllAccountantSalaryRow(string 员工, string 员工ID, decimal 做账收款额, decimal 做账提成, decimal 工本收款费, decimal 开票收款费, decimal 工本费开票费提成, decimal 团队提成, decimal 学徒提成, decimal 实习工资, decimal 提成汇总, decimal 月做账费, decimal 业务提成) {
+            public VW_AllAccountantSalaryRow AddVW_AllAccountantSalaryRow(
+                        string 员工, 
+                        string 员工ID, 
+                        decimal 做账收款额, 
+                        decimal 做账提成, 
+                        decimal 工本收款费, 
+                        decimal 开票收款费, 
+                        decimal 工本费开票费提成, 
+                        decimal 团队提成, 
+                        decimal 学徒提成, 
+                        decimal 实习工资, 
+                        decimal 提成汇总, 
+                        decimal 月做账费, 
+                        decimal 业务提成, 
+                        decimal 成长版, 
+                        decimal 成长版提成, 
+                        decimal 其他一次性业务, 
+                        decimal 其他一次性业务提成, 
+                        decimal 绩效) {
                 VW_AllAccountantSalaryRow rowVW_AllAccountantSalaryRow = ((VW_AllAccountantSalaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         员工,
@@ -2865,7 +2933,12 @@ namespace WangDaDll.SalaryServer {
                         实习工资,
                         提成汇总,
                         月做账费,
-                        业务提成};
+                        业务提成,
+                        成长版,
+                        成长版提成,
+                        其他一次性业务,
+                        其他一次性业务提成,
+                        绩效};
                 rowVW_AllAccountantSalaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_AllAccountantSalaryRow);
                 return rowVW_AllAccountantSalaryRow;
@@ -2873,7 +2946,24 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public VW_AllAccountantSalaryRow AddVW_AllAccountantSalaryRow(string 员工, string 员工ID, decimal 做账收款额, decimal 做账提成, decimal 工本收款费, decimal 开票收款费, decimal 工本费开票费提成, decimal 团队提成, decimal 学徒提成, decimal 实习工资, decimal 月做账费, decimal 业务提成) {
+            public VW_AllAccountantSalaryRow AddVW_AllAccountantSalaryRow(
+                        string 员工, 
+                        string 员工ID, 
+                        decimal 做账收款额, 
+                        decimal 做账提成, 
+                        decimal 工本收款费, 
+                        decimal 开票收款费, 
+                        decimal 工本费开票费提成, 
+                        decimal 团队提成, 
+                        decimal 学徒提成, 
+                        decimal 实习工资, 
+                        decimal 月做账费, 
+                        decimal 业务提成, 
+                        decimal 成长版, 
+                        decimal 成长版提成, 
+                        decimal 其他一次性业务, 
+                        decimal 其他一次性业务提成, 
+                        decimal 绩效) {
                 VW_AllAccountantSalaryRow rowVW_AllAccountantSalaryRow = ((VW_AllAccountantSalaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         员工,
@@ -2888,7 +2978,12 @@ namespace WangDaDll.SalaryServer {
                         实习工资,
                         null,
                         月做账费,
-                        业务提成};
+                        业务提成,
+                        成长版,
+                        成长版提成,
+                        其他一次性业务,
+                        其他一次性业务提成,
+                        绩效};
                 rowVW_AllAccountantSalaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_AllAccountantSalaryRow);
                 return rowVW_AllAccountantSalaryRow;
@@ -2924,6 +3019,11 @@ namespace WangDaDll.SalaryServer {
                 this.column提成汇总 = base.Columns["提成汇总"];
                 this.column月做账费 = base.Columns["月做账费"];
                 this.column业务提成 = base.Columns["业务提成"];
+                this.column成长版 = base.Columns["成长版"];
+                this.column成长版提成 = base.Columns["成长版提成"];
+                this.column其他一次性业务 = base.Columns["其他一次性业务"];
+                this.column其他一次性业务提成 = base.Columns["其他一次性业务提成"];
+                this.column绩效 = base.Columns["绩效"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2955,6 +3055,16 @@ namespace WangDaDll.SalaryServer {
                 base.Columns.Add(this.column月做账费);
                 this.column业务提成 = new global::System.Data.DataColumn("业务提成", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column业务提成);
+                this.column成长版 = new global::System.Data.DataColumn("成长版", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column成长版);
+                this.column成长版提成 = new global::System.Data.DataColumn("成长版提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column成长版提成);
+                this.column其他一次性业务 = new global::System.Data.DataColumn("其他一次性业务", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column其他一次性业务);
+                this.column其他一次性业务提成 = new global::System.Data.DataColumn("其他一次性业务提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column其他一次性业务提成);
+                this.column绩效 = new global::System.Data.DataColumn("绩效", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column绩效);
                 this.column员工.MaxLength = 50;
                 this.column员工ID.MaxLength = 50;
                 this.column做账提成.ReadOnly = true;
@@ -2962,6 +3072,11 @@ namespace WangDaDll.SalaryServer {
                 this.column团队提成.ReadOnly = true;
                 this.column提成汇总.ReadOnly = true;
                 this.column业务提成.DefaultValue = ((decimal)(0m));
+                this.column成长版.DefaultValue = ((decimal)(0m));
+                this.column成长版提成.DefaultValue = ((decimal)(0m));
+                this.column其他一次性业务.DefaultValue = ((decimal)(0m));
+                this.column其他一次性业务提成.DefaultValue = ((decimal)(0m));
+                this.column绩效.DefaultValue = ((decimal)(0m));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2985,7 +3100,7 @@ namespace WangDaDll.SalaryServer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitExpressions() {
-                this.提成汇总Column.Expression = "做账提成+工本费开票费提成+团队提成+学徒提成+业务提成-实习工资";
+                this.提成汇总Column.Expression = "做账提成+工本费开票费提成+团队提成+学徒提成+业务提成-实习工资+成长版提成+其他一次性业务提成+绩效";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7542,6 +7657,86 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal 成长版 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_AllAccountantSalary.成长版Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_AllAccountantSalary”中列“成长版”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_AllAccountantSalary.成长版Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal 成长版提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_AllAccountantSalary.成长版提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_AllAccountantSalary”中列“成长版提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_AllAccountantSalary.成长版提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal 其他一次性业务 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_AllAccountantSalary.其他一次性业务Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_AllAccountantSalary”中列“其他一次性业务”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_AllAccountantSalary.其他一次性业务Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal 其他一次性业务提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_AllAccountantSalary.其他一次性业务提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_AllAccountantSalary”中列“其他一次性业务提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_AllAccountantSalary.其他一次性业务提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public decimal 绩效 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_AllAccountantSalary.绩效Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_AllAccountantSalary”中列“绩效”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_AllAccountantSalary.绩效Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Is员工Null() {
                 return this.IsNull(this.tableVW_AllAccountantSalary.员工Column);
             }
@@ -7694,6 +7889,66 @@ namespace WangDaDll.SalaryServer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Set业务提成Null() {
                 this[this.tableVW_AllAccountantSalary.业务提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Is成长版Null() {
+                return this.IsNull(this.tableVW_AllAccountantSalary.成长版Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Set成长版Null() {
+                this[this.tableVW_AllAccountantSalary.成长版Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Is成长版提成Null() {
+                return this.IsNull(this.tableVW_AllAccountantSalary.成长版提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Set成长版提成Null() {
+                this[this.tableVW_AllAccountantSalary.成长版提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Is其他一次性业务Null() {
+                return this.IsNull(this.tableVW_AllAccountantSalary.其他一次性业务Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Set其他一次性业务Null() {
+                this[this.tableVW_AllAccountantSalary.其他一次性业务Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Is其他一次性业务提成Null() {
+                return this.IsNull(this.tableVW_AllAccountantSalary.其他一次性业务提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Set其他一次性业务提成Null() {
+                this[this.tableVW_AllAccountantSalary.其他一次性业务提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Is绩效Null() {
+                return this.IsNull(this.tableVW_AllAccountantSalary.绩效Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Set绩效Null() {
+                this[this.tableVW_AllAccountantSalary.绩效Column] = global::System.Convert.DBNull;
             }
         }
         

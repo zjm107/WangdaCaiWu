@@ -48,6 +48,9 @@ namespace WangDaDll
             try {
                 salaryDataSet.GetAccountantSumDetail(this.Year, this.Month, this.UserID);
                 salaryDataSetYW.GetBusinessSum(UserID, Year, Month);
+
+                salaryDataSet1.GetBusinessSumCZB(UserID, Year, Month);
+                salaryDataSet2.GetBusinessSumYCX(UserID, Year, Month);
             }
             catch (Exception ex)
             {

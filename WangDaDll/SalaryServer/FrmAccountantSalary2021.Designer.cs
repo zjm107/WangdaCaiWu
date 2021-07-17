@@ -55,6 +55,7 @@ namespace WangDaDll
             this.col学徒提成 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col实习工资 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col提成汇总 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col业务提成 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -70,7 +71,6 @@ namespace WangDaDll
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             this.tW_SalarySumBindingSourceYW = new System.Windows.Forms.BindingSource(this.components);
             this.salaryDataSetYW = new WangDaDll.SalaryServer.SalaryDataSet();
-            this.col业务提成 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.accountantBtn.Properties)).BeginInit();
@@ -495,6 +495,16 @@ namespace WangDaDll
             this.col提成汇总.Visible = true;
             this.col提成汇总.VisibleIndex = 11;
             // 
+            // col业务提成
+            // 
+            this.col业务提成.FieldName = "业务提成";
+            this.col业务提成.Name = "col业务提成";
+            this.col业务提成.OptionsColumn.ReadOnly = true;
+            this.col业务提成.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "业务提成", "{0:0.##}")});
+            this.col业务提成.Visible = true;
+            this.col业务提成.VisibleIndex = 10;
+            // 
             // layoutControlItem9
             // 
             this.layoutControlItem9.Control = this.btnSCYJ;
@@ -505,9 +515,7 @@ namespace WangDaDll
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem9.Text = "layoutControlItem9";
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextToControlDistance = 0;
             this.layoutControlItem9.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -529,7 +537,6 @@ namespace WangDaDll
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(870, 562);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -539,9 +546,7 @@ namespace WangDaDll
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(850, 492);
-            this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -590,7 +595,6 @@ namespace WangDaDll
             this.emptySpaceItem1.Location = new System.Drawing.Point(433, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(417, 24);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -603,9 +607,7 @@ namespace WangDaDll
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem6
@@ -618,9 +620,7 @@ namespace WangDaDll
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextToControlDistance = 0;
             this.layoutControlItem6.TextVisible = false;
             // 
             // layoutControlItem7
@@ -633,9 +633,7 @@ namespace WangDaDll
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem7.Text = "layoutControlItem7";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextToControlDistance = 0;
             this.layoutControlItem7.TextVisible = false;
             // 
             // emptySpaceItem2
@@ -645,7 +643,6 @@ namespace WangDaDll
             this.emptySpaceItem2.Location = new System.Drawing.Point(372, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(478, 26);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
@@ -658,9 +655,7 @@ namespace WangDaDll
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem8.Text = "layoutControlItem8";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextToControlDistance = 0;
             this.layoutControlItem8.TextVisible = false;
             // 
             // tW_SalarySumBindingSourceYW
@@ -672,16 +667,6 @@ namespace WangDaDll
             // 
             this.salaryDataSetYW.DataSetName = "SalaryDataSet";
             this.salaryDataSetYW.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // col业务提成
-            // 
-            this.col业务提成.FieldName = "业务提成";
-            this.col业务提成.Name = "col业务提成";
-            this.col业务提成.OptionsColumn.ReadOnly = true;
-            this.col业务提成.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "业务提成", "{0:0.##}")});
-            this.col业务提成.Visible = true;
-            this.col业务提成.VisibleIndex = 10;
             // 
             // FrmAccountantSalary2021
             // 

@@ -316,11 +316,23 @@
     <Compile Include="SalaryServer\FrmAccountantSalary.Designer.cs">
       <DependentUpon>FrmAccountantSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalaryServer\FrmAccountantSalary2021.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmAccountantSalary2021.Designer.cs">
+      <DependentUpon>FrmAccountantSalary2021.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalaryServer\FrmAccountantSalaryDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SalaryServer\FrmAccountantSalaryDetail.Designer.cs">
       <DependentUpon>FrmAccountantSalaryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\FrmAccountantSalaryDetail2021.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmAccountantSalaryDetail2021.Designer.cs">
+      <DependentUpon>FrmAccountantSalaryDetail2021.cs</DependentUpon>
     </Compile>
     <Compile Include="SalaryServer\FrmBusinessSalary.cs">
       <SubType>Form</SubType>
@@ -352,11 +364,23 @@
     <Compile Include="SalaryServer\FrmRegSalary.Designer.cs">
       <DependentUpon>FrmRegSalary.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalaryServer\FrmRegSalary2021.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmRegSalary2021.Designer.cs">
+      <DependentUpon>FrmRegSalary2021.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalaryServer\FrmRegSalaryDetail.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SalaryServer\FrmRegSalaryDetail.Designer.cs">
       <DependentUpon>FrmRegSalaryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryServer\FrmRegSalaryDetail2021.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmRegSalaryDetail2021.Designer.cs">
+      <DependentUpon>FrmRegSalaryDetail2021.cs</DependentUpon>
     </Compile>
     <Compile Include="SalaryServer\SalaryDataSet.cs">
       <DependentUpon>SalaryDataSet.xsd</DependentUpon>
@@ -479,8 +503,14 @@
     <EmbeddedResource Include="SalaryServer\FrmAccountantSalary.resx">
       <DependentUpon>FrmAccountantSalary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmAccountantSalary2021.resx">
+      <DependentUpon>FrmAccountantSalary2021.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalaryServer\FrmAccountantSalaryDetail.resx">
       <DependentUpon>FrmAccountantSalaryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmAccountantSalaryDetail2021.resx">
+      <DependentUpon>FrmAccountantSalaryDetail2021.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalaryServer\FrmBusinessSalary.resx">
       <DependentUpon>FrmBusinessSalary.cs</DependentUpon>
@@ -497,8 +527,14 @@
     <EmbeddedResource Include="SalaryServer\FrmRegSalary.resx">
       <DependentUpon>FrmRegSalary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmRegSalary2021.resx">
+      <DependentUpon>FrmRegSalary2021.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalaryServer\FrmRegSalaryDetail.resx">
       <DependentUpon>FrmRegSalaryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmRegSalaryDetail2021.resx">
+      <DependentUpon>FrmRegSalaryDetail2021.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

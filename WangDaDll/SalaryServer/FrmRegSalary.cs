@@ -50,12 +50,12 @@ namespace WangDaDll
                 if (Security.UserBusiness.Contains("总经理") || Security.UserBusiness.Contains("主管"))
                 {
                     salaryDataSet.GetRegSum(year, month, "");
-                    salaryDataSetYW.GetAllBusinessSum(year, month, "","");
+                    salaryDataSetYW.GetAllBusinessSumZC(year, month, "","");
                     foreach (DataRow row in salaryDataSetYW.VW_AllBusinessSalary.Rows)
                     {
                         string userName = row["员工"].ToString();
                         decimal sumPrice = decimal.Parse(row["提成汇总"].ToString());
-                        DataRow[] selRows = salaryDataSet.VW_AllBusinessSalary.Select(string.Format("员工='{0}'", sumPrice));
+                        DataRow[] selRows = salaryDataSet.VW_AllBusinessSalary.Select(string.Format("员工='{0}'", userName));
                         foreach (DataRow selRow in selRows)
                         {
                             selRow.BeginEdit();

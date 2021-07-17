@@ -32,6 +32,24 @@ namespace WangDaDll
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.gridControl2 = new DevExpress.XtraGrid.GridControl();
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.salaryDataSet2 = new WangDaDll.SalaryServer.SalaryDataSet();
+            this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col客户名称4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col员工4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col注册费2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col注册费收款额2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col支付日期4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.salaryDataSet1 = new WangDaDll.SalaryServer.SalaryDataSet();
+            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col客户名称3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col员工3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col注册费1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col注册费收款额1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col支付日期3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnExp = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.tW_SalarySumGridControl = new DevExpress.XtraGrid.GridControl();
@@ -79,6 +97,8 @@ namespace WangDaDll
             this.col月做账费2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col年做账费2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col工资统计类型2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col结束时间 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col开始时间 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.vW_AllAccountantSalaryDetailZGridControl = new DevExpress.XtraGrid.GridControl();
             this.vW_AllAccountantSalaryDetailZBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -93,6 +113,8 @@ namespace WangDaDll
             this.col月做账费1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col年做账费1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col工资统计类型1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col开始时间2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col结束时间2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.vW_AllAccountantSalaryDetailGridControl = new DevExpress.XtraGrid.GridControl();
             this.vW_AllAccountantSalaryDetailBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -106,30 +128,38 @@ namespace WangDaDll
             this.col月做账费 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col年做账费 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col工资统计类型 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col开始时间1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col结束时间1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             this.xlsSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.col结束时间 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col开始时间 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col开始时间1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col结束时间1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col开始时间2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col结束时间2 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumGridControl)).BeginInit();
@@ -151,22 +181,28 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.gridControl2);
+            this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Controls.Add(this.btnExp);
             this.layoutControl1.Controls.Add(this.panelControl1);
             this.layoutControl1.Controls.Add(this.vW_AllAccountantSalaryUserGridControl);
@@ -180,6 +216,376 @@ namespace WangDaDll
             this.layoutControl1.Size = new System.Drawing.Size(1002, 683);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // gridControl2
+            // 
+            this.gridControl2.DataSource = this.bindingSource2;
+            this.gridControl2.Location = new System.Drawing.Point(24, 47);
+            this.gridControl2.MainView = this.gridView7;
+            this.gridControl2.Name = "gridControl2";
+            this.gridControl2.Size = new System.Drawing.Size(954, 612);
+            this.gridControl2.TabIndex = 11;
+            this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView7});
+            // 
+            // bindingSource2
+            // 
+            this.bindingSource2.DataMember = "TW_SalarySum";
+            this.bindingSource2.DataSource = this.salaryDataSet2;
+            // 
+            // salaryDataSet2
+            // 
+            this.salaryDataSet2.DataSetName = "SalaryDataSet";
+            this.salaryDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView7
+            // 
+            this.gridView7.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.ColumnFilterButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView7.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.ColumnFilterButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView7.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.gridView7.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.gridView7.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.gridView7.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.gridView7.Appearance.ColumnFilterButtonActive.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(190)))), ((int)(((byte)(243)))));
+            this.gridView7.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.gridView7.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.ColumnFilterButtonActive.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView7.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
+            this.gridView7.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
+            this.gridView7.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
+            this.gridView7.Appearance.Empty.BackColor = System.Drawing.Color.White;
+            this.gridView7.Appearance.Empty.Options.UseBackColor = true;
+            this.gridView7.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(242)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridView7.Appearance.EvenRow.Options.UseForeColor = true;
+            this.gridView7.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.FilterCloseButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView7.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.FilterCloseButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView7.Appearance.FilterCloseButton.Options.UseBackColor = true;
+            this.gridView7.Appearance.FilterCloseButton.Options.UseBorderColor = true;
+            this.gridView7.Appearance.FilterCloseButton.Options.UseForeColor = true;
+            this.gridView7.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
+            this.gridView7.Appearance.FilterPanel.ForeColor = System.Drawing.Color.White;
+            this.gridView7.Appearance.FilterPanel.Options.UseBackColor = true;
+            this.gridView7.Appearance.FilterPanel.Options.UseForeColor = true;
+            this.gridView7.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.gridView7.Appearance.FixedLine.Options.UseBackColor = true;
+            this.gridView7.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.gridView7.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gridView7.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.gridView7.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(106)))), ((int)(((byte)(197)))));
+            this.gridView7.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView7.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView7.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.gridView7.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView7.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView7.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.gridView7.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.gridView7.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.gridView7.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView7.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView7.Appearance.GroupButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.GroupButton.Options.UseBackColor = true;
+            this.gridView7.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.gridView7.Appearance.GroupButton.Options.UseForeColor = true;
+            this.gridView7.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView7.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView7.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.gridView7.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.gridView7.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.gridView7.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
+            this.gridView7.Appearance.GroupPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.gridView7.Appearance.GroupPanel.Options.UseForeColor = true;
+            this.gridView7.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView7.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView7.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.gridView7.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.GroupRow.Options.UseBackColor = true;
+            this.gridView7.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.gridView7.Appearance.GroupRow.Options.UseFont = true;
+            this.gridView7.Appearance.GroupRow.Options.UseForeColor = true;
+            this.gridView7.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView7.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView7.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView7.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gridView7.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.gridView7.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridView7.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(153)))), ((int)(((byte)(228)))));
+            this.gridView7.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(224)))), ((int)(((byte)(251)))));
+            this.gridView7.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gridView7.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.gridView7.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
+            this.gridView7.Appearance.HorzLine.Options.UseBackColor = true;
+            this.gridView7.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridView7.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridView7.Appearance.OddRow.Options.UseForeColor = true;
+            this.gridView7.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
+            this.gridView7.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(129)))), ((int)(((byte)(185)))));
+            this.gridView7.Appearance.Preview.Options.UseBackColor = true;
+            this.gridView7.Appearance.Preview.Options.UseForeColor = true;
+            this.gridView7.Appearance.Row.BackColor = System.Drawing.Color.White;
+            this.gridView7.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.gridView7.Appearance.Row.Options.UseBackColor = true;
+            this.gridView7.Appearance.Row.Options.UseForeColor = true;
+            this.gridView7.Appearance.RowSeparator.BackColor = System.Drawing.Color.White;
+            this.gridView7.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.gridView7.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(126)))), ((int)(((byte)(217)))));
+            this.gridView7.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView7.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView7.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.gridView7.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
+            this.gridView7.Appearance.VertLine.Options.UseBackColor = true;
+            this.gridView7.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col客户名称4,
+            this.col员工4,
+            this.col注册费2,
+            this.col注册费收款额2,
+            this.col支付日期4});
+            this.gridView7.GridControl = this.gridControl2;
+            this.gridView7.Name = "gridView7";
+            this.gridView7.OptionsView.ColumnAutoWidth = false;
+            this.gridView7.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridView7.OptionsView.EnableAppearanceOddRow = true;
+            this.gridView7.OptionsView.ShowFooter = true;
+            this.gridView7.PaintStyleName = "Flat";
+            // 
+            // col客户名称4
+            // 
+            this.col客户名称4.FieldName = "客户名称";
+            this.col客户名称4.Name = "col客户名称4";
+            this.col客户名称4.Visible = true;
+            this.col客户名称4.VisibleIndex = 0;
+            // 
+            // col员工4
+            // 
+            this.col员工4.FieldName = "员工";
+            this.col员工4.Name = "col员工4";
+            this.col员工4.Visible = true;
+            this.col员工4.VisibleIndex = 1;
+            // 
+            // col注册费2
+            // 
+            this.col注册费2.Caption = "应收款";
+            this.col注册费2.FieldName = "注册费";
+            this.col注册费2.Name = "col注册费2";
+            this.col注册费2.Visible = true;
+            this.col注册费2.VisibleIndex = 3;
+            // 
+            // col注册费收款额2
+            // 
+            this.col注册费收款额2.Caption = "已收款";
+            this.col注册费收款额2.FieldName = "注册费收款额";
+            this.col注册费收款额2.Name = "col注册费收款额2";
+            this.col注册费收款额2.Visible = true;
+            this.col注册费收款额2.VisibleIndex = 4;
+            this.col注册费收款额2.Width = 147;
+            // 
+            // col支付日期4
+            // 
+            this.col支付日期4.FieldName = "支付日期";
+            this.col支付日期4.Name = "col支付日期4";
+            this.col支付日期4.Visible = true;
+            this.col支付日期4.VisibleIndex = 2;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.DataSource = this.bindingSource1;
+            this.gridControl1.Location = new System.Drawing.Point(24, 47);
+            this.gridControl1.MainView = this.gridView6;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(954, 612);
+            this.gridControl1.TabIndex = 10;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView6});
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "TW_SalarySum";
+            this.bindingSource1.DataSource = this.salaryDataSet1;
+            // 
+            // salaryDataSet1
+            // 
+            this.salaryDataSet1.DataSetName = "SalaryDataSet";
+            this.salaryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView6
+            // 
+            this.gridView6.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.ColumnFilterButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView6.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.ColumnFilterButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView6.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.gridView6.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.gridView6.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.gridView6.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.gridView6.Appearance.ColumnFilterButtonActive.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(190)))), ((int)(((byte)(243)))));
+            this.gridView6.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.gridView6.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.ColumnFilterButtonActive.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView6.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
+            this.gridView6.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
+            this.gridView6.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
+            this.gridView6.Appearance.Empty.BackColor = System.Drawing.Color.White;
+            this.gridView6.Appearance.Empty.Options.UseBackColor = true;
+            this.gridView6.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(242)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridView6.Appearance.EvenRow.Options.UseForeColor = true;
+            this.gridView6.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.FilterCloseButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView6.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.FilterCloseButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView6.Appearance.FilterCloseButton.Options.UseBackColor = true;
+            this.gridView6.Appearance.FilterCloseButton.Options.UseBorderColor = true;
+            this.gridView6.Appearance.FilterCloseButton.Options.UseForeColor = true;
+            this.gridView6.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
+            this.gridView6.Appearance.FilterPanel.ForeColor = System.Drawing.Color.White;
+            this.gridView6.Appearance.FilterPanel.Options.UseBackColor = true;
+            this.gridView6.Appearance.FilterPanel.Options.UseForeColor = true;
+            this.gridView6.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.gridView6.Appearance.FixedLine.Options.UseBackColor = true;
+            this.gridView6.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.gridView6.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gridView6.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.gridView6.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(106)))), ((int)(((byte)(197)))));
+            this.gridView6.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView6.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView6.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.gridView6.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView6.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView6.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.gridView6.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.gridView6.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.gridView6.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView6.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView6.Appearance.GroupButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.GroupButton.Options.UseBackColor = true;
+            this.gridView6.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.gridView6.Appearance.GroupButton.Options.UseForeColor = true;
+            this.gridView6.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView6.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView6.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.gridView6.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.gridView6.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.gridView6.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
+            this.gridView6.Appearance.GroupPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.gridView6.Appearance.GroupPanel.Options.UseForeColor = true;
+            this.gridView6.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView6.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView6.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.gridView6.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.GroupRow.Options.UseBackColor = true;
+            this.gridView6.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.gridView6.Appearance.GroupRow.Options.UseFont = true;
+            this.gridView6.Appearance.GroupRow.Options.UseForeColor = true;
+            this.gridView6.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView6.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView6.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView6.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gridView6.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.gridView6.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridView6.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(153)))), ((int)(((byte)(228)))));
+            this.gridView6.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(224)))), ((int)(((byte)(251)))));
+            this.gridView6.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gridView6.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.gridView6.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
+            this.gridView6.Appearance.HorzLine.Options.UseBackColor = true;
+            this.gridView6.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridView6.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridView6.Appearance.OddRow.Options.UseForeColor = true;
+            this.gridView6.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
+            this.gridView6.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(129)))), ((int)(((byte)(185)))));
+            this.gridView6.Appearance.Preview.Options.UseBackColor = true;
+            this.gridView6.Appearance.Preview.Options.UseForeColor = true;
+            this.gridView6.Appearance.Row.BackColor = System.Drawing.Color.White;
+            this.gridView6.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.gridView6.Appearance.Row.Options.UseBackColor = true;
+            this.gridView6.Appearance.Row.Options.UseForeColor = true;
+            this.gridView6.Appearance.RowSeparator.BackColor = System.Drawing.Color.White;
+            this.gridView6.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.gridView6.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(126)))), ((int)(((byte)(217)))));
+            this.gridView6.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView6.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView6.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.gridView6.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
+            this.gridView6.Appearance.VertLine.Options.UseBackColor = true;
+            this.gridView6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col客户名称3,
+            this.col员工3,
+            this.col注册费1,
+            this.col注册费收款额1,
+            this.col支付日期3});
+            this.gridView6.GridControl = this.gridControl1;
+            this.gridView6.Name = "gridView6";
+            this.gridView6.OptionsView.ColumnAutoWidth = false;
+            this.gridView6.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridView6.OptionsView.EnableAppearanceOddRow = true;
+            this.gridView6.OptionsView.ShowFooter = true;
+            this.gridView6.PaintStyleName = "Flat";
+            // 
+            // col客户名称3
+            // 
+            this.col客户名称3.FieldName = "客户名称";
+            this.col客户名称3.Name = "col客户名称3";
+            this.col客户名称3.Visible = true;
+            this.col客户名称3.VisibleIndex = 0;
+            // 
+            // col员工3
+            // 
+            this.col员工3.FieldName = "员工";
+            this.col员工3.Name = "col员工3";
+            this.col员工3.Visible = true;
+            this.col员工3.VisibleIndex = 1;
+            // 
+            // col注册费1
+            // 
+            this.col注册费1.Caption = "应收款";
+            this.col注册费1.FieldName = "注册费";
+            this.col注册费1.Name = "col注册费1";
+            this.col注册费1.Visible = true;
+            this.col注册费1.VisibleIndex = 3;
+            // 
+            // col注册费收款额1
+            // 
+            this.col注册费收款额1.Caption = "已收款";
+            this.col注册费收款额1.FieldName = "注册费收款额";
+            this.col注册费收款额1.Name = "col注册费收款额1";
+            this.col注册费收款额1.Visible = true;
+            this.col注册费收款额1.VisibleIndex = 4;
+            this.col注册费收款额1.Width = 161;
+            // 
+            // col支付日期3
+            // 
+            this.col支付日期3.FieldName = "支付日期";
+            this.col支付日期3.Name = "col支付日期3";
+            this.col支付日期3.Visible = true;
+            this.col支付日期3.VisibleIndex = 2;
             // 
             // btnExp
             // 
@@ -977,6 +1383,20 @@ namespace WangDaDll
             this.col工资统计类型2.VisibleIndex = 11;
             this.col工资统计类型2.Width = 92;
             // 
+            // col结束时间
+            // 
+            this.col结束时间.FieldName = "结束时间";
+            this.col结束时间.Name = "col结束时间";
+            this.col结束时间.Visible = true;
+            this.col结束时间.VisibleIndex = 8;
+            // 
+            // col开始时间
+            // 
+            this.col开始时间.FieldName = "开始时间";
+            this.col开始时间.Name = "col开始时间";
+            this.col开始时间.Visible = true;
+            this.col开始时间.VisibleIndex = 9;
+            // 
             // vW_AllAccountantSalaryDetailZGridControl
             // 
             this.vW_AllAccountantSalaryDetailZGridControl.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1235,6 +1655,22 @@ namespace WangDaDll
             this.col工资统计类型1.VisibleIndex = 11;
             this.col工资统计类型1.Width = 184;
             // 
+            // col开始时间2
+            // 
+            this.col开始时间2.FieldName = "开始时间";
+            this.col开始时间2.Name = "col开始时间2";
+            this.col开始时间2.OptionsColumn.ReadOnly = true;
+            this.col开始时间2.Visible = true;
+            this.col开始时间2.VisibleIndex = 9;
+            // 
+            // col结束时间2
+            // 
+            this.col结束时间2.FieldName = "结束时间";
+            this.col结束时间2.Name = "col结束时间2";
+            this.col结束时间2.OptionsColumn.ReadOnly = true;
+            this.col结束时间2.Visible = true;
+            this.col结束时间2.VisibleIndex = 10;
+            // 
             // vW_AllAccountantSalaryDetailGridControl
             // 
             this.vW_AllAccountantSalaryDetailGridControl.Cursor = System.Windows.Forms.Cursors.Default;
@@ -1482,6 +1918,22 @@ namespace WangDaDll
             this.col工资统计类型.VisibleIndex = 11;
             this.col工资统计类型.Width = 92;
             // 
+            // col开始时间1
+            // 
+            this.col开始时间1.FieldName = "开始时间";
+            this.col开始时间1.Name = "col开始时间1";
+            this.col开始时间1.OptionsColumn.ReadOnly = true;
+            this.col开始时间1.Visible = true;
+            this.col开始时间1.VisibleIndex = 9;
+            // 
+            // col结束时间1
+            // 
+            this.col结束时间1.FieldName = "结束时间";
+            this.col结束时间1.Name = "col结束时间1";
+            this.col结束时间1.OptionsColumn.ReadOnly = true;
+            this.col结束时间1.Visible = true;
+            this.col结束时间1.VisibleIndex = 10;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
@@ -1492,7 +1944,6 @@ namespace WangDaDll
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1002, 683);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
             this.layoutControlGroup1.TextVisible = false;
             // 
             // tabbedControlGroup1
@@ -1508,30 +1959,10 @@ namespace WangDaDll
             this.layoutControlGroup3,
             this.layoutControlGroup4,
             this.layoutControlGroup5,
-            this.layoutControlGroup6});
+            this.layoutControlGroup6,
+            this.layoutControlGroup7,
+            this.layoutControlGroup8});
             this.tabbedControlGroup1.Text = "业务明细";
-            // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.CustomizationFormText = "学徒业绩";
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(958, 616);
-            this.layoutControlGroup4.Text = "学徒业绩";
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.vW_AllAccountantSalaryTeacherGridControl;
-            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(958, 616);
-            this.layoutControlItem3.Text = "layoutControlItem3";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
-            this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlGroup2
             // 
@@ -1552,9 +1983,7 @@ namespace WangDaDll
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 29);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(958, 587);
-            this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem6
@@ -1567,9 +1996,7 @@ namespace WangDaDll
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(106, 29);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextToControlDistance = 0;
             this.layoutControlItem6.TextVisible = false;
             // 
             // emptySpaceItem1
@@ -1579,7 +2006,6 @@ namespace WangDaDll
             this.emptySpaceItem1.Location = new System.Drawing.Point(106, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(852, 29);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup3
@@ -1599,10 +2025,28 @@ namespace WangDaDll
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(958, 616);
-            this.layoutControlItem2.Text = "layoutControlItem2";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextToControlDistance = 0;
             this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.CustomizationFormText = "学徒业绩";
+            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem3});
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(958, 616);
+            this.layoutControlGroup4.Text = "学徒业绩";
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.vW_AllAccountantSalaryTeacherGridControl;
+            this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(958, 616);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlGroup5
             // 
@@ -1621,9 +2065,7 @@ namespace WangDaDll
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(958, 616);
-            this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlGroup6
@@ -1643,60 +2085,48 @@ namespace WangDaDll
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(958, 616);
-            this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
+            // 
+            // layoutControlGroup7
+            // 
+            this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem7});
+            this.layoutControlGroup7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup7.Name = "layoutControlGroup7";
+            this.layoutControlGroup7.Size = new System.Drawing.Size(958, 616);
+            this.layoutControlGroup7.Text = "成长版业务";
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.gridControl1;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(958, 616);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
+            // 
+            // layoutControlGroup8
+            // 
+            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem8});
+            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup8.Name = "layoutControlGroup8";
+            this.layoutControlGroup8.Size = new System.Drawing.Size(958, 616);
+            this.layoutControlGroup8.Text = "一次性业务";
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.gridControl2;
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(958, 616);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
             // 
             // xlsSaveFileDialog
             // 
             this.xlsSaveFileDialog.Filter = "Excel文件 (*.xlsx)|所有文件(*.*)";
-            // 
-            // col结束时间
-            // 
-            this.col结束时间.FieldName = "结束时间";
-            this.col结束时间.Name = "col结束时间";
-            this.col结束时间.Visible = true;
-            this.col结束时间.VisibleIndex = 8;
-            // 
-            // col开始时间
-            // 
-            this.col开始时间.FieldName = "开始时间";
-            this.col开始时间.Name = "col开始时间";
-            this.col开始时间.Visible = true;
-            this.col开始时间.VisibleIndex = 9;
-            // 
-            // col开始时间1
-            // 
-            this.col开始时间1.FieldName = "开始时间";
-            this.col开始时间1.Name = "col开始时间1";
-            this.col开始时间1.OptionsColumn.ReadOnly = true;
-            this.col开始时间1.Visible = true;
-            this.col开始时间1.VisibleIndex = 9;
-            // 
-            // col结束时间1
-            // 
-            this.col结束时间1.FieldName = "结束时间";
-            this.col结束时间1.Name = "col结束时间1";
-            this.col结束时间1.OptionsColumn.ReadOnly = true;
-            this.col结束时间1.Visible = true;
-            this.col结束时间1.VisibleIndex = 10;
-            // 
-            // col开始时间2
-            // 
-            this.col开始时间2.FieldName = "开始时间";
-            this.col开始时间2.Name = "col开始时间2";
-            this.col开始时间2.OptionsColumn.ReadOnly = true;
-            this.col开始时间2.Visible = true;
-            this.col开始时间2.VisibleIndex = 9;
-            // 
-            // col结束时间2
-            // 
-            this.col结束时间2.FieldName = "结束时间";
-            this.col结束时间2.Name = "col结束时间2";
-            this.col结束时间2.OptionsColumn.ReadOnly = true;
-            this.col结束时间2.Visible = true;
-            this.col结束时间2.VisibleIndex = 10;
             // 
             // FrmAccountantSalaryDetail2021
             // 
@@ -1709,6 +2139,14 @@ namespace WangDaDll
             this.Load += new System.EventHandler(this.FrmAccountantSalaryDetail2021_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumGridControl)).EndInit();
@@ -1730,18 +2168,22 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1845,5 +2287,27 @@ namespace WangDaDll
         private DevExpress.XtraGrid.Columns.GridColumn col结束时间2;
         private DevExpress.XtraGrid.Columns.GridColumn col开始时间1;
         private DevExpress.XtraGrid.Columns.GridColumn col结束时间1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup8;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup7;
+        private DevExpress.XtraGrid.GridControl gridControl2;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView7;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
+        private System.Windows.Forms.BindingSource bindingSource2;
+        private SalaryDataSet salaryDataSet2;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private SalaryDataSet salaryDataSet1;
+        private DevExpress.XtraGrid.Columns.GridColumn col客户名称3;
+        private DevExpress.XtraGrid.Columns.GridColumn col员工3;
+        private DevExpress.XtraGrid.Columns.GridColumn col注册费1;
+        private DevExpress.XtraGrid.Columns.GridColumn col注册费收款额1;
+        private DevExpress.XtraGrid.Columns.GridColumn col支付日期3;
+        private DevExpress.XtraGrid.Columns.GridColumn col客户名称4;
+        private DevExpress.XtraGrid.Columns.GridColumn col员工4;
+        private DevExpress.XtraGrid.Columns.GridColumn col注册费2;
+        private DevExpress.XtraGrid.Columns.GridColumn col注册费收款额2;
+        private DevExpress.XtraGrid.Columns.GridColumn col支付日期4;
     }
 }

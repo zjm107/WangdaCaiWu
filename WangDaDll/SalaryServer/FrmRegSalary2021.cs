@@ -78,12 +78,24 @@ namespace WangDaDll
                 else
                 {
                     salaryDataSet.GetRegSum(year, month, Security.UserName);
-                    decimal sumPrice = salaryDataSetYW.GetAllBusinessSumValue(year, month, UserID, Security.UserName);
+                    salaryDataSetYW.GetAllBusinessSumZC2021(year, month, Security.UserID, Security.UserName);
+                    DataRow vRow = salaryDataSetYW.VW_AllBusinessSalary.Rows[0];
+                    decimal sumPrice = decimal.Parse(vRow["提成汇总"].ToString());
+                    decimal czb = decimal.Parse(vRow["成长版"].ToString());
+                    decimal czbtc = decimal.Parse(vRow["成长版提成"].ToString());
+                    decimal ycx = decimal.Parse(vRow["其他一次性业务"].ToString());
+                    decimal ycxtc = decimal.Parse(vRow["其他一次性业务提成"].ToString());
+                    decimal jx = decimal.Parse(vRow["绩效"].ToString());
                     if (sumPrice > 0 && salaryDataSet.VW_AllBusinessSalary.Rows.Count > 0)
                     {
                         DataRow row = salaryDataSet.VW_AllBusinessSalary.Rows[0];
                         row.BeginEdit();
                         row["业务提成"] = sumPrice;
+                        row["成长版"] = czb;
+                        row["成长版提成"] = czbtc;
+                        row["其他一次性业务"] = ycx;
+                        row["其他一次性业务提成"] = ycxtc;
+                        row["绩效"] = jx;
                         row.EndEdit();
                         row.AcceptChanges();
                     }

@@ -1,5 +1,4 @@
 ﻿using WangDaDll;
-using WangDaDll;
 using WangDaDll.Common;
 
 namespace WangDaDll

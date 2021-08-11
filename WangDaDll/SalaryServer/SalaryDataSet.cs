@@ -85,7 +85,7 @@ namespace WangDaDll.SalaryServer
             DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumZC2021(year, month, userManagerID, userName);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
 
-            AddPerformance();  //计算绩效
+          //  AddPerformance();  //计算绩效
         }
 
 
@@ -111,23 +111,24 @@ namespace WangDaDll.SalaryServer
             decimal tc = (decimal)0.08;
             foreach (VW_AllBusinessSalaryRow row in VW_AllBusinessSalary.Rows)
             {
-                if (row.做账收款额 >= 20000 && row.做账收款额 < 30000)
+                decimal sumprice = row.做账收款额 + row.注册利润 + row.成长版 + row.其他一次性业务;
+                if (sumprice >= 20000 && sumprice < 30000)
                 {
-                    row.绩效 = row.做账收款额 * tc;
+                    row.绩效 = sumprice * tc;
 
                 }
                 else
-                    if (row.做账收款额 >= 30000 && row.做账收款额 <= 40000)
+                    if (sumprice >= 30000 && sumprice <= 40000)
                 {
-                    row.绩效 = row.做账收款额 * tc + 500;
+                    row.绩效 = sumprice * tc + 500;
                 }
-                else if (row.做账收款额 > 40000 && row.做账收款额 <= 50000)
+                else if (sumprice > 40000 && sumprice <= 50000)
                 {
-                    row.绩效 = row.做账收款额 * tc + 1000;
+                    row.绩效 = sumprice * tc + 1000;
                 }
-                else if (row.做账收款额 > 50000)
+                else if (sumprice > 50000)
                 {
-                    row.绩效 = row.做账收款额 * tc + 1800;
+                    row.绩效 = sumprice * tc + 1800;
                 }
                 else
                 {
@@ -155,7 +156,7 @@ namespace WangDaDll.SalaryServer
         {
             DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
-            AddPerformance();//计算绩效
+           // AddPerformance();//计算绩效
         }
 
 

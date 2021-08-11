@@ -56,7 +56,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>9847EDC56BA008B72C05DAAE8EA4181FBB0D5594</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>4DB51E22D18769C18256B80263A26BA4A75E0F8E</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>WangDaApp_TemporaryKey.pfx</ManifestKeyFile>

@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
 using WangDaDll;
-using WangDaDll;
 using WangDaDll.Common;
 
 namespace WangDaDll

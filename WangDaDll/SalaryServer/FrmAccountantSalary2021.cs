@@ -61,7 +61,7 @@ namespace WangDaDll
                         decimal czbtc = decimal.Parse(row["成长版提成"].ToString());
                         decimal ycx = decimal.Parse(row["其他一次性业务"].ToString());
                         decimal ycxtc = decimal.Parse(row["其他一次性业务提成"].ToString());
-                        decimal jx = decimal.Parse(row["绩效"].ToString());
+                        decimal jx = 0 ;
                         DataRow[] selRows = salaryDataSet.VW_AllAccountantSalary.Select(string.Format("员工='{0}'", userName));
                         foreach (DataRow selRow in selRows)
                         {
@@ -90,7 +90,7 @@ namespace WangDaDll
                     decimal czbtc = decimal.Parse(arow["成长版提成"].ToString());
                     decimal ycx = decimal.Parse(arow["其他一次性业务"].ToString());
                     decimal ycxtc = decimal.Parse(arow["其他一次性业务提成"].ToString());
-                    decimal jx = decimal.Parse(arow["绩效"].ToString());
+                    decimal jx = 0;
                     if (sumPrice > 0 && salaryDataSet.VW_AllAccountantSalary.Rows.Count > 0)
                     {
                         DataRow row = salaryDataSet.VW_AllAccountantSalary.Rows[0];

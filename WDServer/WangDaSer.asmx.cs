@@ -2027,6 +2027,10 @@ or 注册类型='变更' or 注册类型='注销')
 		    ) as tt,
 		    TWS_Commission as tc
 		    where tc.TWS_CommissionID='1'";
+            if (!string.IsNullOrEmpty(userManagerID))
+            {
+                strSql += " and tt.员工ID='"+ userManagerID + "'";
+            }
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_SalarySumAll");
 
             return dst;

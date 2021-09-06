@@ -1407,12 +1407,7 @@ or 注册类型='变更' or 注册类型='注销')
         [WebMethod]
         public DataSet GetAllBusinessSum2021(int year, int month, string userManagerID, string userName)
         {
-            string sqlUser = "select * from TCOM_USER where workType='业务主管'";
-            DataSet dstuser = ServiceManager.GetDatabase().GetEntity(sqlUser, "TCOM_USER");
-            if (dstuser.Tables["TCOM_USER"].Rows.Count > 0)
-            {
-                userManagerID = dstuser.Tables["TCOM_USER"].Rows[0]["USERID"].ToString();
-            }
+          
             string strSql = @"select
              tt.员工,tt.员工ID,tt.做账收款额 as 做账收款额 ,tt.做账提成 * tc.业务_做账提成 as 做账提成
             ,tt.工本收款费 as 工本收款费 ,tt.开票收款费 as 开票收款费,
@@ -1542,8 +1537,38 @@ or 注册类型='变更' or 注册类型='注销')
             '成长版' as 工资统计类型
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额  and (注册类型='成长版')
-             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
+             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @" ";
+            // if (userManagerID== 'ace8a3bf-76bf-4539-b696-4ada998000b5' ||
+            //     userManagerID== '320581199105263423'  || userManagerID=="") 
 
+            strSql += @"
+            union
+            select
+            '' as 客户名称,
+             newid() as  客户名称ID,
+            0 as 做账收款额,
+            0 as 工本收款额,
+            0 as 开票收款额,
+            0 as 做账提成,
+            0 as 工本费开票费提成,
+            t.username as 员工,
+            t.userid as 员工ID,
+            getdate() as 支付日期,
+            0 as 注册费收款额,
+            0 as 注册提成,
+            '注册收款' as 收款类别,
+            0 as 月做账费 ,
+            0 as 年做账费,
+            0 as 注册费,
+            0 as 其他一次性业务,
+			0 as 成长版,
+            0 as 图章,
+            0 as 银行,
+            0 as 其他,
+            0 as 注册利润,
+            '0业绩' as 工资统计类型
+            from [TCOM_USER] t where DEPTNAME='业务部' and OutDate is null   ";
+            strSql += @"
 		    ) as ts
 		    group by ts.员工,ts.员工ID
 		    ) as tt,TCOM_USER tuser,
@@ -1551,6 +1576,15 @@ or 注册类型='变更' or 注册类型='注销')
 		    where tt.员工ID = tuser.USERID and tuser.DEPTNAME='业务部' and tc.TWS_CommissionID='1'";
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_SalarySumAll");
             decimal tuanDuiPrice = 0;
+
+
+            string sqlUser = "select * from TCOM_USER where workType='业务主管'";
+            DataSet dstuser = ServiceManager.GetDatabase().GetEntity(sqlUser, "TCOM_USER");
+            if (dstuser.Tables["TCOM_USER"].Rows.Count > 0)
+            {
+                userManagerID = dstuser.Tables["TCOM_USER"].Rows[0]["USERID"].ToString();
+            }
+
 
             foreach (DataRow row in dst.Tables["TW_SalarySumAll"].Rows)
             {

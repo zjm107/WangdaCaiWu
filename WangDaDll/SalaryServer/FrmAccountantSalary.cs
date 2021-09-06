@@ -50,8 +50,26 @@ namespace WangDaDll
                 int month = int.Parse(monthComboBoxEdit.Text);
                 if (Security.UserBusiness.Contains("总经理") || Security.UserBusiness.Contains("主管"))
                 {
-                    salaryDataSet.GetAccountantSum(year, month, "");
-                    salaryDataSetYW.GetAllBusinessSumOther(year, month, "", "");
+                    salaryDataSet.GetAccountantSum(year, month, "","");
+                    salaryDataSetYW.GetAllBusinessSumOther(year, month, "", "","");
+                    foreach (DataRow row in salaryDataSetYW.VW_AllBusinessSalary.Rows)
+                    {
+                        string userName = row["员工"].ToString();
+                        decimal sumPrice = decimal.Parse(row["做账提成"].ToString());
+                        DataRow[] selRows = salaryDataSet.VW_AllAccountantSalary.Select(string.Format("员工='{0}'", userName));
+                        foreach (DataRow selRow in selRows)
+                        {
+                            selRow.BeginEdit();
+                            selRow["业务提成"] = sumPrice;
+                            selRow.EndEdit();
+                            selRow.AcceptChanges();
+                        }
+                    }
+                }
+                else if (Security.UserBusiness.Contains("二级部门经理"))
+                {
+                    salaryDataSet.GetAccountantSum(year, month, "", Security.DeptID);
+                    salaryDataSetYW.GetAllBusinessSumOther(year, month, "", "", Security.DeptID);
                     foreach (DataRow row in salaryDataSetYW.VW_AllBusinessSalary.Rows)
                     {
                         string userName = row["员工"].ToString();
@@ -68,8 +86,8 @@ namespace WangDaDll
                 }
                 else
                 {
-                    salaryDataSet.GetAccountantSum(year, month, Security.UserName);
-                    decimal sumPrice = salaryDataSetYW.GetAllBusinessSumValue(year, month, Security.UserID, Security.UserName);
+                    salaryDataSet.GetAccountantSum(year, month, Security.UserName,"");
+                    decimal sumPrice = salaryDataSetYW.GetAllBusinessSumValue(year, month, Security.UserID, Security.UserName,"");
                     if (sumPrice > 0 && salaryDataSet.VW_AllAccountantSalary.Rows.Count > 0)
                     {
                         DataRow row = salaryDataSet.VW_AllAccountantSalary.Rows[0];

@@ -139,9 +139,9 @@ namespace WangDaDll.SalaryServer
             }
         }
 
-        public void GetAllBusinessSumOther(int year, int month, string userManagerID, string userName)
+        public void GetAllBusinessSumOther(int year, int month, string userManagerID, string userName,string deptId)
         {
-            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther(year, month, userManagerID, userName);
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther(year, month, userManagerID, userName,deptId);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
         }
 
@@ -152,9 +152,9 @@ namespace WangDaDll.SalaryServer
         /// <param name="month"></param>
         /// <param name="userManagerID"></param>
         /// <param name="userName"></param>
-        public void GetAllBusinessSumOther2021(int year, int month, string userManagerID, string userName)
+        public void GetAllBusinessSumOther2021(int year, int month, string userManagerID, string userName,string deptId)
         {
-            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName);
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName,deptId);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
            // AddPerformance();//计算绩效
         }
@@ -169,9 +169,9 @@ namespace WangDaDll.SalaryServer
         /// <param name="userManagerID"></param>
         /// <param name="userName"></param>
         /// <returns></returns>
-        public decimal GetAllBusinessSumValue(int year, int month, string userManagerID, string userName)
+        public decimal GetAllBusinessSumValue(int year, int month, string userManagerID, string userName,string deptid)
         {
-            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName);
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName,deptid);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
             decimal sumValue = 0;
             var rows = VW_AllBusinessSalary.Select(string.Format("员工='{0}'", userName));
@@ -249,16 +249,16 @@ namespace WangDaDll.SalaryServer
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
-        public void GetAccountantSum(int year, int month, string userName)
+        public void GetAccountantSum(int year, int month, string userName,string deptId)
         {
-            DataSet dst = DBHelper.WangDaSer.GetAccountantSum(year, month, userName);
+            DataSet dst = DBHelper.WangDaSer.GetAccountantSum(year, month, userName, deptId);
             DataManager.ImpDataSet(dst.Tables["VW_AllAccountantSalary"], this.VW_AllAccountantSalary);
 
         }
 
-        public void GetAccountantSum2021(int year, int month, string userName)
+        public void GetAccountantSum2021(int year, int month, string userName,string deptId)
         {
-            DataSet dst = DBHelper.WangDaSer.GetAccountantSum2021(year, month, userName);
+            DataSet dst = DBHelper.WangDaSer.GetAccountantSum2021(year, month, userName, deptId);
             DataManager.ImpDataSet(dst.Tables["VW_AllAccountantSalary"], this.VW_AllAccountantSalary);
 
         }

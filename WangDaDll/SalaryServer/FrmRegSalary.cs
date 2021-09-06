@@ -67,7 +67,7 @@ namespace WangDaDll
                 }
                 else {
                     salaryDataSet.GetRegSum(year, month, Security.UserName);
-                    decimal sumPrice = salaryDataSetYW.GetAllBusinessSumValue(year, month, UserID, Security.UserName);
+                    decimal sumPrice = salaryDataSetYW.GetAllBusinessSumValue(year, month, UserID, Security.UserName,"");
                     if (sumPrice > 0 && salaryDataSet.VW_AllBusinessSalary.Rows.Count>0)
                     {
                         DataRow row = salaryDataSet.VW_AllBusinessSalary.Rows[0];

@@ -50,8 +50,8 @@ namespace WangDaDll
                 int month = int.Parse(monthComboBoxEdit.Text);
                 if (Security.UserBusiness.Contains("总经理") || Security.UserBusiness.Contains("主管"))
                 {
-                    salaryDataSet.GetAccountantSum(year, month, "");
-                    salaryDataSetYW.GetAllBusinessSumOther2021(year, month, "", "");
+                    salaryDataSet.GetAccountantSum(year, month, "","");
+                    salaryDataSetYW.GetAllBusinessSumOther2021(year, month, "", "","");
                     foreach (DataRow row in salaryDataSetYW.VW_AllBusinessSalary.Rows)
                     {
                         string userName = row["员工"].ToString();
@@ -61,12 +61,12 @@ namespace WangDaDll
                         decimal czbtc = decimal.Parse(row["成长版提成"].ToString());
                         decimal ycx = decimal.Parse(row["其他一次性业务"].ToString());
                         decimal ycxtc = decimal.Parse(row["其他一次性业务提成"].ToString());
-                        decimal jx = 0 ;
+                        decimal jx = 0;
                         DataRow[] selRows = salaryDataSet.VW_AllAccountantSalary.Select(string.Format("员工='{0}'", userName));
                         foreach (DataRow selRow in selRows)
                         {
                             selRow.BeginEdit();
-                            selRow["业务提成"] = sumPrice+ zcdsumPrice;
+                            selRow["业务提成"] = sumPrice + zcdsumPrice;
                             selRow["成长版"] = czb;
                             selRow["成长版提成"] = czbtc;
                             selRow["其他一次性业务"] = ycx;
@@ -77,10 +77,39 @@ namespace WangDaDll
                         }
                     }
                 }
-                else
+                else if (Security.UserBusiness.Contains("二级部门经理"))
+                    {
+                        salaryDataSet.GetAccountantSum(year, month, "", Security.DeptID);
+                        salaryDataSetYW.GetAllBusinessSumOther2021(year, month, "", "",Security.DeptID);
+                        foreach (DataRow row in salaryDataSetYW.VW_AllBusinessSalary.Rows)
+                        {
+                            string userName = row["员工"].ToString();
+                            decimal sumPrice = decimal.Parse(row["做账提成"].ToString());
+                            decimal zcdsumPrice = decimal.Parse(row["注册提成"].ToString());
+                            decimal czb = decimal.Parse(row["成长版"].ToString());
+                            decimal czbtc = decimal.Parse(row["成长版提成"].ToString());
+                            decimal ycx = decimal.Parse(row["其他一次性业务"].ToString());
+                            decimal ycxtc = decimal.Parse(row["其他一次性业务提成"].ToString());
+                            decimal jx = 0;
+                            DataRow[] selRows = salaryDataSet.VW_AllAccountantSalary.Select(string.Format("员工='{0}'", userName));
+                            foreach (DataRow selRow in selRows)
+                            {
+                                selRow.BeginEdit();
+                                selRow["业务提成"] = sumPrice + zcdsumPrice;
+                                selRow["成长版"] = czb;
+                                selRow["成长版提成"] = czbtc;
+                                selRow["其他一次性业务"] = ycx;
+                                selRow["其他一次性业务提成"] = ycxtc;
+                                selRow["绩效"] = jx;
+                                selRow.EndEdit();
+                                selRow.AcceptChanges();
+                            }
+                        }
+                    }
+                    else
                 {
-                    salaryDataSet.GetAccountantSum(year, month, Security.UserName);
-                    salaryDataSetYW.GetAllBusinessSumOther2021(year, month,Security.UserID, Security.UserName);
+                    salaryDataSet.GetAccountantSum(year, month, Security.UserName,"");
+                    salaryDataSetYW.GetAllBusinessSumOther2021(year, month,Security.UserID, Security.UserName,"");
                     DataRow arow  = salaryDataSetYW.VW_AllBusinessSalary.Rows[0];
 
                  

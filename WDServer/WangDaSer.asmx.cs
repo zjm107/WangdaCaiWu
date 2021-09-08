@@ -2082,6 +2082,175 @@ or 注册类型='变更' or 注册类型='注销')
             return dst;
         }
         /// <summary>
+        /// 查询会计经理团队提成
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="userManagerID"></param>
+        /// <param name="userName"></param>
+        /// <param name="deptId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetAllBusinessGroupTC2021(int year, int month, string userManagerID, string userName, string deptId)
+        {
+
+            string strSql = @"
+             select tg.DEPTID,SUM(tg.做账收款额) as 做账收款额,SUM(tg.注册利润) as 注册利润,sum(经理提成) as 经理提成   from (
+              select   [TCOM_USER].deptid,tt.做账收款额*tc.[做账_经理提层] as 经理提成,
+             tt.员工,tt.员工ID,tt.做账收款额 as 做账收款额 ,tt.做账提成 * tc.其他业务提成 as 做账提成
+            ,tt.工本收款费 as 工本收款费 ,tt.开票收款费 as 开票收款费,
+            (tt.工本收款费+tt.开票收款费) * tc.业务_工本提成 as 工本费开票费提成
+            ,tt.注册提成 * tc.业务_注册提成 as 注册提成 ,tt.注册利润-tt.成长版 -tt.其他一次性业务 as 注册利润 , tt.注册费收款额 as 注册费收款额,0 as 团队提成
+            , tt.其他一次性业务,tt.其他一次性业务 * tc.业务_一次性业务其他 as 其他一次性业务提成 ,tt.成长版  ,tt.成长版*tc.业务_一次性业务成长版 as 成长版提成
+            from (
+             select ts.员工,ts.员工ID,sum(ts.做账收款额) as 做账收款额 ,sum(ts.做账收款额)  as 做账提成
+            ,sum(ts.工本收款费) as 工本收款费 ,sum(ts.开票收款费) as 开票收款费,
+            sum(ts.工本收款费+ts.开票收款费)  as 工本费开票费提成
+            ,sum(ts.注册利润-ts.成长版-ts.其他一次性业务)  as 注册提成 ,sum(ts.注册利润) as 注册利润 , sum(ts.注册费收款额) as 注册费收款额 
+            ,sum(ts.其他一次性业务) as 其他一次性业务,sum(ts.成长版) as 成长版
+            from (
+            select
+            t.支付单位 as 客户名称,
+             newid() as  客户名称ID,
+            t.支付金额 as 做账收款额,
+            t.工本费 as 工本收款费,
+            t.开票费 as 开票收款费,
+            0 as 做账提成 ,
+            0 as 工本费开票费提成,
+            t.业务员 as 员工,
+            t.业务员ID as 员工ID,
+            t.操作时间 as 支付日期,
+            0 as 注册费收款额,
+            0 as 注册提成,
+            t.收款类别,
+            t.月做账费,
+            t.月做账费 * 12 as 年做账费,
+            0 as 注册费,
+            0 as 其他一次性业务,
+			0 as 成长版,
+            0 as 图章,
+            0 as 银行,
+            0 as 其他,
+            0 as 注册利润,
+            '业务员做账费' as 工资统计类型
+            from TW_Payment  t,[dbo].[TW_Client] t2
+            where
+		    t.客户名称ID=t2.客户名称ID
+            and  t.本次到期月份 <= t2.首年提成结束期
+            and  year(t.操作时间)= " + year + @" and month(t.操作时间) = " + month + @"
+            and t.收款类别 = '常规收款'
+            and t.业务员ID is not null
+            and t.是否审核=1
+            union
+		    select
+            t.客户名称,
+             newid() as  客户名称ID,
+            t.做账费收款额 as 做账收款额,
+            t.工本费收款额 as 工本收款额,
+            t.开票费收款额 as 开票收款额,
+            0 as 做账提成,
+            0 as 工本费开票费提成,
+            t.业务员 as 员工,
+            t.业务员ID as 员工ID,
+            t.收款日期 as 支付日期,
+            t.注册费收款额,
+            0 as 注册提成,
+            '注册收款' as 收款类别,
+            t.月做账费 ,
+            t.年做账费,
+            t.注册费,
+            0 as 其他一次性业务,
+			0 as 成长版,
+            t.图章,
+            t.银行,
+            t.其他,
+            t.注册利润,
+            '业务员注册费' as 工资统计类型
+            from VW_PaymentDetail t
+            where t.注册费<=t.注册费收款额
+             and (注册类型='注册' or  注册类型='设立'
+            or 注册类型='变更' or 注册类型='注销')
+            and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
+            union
+		    select
+            t.客户名称,
+             newid() as  客户名称ID,
+            t.做账费收款额 as 做账收款额,
+            t.工本费收款额 as 工本收款额,
+            t.开票费收款额 as 开票收款额,
+            0 as 做账提成,
+            0 as 工本费开票费提成,
+            t.业务员 as 员工,
+            t.业务员ID as 员工ID,
+            t.收款日期 as 支付日期,
+            0 as 注册费收款额,
+            0 as 注册提成,
+            '注册收款' as 收款类别,
+            t.月做账费 ,
+            t.年做账费,
+            0 as 注册费,
+            t.注册利润 as 其他一次性业务,
+			0 as 成长版,
+            t.图章,
+            t.银行,
+            t.其他,
+            t.注册利润,
+            '业务员注册费' as 工资统计类型
+            from VW_PaymentDetail t
+            where t.注册费<=t.注册费收款额
+            and (注册类型='验资' or  注册类型='审计' or  注册类型='商标')
+            and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
+            union
+		    select
+            t.客户名称,
+             newid() as  客户名称ID,
+            t.做账费收款额 as 做账收款额,
+            t.工本费收款额 as 工本收款额,
+            t.开票费收款额 as 开票收款额,
+            0 as 做账提成,
+            0 as 工本费开票费提成,
+            t.业务员 as 员工,
+            t.业务员ID as 员工ID,
+            t.收款日期 as 支付日期,
+            0 as 注册费收款额,
+            0 as 注册提成,
+            '注册收款' as 收款类别,
+            t.月做账费 ,
+            t.年做账费,
+            0 as 注册费,
+            0 as 其他一次性业务,
+			 t.注册利润  as 成长版,
+            t.图章,
+            t.银行,
+            t.其他,
+            t.注册利润,
+            '业务员注册费' as 工资统计类型
+            from VW_PaymentDetail t
+            where t.注册费<=t.注册费收款额 and (注册类型='成长版')
+            and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
+		    ) as ts
+		    group by ts.员工,ts.员工ID
+		    ) as tt";
+
+            if (!string.IsNullOrWhiteSpace(deptId))
+            {
+                strSql += " join [TCOM_USER] on tt.员工ID =[TCOM_USER].USERID ";
+            }
+
+            strSql += @",TWS_Commission as tc
+		    where tc.TWS_CommissionID='1'
+            ) tg
+			group by tg.DEPTID ";
+            if (!string.IsNullOrEmpty(userManagerID))
+            {
+                strSql += " and tt.员工ID='" + userManagerID + "'";
+            }
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_SalarySumAll");
+
+            return dst;
+        }
+
+        /// <summary>
         /// 查询一个团队的收款额
         /// </summary>
         /// <param name="businessID"></param>
@@ -3038,186 +3207,204 @@ or 注册类型='变更' or 注册类型='注销')
 
 
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllAccountantSalary");
-            //带人费,学徒
-            string Sql = @"select
-            tt.员工,tt.员工ID,tt.做账收款额 as 做账收款额 ,tt.做账提成 * tc.做账_带人提成 as 做账提成
-           ,tt.工本收款费 as 工本收款费 ,tt.开票收款费 as 开票收款费,
-           (tt.工本收款费+tt.开票收款费) * tc.做账_工本提成 as 工本费开票费提成
-           ,0 as 团队提成,tt.师父ID
-           from (
-           select ts.员工,ts.员工ID,sum(ts.做账收款额) as 做账收款额 ,sum(ts.月做账费)  as 做账提成
-           ,sum(ts.工本收款费) as 工本收款费 ,sum(ts.开票收款费) as 开票收款费,
-           sum(ts.工本收款费+ts.开票收款费)  as 工本费开票费提成
-           , sum(ts.注册费收款额) as 注册费收款额,ts.师父ID  from (
-           select
-           t.支付单位 as 客户名称,
-           newid() as  客户名称ID,
-           t.支付金额 as 做账收款额,
-           t.工本费 as 工本收款费,
-           t.开票费 as 开票收款费,
-           0 as 做账提成 ,
-           0 as 工本费开票费提成,
-           t.做账会计 as 员工,
-           t.做账会计ID as 员工ID,
-           t.支付日期,
-           0 as 注册费收款额,
-           0 as 注册提成,
-           t.收款类别,
-           t.月平均费 as 月做账费,
-           t.月做账费 * 12 as 年做账费,
-           '业务员做账费' as 工资统计类型,
-           t3.TeacherID as 师父ID
-           from TW_Payment  t,[dbo].[TW_Client] t2,[dbo].[TCOM_USER] t3
-           where
-           t.客户名称ID = t2.客户名称ID
-           and t.做账会计ID = t3.USERID
-           and t3.EMPLOYEETYPE='学徒'
-           and isnull(t.零申报,0)=0
-            and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
-           and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
-           and t.收款类别 = '常规收款'
-           and t.是否审核=1
-           union
-           select
-           t.支付单位 as 客户名称,
-           newid() as  客户名称ID,
-           t.支付金额 as 做账收款额,
-           t.工本费 as 工本收款费,
-           t.开票费 as 开票收款费,
-           0 as 做账提成 ,
-           0 as 工本费开票费提成,
-           t.做账会计 as 员工,
-           t.做账会计ID as 员工ID,
-           t.支付日期,
-           0 as 注册费收款额,
-           0 as 注册提成,
-           t.收款类别,
-           t.支付金额 as 月做账费,
-           t.月做账费 * 12 as 年做账费,
-           '业务员做账费' as 工资统计类型,
-           t3.TeacherID as 师父ID
-           from TW_Payment  t,[dbo].[TW_Client] t2,[dbo].[TCOM_USER] t3
-           where
-           t.客户名称ID = t2.客户名称ID
-           and t.做账会计ID = t3.USERID
-           and t3.EMPLOYEETYPE='学徒'
-           and isnull(t.零申报,0)=0
-           and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
-           and  '" + pdate.ToString("yyyy-MM-dd") + @"' >= t.本次到期月份
-            and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
-           and t.收款类别 = '常规收款'
-           and t.是否审核=1
-           union
-           select
-           t.客户名称,
-           newid() as  客户名称ID,
-           t.做账费收款额 as 做账收款额,
-           t.工本费收款额 as 工本收款额,
-           t.开票费收款额 as 开票收款额,
-           0 as 做账提成,
-           0 as 工本费开票费提成,
-           t.做账会计 as 员工,
-           t.做账会计ID as 员工ID,
-           t.收款日期 as 支付日期,
-           t.注册费收款额,
-           0 as 注册提成,
-           '注册收款' as 收款类别,
-           t.月平均费 as 月做账费 ,
-           t.年做账费,
-           '业务员注册费' as 工资统计类型,t3.TeacherID as 师父ID
-           from VW_PaymentDetail t, TW_Client t2,TCOM_USER t3
-           where
-           t.客户名称ID=t2.客户名称ID
-           and t.做账会计ID = t3.USERID
-           and t3.EMPLOYEETYPE='学徒'
-           and isnull(t.零申报,0)=0
-	        and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.做账到期月
-	       and t.注册费<=t.注册费收款额
-           and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
-           union
-           select
-           t.客户名称,
-           newid() as  客户名称ID,
-           t.做账费收款额 as 做账收款额,
-           t.工本费收款额 as 工本收款额,
-           t.开票费收款额 as 开票收款额,
-           0 as 做账提成,
-           0 as 工本费开票费提成,
-           t.做账会计 as 员工,
-           t.做账会计ID as 员工ID,
-           t.收款日期 as 支付日期,
-           t.注册费收款额,
-           0 as 注册提成,
-           '注册收款' as 收款类别,
-           t.月平均费 as 月做账费 ,
-           t.年做账费,
-           '业务员注册费' as 工资统计类型,t3.TeacherID as 师父ID
-           from VW_PaymentDetail t, TW_Client t2,TCOM_USER t3
-           where
-           t.客户名称ID=t2.客户名称ID
-           and t.做账会计ID = t3.USERID
-           and t3.EMPLOYEETYPE='学徒'
-           and isnull(t.零申报,0)=0
-	       and  '" + pdate.ToString("yyyy-MM-dd") + @"'<= t.做账到期月
-	       and t.注册费<=t.注册费收款额
-		   and YEAR(t.收款日期)=" + year + @" and  month(t.收款日期)=" + month + @"
-           ) as ts
-           group by ts.员工,ts.员工ID,ts.师父ID
-           ) as tt,
-           TWS_Commission as tc
-           where tc.TWS_CommissionID='1'";
-            DataSet dst1 = ServiceManager.GetDatabase().GetEntity(Sql, "VW_AllAccountantSalary");
 
-            foreach (DataRow row in dst1.Tables[0].Rows)
-            {
-                string teacherID = row["师父ID"].ToString();
-                DataRow[] rows = dst.Tables[0].Select("员工ID='" + teacherID + "'");
-                if (rows.Length > 0)
-                {
-                    decimal xtTC = decimal.Parse(rows[0]["学徒提成"].ToString());
-                    xtTC += decimal.Parse(row["做账提成"].ToString());
-                    rows[0].BeginEdit();
-                    rows[0]["学徒提成"] = xtTC;
-                    rows[0].EndEdit();
-                }
-            }
+            #region 学徒提层去掉
+            //       //带人费,学徒
+            //       string Sql = @"select
+            //       tt.员工,tt.员工ID,tt.做账收款额 as 做账收款额 ,tt.做账提成 * tc.做账_带人提成 as 做账提成
+            //      ,tt.工本收款费 as 工本收款费 ,tt.开票收款费 as 开票收款费,
+            //      (tt.工本收款费+tt.开票收款费) * tc.做账_工本提成 as 工本费开票费提成
+            //      ,0 as 团队提成,tt.师父ID
+            //      from (
+            //      select ts.员工,ts.员工ID,sum(ts.做账收款额) as 做账收款额 ,sum(ts.月做账费)  as 做账提成
+            //      ,sum(ts.工本收款费) as 工本收款费 ,sum(ts.开票收款费) as 开票收款费,
+            //      sum(ts.工本收款费+ts.开票收款费)  as 工本费开票费提成
+            //      , sum(ts.注册费收款额) as 注册费收款额,ts.师父ID  from (
+            //      select
+            //      t.支付单位 as 客户名称,
+            //      newid() as  客户名称ID,
+            //      t.支付金额 as 做账收款额,
+            //      t.工本费 as 工本收款费,
+            //      t.开票费 as 开票收款费,
+            //      0 as 做账提成 ,
+            //      0 as 工本费开票费提成,
+            //      t.做账会计 as 员工,
+            //      t.做账会计ID as 员工ID,
+            //      t.支付日期,
+            //      0 as 注册费收款额,
+            //      0 as 注册提成,
+            //      t.收款类别,
+            //      t.月平均费 as 月做账费,
+            //      t.月做账费 * 12 as 年做账费,
+            //      '业务员做账费' as 工资统计类型,
+            //      t3.TeacherID as 师父ID
+            //      from TW_Payment  t,[dbo].[TW_Client] t2,[dbo].[TCOM_USER] t3
+            //      where
+            //      t.客户名称ID = t2.客户名称ID
+            //      and t.做账会计ID = t3.USERID
+            //      and t3.EMPLOYEETYPE='学徒'
+            //      and isnull(t.零申报,0)=0
+            //       and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
+            //      and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
+            //      and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+            //      and t.收款类别 = '常规收款'
+            //      and t.是否审核=1
+            //      union
+            //      select
+            //      t.支付单位 as 客户名称,
+            //      newid() as  客户名称ID,
+            //      t.支付金额 as 做账收款额,
+            //      t.工本费 as 工本收款费,
+            //      t.开票费 as 开票收款费,
+            //      0 as 做账提成 ,
+            //      0 as 工本费开票费提成,
+            //      t.做账会计 as 员工,
+            //      t.做账会计ID as 员工ID,
+            //      t.支付日期,
+            //      0 as 注册费收款额,
+            //      0 as 注册提成,
+            //      t.收款类别,
+            //      t.支付金额 as 月做账费,
+            //      t.月做账费 * 12 as 年做账费,
+            //      '业务员做账费' as 工资统计类型,
+            //      t3.TeacherID as 师父ID
+            //      from TW_Payment  t,[dbo].[TW_Client] t2,[dbo].[TCOM_USER] t3
+            //      where
+            //      t.客户名称ID = t2.客户名称ID
+            //      and t.做账会计ID = t3.USERID
+            //      and t3.EMPLOYEETYPE='学徒'
+            //      and isnull(t.零申报,0)=0
+            //      and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+            //      and  '" + pdate.ToString("yyyy-MM-dd") + @"' >= t.本次到期月份
+            //       and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
+            //      and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+            //      and t.收款类别 = '常规收款'
+            //      and t.是否审核=1
+            //      union
+            //      select
+            //      t.客户名称,
+            //      newid() as  客户名称ID,
+            //      t.做账费收款额 as 做账收款额,
+            //      t.工本费收款额 as 工本收款额,
+            //      t.开票费收款额 as 开票收款额,
+            //      0 as 做账提成,
+            //      0 as 工本费开票费提成,
+            //      t.做账会计 as 员工,
+            //      t.做账会计ID as 员工ID,
+            //      t.收款日期 as 支付日期,
+            //      t.注册费收款额,
+            //      0 as 注册提成,
+            //      '注册收款' as 收款类别,
+            //      t.月平均费 as 月做账费 ,
+            //      t.年做账费,
+            //      '业务员注册费' as 工资统计类型,t3.TeacherID as 师父ID
+            //      from VW_PaymentDetail t, TW_Client t2,TCOM_USER t3
+            //      where
+            //      t.客户名称ID=t2.客户名称ID
+            //      and t.做账会计ID = t3.USERID
+            //      and t3.EMPLOYEETYPE='学徒'
+            //      and isnull(t.零申报,0)=0
+            //    and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.做账到期月
+            //   and t.注册费<=t.注册费收款额
+            //      and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
+            //      union
+            //      select
+            //      t.客户名称,
+            //      newid() as  客户名称ID,
+            //      t.做账费收款额 as 做账收款额,
+            //      t.工本费收款额 as 工本收款额,
+            //      t.开票费收款额 as 开票收款额,
+            //      0 as 做账提成,
+            //      0 as 工本费开票费提成,
+            //      t.做账会计 as 员工,
+            //      t.做账会计ID as 员工ID,
+            //      t.收款日期 as 支付日期,
+            //      t.注册费收款额,
+            //      0 as 注册提成,
+            //      '注册收款' as 收款类别,
+            //      t.月平均费 as 月做账费 ,
+            //      t.年做账费,
+            //      '业务员注册费' as 工资统计类型,t3.TeacherID as 师父ID
+            //      from VW_PaymentDetail t, TW_Client t2,TCOM_USER t3
+            //      where
+            //      t.客户名称ID=t2.客户名称ID
+            //      and t.做账会计ID = t3.USERID
+            //      and t3.EMPLOYEETYPE='学徒'
+            //      and isnull(t.零申报,0)=0
+            //   and  '" + pdate.ToString("yyyy-MM-dd") + @"'<= t.做账到期月
+            //   and t.注册费<=t.注册费收款额
+            //and YEAR(t.收款日期)=" + year + @" and  month(t.收款日期)=" + month + @"
+            //      ) as ts
+            //      group by ts.员工,ts.员工ID,ts.师父ID
+            //      ) as tt,
+            //      TWS_Commission as tc
+            //      where tc.TWS_CommissionID='1'";
+            //       DataSet dst1 = ServiceManager.GetDatabase().GetEntity(Sql, "VW_AllAccountantSalary");
+
+            //       foreach (DataRow row in dst1.Tables[0].Rows)
+            //       {
+            //           string teacherID = row["师父ID"].ToString();
+            //           DataRow[] rows = dst.Tables[0].Select("员工ID='" + teacherID + "'");
+            //           if (rows.Length > 0)
+            //           {
+            //               decimal xtTC = decimal.Parse(rows[0]["学徒提成"].ToString());
+            //               xtTC += decimal.Parse(row["做账提成"].ToString());
+            //               rows[0].BeginEdit();
+            //               rows[0]["学徒提成"] = xtTC;
+            //               rows[0].EndEdit();
+            //           }
+            //       }
+            #endregion
 
             string userManagerID = "";
-
-            userManagerID = GetManagerID(deptid, userManagerID);
+            string worktype = "";
+            //获取主管/经理USERID
+            userManagerID = GetManagerID(deptid, userManagerID,out worktype);
             //获取其他员工做账明细
             DataSet dstDetail = GetAccountantDetail(year, month, deptid);
             decimal sumMonthPrice = 0;
             foreach (DataRow row in dstDetail.Tables["VW_AllAccountantSalaryDetail"].Rows)
             {
-                if (row["员工ID"].ToString() == userManagerID || row["TeacherID"].ToString() == userManagerID)
+
+                //自己排除
+                if (row["员工ID"].ToString() == userManagerID )
                     continue;
                 if (!string.IsNullOrEmpty(row["月平均费"].ToString()))
                     sumMonthPrice += decimal.Parse(row["月平均费"].ToString());
             }
             //零申报
-
+            
             decimal sumLSB = 0;
             if (string.IsNullOrEmpty(deptid))
             {
                 DataSet dstLSBDetail = GetLSBAccountantDetail(year, month);
                 foreach (DataRow row in dstLSBDetail.Tables["VW_AllAccountantSalaryDetail"].Rows)
                 {
-                    if (row["员工ID"].ToString() == userManagerID || row["TeacherID"].ToString() == userManagerID)
+                    if (row["员工ID"].ToString() == userManagerID)
                         continue;
                     if (!string.IsNullOrEmpty(row["月平均费"].ToString()))
                         sumLSB += decimal.Parse(row["月平均费"].ToString());
                 }
             }
-
-            DataRow[] managerRows = dst.Tables["VW_AllAccountantSalary"].Select("员工ID='" + userManagerID + "'");
-            if (managerRows.Length > 0)
+            if (worktype == "二级部门经理")  //二级部门经理提层5%
             {
-                managerRows[0].BeginEdit();
-                managerRows[0]["团队提成"] = sumMonthPrice * (decimal)0.01 + sumLSB * (decimal)0.002;
-                managerRows[0].EndEdit();
+                DataRow[] managerRows = dst.Tables["VW_AllAccountantSalary"].Select("员工ID='" + userManagerID + "'");
+                if (managerRows.Length > 0)
+                {
+                    managerRows[0].BeginEdit();
+                    managerRows[0]["团队提成"] = sumMonthPrice * (decimal)0.05;
+                    managerRows[0].EndEdit();
+                }
+            }
+            else if (worktype== "代账主管")  //主管提层1%
+            { 
+                DataRow[] managerRows = dst.Tables["VW_AllAccountantSalary"].Select("员工ID='" + userManagerID + "'");
+                if (managerRows.Length > 0)
+                {
+                    managerRows[0].BeginEdit();
+                    managerRows[0]["团队提成"] = sumMonthPrice * (decimal)0.01 + sumLSB * (decimal)0.005;
+                    managerRows[0].EndEdit();
+                }
             }
 
             string SqlUser = @"select t.TeacherID,sum(t.Salary) as Salary  from TCOM_USER t
@@ -3261,7 +3448,7 @@ or 注册类型='变更' or 注册类型='注销')
             return dst;
         }
 
-        private static string GetManagerID(string deptid, string userManagerID)
+        private static string GetManagerID(string deptid, string userManagerID,out string worktype)
         {
             if (!string.IsNullOrEmpty(deptid))
             {
@@ -3270,7 +3457,10 @@ or 注册类型='变更' or 注册类型='注销')
                 if (dstuser.Tables["TCOM_USER"].Rows.Count > 0)
                 {
                     userManagerID = dstuser.Tables["TCOM_USER"].Rows[0]["USERID"].ToString();
+                    worktype = "二级部门经理";
                 }
+                else
+                    worktype = "";
             }
             else
             {
@@ -3279,7 +3469,10 @@ or 注册类型='变更' or 注册类型='注销')
                 if (dstuser.Tables["TCOM_USER"].Rows.Count > 0)
                 {
                     userManagerID = dstuser.Tables["TCOM_USER"].Rows[0]["USERID"].ToString();
+                    worktype = "代账主管";
                 }
+                else
+                    worktype = "";
             }
 
             return userManagerID;
@@ -3703,7 +3896,8 @@ or 注册类型='变更' or 注册类型='注销')
                 }
             }
             string userManagerID = "";
-            userManagerID = GetManagerID(deptid, userManagerID);
+            string worktype = "";
+            userManagerID = GetManagerID(deptid, userManagerID,out worktype);
 
 
             //获取其他员工做账明细
@@ -3732,12 +3926,25 @@ or 注册类型='变更' or 注册类型='注销')
                 }
             }
 
-            DataRow[] managerRows = dst.Tables["VW_AllAccountantSalary"].Select("员工ID='" + userManagerID + "'");
-            if (managerRows.Length > 0)
+            if (worktype == "二级部门经理")  //二级部门经理提层5%
             {
-                managerRows[0].BeginEdit();
-                managerRows[0]["团队提成"] = sumMonthPrice * (decimal)0.01 + sumLSB * (decimal)0.002;
-                managerRows[0].EndEdit();
+                DataRow[] managerRows = dst.Tables["VW_AllAccountantSalary"].Select("员工ID='" + userManagerID + "'");
+                if (managerRows.Length > 0)
+                {
+                    managerRows[0].BeginEdit();
+                    managerRows[0]["团队提成"] = sumMonthPrice * (decimal)0.05 + sumLSB * (decimal)0.002;
+                    managerRows[0].EndEdit();
+                }
+            }
+            else if (worktype == "代账主管")  //主管提层1%
+            {
+                DataRow[] managerRows = dst.Tables["VW_AllAccountantSalary"].Select("员工ID='" + userManagerID + "'");
+                if (managerRows.Length > 0)
+                {
+                    managerRows[0].BeginEdit();
+                    managerRows[0]["团队提成"] = sumMonthPrice * (decimal)0.01 + sumLSB * (decimal)0.002;
+                    managerRows[0].EndEdit();
+                }
             }
 
             string SqlUser = @"select t.TeacherID,sum(t.Salary) as Salary  from TCOM_USER t
@@ -4264,7 +4471,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.做账会计ID=tu.USERID
           and isnull(t.零申报,0) = 0
           and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
-          and  '" + pdate.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
+          and  '" + pdate.ToString("yyyy-MM-dd") + @"' >=isnull(t.本次到期月份,'1900-1-1')
           and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
           and t.收款类别 = '常规收款'
           and t.是否审核=1

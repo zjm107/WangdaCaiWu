@@ -85,7 +85,7 @@ namespace WangDaDll.SalaryServer
             DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumZC2021(year, month, userManagerID, userName);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
 
-          //  AddPerformance();  //计算绩效
+            //  AddPerformance();  //计算绩效
         }
 
 
@@ -139,9 +139,9 @@ namespace WangDaDll.SalaryServer
             }
         }
 
-        public void GetAllBusinessSumOther(int year, int month, string userManagerID, string userName,string deptId)
+        public void GetAllBusinessSumOther(int year, int month, string userManagerID, string userName, string deptId)
         {
-            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther(year, month, userManagerID, userName,deptId);
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther(year, month, userManagerID, userName, deptId);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
         }
 
@@ -152,11 +152,25 @@ namespace WangDaDll.SalaryServer
         /// <param name="month"></param>
         /// <param name="userManagerID"></param>
         /// <param name="userName"></param>
-        public void GetAllBusinessSumOther2021(int year, int month, string userManagerID, string userName,string deptId)
+        public void GetAllBusinessSumOther2021(int year, int month, string userManagerID, string userName, string deptId)
         {
-            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName,deptId);
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName, deptId);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
-           // AddPerformance();//计算绩效
+            // AddPerformance();//计算绩效
+        }
+        /// <summary>
+        /// 获取会计经理的业务团队提成
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="userManagerID"></param>
+        /// <param name="userName"></param>
+        /// <param name="deptId"></param>
+        /// <returns></returns>
+        public DataSet GetAllBusinessGroupTC2021(int year, int month, string userManagerID, string userName, string deptId)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessGroupTC2021(year, month, userManagerID, userName, deptId);
+            return dst;
         }
 
 
@@ -169,9 +183,9 @@ namespace WangDaDll.SalaryServer
         /// <param name="userManagerID"></param>
         /// <param name="userName"></param>
         /// <returns></returns>
-        public decimal GetAllBusinessSumValue(int year, int month, string userManagerID, string userName,string deptid)
+        public decimal GetAllBusinessSumValue(int year, int month, string userManagerID, string userName, string deptid)
         {
-            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName,deptid);
+            DataSet dst = DBHelper.WangDaSer.GetAllBusinessSumOther2021(year, month, userManagerID, userName, deptid);
             DataManager.ImpDataSet(dst.Tables[0], VW_AllBusinessSalary);
             decimal sumValue = 0;
             var rows = VW_AllBusinessSalary.Select(string.Format("员工='{0}'", userName));
@@ -249,14 +263,14 @@ namespace WangDaDll.SalaryServer
         /// </summary>
         /// <param name="year"></param>
         /// <param name="month"></param>
-        public void GetAccountantSum(int year, int month, string userName,string deptId)
+        public void GetAccountantSum(int year, int month, string userName, string deptId)
         {
             DataSet dst = DBHelper.WangDaSer.GetAccountantSum(year, month, userName, deptId);
             DataManager.ImpDataSet(dst.Tables["VW_AllAccountantSalary"], this.VW_AllAccountantSalary);
 
         }
 
-        public void GetAccountantSum2021(int year, int month, string userName,string deptId)
+        public void GetAccountantSum2021(int year, int month, string userName, string deptId)
         {
             DataSet dst = DBHelper.WangDaSer.GetAccountantSum2021(year, month, userName, deptId);
             DataManager.ImpDataSet(dst.Tables["VW_AllAccountantSalary"], this.VW_AllAccountantSalary);

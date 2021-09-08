@@ -79,8 +79,9 @@ namespace WangDaDll
                 }
                 else if (Security.UserBusiness.Contains("二级部门经理"))
                     {
-                        salaryDataSet.GetAccountantSum(year, month, "", Security.DeptID);
-                        salaryDataSetYW.GetAllBusinessSumOther2021(year, month, "", "",Security.DeptID);
+                        salaryDataSet.GetAccountantSum(year, month, "", Security.DeptID);  //获取做账提层
+                        salaryDataSetYW.GetAllBusinessSumOther2021(year, month, "", "",Security.DeptID);   //获取业务提成
+                        //合并计算提层
                         foreach (DataRow row in salaryDataSetYW.VW_AllBusinessSalary.Rows)
                         {
                             string userName = row["员工"].ToString();
@@ -107,32 +108,51 @@ namespace WangDaDll
                         }
                     }
                     else
-                {
-                    salaryDataSet.GetAccountantSum(year, month, Security.UserName,"");
-                    salaryDataSetYW.GetAllBusinessSumOther2021(year, month,Security.UserID, Security.UserName,"");
-                    DataRow arow  = salaryDataSetYW.VW_AllBusinessSalary.Rows[0];
+                    {
+                        salaryDataSet.GetAccountantSum(year, month, Security.UserName,"");
+                        salaryDataSetYW.GetAllBusinessSumOther2021(year, month,Security.UserID, Security.UserName,"");
+                        DataRow arow  = salaryDataSetYW.VW_AllBusinessSalary.Rows[0];
 
                  
-                    decimal sumPrice = decimal.Parse(arow["做账提成"].ToString());
-                    decimal zcdsumPrice = decimal.Parse(arow["注册提成"].ToString());
-                    decimal czb = decimal.Parse(arow["成长版"].ToString());
-                    decimal czbtc = decimal.Parse(arow["成长版提成"].ToString());
-                    decimal ycx = decimal.Parse(arow["其他一次性业务"].ToString());
-                    decimal ycxtc = decimal.Parse(arow["其他一次性业务提成"].ToString());
-                    decimal jx = 0;
-                    if (sumPrice > 0 && salaryDataSet.VW_AllAccountantSalary.Rows.Count > 0)
-                    {
-                        DataRow row = salaryDataSet.VW_AllAccountantSalary.Rows[0];
-                        row.BeginEdit();
-                        row["业务提成"] = sumPrice+zcdsumPrice;
-                        row["成长版"] = czb;
-                        row["成长版提成"] = czbtc;
-                        row["其他一次性业务"] = ycx;
-                        row["其他一次性业务提成"] = ycxtc;
-                        row["绩效"] = jx;
-                        row.EndEdit();
-                        row.AcceptChanges();
+                        decimal sumPrice = decimal.Parse(arow["做账提成"].ToString());
+                        decimal zcdsumPrice = decimal.Parse(arow["注册提成"].ToString());
+                        decimal czb = decimal.Parse(arow["成长版"].ToString());
+                        decimal czbtc = decimal.Parse(arow["成长版提成"].ToString());
+                        decimal ycx = decimal.Parse(arow["其他一次性业务"].ToString());
+                        decimal ycxtc = decimal.Parse(arow["其他一次性业务提成"].ToString());
+                        decimal jx = 0;
+                        if (sumPrice > 0 && salaryDataSet.VW_AllAccountantSalary.Rows.Count > 0)
+                        {
+                            DataRow row = salaryDataSet.VW_AllAccountantSalary.Rows[0];
+                            row.BeginEdit();
+                            row["业务提成"] = sumPrice+zcdsumPrice;
+                            row["成长版"] = czb;
+                            row["成长版提成"] = czbtc;
+                            row["其他一次性业务"] = ycx;
+                            row["其他一次性业务提成"] = ycxtc;
+                            row["绩效"] = jx;
+                            row.EndEdit();
+                            row.AcceptChanges();
+                        }
                     }
+                //获取会计经理团队提成
+               DataSet tddst = salaryDataSet.GetAllBusinessGroupTC2021(year, month, Security.UserID, Security.UserName, "");
+                foreach (DataRow row in tddst.Tables["TW_SalarySumAll"].Rows)
+                {
+                    string tdtc = row["经理提成"].ToString();
+                    decimal tdywtc = decimal.Parse(tdtc);
+                    string groupdeptId = row["DEPTID"].ToString();
+                    DataRow[] selRows = salaryDataSet.VW_AllAccountantSalary.Select(string.Format("DEPTID='{0}'", groupdeptId));
+                    foreach (DataRow selRow in selRows)
+                    {
+                        selRow.BeginEdit();
+                        selRow["业务团队提成"] = tdywtc;
+                        decimal zztdtc = decimal.Parse(selRow["团队提成"].ToString());
+                        selRow["团队提成"] = tdywtc + zztdtc; //做账+业务提成
+                        selRow.EndEdit();
+                        selRow.AcceptChanges();
+                    }
+
                 }
 
             }

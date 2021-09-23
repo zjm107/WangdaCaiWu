@@ -66,7 +66,8 @@ namespace WangDaDll
                         foreach (DataRow selRow in selRows)
                         {
                             selRow.BeginEdit();
-                            selRow["业务提成"] = sumPrice + zcdsumPrice;
+                            //  selRow["业务提成"] = sumPrice + zcdsumPrice;  算注册提成
+                            selRow["业务提成"] = sumPrice;   //纯业务提成
                             selRow["成长版"] = czb;
                             selRow["成长版提成"] = czbtc;
                             selRow["其他一次性业务"] = ycx;
@@ -96,7 +97,8 @@ namespace WangDaDll
                             foreach (DataRow selRow in selRows)
                             {
                                 selRow.BeginEdit();
-                                selRow["业务提成"] = sumPrice + zcdsumPrice;
+                                //selRow["业务提成"] = sumPrice + zcdsumPrice;  业务+注册
+                                selRow["业务提成"] = sumPrice;   //纯业务提成
                                 selRow["成长版"] = czb;
                                 selRow["成长版提成"] = czbtc;
                                 selRow["其他一次性业务"] = ycx;
@@ -125,7 +127,8 @@ namespace WangDaDll
                         {
                             DataRow row = salaryDataSet.VW_AllAccountantSalary.Rows[0];
                             row.BeginEdit();
-                            row["业务提成"] = sumPrice+zcdsumPrice;
+                        // row["业务提成"] = sumPrice+zcdsumPrice;  业务+注册
+                            row["业务提成"] = sumPrice; //纯业务
                             row["成长版"] = czb;
                             row["成长版提成"] = czbtc;
                             row["其他一次性业务"] = ycx;
@@ -135,25 +138,32 @@ namespace WangDaDll
                             row.AcceptChanges();
                         }
                     }
-                //获取会计经理团队提成
-               DataSet tddst = salaryDataSet.GetAllBusinessGroupTC2021(year, month, Security.UserID, Security.UserName, "");
-                foreach (DataRow row in tddst.Tables["TW_SalarySumAll"].Rows)
-                {
-                    string tdtc = row["经理提成"].ToString();
-                    decimal tdywtc = decimal.Parse(tdtc);
-                    string groupdeptId = row["DEPTID"].ToString();
-                    DataRow[] selRows = salaryDataSet.VW_AllAccountantSalary.Select(string.Format("DEPTID='{0}'", groupdeptId));
-                    foreach (DataRow selRow in selRows)
+                //if (Security.UserBusiness.Contains("二级部门经理"))
+                //{
+                    //获取会计经理团队提成
+                    DataSet tddst = salaryDataSet.GetAllBusinessGroupTC2021(year, month, Security.UserID, Security.UserName, "");
+                    foreach (DataRow row in tddst.Tables["TW_SalarySumAll"].Rows)
                     {
-                        selRow.BeginEdit();
-                        selRow["业务团队提成"] = tdywtc;
-                        decimal zztdtc = decimal.Parse(selRow["团队提成"].ToString());
-                        selRow["团队提成"] = tdywtc + zztdtc; //做账+业务提成
-                        selRow.EndEdit();
-                        selRow.AcceptChanges();
-                    }
+                        string tdtc = row["经理提成"].ToString();  //业务团队提成
+                        decimal tdywtc = decimal.Parse(tdtc);
+                        string groupdeptId = row["DEPTID"].ToString();
+                        string jlUserid = row["USERID"].ToString();
+                        DataRow[] selRows = salaryDataSet.VW_AllAccountantSalary.Select(string.Format("DEPTID='{0}' and 员工ID='{1}' ", groupdeptId, jlUserid));
+                        foreach (DataRow selRow in selRows)
+                        {
+                            //if (selRow["员工"].ToString() == Security.UserName)
+                            //{
+                                selRow.BeginEdit();
+                                selRow["业务团队提成"] = tdywtc;
+                                decimal zztdtc = decimal.Parse(selRow["团队提成"].ToString()); //做账总提成
+                                selRow["团队总提成"] = tdywtc + zztdtc; //做账+业务提成
+                                selRow.EndEdit();
+                                selRow.AcceptChanges();
+                            //}
+                        }
 
-                }
+                    }
+                //}
 
             }
             catch (Exception ex)

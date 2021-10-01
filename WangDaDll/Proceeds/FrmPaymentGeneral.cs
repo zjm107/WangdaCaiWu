@@ -122,9 +122,18 @@ namespace WangDaDll
                 paymentRow.做账会计ID = row["做账会计ID"].ToString();
 
                 if (!string.IsNullOrEmpty(row["费用到期月份"].ToString()))
-                    paymentRow.上次到期月份 =DateTime.Parse(row["费用到期月份"].ToString());
-
-
+                {
+                    // paymentRow.上次到期月份 = DateTime.Parse(row["费用到期月份"].ToString());
+                    DateTime scDate = DateTime.Parse(row["费用到期月份"].ToString());
+                    if (scDate.Day == 28 || scDate.Day == 29 || scDate.Day == 30 || scDate.Day == 31)
+                    {
+                        DateTime startDate  = scDate.AddMonths(1);
+                        startDate = new DateTime(startDate.Year, startDate.Month, 1);
+                        paymentRow.上次到期月份 = startDate;
+                    }
+                       
+                }
+                 
                 paymentRow.EndEdit();
                 string endPay = row["首年提成结束期"].ToString();
                 if (!string.IsNullOrEmpty(endPay))
@@ -183,11 +192,22 @@ namespace WangDaDll
                 return;
             this.Cursor = Cursors.WaitCursor;
             tW_PaymentBindingSource.EndEdit();
+            DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
             splash.ShowWaitForm();
             splash.SetWaitFormCaption("收款");
             splash.SetWaitFormDescription("正在收款中……");
             try
             {
+                if (!string.IsNullOrEmpty(缴费月数TextEdit.Text))
+                {
+                    decimal month = decimal.Parse(缴费月数TextEdit.Text);
+                    if (month > 1)//如果缴费超过1个月拆分
+                    {
+                       
+                        proceedsDataSet.CFPayment(int.Parse(month.ToString()), rv.Row);
+
+                    }
+                }
                 proceedsDataSet.SaveDataSet(); //保存数据
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -203,6 +223,14 @@ namespace WangDaDll
                 this.Cursor = Cursors.Default;
             }
         }
+        /// <summary>
+        /// 拆分收款
+        /// </summary>
+        public void CFPayment()
+        {
+
+        }
+
         /// <summary>
         /// 收款取消
         /// </summary>
@@ -299,16 +327,23 @@ namespace WangDaDll
         {
             if (!string.IsNullOrEmpty(本次到期月DateEdit.Text) && !string.IsNullOrEmpty(上次到期月DateEdit.Text))
             {
+                int maxDays = DateTime.DaysInMonth(本次到期月DateEdit.DateTime.Year, 本次到期月DateEdit.DateTime.Month);
+                if (maxDays < 28)
+                {
+                    本次到期月DateEdit.DateTime = new DateTime(本次到期月DateEdit.DateTime.Year, 本次到期月DateEdit.DateTime.Month, maxDays);
+                }
+
                 DateTime beginDate = 上次到期月DateEdit.DateTime;
                 DateTime endDate = 本次到期月DateEdit.DateTime;
                 var mDays = endDate - beginDate;
                 int days = mDays.Days + 1;
-               if (days>=30)
+                if (days >= 30)
                 {
                     int months = days / 30;
                     缴费月数TextEdit.Text = months.ToString();
                 }
-                
+
+
             }
             
         }

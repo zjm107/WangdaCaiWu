@@ -268,5 +268,38 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
         }
+
+        private void btnJJ_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+              
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+            finally {
+                this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void btnCF_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }

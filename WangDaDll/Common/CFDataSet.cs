@@ -48,6 +48,7 @@ namespace WangDaDll.Common
                 else
                     row.备注 = string.Format("自动拆分,源金额：{0}元", paymentRow.支付金额);
                 row.支付金额 = paymentRow.月平均费;
+                row.月做账费 = paymentRow.月平均费;
                 row.支付日期 = paymentRow.支付日期;
                 row.支付单位 = paymentRow.支付单位;
                 if (!paymentRow.Is支付方式Null())

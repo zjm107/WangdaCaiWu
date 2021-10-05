@@ -14,6 +14,103 @@ namespace WangDaDll.Common
 
         public SysTools DBHelper = new SysTools();
 
+        /// <summary>
+        /// 查询用户信息
+        /// </summary>
+        /// <param name="zcyId">注册员ID</param>
+        /// <param name="ywyId">业务员ID</param>
+        /// <param name="zzkjId">做账会计ID</param>
+        public void GetUsers(string zcyId, string ywyId, string zzkjId)
+        {
+            DataSet dst =  DBHelper.WangDaSer.GetUserBy3(zcyId, ywyId, zzkjId);
+            DataManager.ImpDataSet(dst.Tables[0], this.TCOM_USER);
+        }
+        /// <summary>
+        /// 计算做账提成
+        /// </summary>
+        public void GetZCTC(TW_PaymentRow mainRow)
+        {
+            var comRow = GetCommissionRow();
+            if (mainRow.零申报 == false)
+            {
+                var kjrow = TCOM_USER.FindByUSERID(mainRow.做账会计ID);
+                switch (kjrow.WorkType)
+                {
+                    case "二级部门经理":
+                        mainRow.做账提成月 = mainRow.月平均费 * comRow.做账_提成;
+                        mainRow.工本开票提成 = (mainRow.工本费 + mainRow.开票费) * comRow.做账_工本提成;
+                        mainRow.做账主管提成 = mainRow.月平均费 * comRow.做账_团队提成;
+                        break;
+                    case "会计主管":
+                        mainRow.做账提成月 = mainRow.月平均费 * comRow.做账_提成;
+                        mainRow.工本开票提成 = (mainRow.工本费 + mainRow.开票费) * comRow.做账_工本提成;
+                        break;
+                    default:
+                        mainRow.做账提成月 = mainRow.月平均费 * comRow.做账_提成;
+                        mainRow.工本开票提成 = (mainRow.工本费 + mainRow.开票费) * comRow.做账_工本提成;
+                        mainRow.做账团队提成 = mainRow.月平均费 * comRow.做账_经理提层;
+                        mainRow.做账主管提成 = mainRow.月平均费 * comRow.做账_团队提成;
+                        break;
+                }
+                if (!string.IsNullOrEmpty(mainRow.业务员ID))
+                {
+                    var ywyRow = TCOM_USER.FindByUSERID(mainRow.业务员ID);
+                    switch (ywyRow.WorkType)
+                    {
+                        case "业务主管":
+
+                            if (mainRow.首年提成结束期 >= mainRow.本次到期月份)
+                                mainRow.业务提成月 = mainRow.月平均费 * comRow.业务_做账提成;
+                            else
+                                mainRow.业务提成月 = mainRow.月平均费 * comRow.业务_做账次年提成;
+
+
+                            break;
+                        case "二级部门经理":
+                        case "会计主管":
+                            {
+                                mainRow.业务提成月 = mainRow.月平均费 * comRow.其他业务提成;
+                            }
+                            break;
+                        default:
+                            if (ywyRow.DEPTNAME != "业务部")  //其他部门
+                            {
+                                mainRow.业务提成月 = mainRow.月平均费 * comRow.其他业务提成;
+                                if (ywyRow.DEPTNAME != "注册部")
+                                    mainRow.做账业务团队提成 = mainRow.月平均费 * comRow.做账_经理提层;
+
+                            }
+                            else //业务部
+                            {
+                                if (mainRow.首年提成结束期 >= mainRow.本次到期月份)
+                                    mainRow.业务提成月 = mainRow.月平均费 * comRow.业务_做账提成;
+                                else
+                                    mainRow.业务提成月 = mainRow.月平均费 * comRow.业务_做账次年提成;
+
+                                mainRow.业务团队提成 = mainRow.月平均费 * comRow.业务_主管团队提成;
+
+                            }
+                            break;
+                    }
+                }
+                if (!string.IsNullOrEmpty(mainRow.注册员ID))
+                {
+                    var zycRow = TCOM_USER.FindByUSERID(mainRow.注册员ID);
+                    {
+                        if (mainRow.首年提成结束期 >= mainRow.本次到期月份)
+                            mainRow.注册年提成 = mainRow.月平均费 * comRow.注册_年做账费提成;
+                    }
+                }
+            }
+            else //零申报
+            {
+
+            }
+
+
+
+        }
+
 
         /// <summary>
         /// 拆分收款，才分成每个月一笔收款
@@ -27,7 +124,7 @@ namespace WangDaDll.Common
             {
                 var row = this.TW_Payment.NewTW_PaymentRow();
                 row.TW_PaymentID = Guid.NewGuid().ToString();
-                row.上次到期月份 = new DateTime( startDate.Year,startDate.Month,1);  //一号
+                row.上次到期月份 = new DateTime(startDate.Year, startDate.Month, 1);  //一号
                 row.本次到期月份 = new DateTime(startDate.Year, startDate.Month, DateTime.DaysInMonth(startDate.Year, startDate.Month));  //月末
                 row.缴费月数 = 1;
                 row.客户名称ID = paymentRow.客户名称ID;
@@ -41,6 +138,7 @@ namespace WangDaDll.Common
                 row.做账会计 = paymentRow.做账会计;
                 row.做账会计ID = paymentRow.做账会计ID;
                 row.月平均费 = paymentRow.月平均费;
+                row.月做账费 = paymentRow.月平均费;
                 if (!paymentRow.Is备注Null())
                     row.备注 = string.Format("自动拆分,源金额：{0}元", paymentRow.支付金额) + "  " + paymentRow.备注;
                 else
@@ -60,8 +158,8 @@ namespace WangDaDll.Common
                     row.首年提成结束期 = paymentRow.首年提成结束期;
                 if (!paymentRow.Is银行账号Null())
                     row.银行账号 = paymentRow.银行账号;
-                if (!paymentRow.Is初始做账时间Null())
-                    row.初始做账时间 = paymentRow.初始做账时间;
+                //if (!paymentRow.Is初始做账时间Null())
+                //    row.初始做账时间 = paymentRow.初始做账时间;
                 if (!paymentRow.Is不收款Null())
                 {
                     row.不收款 = paymentRow.不收款;
@@ -82,8 +180,9 @@ namespace WangDaDll.Common
                     row.工本费 = 0;
                     row.开票费 = 0;
                 }
+                GetZCTC(row);
                 this.TW_Payment.AddTW_PaymentRow(row);
-              
+
                 startDate = startDate.AddMonths(1);
             }
             this.TW_Payment.RemoveTW_PaymentRow(paymentRow);  //删除源记录
@@ -121,6 +220,7 @@ namespace WangDaDll.Common
                 row.做账会计 = paymentRow.做账会计;
                 row.做账会计ID = paymentRow.做账会计ID;
                 row.月平均费 = paymentRow.月平均费;
+                row.月做账费 = paymentRow.月平均费;
                 if (!paymentRow.Is备注Null())
                     row.备注 = string.Format("自动拆分,源金额：{0}元", paymentRow.支付金额) + "  " + paymentRow.备注;
                 else
@@ -156,8 +256,7 @@ namespace WangDaDll.Common
                     row.首年提成结束期 = paymentRow.首年提成结束期;
                 if (!paymentRow.Is银行账号Null())
                     row.银行账号 = paymentRow.银行账号;
-                if (!paymentRow.Is初始做账时间Null())
-                    row.初始做账时间 = paymentRow.初始做账时间;
+
                 if (!paymentRow.Is不收款Null())
                 {
                     row.不收款 = paymentRow.不收款;
@@ -205,10 +304,30 @@ namespace WangDaDll.Common
             }
 
         }
+
+        public void GetCommission()
+        {
+            try
+            {
+                DataSet dst = DBHelper.WangDaSer.GetCommission();
+                DataManager.ImpDataSet(dst.Tables[0], this.TWS_Commission);
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+        }
+
+        public TWS_CommissionRow GetCommissionRow()
+        {
+            return this.TWS_Commission.Rows[0] as TWS_CommissionRow;
+        }
         /// <summary>
         /// 选择付款明细
         /// </summary>
-        public void ImpPaymentDetail(string mainID)
+        /// <param name="zclx">注册类型</param>
+        /// <param name="mainID">付款ID</param>
+        public void ImpPaymentDetail(string mainID, out string zclx)
         {
             foreach (DataRow row in VW_PaymentDetail.Rows)
             {
@@ -235,13 +354,14 @@ namespace WangDaDll.Common
             {
                 string payCompany = VW_PaymentDetail.Rows[0]["公司预核名称"].ToString();
                 string payCompanyID = VW_PaymentDetail.Rows[0]["TW_BusinessRegID"].ToString();
-                string zclx = VW_PaymentDetail.Rows[0]["注册类型"].ToString();
-                DataRow mainRow = this.TW_Payment.Rows[0];
+                zclx = VW_PaymentDetail.Rows[0]["注册类型"].ToString();
+                TW_PaymentRow mainRow = this.TW_Payment.Rows[0] as TW_PaymentRow;
                 mainRow.BeginEdit();
                 mainRow["支付单位"] = payCompany;
                 mainRow["客户名称ID"] = payCompanyID;
                 switch (zclx)
                 {
+
                     case "成长版":
                         mainRow["收款类别"] = "成长版收款";
                         break;
@@ -254,9 +374,63 @@ namespace WangDaDll.Common
                         mainRow["收款类别"] = "注册收款";
                         break;
                 }
+
+
                 mainRow.EndEdit();
 
             }
+            else
+                zclx = "其他";
+        }
+        /// <summary>
+        /// 计算注册的各项费用提成
+        /// </summary>
+        /// <param name="zclx"></param>
+        /// <param name="mainRow"></param>
+        public void GetRegTC(string zclx)
+        {
+            TW_PaymentRow mainRow = null;
+            if (TW_Payment.Rows.Count == 1)
+                mainRow = TW_Payment.Rows[0] as TW_PaymentRow;
+            else
+                throw new Exception("收款出错，没有TW_Payment主记录");
+            mainRow.BeginEdit();
+            switch (zclx)
+            {
+                case "注册":
+                    mainRow.注册提成月 = GetCommissionRow().注册_单价;
+                    mainRow.注册团队提成 = GetCommissionRow().注册_单价 / 2;
+                    break;
+                case "设立":
+                    mainRow.注册提成月 = GetCommissionRow().注册_单价;
+                    mainRow.注册团队提成 = GetCommissionRow().注册_单价 / 2;
+                    break;
+                case "变更":
+                case "注销":
+                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    mainRow.注册团队提成 = GetCommissionRow().注册_变更单价 / 2;
+                    break;
+                case "验资":
+                    mainRow.注册提成月 = 300;
+                    mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务成长版;
+                    break;
+                case "审计":
+                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务其他;
+                    break;
+                case "成长版":
+                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务成长版;//业务员提1000
+                    break;
+                case "商标":
+                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务其他;
+                    break;
+                default:
+                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    break;
+            }
+            mainRow.EndEdit();
         }
 
         /// <summary>
@@ -287,11 +461,44 @@ namespace WangDaDll.Common
             mainRow.支付日期 = DateTime.Today;
             mainRow.操作时间 = DateTime.Now;
             mainRow.收款类别 = payType;
+            //提成初始化设置
+            mainRow.注册提成月 = 0;
+            mainRow.业务提成月 = 0;
+            mainRow.做账提成月 = 0;
+            mainRow.做账团队提成 = 0;
+            mainRow.业务团队提成 = 0;
+            mainRow.做账主管提成 = 0;
+            mainRow.注册团队提成 = 0;
+            mainRow.注册年提成 = 0;
+            mainRow.业务年提成 = 0;
+            mainRow.工本开票提成 = 0;
+            mainRow.做账业务团队提成 = 0;
             mainRow.TW_PaymentID = newID;
             TW_Payment.Rows.Add(mainRow);
             return newID;
         }
-
+        /// <summary>
+        /// 设置注册提成
+        /// </summary>
+        public void SetRegTC()
+        {
+            if (TW_Payment.Rows.Count > 0)
+            {
+                TW_PaymentRow payRow = TW_Payment.Rows[0] as TW_PaymentRow;
+                payRow.注册提成月 = 0;
+                payRow.业务提成月 = 0;
+                payRow.做账提成月 = 0;
+                payRow.做账团队提成 = 0;
+                payRow.业务团队提成 = 0;
+                payRow.做账主管提成 = 0;
+                payRow.注册团队提成 = 0;
+                payRow.注册年提成 = 0;
+                payRow.业务年提成 = 0;
+                payRow.工本开票提成 = 0;
+                payRow.做账业务团队提成 = 0;
+                payRow.EndEdit();
+            }
+        }
         /// <summary>
         /// 支付一半
         /// </summary>

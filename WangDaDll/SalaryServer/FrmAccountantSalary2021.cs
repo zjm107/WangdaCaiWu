@@ -156,7 +156,7 @@ namespace WangDaDll
                                 selRow.BeginEdit();
                                 selRow["业务团队提成"] = tdywtc;
                                 decimal zztdtc = decimal.Parse(selRow["团队提成"].ToString()); //做账总提成
-                                selRow["团队总提成"] = tdywtc + zztdtc; //做账+业务提成
+                                //selRow["团队总提成"] = tdywtc + zztdtc; //做账+业务提成
                                 selRow.EndEdit();
                                 selRow.AcceptChanges();
                             //}
@@ -247,5 +247,7 @@ namespace WangDaDll
         {
 
         }
+
+      
     }
 }

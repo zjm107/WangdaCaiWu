@@ -123,9 +123,28 @@ namespace WangDaDll
                 paymentRow["注册员ID"] = row["注册员ID"].ToString();
                 paymentRow["做账会计"] = row["做账会计"].ToString();
                 paymentRow["做账会计ID"] = row["做账会计ID"].ToString();
-
+                paymentRow["注册提成月"] = 0;
+                paymentRow["业务提成月"] = 0;
+                paymentRow["做账提成月"] = 0;
+                paymentRow["做账团队提成"] = 0;
+                paymentRow["业务团队提成"] = 0;
+                paymentRow["做账主管提成"] = 0;
+                paymentRow["注册团队提成"] = 0;
+                paymentRow["注册年提成"] = 0;
+                paymentRow["业务年提成"] = 0;
+                paymentRow["工本开票提成"] = 0;
+                paymentRow["做账业务团队提成"] = 0;
                 if (!string.IsNullOrEmpty(row["费用到期月份"].ToString()))
                     paymentRow["上次到期月份"] =DateTime.Parse(row["费用到期月份"].ToString());
+
+
+                string endPay = row["首年提成结束期"].ToString();
+                if (!string.IsNullOrEmpty(endPay))
+                {
+                    //endPayDate = endPay;
+                    paymentRow["首年提成结束期"] = DateTime.Parse( endPay);
+                }
+
                 paymentRow.EndEdit();
             }
         }
@@ -166,11 +185,31 @@ namespace WangDaDll
                 return;
             this.Cursor = Cursors.WaitCursor;
             tW_PaymentBindingSource.EndEdit();
+            DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
             splash.ShowWaitForm();
             splash.SetWaitFormCaption("收款");
             splash.SetWaitFormDescription("正在收款中……");
             try
             {
+                ///查询关联人员
+                proceedsDataSet.GetUsers(rv["注册员ID"].ToString(), rv["业务员ID"].ToString(), rv["做账会计ID"].ToString());
+
+
+                if (!string.IsNullOrEmpty(缴费月数TextEdit.Text))
+                {
+                    decimal month = decimal.Parse(缴费月数TextEdit.Text);
+                    if (month > 1)//如果缴费超过1个月拆分
+                    {
+
+                        proceedsDataSet.CFPayment(int.Parse(month.ToString()), rv.Row);
+
+                    }
+                    else
+                    {
+                        proceedsDataSet.GetZCTC(rv.Row as ProceedsDataSet.TW_PaymentRow);
+                    }
+                }
+                
                 proceedsDataSet.SaveDataSet(); //保存数据
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -219,6 +258,7 @@ namespace WangDaDll
                     操作时间DateEdit.Enabled = true;
                     操作时间DateEdit.Properties.ReadOnly = false;
                 }
+                proceedsDataSet.GetCommission();
             }
             catch (Exception ex)
             {

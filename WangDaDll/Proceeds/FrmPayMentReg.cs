@@ -26,7 +26,7 @@ namespace WangDaDll
                 FrmNoPaymentDlg frmDlg = new FrmNoPaymentDlg(this.proceedsDataSet);
                 if (frmDlg.ShowDialog() == DialogResult.OK)
                 {
-                    this.proceedsDataSet.ImpPaymentDetail(this.PaymentID); //付款明细
+                    this.proceedsDataSet.ImpPaymentDetail(this.PaymentID,out this.ZCLX); //付款明细
                     
                 }
             }
@@ -35,6 +35,11 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
         }
+        /// <summary>
+        /// 注册类型
+        /// </summary>
+        public string ZCLX;
+        
 
         private void btnPayhalf_Click(object sender, EventArgs e)
         {
@@ -138,9 +143,6 @@ namespace WangDaDll
                     }
                 }
 
-
-               
-
             }
 
 
@@ -152,11 +154,13 @@ namespace WangDaDll
                 return;
             this.Cursor = Cursors.WaitCursor;
             tW_PaymentBindingSource.EndEdit();
+
             splash.ShowWaitForm();
             splash.SetWaitFormCaption("收款");
             splash.SetWaitFormDescription("正在收款中……");
             try
             {
+                proceedsDataSet.GetRegTC(this.ZCLX);  //计算注册提成
                 proceedsDataSet.SaveDataSet(); //保存数据
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -203,6 +207,7 @@ namespace WangDaDll
         {
             this.Cursor = Cursors.WaitCursor ;
             try {
+                proceedsDataSet.GetCommission();
                 string newID = this.proceedsDataSet.NewPayment("注册收款");
                 this.PaymentID = newID;
                 
@@ -221,7 +226,6 @@ namespace WangDaDll
         {
             try
             {
-
                 foreach (DataRow row in proceedsDataSet.Tables["TW_PaymentDetail"].Rows)
                 {
                     decimal monthPrice = decimal.Parse(row["做账费收款额"].ToString());
@@ -245,8 +249,6 @@ namespace WangDaDll
                     payRow["支付金额"] = sumPrice;
                     payRow.EndEdit();
                 }
-
-                
             }
             catch (Exception ex)
             {

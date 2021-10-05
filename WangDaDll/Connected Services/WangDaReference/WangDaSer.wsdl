@@ -993,6 +993,46 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetCommission">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCommissionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCommissionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserBy3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zcyId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ywyId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zzkjId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserBy3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserBy3Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CheckCompanyNameSoapIn">
@@ -1271,6 +1311,18 @@
   <wsdl:message name="GetCFDataSetSoapOut">
     <wsdl:part name="parameters" element="tns:GetCFDataSetResponse" />
   </wsdl:message>
+  <wsdl:message name="GetCommissionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCommission" />
+  </wsdl:message>
+  <wsdl:message name="GetCommissionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCommissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserBy3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserBy3" />
+  </wsdl:message>
+  <wsdl:message name="GetUserBy3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserBy3Response" />
+  </wsdl:message>
   <wsdl:portType name="WangDaSerSoap">
     <wsdl:operation name="CheckCompanyName">
       <wsdl:input message="tns:CheckCompanyNameSoapIn" />
@@ -1455,6 +1507,14 @@
     <wsdl:operation name="GetCFDataSet">
       <wsdl:input message="tns:GetCFDataSetSoapIn" />
       <wsdl:output message="tns:GetCFDataSetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCommission">
+      <wsdl:input message="tns:GetCommissionSoapIn" />
+      <wsdl:output message="tns:GetCommissionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBy3">
+      <wsdl:input message="tns:GetUserBy3SoapIn" />
+      <wsdl:output message="tns:GetUserBy3SoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
@@ -1873,6 +1933,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCommission">
+      <soap:operation soapAction="http://tempuri.org/GetCommission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBy3">
+      <soap:operation soapAction="http://tempuri.org/GetUserBy3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WangDaSerSoap12" type="tns:WangDaSerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2283,6 +2361,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetCFDataSet">
       <soap12:operation soapAction="http://tempuri.org/GetCFDataSet" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCommission">
+      <soap12:operation soapAction="http://tempuri.org/GetCommission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserBy3">
+      <soap12:operation soapAction="http://tempuri.org/GetUserBy3" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

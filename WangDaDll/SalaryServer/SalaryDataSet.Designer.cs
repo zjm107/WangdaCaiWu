@@ -567,7 +567,8 @@ namespace WangDaDll.SalaryServer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitExpressions() {
             this.VW_AllBusinessSalary.提成汇总Column.Expression = "做账提成+注册提成+团队提成+业务提成+成长版提成+绩效+其他一次性业务提成";
-            this.VW_AllAccountantSalary.提成汇总Column.Expression = "做账提成+工本费开票费提成+团队提成+学徒提成+业务提成-实习工资+成长版提成+其他一次性业务提成+绩效+业务团队提成";
+            this.VW_AllAccountantSalary.提成汇总Column.Expression = "做账提成+团队提成+学徒提成+业务提成+成长版提成+其他一次性业务提成+绩效+业务团队提成";
+            this.VW_AllAccountantSalary.团队总提成Column.Expression = "团队提成+业务团队提成";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -3001,8 +3002,7 @@ namespace WangDaDll.SalaryServer {
                         decimal 其他一次性业务提成, 
                         decimal 绩效, 
                         decimal 业务团队提成, 
-                        string DEPTID, 
-                        decimal 团队总提成) {
+                        string DEPTID) {
                 VW_AllAccountantSalaryRow rowVW_AllAccountantSalaryRow = ((VW_AllAccountantSalaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         员工,
@@ -3025,7 +3025,7 @@ namespace WangDaDll.SalaryServer {
                         绩效,
                         业务团队提成,
                         DEPTID,
-                        团队总提成};
+                        null};
                 rowVW_AllAccountantSalaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_AllAccountantSalaryRow);
                 return rowVW_AllAccountantSalaryRow;
@@ -3129,6 +3129,7 @@ namespace WangDaDll.SalaryServer {
                 this.column其他一次性业务提成.DefaultValue = ((decimal)(0m));
                 this.column绩效.DefaultValue = ((decimal)(0m));
                 this.column业务团队提成.DefaultValue = ((decimal)(0m));
+                this.column团队总提成.ReadOnly = true;
                 this.column团队总提成.DefaultValue = ((decimal)(0m));
             }
             
@@ -3153,7 +3154,8 @@ namespace WangDaDll.SalaryServer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitExpressions() {
-                this.提成汇总Column.Expression = "做账提成+工本费开票费提成+团队提成+学徒提成+业务提成-实习工资+成长版提成+其他一次性业务提成+绩效+业务团队提成";
+                this.提成汇总Column.Expression = "做账提成+团队提成+学徒提成+业务提成+成长版提成+其他一次性业务提成+绩效+业务团队提成";
+                this.团队总提成Column.Expression = "团队提成+业务团队提成";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

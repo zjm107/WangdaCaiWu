@@ -3452,28 +3452,28 @@ or 注册类型='变更' or 注册类型='注销')
                     managerRows[0].EndEdit();
                 }
             }
-
-            string SqlUser = @"select t.TeacherID,sum(t.Salary) as Salary  from TCOM_USER t
-            where t.EMPLOYEETYPE='实习'
-            group by t.TeacherID";
-            DataSet dstUser = ServiceManager.GetDatabase().GetEntity(SqlUser, "TCOM_USER");
-            foreach (DataRow row in dstUser.Tables[0].Rows)
-            {
-                string teacherID = row["TeacherID"].ToString();
-                decimal salary = 0;
-                if (!string.IsNullOrEmpty(row["Salary"].ToString()))
-                {
-                    salary = decimal.Parse(row["Salary"].ToString());
-                }
-                DataRow[] rows = dst.Tables[0].Select("员工ID='" + teacherID + "'");
-                if (rows.Length > 0)
-                {
-                    rows[0].BeginEdit();
-                    rows[0]["实习工资"] = salary;
-                    rows[0].EndEdit();
-                }
-            }
-
+            #region 实习工资
+            //string SqlUser = @"select t.TeacherID,sum(t.Salary) as Salary  from TCOM_USER t
+            //where t.EMPLOYEETYPE='实习'
+            //group by t.TeacherID";
+            //DataSet dstUser = ServiceManager.GetDatabase().GetEntity(SqlUser, "TCOM_USER");
+            //foreach (DataRow row in dstUser.Tables[0].Rows)
+            //{
+            //    string teacherID = row["TeacherID"].ToString();
+            //    decimal salary = 0;
+            //    if (!string.IsNullOrEmpty(row["Salary"].ToString()))
+            //    {
+            //        salary = decimal.Parse(row["Salary"].ToString());
+            //    }
+            //    DataRow[] rows = dst.Tables[0].Select("员工ID='" + teacherID + "'");
+            //    if (rows.Length > 0)
+            //    {
+            //        rows[0].BeginEdit();
+            //        rows[0]["实习工资"] = salary;
+            //        rows[0].EndEdit();
+            //    }
+            //}
+            #endregion
             if (!string.IsNullOrEmpty(userName))
             {
                 int rowCount = dst.Tables["VW_AllAccountantSalary"].Rows.Count;
@@ -4050,6 +4050,7 @@ or 注册类型='变更' or 注册类型='注销')
             DateTime pdate = date.AddMonths(-1);//减少一个月
             pdate = new DateTime(pdate.Year, pdate.Month, DateTime.DaysInMonth(pdate.Year, pdate.Month));
             string strSql = @" select
+          	t.TW_PaymentID,
           t.支付单位 as 客户名称,
           newid() as  客户名称ID,
           t.支付金额 as 做账收款额,
@@ -4080,6 +4081,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.是否审核=1
           union
           select
+        	t.TW_PaymentID,
           t.支付单位 as 客户名称,
           newid() as  客户名称ID,
           t.支付金额 as 做账收款额,
@@ -4110,6 +4112,7 @@ or 注册类型='变更' or 注册类型='注销')
            and t.是否审核=1
           union
           select
+          newid(),
           t.客户名称,
           t.客户名称ID,
           t.做账费收款额 as 做账收款额,
@@ -4137,6 +4140,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.做账会计ID='" + userID + @"'
           union
 			select
+            newid(),
            t.客户名称,
           t.客户名称ID,
           t.做账费收款额 as 做账收款额,
@@ -4166,6 +4170,7 @@ or 注册类型='变更' or 注册类型='注销')
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllAccountantSalaryDetail");
             string lsbSql = @"
           select
+            	t.TW_PaymentID,
           t.支付单位 as 客户名称,
           t.客户名称ID as 客户名称Id,
           t.支付金额 as 做账收款额,
@@ -4196,6 +4201,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.是否审核=1
           union
           select
+            	t.TW_PaymentID,
           t.支付单位 as 客户名称,
           t.客户名称ID as 客户名称Id,
           t.支付金额 as 做账收款额,
@@ -4228,6 +4234,7 @@ or 注册类型='变更' or 注册类型='注销')
            and t.是否审核=1
           union
           select
+	        t.TW_PaymentID,
            t.支付单位 as 客户名称,
            t.客户名称ID as 客户名称Id,
            t.支付金额 as 做账收款额,
@@ -4258,6 +4265,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.做账会计ID='" + userID + @"'
           union
           select
+            newid(),
           t.客户名称,
           t.客户名称ID,
           t.做账费收款额 as 做账收款额,
@@ -4286,6 +4294,7 @@ or 注册类型='变更' or 注册类型='注销')
           @"
             union
            select
+            newid(),
            t.客户名称,
            t.客户名称ID,
            t.做账费收款额 as 做账收款额,
@@ -4463,6 +4472,7 @@ or 注册类型='变更' or 注册类型='注销')
             if (!string.IsNullOrEmpty(deptid))
             {
                 strSql = @" select
+          t.TW_PaymentID,
           t.支付单位 as 客户名称,
           t.客户名称ID as 客户名称Id,
           t.支付金额 as 做账收款额,
@@ -4494,6 +4504,7 @@ or 注册类型='变更' or 注册类型='注销')
           and tu.deptid ='" +deptid  + @"'
           union
           select
+	      t.TW_PaymentID,
           t.支付单位 as 客户名称,
           t.客户名称ID as 客户名称Id,
           t.支付金额 as 做账收款额,
@@ -4526,6 +4537,7 @@ or 注册类型='变更' or 注册类型='注销')
           and tu.deptid ='" + deptid + @"'
           union
           select
+          newid(),
           t.客户名称,
           t.客户名称ID,
           t.做账费收款额 as 做账收款额,
@@ -4554,6 +4566,7 @@ or 注册类型='变更' or 注册类型='注销')
             and tu.deptid ='" + deptid + @"'
           union
             select
+            newid(),
           t.客户名称,
           t.客户名称ID,
           t.做账费收款额 as 做账收款额,
@@ -4585,6 +4598,7 @@ or 注册类型='变更' or 注册类型='注销')
             else
             {
                 strSql = @" select
+	        t.TW_PaymentID,
           t.支付单位 as 客户名称,
           t.客户名称ID as 客户名称Id,
           t.支付金额 as 做账收款额,
@@ -4615,6 +4629,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.是否审核=1 
           union
           select
+        	t.TW_PaymentID,
           t.支付单位 as 客户名称,
           t.客户名称ID as 客户名称Id,
           t.支付金额 as 做账收款额,
@@ -4646,6 +4661,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.是否审核=1
           union
           select
+            newid(),
           t.客户名称,
           t.客户名称ID,
           t.做账费收款额 as 做账收款额,
@@ -4673,6 +4689,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.注册费 <= t.注册费收款额
           union
             select
+            newid(),
           t.客户名称,
           t.客户名称ID,
           t.做账费收款额 as 做账收款额,
@@ -4717,6 +4734,7 @@ or 注册类型='变更' or 注册类型='注销')
             DateTime date = new DateTime(year, month, DateTime.DaysInMonth(year, month));
 
             string strSql = @" select
+        	t.TW_PaymentID,
           t.支付单位 as 客户名称,
           t.客户名称ID as 客户名称Id,
           t.支付金额 as 做账收款额,
@@ -4746,6 +4764,7 @@ or 注册类型='变更' or 注册类型='注销')
           and t.是否审核=1
           union
           select
+          newid(),
           t.客户名称,
           t.客户名称ID,
           t.做账费收款额 as 做账收款额,
@@ -4915,6 +4934,35 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
 
             var db = ServiceManager.GetDatabase();
             DataSet dst = db.GetEntity(strSql, "strSql");
+            return dst;
+        }
+        /// <summary>
+        /// 获取提成设置
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetCommission()
+        {
+            string strSql = "select * from TWS_Commission";
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TWS_Commission");
+            return dst;
+        }
+        /// <summary>
+        /// 根据ID查询三个人
+        /// </summary>
+        /// <param name="zcyId">注册员ID</param>
+        /// <param name="ywyId">业务员ID</param>
+        /// <param name="zzkjId">做账会计ID</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetUserBy3(string zcyId,string ywyId,string zzkjId)
+        {
+            string strSql = @"select DEPTNAME ,USERID,USERNAME ,WorkType from TCOM_USER
+                                where USERID = '{0}' or USERID = '{1}' or USERID = '{2}'";
+            strSql = string.Format(strSql, zcyId, ywyId, zzkjId);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TCOM_USER");
             return dst;
         }
 

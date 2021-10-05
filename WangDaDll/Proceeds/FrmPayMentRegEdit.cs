@@ -29,7 +29,7 @@ namespace WangDaDll
                 FrmNoPaymentDlg frmDlg = new FrmNoPaymentDlg(this.proceedsDataSet);
                 if (frmDlg.ShowDialog() == DialogResult.OK)
                 {
-                    this.proceedsDataSet.ImpPaymentDetail(this.PaymentID); //付款明细
+                    this.proceedsDataSet.ImpPaymentDetail(this.PaymentID,out ZCLX); //付款明细
                     
                 }
             }
@@ -38,6 +38,11 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
         }
+        /// <summary>
+        /// 注册类型
+        /// </summary>
+        public string ZCLX;
+       
 
         private void btnPayhalf_Click(object sender, EventArgs e)
         {
@@ -157,6 +162,7 @@ namespace WangDaDll
             splash.SetWaitFormDescription("正在收款中……");
             try
             {
+                proceedsDataSet.GetRegTC(this.ZCLX);//设置注册提成
                 proceedsDataSet.SaveDataSet(); //保存数据
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -202,14 +208,17 @@ namespace WangDaDll
         private void FrmPayMentReg_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor ;
-            try {
-                 dstTCONF_WORD.FillDevComboBox("支付方式", 支付方式ComboBoxEdit);
+            try
+            {
+                dstTCONF_WORD.FillDevComboBox("支付方式", 支付方式ComboBoxEdit);
+                proceedsDataSet.GetCommission();
             }
             catch (Exception ex)
             {
                 UserMessages.ShowErrorBox(ex.Message);
             }
-            finally {
+            finally
+            {
                 this.Cursor = Cursors.Default;
             }
         }

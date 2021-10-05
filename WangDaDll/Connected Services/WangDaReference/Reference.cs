@@ -199,6 +199,14 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCFDataSet", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetCFDataSet(string beginDate, string endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCommission", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetCommission();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserBy3", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetUserBy3(string zcyId, string ywyId, string zzkjId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -410,6 +418,14 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetCFDataSet(string beginDate, string endDate) {
             return base.Channel.GetCFDataSet(beginDate, endDate);
+        }
+        
+        public System.Data.DataSet GetCommission() {
+            return base.Channel.GetCommission();
+        }
+        
+        public System.Data.DataSet GetUserBy3(string zcyId, string ywyId, string zzkjId) {
+            return base.Channel.GetUserBy3(zcyId, ywyId, zzkjId);
         }
     }
 }

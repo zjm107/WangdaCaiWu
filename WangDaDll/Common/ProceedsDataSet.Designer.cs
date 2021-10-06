@@ -32,9 +32,9 @@ namespace WangDaDll.Common {
         
         private TW_PaymentDataTable tableTW_Payment;
         
-        private TWS_CommissionDataTable tableTWS_Commission;
-        
         private TCOM_USERDataTable tableTCOM_USER;
+        
+        private TWS_CommissionDataTable tableTWS_Commission;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -80,11 +80,11 @@ namespace WangDaDll.Common {
                 if ((ds.Tables["TW_Payment"] != null)) {
                     base.Tables.Add(new TW_PaymentDataTable(ds.Tables["TW_Payment"]));
                 }
-                if ((ds.Tables["TWS_Commission"] != null)) {
-                    base.Tables.Add(new TWS_CommissionDataTable(ds.Tables["TWS_Commission"]));
-                }
                 if ((ds.Tables["TCOM_USER"] != null)) {
                     base.Tables.Add(new TCOM_USERDataTable(ds.Tables["TCOM_USER"]));
+                }
+                if ((ds.Tables["TWS_Commission"] != null)) {
+                    base.Tables.Add(new TWS_CommissionDataTable(ds.Tables["TWS_Commission"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -149,9 +149,9 @@ namespace WangDaDll.Common {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TWS_CommissionDataTable TWS_Commission {
+        public TCOM_USERDataTable TCOM_USER {
             get {
-                return this.tableTWS_Commission;
+                return this.tableTCOM_USER;
             }
         }
         
@@ -159,9 +159,9 @@ namespace WangDaDll.Common {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TCOM_USERDataTable TCOM_USER {
+        public TWS_CommissionDataTable TWS_Commission {
             get {
-                return this.tableTCOM_USER;
+                return this.tableTWS_Commission;
             }
         }
         
@@ -245,11 +245,11 @@ namespace WangDaDll.Common {
                 if ((ds.Tables["TW_Payment"] != null)) {
                     base.Tables.Add(new TW_PaymentDataTable(ds.Tables["TW_Payment"]));
                 }
-                if ((ds.Tables["TWS_Commission"] != null)) {
-                    base.Tables.Add(new TWS_CommissionDataTable(ds.Tables["TWS_Commission"]));
-                }
                 if ((ds.Tables["TCOM_USER"] != null)) {
                     base.Tables.Add(new TCOM_USERDataTable(ds.Tables["TCOM_USER"]));
+                }
+                if ((ds.Tables["TWS_Commission"] != null)) {
+                    base.Tables.Add(new TWS_CommissionDataTable(ds.Tables["TWS_Commission"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -308,16 +308,16 @@ namespace WangDaDll.Common {
                     this.tableTW_Payment.InitVars();
                 }
             }
-            this.tableTWS_Commission = ((TWS_CommissionDataTable)(base.Tables["TWS_Commission"]));
-            if ((initTable == true)) {
-                if ((this.tableTWS_Commission != null)) {
-                    this.tableTWS_Commission.InitVars();
-                }
-            }
             this.tableTCOM_USER = ((TCOM_USERDataTable)(base.Tables["TCOM_USER"]));
             if ((initTable == true)) {
                 if ((this.tableTCOM_USER != null)) {
                     this.tableTCOM_USER.InitVars();
+                }
+            }
+            this.tableTWS_Commission = ((TWS_CommissionDataTable)(base.Tables["TWS_Commission"]));
+            if ((initTable == true)) {
+                if ((this.tableTWS_Commission != null)) {
+                    this.tableTWS_Commission.InitVars();
                 }
             }
         }
@@ -338,10 +338,10 @@ namespace WangDaDll.Common {
             base.Tables.Add(this.tableVW_PaymentRegSum);
             this.tableTW_Payment = new TW_PaymentDataTable(false);
             base.Tables.Add(this.tableTW_Payment);
-            this.tableTWS_Commission = new TWS_CommissionDataTable();
-            base.Tables.Add(this.tableTWS_Commission);
             this.tableTCOM_USER = new TCOM_USERDataTable();
             base.Tables.Add(this.tableTCOM_USER);
+            this.tableTWS_Commission = new TWS_CommissionDataTable();
+            base.Tables.Add(this.tableTWS_Commission);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -370,13 +370,13 @@ namespace WangDaDll.Common {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeTWS_Commission() {
+        private bool ShouldSerializeTCOM_USER() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeTCOM_USER() {
+        private bool ShouldSerializeTWS_Commission() {
             return false;
         }
         
@@ -458,10 +458,10 @@ namespace WangDaDll.Common {
         public delegate void TW_PaymentRowChangeEventHandler(object sender, TW_PaymentRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void TWS_CommissionRowChangeEventHandler(object sender, TWS_CommissionRowChangeEvent e);
+        public delegate void TCOM_USERRowChangeEventHandler(object sender, TCOM_USERRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void TCOM_USERRowChangeEventHandler(object sender, TCOM_USERRowChangeEvent e);
+        public delegate void TWS_CommissionRowChangeEventHandler(object sender, TWS_CommissionRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3763,521 +3763,6 @@ namespace WangDaDll.Common {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TWS_CommissionDataTable : global::System.Data.TypedTableBase<TWS_CommissionRow> {
-            
-            private global::System.Data.DataColumn column业务_注册提成;
-            
-            private global::System.Data.DataColumn column业务_工本提成;
-            
-            private global::System.Data.DataColumn column业务_做账次年提成;
-            
-            private global::System.Data.DataColumn column业务_主管团队提成;
-            
-            private global::System.Data.DataColumn column注册_单价;
-            
-            private global::System.Data.DataColumn column注册_变更单价;
-            
-            private global::System.Data.DataColumn column注册_年做账费提成;
-            
-            private global::System.Data.DataColumn column其他业务提成;
-            
-            private global::System.Data.DataColumn column做账_提成;
-            
-            private global::System.Data.DataColumn column做账_团队提成;
-            
-            private global::System.Data.DataColumn column做账_带人提成;
-            
-            private global::System.Data.DataColumn column做账_零申报提成;
-            
-            private global::System.Data.DataColumn column做账_工本提成;
-            
-            private global::System.Data.DataColumn columnTWS_CommissionID;
-            
-            private global::System.Data.DataColumn column业务_做账提成;
-            
-            private global::System.Data.DataColumn column业务_一次性业务其他;
-            
-            private global::System.Data.DataColumn column业务_一次性业务成长版;
-            
-            private global::System.Data.DataColumn column做账_经理提层;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TWS_CommissionDataTable() {
-                this.TableName = "TWS_Commission";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal TWS_CommissionDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected TWS_CommissionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 业务_注册提成Column {
-                get {
-                    return this.column业务_注册提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 业务_工本提成Column {
-                get {
-                    return this.column业务_工本提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 业务_做账次年提成Column {
-                get {
-                    return this.column业务_做账次年提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 业务_主管团队提成Column {
-                get {
-                    return this.column业务_主管团队提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 注册_单价Column {
-                get {
-                    return this.column注册_单价;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 注册_变更单价Column {
-                get {
-                    return this.column注册_变更单价;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 注册_年做账费提成Column {
-                get {
-                    return this.column注册_年做账费提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 其他业务提成Column {
-                get {
-                    return this.column其他业务提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 做账_提成Column {
-                get {
-                    return this.column做账_提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 做账_团队提成Column {
-                get {
-                    return this.column做账_团队提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 做账_带人提成Column {
-                get {
-                    return this.column做账_带人提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 做账_零申报提成Column {
-                get {
-                    return this.column做账_零申报提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 做账_工本提成Column {
-                get {
-                    return this.column做账_工本提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TWS_CommissionIDColumn {
-                get {
-                    return this.columnTWS_CommissionID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 业务_做账提成Column {
-                get {
-                    return this.column业务_做账提成;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 业务_一次性业务其他Column {
-                get {
-                    return this.column业务_一次性业务其他;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 业务_一次性业务成长版Column {
-                get {
-                    return this.column业务_一次性业务成长版;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn 做账_经理提层Column {
-                get {
-                    return this.column做账_经理提层;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TWS_CommissionRow this[int index] {
-                get {
-                    return ((TWS_CommissionRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event TWS_CommissionRowChangeEventHandler TWS_CommissionRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event TWS_CommissionRowChangeEventHandler TWS_CommissionRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event TWS_CommissionRowChangeEventHandler TWS_CommissionRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event TWS_CommissionRowChangeEventHandler TWS_CommissionRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddTWS_CommissionRow(TWS_CommissionRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TWS_CommissionRow AddTWS_CommissionRow(
-                        decimal 业务_注册提成, 
-                        decimal 业务_工本提成, 
-                        decimal 业务_做账次年提成, 
-                        decimal 业务_主管团队提成, 
-                        decimal 注册_单价, 
-                        decimal 注册_变更单价, 
-                        decimal 注册_年做账费提成, 
-                        decimal 其他业务提成, 
-                        decimal 做账_提成, 
-                        decimal 做账_团队提成, 
-                        decimal 做账_带人提成, 
-                        decimal 做账_零申报提成, 
-                        decimal 做账_工本提成, 
-                        string TWS_CommissionID, 
-                        decimal 业务_做账提成, 
-                        decimal 业务_一次性业务其他, 
-                        decimal 业务_一次性业务成长版, 
-                        decimal 做账_经理提层) {
-                TWS_CommissionRow rowTWS_CommissionRow = ((TWS_CommissionRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        业务_注册提成,
-                        业务_工本提成,
-                        业务_做账次年提成,
-                        业务_主管团队提成,
-                        注册_单价,
-                        注册_变更单价,
-                        注册_年做账费提成,
-                        其他业务提成,
-                        做账_提成,
-                        做账_团队提成,
-                        做账_带人提成,
-                        做账_零申报提成,
-                        做账_工本提成,
-                        TWS_CommissionID,
-                        业务_做账提成,
-                        业务_一次性业务其他,
-                        业务_一次性业务成长版,
-                        做账_经理提层};
-                rowTWS_CommissionRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTWS_CommissionRow);
-                return rowTWS_CommissionRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TWS_CommissionRow FindByTWS_CommissionID(string TWS_CommissionID) {
-                return ((TWS_CommissionRow)(this.Rows.Find(new object[] {
-                            TWS_CommissionID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                TWS_CommissionDataTable cln = ((TWS_CommissionDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new TWS_CommissionDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.column业务_注册提成 = base.Columns["业务_注册提成"];
-                this.column业务_工本提成 = base.Columns["业务_工本提成"];
-                this.column业务_做账次年提成 = base.Columns["业务_做账次年提成"];
-                this.column业务_主管团队提成 = base.Columns["业务_主管团队提成"];
-                this.column注册_单价 = base.Columns["注册_单价"];
-                this.column注册_变更单价 = base.Columns["注册_变更单价"];
-                this.column注册_年做账费提成 = base.Columns["注册_年做账费提成"];
-                this.column其他业务提成 = base.Columns["其他业务提成"];
-                this.column做账_提成 = base.Columns["做账_提成"];
-                this.column做账_团队提成 = base.Columns["做账_团队提成"];
-                this.column做账_带人提成 = base.Columns["做账_带人提成"];
-                this.column做账_零申报提成 = base.Columns["做账_零申报提成"];
-                this.column做账_工本提成 = base.Columns["做账_工本提成"];
-                this.columnTWS_CommissionID = base.Columns["TWS_CommissionID"];
-                this.column业务_做账提成 = base.Columns["业务_做账提成"];
-                this.column业务_一次性业务其他 = base.Columns["业务_一次性业务其他"];
-                this.column业务_一次性业务成长版 = base.Columns["业务_一次性业务成长版"];
-                this.column做账_经理提层 = base.Columns["做账_经理提层"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.column业务_注册提成 = new global::System.Data.DataColumn("业务_注册提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column业务_注册提成);
-                this.column业务_工本提成 = new global::System.Data.DataColumn("业务_工本提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column业务_工本提成);
-                this.column业务_做账次年提成 = new global::System.Data.DataColumn("业务_做账次年提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column业务_做账次年提成);
-                this.column业务_主管团队提成 = new global::System.Data.DataColumn("业务_主管团队提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column业务_主管团队提成);
-                this.column注册_单价 = new global::System.Data.DataColumn("注册_单价", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column注册_单价);
-                this.column注册_变更单价 = new global::System.Data.DataColumn("注册_变更单价", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column注册_变更单价);
-                this.column注册_年做账费提成 = new global::System.Data.DataColumn("注册_年做账费提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column注册_年做账费提成);
-                this.column其他业务提成 = new global::System.Data.DataColumn("其他业务提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column其他业务提成);
-                this.column做账_提成 = new global::System.Data.DataColumn("做账_提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column做账_提成);
-                this.column做账_团队提成 = new global::System.Data.DataColumn("做账_团队提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column做账_团队提成);
-                this.column做账_带人提成 = new global::System.Data.DataColumn("做账_带人提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column做账_带人提成);
-                this.column做账_零申报提成 = new global::System.Data.DataColumn("做账_零申报提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column做账_零申报提成);
-                this.column做账_工本提成 = new global::System.Data.DataColumn("做账_工本提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column做账_工本提成);
-                this.columnTWS_CommissionID = new global::System.Data.DataColumn("TWS_CommissionID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTWS_CommissionID);
-                this.column业务_做账提成 = new global::System.Data.DataColumn("业务_做账提成", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column业务_做账提成);
-                this.column业务_一次性业务其他 = new global::System.Data.DataColumn("业务_一次性业务其他", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column业务_一次性业务其他);
-                this.column业务_一次性业务成长版 = new global::System.Data.DataColumn("业务_一次性业务成长版", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column业务_一次性业务成长版);
-                this.column做账_经理提层 = new global::System.Data.DataColumn("做账_经理提层", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.column做账_经理提层);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnTWS_CommissionID}, true));
-                this.columnTWS_CommissionID.AllowDBNull = false;
-                this.columnTWS_CommissionID.Unique = true;
-                this.columnTWS_CommissionID.MaxLength = 50;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TWS_CommissionRow NewTWS_CommissionRow() {
-                return ((TWS_CommissionRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TWS_CommissionRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(TWS_CommissionRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.TWS_CommissionRowChanged != null)) {
-                    this.TWS_CommissionRowChanged(this, new TWS_CommissionRowChangeEvent(((TWS_CommissionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.TWS_CommissionRowChanging != null)) {
-                    this.TWS_CommissionRowChanging(this, new TWS_CommissionRowChangeEvent(((TWS_CommissionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.TWS_CommissionRowDeleted != null)) {
-                    this.TWS_CommissionRowDeleted(this, new TWS_CommissionRowChangeEvent(((TWS_CommissionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.TWS_CommissionRowDeleting != null)) {
-                    this.TWS_CommissionRowDeleting(this, new TWS_CommissionRowChangeEvent(((TWS_CommissionRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveTWS_CommissionRow(TWS_CommissionRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ProceedsDataSet ds = new ProceedsDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TWS_CommissionDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class TCOM_USERDataTable : global::System.Data.TypedTableBase<TCOM_USERRow> {
             
             private global::System.Data.DataColumn columnUSERID;
@@ -4553,6 +4038,626 @@ namespace WangDaDll.Common {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "TCOM_USERDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TWS_CommissionDataTable : global::System.Data.TypedTableBase<TWS_CommissionRow> {
+            
+            private global::System.Data.DataColumn column业务_注册提成;
+            
+            private global::System.Data.DataColumn column业务_工本提成;
+            
+            private global::System.Data.DataColumn column业务_做账次年提成;
+            
+            private global::System.Data.DataColumn column业务_主管团队提成;
+            
+            private global::System.Data.DataColumn column注册_单价;
+            
+            private global::System.Data.DataColumn column注册_变更单价;
+            
+            private global::System.Data.DataColumn column注册_年做账费提成;
+            
+            private global::System.Data.DataColumn column其他业务提成;
+            
+            private global::System.Data.DataColumn column做账_提成;
+            
+            private global::System.Data.DataColumn column做账_团队提成;
+            
+            private global::System.Data.DataColumn column做账_带人提成;
+            
+            private global::System.Data.DataColumn column做账_零申报提成;
+            
+            private global::System.Data.DataColumn column做账_工本提成;
+            
+            private global::System.Data.DataColumn columnTWS_CommissionID;
+            
+            private global::System.Data.DataColumn column业务_做账提成;
+            
+            private global::System.Data.DataColumn column业务_一次性业务其他;
+            
+            private global::System.Data.DataColumn column业务_一次性业务成长版;
+            
+            private global::System.Data.DataColumn column做账_经理提层;
+            
+            private global::System.Data.DataColumn column注册_注销;
+            
+            private global::System.Data.DataColumn column注册_外资;
+            
+            private global::System.Data.DataColumn column注册_外地;
+            
+            private global::System.Data.DataColumn column注册_验资;
+            
+            private global::System.Data.DataColumn column注册_审计;
+            
+            private global::System.Data.DataColumn column注册_商标;
+            
+            private global::System.Data.DataColumn column注册_成长版;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TWS_CommissionDataTable() {
+                this.TableName = "TWS_Commission";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal TWS_CommissionDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected TWS_CommissionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务_注册提成Column {
+                get {
+                    return this.column业务_注册提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务_工本提成Column {
+                get {
+                    return this.column业务_工本提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务_做账次年提成Column {
+                get {
+                    return this.column业务_做账次年提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务_主管团队提成Column {
+                get {
+                    return this.column业务_主管团队提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_单价Column {
+                get {
+                    return this.column注册_单价;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_变更单价Column {
+                get {
+                    return this.column注册_变更单价;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_年做账费提成Column {
+                get {
+                    return this.column注册_年做账费提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 其他业务提成Column {
+                get {
+                    return this.column其他业务提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账_提成Column {
+                get {
+                    return this.column做账_提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账_团队提成Column {
+                get {
+                    return this.column做账_团队提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账_带人提成Column {
+                get {
+                    return this.column做账_带人提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账_零申报提成Column {
+                get {
+                    return this.column做账_零申报提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账_工本提成Column {
+                get {
+                    return this.column做账_工本提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TWS_CommissionIDColumn {
+                get {
+                    return this.columnTWS_CommissionID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务_做账提成Column {
+                get {
+                    return this.column业务_做账提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务_一次性业务其他Column {
+                get {
+                    return this.column业务_一次性业务其他;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务_一次性业务成长版Column {
+                get {
+                    return this.column业务_一次性业务成长版;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账_经理提层Column {
+                get {
+                    return this.column做账_经理提层;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_注销Column {
+                get {
+                    return this.column注册_注销;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_外资Column {
+                get {
+                    return this.column注册_外资;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_外地Column {
+                get {
+                    return this.column注册_外地;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_验资Column {
+                get {
+                    return this.column注册_验资;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_审计Column {
+                get {
+                    return this.column注册_审计;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_商标Column {
+                get {
+                    return this.column注册_商标;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册_成长版Column {
+                get {
+                    return this.column注册_成长版;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TWS_CommissionRow this[int index] {
+                get {
+                    return ((TWS_CommissionRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event TWS_CommissionRowChangeEventHandler TWS_CommissionRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event TWS_CommissionRowChangeEventHandler TWS_CommissionRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event TWS_CommissionRowChangeEventHandler TWS_CommissionRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event TWS_CommissionRowChangeEventHandler TWS_CommissionRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddTWS_CommissionRow(TWS_CommissionRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TWS_CommissionRow AddTWS_CommissionRow(
+                        decimal 业务_注册提成, 
+                        decimal 业务_工本提成, 
+                        decimal 业务_做账次年提成, 
+                        decimal 业务_主管团队提成, 
+                        decimal 注册_单价, 
+                        decimal 注册_变更单价, 
+                        decimal 注册_年做账费提成, 
+                        decimal 其他业务提成, 
+                        decimal 做账_提成, 
+                        decimal 做账_团队提成, 
+                        decimal 做账_带人提成, 
+                        decimal 做账_零申报提成, 
+                        decimal 做账_工本提成, 
+                        string TWS_CommissionID, 
+                        decimal 业务_做账提成, 
+                        decimal 业务_一次性业务其他, 
+                        decimal 业务_一次性业务成长版, 
+                        decimal 做账_经理提层, 
+                        decimal 注册_注销, 
+                        decimal 注册_外资, 
+                        decimal 注册_外地, 
+                        decimal 注册_验资, 
+                        decimal 注册_审计, 
+                        decimal 注册_商标, 
+                        decimal 注册_成长版) {
+                TWS_CommissionRow rowTWS_CommissionRow = ((TWS_CommissionRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        业务_注册提成,
+                        业务_工本提成,
+                        业务_做账次年提成,
+                        业务_主管团队提成,
+                        注册_单价,
+                        注册_变更单价,
+                        注册_年做账费提成,
+                        其他业务提成,
+                        做账_提成,
+                        做账_团队提成,
+                        做账_带人提成,
+                        做账_零申报提成,
+                        做账_工本提成,
+                        TWS_CommissionID,
+                        业务_做账提成,
+                        业务_一次性业务其他,
+                        业务_一次性业务成长版,
+                        做账_经理提层,
+                        注册_注销,
+                        注册_外资,
+                        注册_外地,
+                        注册_验资,
+                        注册_审计,
+                        注册_商标,
+                        注册_成长版};
+                rowTWS_CommissionRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTWS_CommissionRow);
+                return rowTWS_CommissionRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TWS_CommissionRow FindByTWS_CommissionID(string TWS_CommissionID) {
+                return ((TWS_CommissionRow)(this.Rows.Find(new object[] {
+                            TWS_CommissionID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                TWS_CommissionDataTable cln = ((TWS_CommissionDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TWS_CommissionDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.column业务_注册提成 = base.Columns["业务_注册提成"];
+                this.column业务_工本提成 = base.Columns["业务_工本提成"];
+                this.column业务_做账次年提成 = base.Columns["业务_做账次年提成"];
+                this.column业务_主管团队提成 = base.Columns["业务_主管团队提成"];
+                this.column注册_单价 = base.Columns["注册_单价"];
+                this.column注册_变更单价 = base.Columns["注册_变更单价"];
+                this.column注册_年做账费提成 = base.Columns["注册_年做账费提成"];
+                this.column其他业务提成 = base.Columns["其他业务提成"];
+                this.column做账_提成 = base.Columns["做账_提成"];
+                this.column做账_团队提成 = base.Columns["做账_团队提成"];
+                this.column做账_带人提成 = base.Columns["做账_带人提成"];
+                this.column做账_零申报提成 = base.Columns["做账_零申报提成"];
+                this.column做账_工本提成 = base.Columns["做账_工本提成"];
+                this.columnTWS_CommissionID = base.Columns["TWS_CommissionID"];
+                this.column业务_做账提成 = base.Columns["业务_做账提成"];
+                this.column业务_一次性业务其他 = base.Columns["业务_一次性业务其他"];
+                this.column业务_一次性业务成长版 = base.Columns["业务_一次性业务成长版"];
+                this.column做账_经理提层 = base.Columns["做账_经理提层"];
+                this.column注册_注销 = base.Columns["注册_注销"];
+                this.column注册_外资 = base.Columns["注册_外资"];
+                this.column注册_外地 = base.Columns["注册_外地"];
+                this.column注册_验资 = base.Columns["注册_验资"];
+                this.column注册_审计 = base.Columns["注册_审计"];
+                this.column注册_商标 = base.Columns["注册_商标"];
+                this.column注册_成长版 = base.Columns["注册_成长版"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.column业务_注册提成 = new global::System.Data.DataColumn("业务_注册提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务_注册提成);
+                this.column业务_工本提成 = new global::System.Data.DataColumn("业务_工本提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务_工本提成);
+                this.column业务_做账次年提成 = new global::System.Data.DataColumn("业务_做账次年提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务_做账次年提成);
+                this.column业务_主管团队提成 = new global::System.Data.DataColumn("业务_主管团队提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务_主管团队提成);
+                this.column注册_单价 = new global::System.Data.DataColumn("注册_单价", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_单价);
+                this.column注册_变更单价 = new global::System.Data.DataColumn("注册_变更单价", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_变更单价);
+                this.column注册_年做账费提成 = new global::System.Data.DataColumn("注册_年做账费提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_年做账费提成);
+                this.column其他业务提成 = new global::System.Data.DataColumn("其他业务提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column其他业务提成);
+                this.column做账_提成 = new global::System.Data.DataColumn("做账_提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账_提成);
+                this.column做账_团队提成 = new global::System.Data.DataColumn("做账_团队提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账_团队提成);
+                this.column做账_带人提成 = new global::System.Data.DataColumn("做账_带人提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账_带人提成);
+                this.column做账_零申报提成 = new global::System.Data.DataColumn("做账_零申报提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账_零申报提成);
+                this.column做账_工本提成 = new global::System.Data.DataColumn("做账_工本提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账_工本提成);
+                this.columnTWS_CommissionID = new global::System.Data.DataColumn("TWS_CommissionID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTWS_CommissionID);
+                this.column业务_做账提成 = new global::System.Data.DataColumn("业务_做账提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务_做账提成);
+                this.column业务_一次性业务其他 = new global::System.Data.DataColumn("业务_一次性业务其他", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务_一次性业务其他);
+                this.column业务_一次性业务成长版 = new global::System.Data.DataColumn("业务_一次性业务成长版", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务_一次性业务成长版);
+                this.column做账_经理提层 = new global::System.Data.DataColumn("做账_经理提层", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账_经理提层);
+                this.column注册_注销 = new global::System.Data.DataColumn("注册_注销", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_注销);
+                this.column注册_外资 = new global::System.Data.DataColumn("注册_外资", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_外资);
+                this.column注册_外地 = new global::System.Data.DataColumn("注册_外地", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_外地);
+                this.column注册_验资 = new global::System.Data.DataColumn("注册_验资", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_验资);
+                this.column注册_审计 = new global::System.Data.DataColumn("注册_审计", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_审计);
+                this.column注册_商标 = new global::System.Data.DataColumn("注册_商标", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_商标);
+                this.column注册_成长版 = new global::System.Data.DataColumn("注册_成长版", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册_成长版);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTWS_CommissionID}, true));
+                this.columnTWS_CommissionID.AllowDBNull = false;
+                this.columnTWS_CommissionID.Unique = true;
+                this.columnTWS_CommissionID.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TWS_CommissionRow NewTWS_CommissionRow() {
+                return ((TWS_CommissionRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TWS_CommissionRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(TWS_CommissionRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TWS_CommissionRowChanged != null)) {
+                    this.TWS_CommissionRowChanged(this, new TWS_CommissionRowChangeEvent(((TWS_CommissionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TWS_CommissionRowChanging != null)) {
+                    this.TWS_CommissionRowChanging(this, new TWS_CommissionRowChangeEvent(((TWS_CommissionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TWS_CommissionRowDeleted != null)) {
+                    this.TWS_CommissionRowDeleted(this, new TWS_CommissionRowChangeEvent(((TWS_CommissionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TWS_CommissionRowDeleting != null)) {
+                    this.TWS_CommissionRowDeleting(this, new TWS_CommissionRowChangeEvent(((TWS_CommissionRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveTWS_CommissionRow(TWS_CommissionRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ProceedsDataSet ds = new ProceedsDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TWS_CommissionDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -8228,6 +8333,127 @@ namespace WangDaDll.Common {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class TCOM_USERRow : global::System.Data.DataRow {
+            
+            private TCOM_USERDataTable tableTCOM_USER;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal TCOM_USERRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTCOM_USER = ((TCOM_USERDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string USERID {
+                get {
+                    return ((string)(this[this.tableTCOM_USER.USERIDColumn]));
+                }
+                set {
+                    this[this.tableTCOM_USER.USERIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DEPTID {
+                get {
+                    try {
+                        return ((string)(this[this.tableTCOM_USER.DEPTIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TCOM_USER”中列“DEPTID”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTCOM_USER.DEPTIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string USERNAME {
+                get {
+                    return ((string)(this[this.tableTCOM_USER.USERNAMEColumn]));
+                }
+                set {
+                    this[this.tableTCOM_USER.USERNAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DEPTNAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableTCOM_USER.DEPTNAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TCOM_USER”中列“DEPTNAME”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTCOM_USER.DEPTNAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string WorkType {
+                get {
+                    try {
+                        return ((string)(this[this.tableTCOM_USER.WorkTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TCOM_USER”中列“WorkType”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTCOM_USER.WorkTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDEPTIDNull() {
+                return this.IsNull(this.tableTCOM_USER.DEPTIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDEPTIDNull() {
+                this[this.tableTCOM_USER.DEPTIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDEPTNAMENull() {
+                return this.IsNull(this.tableTCOM_USER.DEPTNAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDEPTNAMENull() {
+                this[this.tableTCOM_USER.DEPTNAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsWorkTypeNull() {
+                return this.IsNull(this.tableTCOM_USER.WorkTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetWorkTypeNull() {
+                this[this.tableTCOM_USER.WorkTypeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class TWS_CommissionRow : global::System.Data.DataRow {
             
             private TWS_CommissionDataTable tableTWS_Commission;
@@ -8524,6 +8750,118 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册_注销 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTWS_Commission.注册_注销Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TWS_Commission”中列“注册_注销”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTWS_Commission.注册_注销Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册_外资 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTWS_Commission.注册_外资Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TWS_Commission”中列“注册_外资”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTWS_Commission.注册_外资Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册_外地 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTWS_Commission.注册_外地Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TWS_Commission”中列“注册_外地”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTWS_Commission.注册_外地Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册_验资 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTWS_Commission.注册_验资Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TWS_Commission”中列“注册_验资”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTWS_Commission.注册_验资Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册_审计 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTWS_Commission.注册_审计Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TWS_Commission”中列“注册_审计”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTWS_Commission.注册_审计Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册_商标 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTWS_Commission.注册_商标Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TWS_Commission”中列“注册_商标”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTWS_Commission.注册_商标Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册_成长版 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTWS_Commission.注册_成长版Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TWS_Commission”中列“注册_成长版”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTWS_Commission.注册_成长版Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is业务_注册提成Null() {
                 return this.IsNull(this.tableTWS_Commission.业务_注册提成Column);
             }
@@ -8725,126 +9063,89 @@ namespace WangDaDll.Common {
             public void Set做账_经理提层Null() {
                 this[this.tableTWS_Commission.做账_经理提层Column] = global::System.Convert.DBNull;
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class TCOM_USERRow : global::System.Data.DataRow {
-            
-            private TCOM_USERDataTable tableTCOM_USER;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal TCOM_USERRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableTCOM_USER = ((TCOM_USERDataTable)(this.Table));
+            public bool Is注册_注销Null() {
+                return this.IsNull(this.tableTWS_Commission.注册_注销Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string USERID {
-                get {
-                    return ((string)(this[this.tableTCOM_USER.USERIDColumn]));
-                }
-                set {
-                    this[this.tableTCOM_USER.USERIDColumn] = value;
-                }
+            public void Set注册_注销Null() {
+                this[this.tableTWS_Commission.注册_注销Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DEPTID {
-                get {
-                    try {
-                        return ((string)(this[this.tableTCOM_USER.DEPTIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“TCOM_USER”中列“DEPTID”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableTCOM_USER.DEPTIDColumn] = value;
-                }
+            public bool Is注册_外资Null() {
+                return this.IsNull(this.tableTWS_Commission.注册_外资Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string USERNAME {
-                get {
-                    return ((string)(this[this.tableTCOM_USER.USERNAMEColumn]));
-                }
-                set {
-                    this[this.tableTCOM_USER.USERNAMEColumn] = value;
-                }
+            public void Set注册_外资Null() {
+                this[this.tableTWS_Commission.注册_外资Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DEPTNAME {
-                get {
-                    try {
-                        return ((string)(this[this.tableTCOM_USER.DEPTNAMEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“TCOM_USER”中列“DEPTNAME”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableTCOM_USER.DEPTNAMEColumn] = value;
-                }
+            public bool Is注册_外地Null() {
+                return this.IsNull(this.tableTWS_Commission.注册_外地Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string WorkType {
-                get {
-                    try {
-                        return ((string)(this[this.tableTCOM_USER.WorkTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“TCOM_USER”中列“WorkType”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableTCOM_USER.WorkTypeColumn] = value;
-                }
+            public void Set注册_外地Null() {
+                this[this.tableTWS_Commission.注册_外地Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDEPTIDNull() {
-                return this.IsNull(this.tableTCOM_USER.DEPTIDColumn);
+            public bool Is注册_验资Null() {
+                return this.IsNull(this.tableTWS_Commission.注册_验资Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDEPTIDNull() {
-                this[this.tableTCOM_USER.DEPTIDColumn] = global::System.Convert.DBNull;
+            public void Set注册_验资Null() {
+                this[this.tableTWS_Commission.注册_验资Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDEPTNAMENull() {
-                return this.IsNull(this.tableTCOM_USER.DEPTNAMEColumn);
+            public bool Is注册_审计Null() {
+                return this.IsNull(this.tableTWS_Commission.注册_审计Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDEPTNAMENull() {
-                this[this.tableTCOM_USER.DEPTNAMEColumn] = global::System.Convert.DBNull;
+            public void Set注册_审计Null() {
+                this[this.tableTWS_Commission.注册_审计Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsWorkTypeNull() {
-                return this.IsNull(this.tableTCOM_USER.WorkTypeColumn);
+            public bool Is注册_商标Null() {
+                return this.IsNull(this.tableTWS_Commission.注册_商标Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetWorkTypeNull() {
-                this[this.tableTCOM_USER.WorkTypeColumn] = global::System.Convert.DBNull;
+            public void Set注册_商标Null() {
+                this[this.tableTWS_Commission.注册_商标Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is注册_成长版Null() {
+                return this.IsNull(this.tableTWS_Commission.注册_成长版Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set注册_成长版Null() {
+                this[this.tableTWS_Commission.注册_成长版Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -8988,22 +9289,22 @@ namespace WangDaDll.Common {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class TWS_CommissionRowChangeEvent : global::System.EventArgs {
+        public class TCOM_USERRowChangeEvent : global::System.EventArgs {
             
-            private TWS_CommissionRow eventRow;
+            private TCOM_USERRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TWS_CommissionRowChangeEvent(TWS_CommissionRow row, global::System.Data.DataRowAction action) {
+            public TCOM_USERRowChangeEvent(TCOM_USERRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TWS_CommissionRow Row {
+            public TCOM_USERRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -9022,22 +9323,22 @@ namespace WangDaDll.Common {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class TCOM_USERRowChangeEvent : global::System.EventArgs {
+        public class TWS_CommissionRowChangeEvent : global::System.EventArgs {
             
-            private TCOM_USERRow eventRow;
+            private TWS_CommissionRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TCOM_USERRowChangeEvent(TCOM_USERRow row, global::System.Data.DataRowAction action) {
+            public TWS_CommissionRowChangeEvent(TWS_CommissionRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TCOM_USERRow Row {
+            public TWS_CommissionRow Row {
                 get {
                     return this.eventRow;
                 }

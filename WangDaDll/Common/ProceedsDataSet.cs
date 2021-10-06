@@ -22,7 +22,7 @@ namespace WangDaDll.Common
         /// <param name="zzkjId">做账会计ID</param>
         public void GetUsers(string zcyId, string ywyId, string zzkjId)
         {
-            DataSet dst =  DBHelper.WangDaSer.GetUserBy3(zcyId, ywyId, zzkjId);
+            DataSet dst = DBHelper.WangDaSer.GetUserBy3(zcyId, ywyId, zzkjId);
             DataManager.ImpDataSet(dst.Tables[0], this.TCOM_USER);
         }
         /// <summary>
@@ -411,19 +411,19 @@ namespace WangDaDll.Common
                     mainRow.注册团队提成 = GetCommissionRow().注册_变更单价 / 2;
                     break;
                 case "验资":
-                    mainRow.注册提成月 = 300;
+                    mainRow.注册提成月 = GetCommissionRow().注册_验资;
                     mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务成长版;
                     break;
                 case "审计":
-                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    mainRow.注册提成月 = GetCommissionRow().注册_审计;
                     mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务其他;
                     break;
                 case "成长版":
-                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    mainRow.注册提成月 = GetCommissionRow().注册_成长版;
                     mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务成长版;//业务员提1000
                     break;
                 case "商标":
-                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    mainRow.注册提成月 = GetCommissionRow().注册_商标;
                     mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务其他;
                     break;
                 default:

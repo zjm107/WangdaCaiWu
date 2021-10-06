@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FXDataSet" targetNamespace="http://tempuri.org/FXDataSet.xsd" xmlns:mstns="http://tempuri.org/FXDataSet.xsd" xmlns="http://tempuri.org/FXDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="WangDaDBConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WangDaDBConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WangDaDll.Properties.Settings.GlobalReference.Default.WangDaDBConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FXDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FXDataSet" msprop:Generator_UserDSName="FXDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="VW_客户收支表" msprop:Generator_TableClassName="VW_客户收支表DataTable" msprop:Generator_TableVarName="tableVW_客户收支表" msprop:Generator_TablePropName="VW_客户收支表" msprop:Generator_RowDeletingName="VW_客户收支表RowDeleting" msprop:Generator_RowChangingName="VW_客户收支表RowChanging" msprop:Generator_RowEvHandlerName="VW_客户收支表RowChangeEventHandler" msprop:Generator_RowDeletedName="VW_客户收支表RowDeleted" msprop:Generator_UserTableName="VW_客户收支表" msprop:Generator_RowChangedName="VW_客户收支表RowChanged" msprop:Generator_RowEvArgName="VW_客户收支表RowChangeEvent" msprop:Generator_RowClassName="VW_客户收支表Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="支付单位" msprop:Generator_ColumnVarNameInTable="column支付单位" msprop:Generator_ColumnPropNameInRow="支付单位" msprop:Generator_ColumnPropNameInTable="支付单位Column" msprop:Generator_UserColumnName="支付单位" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="收款金额" msprop:Generator_ColumnVarNameInTable="column收款金额" msprop:Generator_ColumnPropNameInRow="收款金额" msprop:Generator_ColumnPropNameInTable="收款金额Column" msprop:Generator_UserColumnName="收款金额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="工本费" msprop:Generator_ColumnVarNameInTable="column工本费" msprop:Generator_ColumnPropNameInRow="工本费" msprop:Generator_ColumnPropNameInTable="工本费Column" msprop:Generator_UserColumnName="工本费" type="xs:decimal" minOccurs="0" />
+              <xs:element name="开票费" msprop:Generator_ColumnVarNameInTable="column开票费" msprop:Generator_ColumnPropNameInRow="开票费" msprop:Generator_ColumnPropNameInTable="开票费Column" msprop:Generator_UserColumnName="开票费" type="xs:decimal" minOccurs="0" />
+              <xs:element name="上次到期月份" msprop:Generator_ColumnVarNameInTable="column上次到期月份" msprop:Generator_ColumnPropNameInRow="上次到期月份" msprop:Generator_ColumnPropNameInTable="上次到期月份Column" msprop:Generator_UserColumnName="上次到期月份" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="本次到期月份" msprop:Generator_ColumnVarNameInTable="column本次到期月份" msprop:Generator_ColumnPropNameInRow="本次到期月份" msprop:Generator_ColumnPropNameInTable="本次到期月份Column" msprop:Generator_UserColumnName="本次到期月份" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="注册员提成" msprop:Generator_ColumnVarNameInTable="column注册员提成" msprop:Generator_ColumnPropNameInRow="注册员提成" msprop:Generator_ColumnPropNameInTable="注册员提成Column" msprop:Generator_UserColumnName="注册员提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="业务员提成" msprop:Generator_ColumnVarNameInTable="column业务员提成" msprop:Generator_ColumnPropNameInRow="业务员提成" msprop:Generator_ColumnPropNameInTable="业务员提成Column" msprop:Generator_UserColumnName="业务员提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="做账提成" msprop:Generator_ColumnVarNameInTable="column做账提成" msprop:Generator_ColumnPropNameInRow="做账提成" msprop:Generator_ColumnPropNameInTable="做账提成Column" msprop:Generator_UserColumnName="做账提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="做账部经理提成" msprop:Generator_ColumnVarNameInTable="column做账部经理提成" msprop:Generator_ColumnPropNameInRow="做账部经理提成" msprop:Generator_ColumnPropNameInTable="做账部经理提成Column" msprop:Generator_UserColumnName="做账部经理提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="业务主管团队提成" msprop:Generator_ColumnVarNameInTable="column业务主管团队提成" msprop:Generator_ColumnPropNameInRow="业务主管团队提成" msprop:Generator_ColumnPropNameInTable="业务主管团队提成Column" msprop:Generator_UserColumnName="业务主管团队提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="做账主管团队提成" msprop:Generator_ColumnVarNameInTable="column做账主管团队提成" msprop:Generator_ColumnPropNameInRow="做账主管团队提成" msprop:Generator_ColumnPropNameInTable="做账主管团队提成Column" msprop:Generator_UserColumnName="做账主管团队提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="注册主管提成" msprop:Generator_ColumnVarNameInTable="column注册主管提成" msprop:Generator_ColumnPropNameInRow="注册主管提成" msprop:Generator_ColumnPropNameInTable="注册主管提成Column" msprop:Generator_UserColumnName="注册主管提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="注册员做账费提成" msprop:Generator_ColumnVarNameInTable="column注册员做账费提成" msprop:Generator_ColumnPropNameInRow="注册员做账费提成" msprop:Generator_ColumnPropNameInTable="注册员做账费提成Column" msprop:Generator_UserColumnName="注册员做账费提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="累计工本开票提成" msprop:Generator_ColumnVarNameInTable="column累计工本开票提成" msprop:Generator_ColumnPropNameInRow="累计工本开票提成" msprop:Generator_ColumnPropNameInTable="累计工本开票提成Column" msprop:Generator_UserColumnName="累计工本开票提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="做账部经理业务团队提成" msprop:Generator_ColumnVarNameInTable="column做账部经理业务团队提成" msprop:Generator_ColumnPropNameInRow="做账部经理业务团队提成" msprop:Generator_ColumnPropNameInTable="做账部经理业务团队提成Column" msprop:Generator_UserColumnName="做账部经理业务团队提成" type="xs:decimal" minOccurs="0" />
+              <xs:element name="提成总额" msdata:ReadOnly="true" msdata:Expression="注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成+做账部经理业务团队提成" msprop:Generator_ColumnVarNameInTable="column提成总额" msprop:Generator_ColumnPropNameInRow="提成总额" msprop:Generator_ColumnPropNameInTable="提成总额Column" msprop:Generator_UserColumnName="提成总额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="毛利润" msdata:ReadOnly="true" msdata:Expression="收款金额-(注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成+做账部经理业务团队提成)" msprop:Generator_ColumnVarNameInTable="column毛利润" msprop:Generator_ColumnPropNameInRow="毛利润" msprop:Generator_ColumnPropNameInTable="毛利润Column" msprop:Generator_UserColumnName="毛利润" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

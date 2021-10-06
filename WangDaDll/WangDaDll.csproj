@@ -166,6 +166,14 @@
     <Compile Include="Common\FrmClientSelectDlg.Designer.cs">
       <DependentUpon>FrmClientSelectDlg.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\FXDataSet.cs">
+      <DependentUpon>FXDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\FXDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FXDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\BaseSerReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -451,6 +459,17 @@
     </None>
     <None Include="Common\FileDataSet.xss">
       <DependentUpon>FileDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\FXDataSet.xsc">
+      <DependentUpon>FXDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\FXDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FXDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Common\FXDataSet.xss">
+      <DependentUpon>FXDataSet.xsd</DependentUpon>
     </None>
     <None Include="Connected Services\BaseSerReference\BaseSer.disco" />
   </ItemGroup>

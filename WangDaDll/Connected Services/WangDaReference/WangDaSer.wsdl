@@ -1044,6 +1044,31 @@
       <s:element name="UpdateClientPaymentDateResponse">
         <s:complexType />
       </s:element>
+      <s:element name="GetClientFX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="zzKSDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zzDQDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zfKSData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zfJSData" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetClientFXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetClientFXResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CheckCompanyNameSoapIn">
@@ -1340,6 +1365,12 @@
   <wsdl:message name="UpdateClientPaymentDateSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateClientPaymentDateResponse" />
   </wsdl:message>
+  <wsdl:message name="GetClientFXSoapIn">
+    <wsdl:part name="parameters" element="tns:GetClientFX" />
+  </wsdl:message>
+  <wsdl:message name="GetClientFXSoapOut">
+    <wsdl:part name="parameters" element="tns:GetClientFXResponse" />
+  </wsdl:message>
   <wsdl:portType name="WangDaSerSoap">
     <wsdl:operation name="CheckCompanyName">
       <wsdl:input message="tns:CheckCompanyNameSoapIn" />
@@ -1536,6 +1567,10 @@
     <wsdl:operation name="UpdateClientPaymentDate">
       <wsdl:input message="tns:UpdateClientPaymentDateSoapIn" />
       <wsdl:output message="tns:UpdateClientPaymentDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientFX">
+      <wsdl:input message="tns:GetClientFXSoapIn" />
+      <wsdl:output message="tns:GetClientFXSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
@@ -1981,6 +2016,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetClientFX">
+      <soap:operation soapAction="http://tempuri.org/GetClientFX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WangDaSerSoap12" type="tns:WangDaSerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2418,6 +2462,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateClientPaymentDate">
       <soap12:operation soapAction="http://tempuri.org/UpdateClientPaymentDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientFX">
+      <soap12:operation soapAction="http://tempuri.org/GetClientFX" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

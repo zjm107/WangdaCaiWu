@@ -211,6 +211,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClientPaymentDate", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void UpdateClientPaymentDate(string payEndDate, string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientFX", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetClientFX(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -434,6 +438,10 @@ namespace WangDaDll.WangDaReference {
         
         public void UpdateClientPaymentDate(string payEndDate, string clientId) {
             base.Channel.UpdateClientPaymentDate(payEndDate, clientId);
+        }
+        
+        public System.Data.DataSet GetClientFX(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName) {
+            return base.Channel.GetClientFX(zzKSDate, zzDQDate, zfKSData, zfJSData, clientName);
         }
     }
 }

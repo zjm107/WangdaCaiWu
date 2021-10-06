@@ -207,6 +207,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserBy3", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetUserBy3(string zcyId, string ywyId, string zzkjId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClientPaymentDate", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdateClientPaymentDate(string payEndDate, string clientId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -426,6 +430,10 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetUserBy3(string zcyId, string ywyId, string zzkjId) {
             return base.Channel.GetUserBy3(zcyId, ywyId, zzkjId);
+        }
+        
+        public void UpdateClientPaymentDate(string payEndDate, string clientId) {
+            base.Channel.UpdateClientPaymentDate(payEndDate, clientId);
         }
     }
 }

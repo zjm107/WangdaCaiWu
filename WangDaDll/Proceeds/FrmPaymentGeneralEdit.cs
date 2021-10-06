@@ -193,7 +193,8 @@ namespace WangDaDll
             {
                 ///查询关联人员
                 proceedsDataSet.GetUsers(rv["注册员ID"].ToString(), rv["业务员ID"].ToString(), rv["做账会计ID"].ToString());
-
+                string endPaymentDate = rv["本次到期月份"].ToString();
+                string clientId = rv["客户名称ID"].ToString();
 
                 if (!string.IsNullOrEmpty(缴费月数TextEdit.Text))
                 {
@@ -211,6 +212,7 @@ namespace WangDaDll
                 }
                 
                 proceedsDataSet.SaveDataSet(); //保存数据
+                proceedsDataSet.UpdateClientPaymentDate(endPaymentDate, clientId);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -150,6 +150,19 @@ namespace WangDaDll.Common
                 row.收款人 = paymentRow.收款人;
                 row.收款类别 = paymentRow.收款类别;
                 row.是否审核 = false;
+                row.注册提成月 = 0;
+                row.业务提成月 = 0;
+                row.做账提成月 = 0;
+                row.做账团队提成 = 0;
+                row.业务团队提成 = 0;
+                row.做账主管提成 = 0;
+                row.注册团队提成 = 0;
+                row.注册年提成 = 0;
+                row.业务年提成 = 0;
+                row.工本开票提成 = 0;
+                row.做账业务团队提成 = 0;
+
+
                 if (!paymentRow.Is零申报Null())
                     row.零申报 = paymentRow.零申报;
                 else
@@ -719,7 +732,16 @@ namespace WangDaDll.Common
             }
 
         }
-
-
+        public void UpdateClientPaymentDate(string payEndDate, string clientId)
+        {
+            try
+            {
+                DBHelper.WangDaSer.UpdateClientPaymentDate(payEndDate,clientId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

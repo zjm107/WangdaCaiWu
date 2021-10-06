@@ -4965,6 +4965,20 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
             DataSet dst = db.GetEntity(strSql, "TCOM_USER");
             return dst;
         }
+        /// <summary>
+        /// 更新费用到期时间
+        /// </summary>
+        /// <param name="payEndDate"></param>
+        /// <param name="clientId"></param>
+        [WebMethod]
+        public void UpdateClientPaymentDate(string payEndDate,string clientId)
+        {
+            string strSql = string.Format(" update TW_Client set 费用到期月份='{0}' where 客户名称ID ='{1}'", DateTime.Parse( payEndDate).ToString("yyyy-MM-dd"), clientId);
+            var db = ServiceManager.GetDatabase();
+            db.ExecuteNonQuery(strSql);
+        }
+
+       
 
     }
 }

@@ -183,12 +183,17 @@ namespace WangDaDll
                 return;
             this.Cursor = Cursors.WaitCursor;
             tW_PaymentBindingSource.EndEdit();
+
             splash.ShowWaitForm();
             splash.SetWaitFormCaption("收款");
             splash.SetWaitFormDescription("正在收款中……");
             try
             {
+                DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+                string endPaymentDate = rv["本次到期月份"].ToString();
+                string clientId = rv["客户名称ID"].ToString();
                 proceedsDataSet.SaveDataSet(); //保存数据
+                proceedsDataSet.UpdateClientPaymentDate(endPaymentDate, clientId);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

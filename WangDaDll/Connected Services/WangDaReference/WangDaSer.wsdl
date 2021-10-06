@@ -1033,6 +1033,17 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateClientPaymentDate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="payEndDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateClientPaymentDateResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CheckCompanyNameSoapIn">
@@ -1323,6 +1334,12 @@
   <wsdl:message name="GetUserBy3SoapOut">
     <wsdl:part name="parameters" element="tns:GetUserBy3Response" />
   </wsdl:message>
+  <wsdl:message name="UpdateClientPaymentDateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateClientPaymentDate" />
+  </wsdl:message>
+  <wsdl:message name="UpdateClientPaymentDateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateClientPaymentDateResponse" />
+  </wsdl:message>
   <wsdl:portType name="WangDaSerSoap">
     <wsdl:operation name="CheckCompanyName">
       <wsdl:input message="tns:CheckCompanyNameSoapIn" />
@@ -1515,6 +1532,10 @@
     <wsdl:operation name="GetUserBy3">
       <wsdl:input message="tns:GetUserBy3SoapIn" />
       <wsdl:output message="tns:GetUserBy3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientPaymentDate">
+      <wsdl:input message="tns:UpdateClientPaymentDateSoapIn" />
+      <wsdl:output message="tns:UpdateClientPaymentDateSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
@@ -1951,6 +1972,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateClientPaymentDate">
+      <soap:operation soapAction="http://tempuri.org/UpdateClientPaymentDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WangDaSerSoap12" type="tns:WangDaSerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2379,6 +2409,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserBy3">
       <soap12:operation soapAction="http://tempuri.org/GetUserBy3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientPaymentDate">
+      <soap12:operation soapAction="http://tempuri.org/UpdateClientPaymentDate" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

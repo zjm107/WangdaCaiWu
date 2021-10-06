@@ -215,6 +215,8 @@ namespace WangDaDll
             splash.SetWaitFormDescription("正在收款中……");
             try
             {
+                string endPaymentDate = rv["本次到期月份"].ToString();
+                string clientId = rv["客户名称ID"].ToString();
                 ///查询关联人员
                 proceedsDataSet.GetUsers(rv["注册员ID"].ToString(), rv["业务员ID"].ToString(), rv["做账会计ID"].ToString());
 
@@ -235,6 +237,7 @@ namespace WangDaDll
                     }
                 }
                 proceedsDataSet.SaveDataSet(); //保存数据
+                proceedsDataSet.UpdateClientPaymentDate(endPaymentDate, clientId);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

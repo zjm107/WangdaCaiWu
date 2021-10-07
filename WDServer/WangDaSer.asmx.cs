@@ -4990,7 +4990,26 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
         [WebMethod]
         public DataSet GetClientFX(string zzKSDate,string zzDQDate,string zfKSData,string zfJSData,string clientName)
         {
-            string strSql = @"SELECT
+            string strSql = @"select 
+	t1.支付单位
+,sum(t1.收款金额) as 收款金额
+      ,sum(t1.[工本费]) as [工本费]
+      ,sum(t1.[开票费]) as [开票费]
+      ,min(t1.上次到期月份) as [上次到期月份]
+      ,max(t1.[本次到期月份]) as [本次到期月份]
+      ,sum(t1.注册员提成) as 注册员提成
+      ,sum(t1.业务员提成) as 业务员提成
+      ,sum(t1.做账提成) as 做账提成
+      ,sum(t1.做账部经理提成) as 做账部经理提成
+      ,sum(t1.业务主管团队提成) as 业务主管团队提成
+      ,sum(t1.做账主管团队提成) as 做账主管团队提成
+      ,sum(t1.注册主管提成) as 注册主管提成
+      ,sum(t1.注册员做账费提成) as 注册员做账费提成
+     -- ,sum([业务年提成]) as [业务年提成]
+      ,sum(t1.累计工本开票提成) as 累计工本开票提成
+      ,sum(t1.做账部经理业务团队提成) as 做账部经理业务团队提成
+from 
+(SELECT
       [支付单位]
       ,sum([支付金额]) as 收款金额
       ,sum([工本费]) as [工本费]
@@ -5008,26 +5027,52 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
      -- ,sum([业务年提成]) as [业务年提成]
       ,sum([工本开票提成]) as 累计工本开票提成
       ,sum([做账业务团队提成]) as 做账部经理业务团队提成
-      FROM [dbo].[TW_Payment]
-      where {0}
-      group by 支付单位";
+  FROM [dbo].[TW_Payment]
+  where {0}
+  group by 支付单位
+  union
+  SELECT
+      [支付单位]
+      ,sum([支付金额]) as 收款金额
+      ,sum([工本费]) as [工本费]
+      ,sum([开票费]) as [开票费]
+      ,min(isnull([上次到期月份],'1900-1-1')) as [上次到期月份]
+      ,max(isnull([本次到期月份],'1900-1-1')) as [本次到期月份]
+      ,sum([注册提成月]) as 注册员提成
+      ,sum([业务提成月]) as 业务员提成
+      ,sum([做账提成月]) as 做账提成
+      ,sum([做账团队提成]) as 做账部经理提成
+      ,sum([业务团队提成]) as 业务主管团队提成
+      ,sum([做账主管提成]) as 做账主管团队提成
+      ,sum([注册团队提成]) as 注册主管提成
+      ,sum([注册年提成]) as 注册员做账费提成
+     -- ,sum([业务年提成]) as [业务年提成]
+      ,sum([工本开票提成]) as 累计工本开票提成
+      ,sum([做账业务团队提成]) as 做账部经理业务团队提成
+  FROM [dbo].[TW_Payment]
+  where ( [本次到期月份] is null   and [本次到期月份] is null )
+    {1} group by 支付单位 ) t1
+  group by t1.支付单位";
 
-            string strSql2 = "1=1";
+            string strSql2 = " 1=1 ";
+            string strSql3 = " 1=1 ";
             if (!string.IsNullOrEmpty(zzKSDate) && !string.IsNullOrEmpty(zzDQDate))
             {
-                strSql2 += " and ( ( 本次到期月份>'" + zzKSDate + "' and 本次到期月份<='" + zzDQDate + "' )";
-                strSql2 += " or (本次到期月份 is null and  本次到期月份 is null and 支付日期>'"+ zzKSDate  + "' and 支付日期 <='"+ zzDQDate + "' ) )";
+                strSql2 += " and (本次到期月份>'" + zzKSDate + "' and 本次到期月份<='" + zzDQDate + "' )";
+                strSql3 += " and  ( 支付日期>'" + zfKSData + "' and 支付日期<='" + zfJSData + "' )";
             }
             if (!string.IsNullOrEmpty(zfKSData) && !string.IsNullOrEmpty(zfJSData))
             {
                 strSql2 += " and  ( 支付日期>'" + zfKSData + "' and 支付日期<='" + zfJSData + "' )";
+                strSql3 += " and  ( 支付日期>'" + zfKSData + "' and 支付日期<='" + zfJSData + "' )";
             }
 
             if (!string.IsNullOrEmpty(clientName))
             {
                 strSql2 += " and 支付单位 like '%clientName%'";
+                strSql3 += " and 支付单位 like '%clientName%'";
             }
-            strSql = string.Format(strSql, strSql2);
+            strSql = string.Format(strSql, strSql2,strSql3);
             var db = ServiceManager.GetDatabase();
             DataSet dst = db.GetEntity(strSql, "VW_ClientFX");
             return dst;

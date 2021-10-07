@@ -189,12 +189,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Proceeds\FrmEndDateQuery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -509,9 +503,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Common\FrmClientSelectDlg.resx">
       <DependentUpon>FrmClientSelectDlg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmEndDateQuery.resx">
       <DependentUpon>FrmEndDateQuery.cs</DependentUpon>

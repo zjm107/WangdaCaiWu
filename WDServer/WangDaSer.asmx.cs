@@ -84,25 +84,37 @@ and TW_Client.初始做账时间 is not null )";
         public void UpdateUserID()
         {
             var db = ServiceManager.GetDatabase();
-            string exeSql = @"update[TW_Payment]
+
+
+            string exeSql = @"update [dbo].[TW_Client]
 set 做账会计ID = (
  select USERID from[dbo].[TCOM_USER]
-        where USERNAME = [TW_Payment].做账会计)";
+        where USERNAME = [TW_Client].做账会计)
+		where [TW_Client].做账会计ID is null and ([TW_Client].客户状态 is null or [TW_Client].客户状态!='注销' and [TW_Client].客户状态!='取走')";
             db.ExecuteNonQuery(exeSql);
 
-            exeSql = @"update[TW_Payment]
+            exeSql = @"update [TW_Payment]
+set 做账会计ID = (
+ select USERID from[dbo].[TCOM_USER]
+        where USERNAME = [TW_Payment].做账会计)
+        where TW_Payment.做账会计ID is null";
+            db.ExecuteNonQuery(exeSql);
+
+            exeSql = @"update [TW_Payment]
 set 注册员ID =(
  select USERID  from[dbo].[TCOM_USER]
-        where USERNAME = [TW_Payment].注册员)";
+        where USERNAME = [TW_Payment].注册员)
+        where TW_Payment.注册员ID is null";
             db.ExecuteNonQuery(exeSql);
 
-            exeSql = @" update[TW_Payment]
+            exeSql = @" update [TW_Payment]
 set 业务员ID =(
  select USERID  from[dbo].[TCOM_USER]
-        where USERNAME = [TW_Payment].业务员)";
+        where USERNAME = [TW_Payment].业务员)
+         where TW_Payment.业务员ID is null ";
             db.ExecuteNonQuery(exeSql);
 
-            exeSql = @" update[TW_PaymentDetail]
+            exeSql = @" update [TW_PaymentDetail]
 set 注册员ID = (select USERID from[dbo].[TCOM_USER] where[USERNAME]=[TW_PaymentDetail].注册员 )
 where 注册员<>'' and 注册员ID = ''";
             db.ExecuteNonQuery(exeSql);
@@ -110,13 +122,16 @@ where 注册员<>'' and 注册员ID = ''";
             exeSql = @"update [dbo].[TW_Client]
 set [TW_Client].首年提成结束期=DATEADD(month,12,[TW_Client].初始做账时间)
 where 初始做账时间>'1900-1-1'
-and 首年提成结束期 is null";
+and 首年提成结束期 is null and ([TW_Client].客户状态 is null or [TW_Client].客户状态!='注销' and [TW_Client].客户状态!='取走')";
             db.ExecuteNonQuery(exeSql);
             exeSql = @"update  [dbo].[TW_BusinessReg] 
 set 首年提成结束期 =(select DATEADD(year,1,初始做账时间)  from [dbo].[TW_Client] where TW_Client.客户名称 = TW_BusinessReg.公司预核名称
 and TW_Client.初始做账时间 is not null )";
             db.ExecuteNonQuery(exeSql);
-
+            exeSql = @"update [dbo].[TW_Client]
+            set [TW_Client].费用到期月份 = (select [aaa].费用到期月份 from [aaa] where [aaa].客户名称ID=[TW_Client].客户名称ID  )
+             where ([TW_Client].客户状态 is null or [TW_Client].客户状态!='注销' and [TW_Client].客户状态!='取走')";
+            db.ExecuteNonQuery(exeSql);
         }
 
         /// <summary>
@@ -4911,7 +4926,7 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
                                 set 做账会计='{0}',
                                 做账会计ID='{1}'
                                 where 支付单位='{2}'
-                                and 上次到期月份>'{3}'";
+                                and 上次到期月份>='{3}'";
             strSql = String.Format(strSql, kuaiji, kuaijiId, clientName, JJDate);
             var db = ServiceManager.GetDatabase();
             db.ExecuteNonQuery(strSql);
@@ -4940,7 +4955,7 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
                                 set 做账会计='{0}',
                                 做账会计ID='{1}'
                                 where 做账会计ID='{2}'
-                                and 上次到期月份>'{3}'";
+                                and 上次到期月份>='{3}'";
             strSql = String.Format(strSql, kuaiji, kuaijiId, oldKuaijiId, JJDate);
             var db = ServiceManager.GetDatabase();
             db.ExecuteNonQuery(strSql);

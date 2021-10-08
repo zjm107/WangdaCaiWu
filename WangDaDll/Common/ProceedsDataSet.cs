@@ -55,6 +55,10 @@ namespace WangDaDll.Common
                 if (!string.IsNullOrEmpty(mainRow.业务员ID))
                 {
                     var ywyRow = TCOM_USER.FindByUSERID(mainRow.业务员ID);
+                    if (ywyRow == null)
+                    {
+                        throw new Exception("做账会计ID出错!");
+                    }
                     switch (ywyRow.WorkType)
                     {
                         case "业务主管":

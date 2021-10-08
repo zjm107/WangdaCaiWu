@@ -3221,6 +3221,41 @@ or 注册类型='变更' or 注册类型='注销')
 
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllAccountantSalary");
 
+            string strUserSql = "select DEPTID ,USERNAME as 员工,USERID as 员工ID  from [dbo].[TCOM_USER] where 1=1 and OutDate is null ";  //查询所有员工
+            if (!string.IsNullOrEmpty(deptid))
+            {
+                strUserSql += " and DEPTID ='" + deptid + "'";
+            }
+            if (!string.IsNullOrEmpty(userName))
+            {
+                strUserSql += " and USERNAME ='" + userName + "'";
+            }
+
+            DataSet userDst = ServiceManager.GetDatabase().GetEntity(strUserSql, "TCOM_USER");
+            foreach (DataRow row in userDst.Tables[0].Rows)
+            {
+                string userid = row["员工ID"].ToString();
+                DataRow[] frows = dst.Tables[0].Select("员工ID='" + userid + "'");
+                if (frows.Length == 0)
+                {
+                    var newRow = dst.Tables[0].NewRow();
+                    newRow["DEPTID"] = row["DEPTID"].ToString();
+                    newRow["员工ID"]= row["员工ID"].ToString();
+                    newRow["员工"] = row["员工"].ToString();
+                    newRow["做账收款额"] = 0;
+                    newRow["做账提成"] = 0;
+                    newRow["工本收款费"] = 0;
+                    newRow["开票收款费"] = 0;
+                    newRow["工本费开票费提成"] = 0;
+                    newRow["团队提成"] = 0;
+                    newRow["学徒提成"] = 0;
+                    newRow["实习工资"] = 0;
+                    newRow["月做账费"] = 0;
+                    dst.Tables[0].Rows.Add(newRow);
+                }
+
+            }
+
             #region 学徒提层去掉
             //       //带人费,学徒
             //       string Sql = @"select
@@ -5055,11 +5090,11 @@ from
   group by t1.支付单位";
 
             string strSql2 = " 1=1 ";
-            string strSql3 = " 1=1 ";
+            string strSql3 = " ";
             if (!string.IsNullOrEmpty(zzKSDate) && !string.IsNullOrEmpty(zzDQDate))
             {
                 strSql2 += " and (本次到期月份>'" + zzKSDate + "' and 本次到期月份<='" + zzDQDate + "' )";
-                strSql3 += " and  ( 支付日期>'" + zfKSData + "' and 支付日期<='" + zfJSData + "' )";
+                strSql3 += " and  ( 支付日期>'" + zzKSDate + "' and 支付日期<='" + zzDQDate + "' )";
             }
             if (!string.IsNullOrEmpty(zfKSData) && !string.IsNullOrEmpty(zfJSData))
             {

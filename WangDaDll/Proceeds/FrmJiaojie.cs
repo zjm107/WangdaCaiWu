@@ -44,6 +44,7 @@ namespace WangDaDll.Proceeds
             try
             {
                 proceedsDataSet1.JiaoJieOnce(kuaiji, NewKuaijiId, JiaoJieDate.ToString("yyyy-MM-dd"), clientName);
+                UserMessages.ShowInfoBox("交接完成！");
 
             }
             catch (Exception ex)
@@ -106,6 +107,7 @@ namespace WangDaDll.Proceeds
             try
             {
                 proceedsDataSet1.JiaoJieByKuaiji(newKuaiji, NewKuaijiId, JiaoJieDate.ToString("yyyy-MM-dd"), OldKuaijiId);
+                UserMessages.ShowInfoBox("交接完成！");
             }
             catch (Exception ex)
             {

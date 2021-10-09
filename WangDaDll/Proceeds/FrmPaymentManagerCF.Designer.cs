@@ -158,18 +158,20 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.tW_PaymentGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(973, 470, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(984, 700);
+            this.layoutControl1.Size = new System.Drawing.Size(1406, 1100);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnCF
             // 
-            this.btnCF.Location = new System.Drawing.Point(198, 38);
+            this.btnCF.Location = new System.Drawing.Point(204, 44);
+            this.btnCF.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCF.Name = "btnCF";
-            this.btnCF.Size = new System.Drawing.Size(93, 22);
+            this.btnCF.Size = new System.Drawing.Size(91, 20);
             this.btnCF.StyleController = this.layoutControl1;
             this.btnCF.TabIndex = 30;
             this.btnCF.Text = "拆分";
@@ -177,9 +179,10 @@ namespace WangDaDll
             // 
             // btnQuery
             // 
-            this.btnQuery.Location = new System.Drawing.Point(12, 38);
+            this.btnQuery.Location = new System.Drawing.Point(18, 44);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnQuery.Name = "btnQuery";
-            this.btnQuery.Size = new System.Drawing.Size(89, 22);
+            this.btnQuery.Size = new System.Drawing.Size(87, 20);
             this.btnQuery.StyleController = this.layoutControl1;
             this.btnQuery.TabIndex = 13;
             this.btnQuery.Text = "查询";
@@ -187,9 +190,10 @@ namespace WangDaDll
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(105, 38);
+            this.btnClear.Location = new System.Drawing.Point(111, 44);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(89, 22);
+            this.btnClear.Size = new System.Drawing.Size(87, 20);
             this.btnClear.StyleController = this.layoutControl1;
             this.btnClear.TabIndex = 12;
             this.btnClear.Text = "清除";
@@ -198,26 +202,28 @@ namespace WangDaDll
             // 支付日期DateEdit1
             // 
             this.支付日期DateEdit1.EditValue = null;
-            this.支付日期DateEdit1.Location = new System.Drawing.Point(239, 12);
+            this.支付日期DateEdit1.Location = new System.Drawing.Point(277, 18);
+            this.支付日期DateEdit1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.支付日期DateEdit1.Name = "支付日期DateEdit1";
             this.支付日期DateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.支付日期DateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.支付日期DateEdit1.Size = new System.Drawing.Size(89, 20);
+            this.支付日期DateEdit1.Size = new System.Drawing.Size(55, 28);
             this.支付日期DateEdit1.StyleController = this.layoutControl1;
             this.支付日期DateEdit1.TabIndex = 11;
             // 
             // 支付日期DateEdit
             // 
             this.支付日期DateEdit.EditValue = null;
-            this.支付日期DateEdit.Location = new System.Drawing.Point(79, 12);
+            this.支付日期DateEdit.Location = new System.Drawing.Point(117, 18);
+            this.支付日期DateEdit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.支付日期DateEdit.Name = "支付日期DateEdit";
             this.支付日期DateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.支付日期DateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.支付日期DateEdit.Size = new System.Drawing.Size(89, 20);
+            this.支付日期DateEdit.Size = new System.Drawing.Size(55, 28);
             this.支付日期DateEdit.StyleController = this.layoutControl1;
             this.支付日期DateEdit.TabIndex = 7;
             // 
@@ -225,15 +231,17 @@ namespace WangDaDll
             // 
             this.tW_PaymentGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tW_PaymentGridControl.DataSource = this.tW_PaymentBindingSource;
-            this.tW_PaymentGridControl.Location = new System.Drawing.Point(12, 64);
+            this.tW_PaymentGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.tW_PaymentGridControl.Location = new System.Drawing.Point(18, 70);
             this.tW_PaymentGridControl.MainView = this.gridView1;
+            this.tW_PaymentGridControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tW_PaymentGridControl.Name = "tW_PaymentGridControl";
             this.tW_PaymentGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1,
             this.repositoryItemCheckEdit2,
             this.repositoryItemCheckEdit3,
             this.repositoryItemCheckEdit4});
-            this.tW_PaymentGridControl.Size = new System.Drawing.Size(955, 624);
+            this.tW_PaymentGridControl.Size = new System.Drawing.Size(1362, 1012);
             this.tW_PaymentGridControl.TabIndex = 4;
             this.tW_PaymentGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -700,7 +708,7 @@ namespace WangDaDll
             this.layoutControlItem24});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(984, 700);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1406, 1100);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -709,7 +717,7 @@ namespace WangDaDll
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 52);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(959, 628);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1368, 1018);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -719,7 +727,7 @@ namespace WangDaDll
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(320, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(644, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1056, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
@@ -733,7 +741,7 @@ namespace WangDaDll
             this.layoutControlItem7.Size = new System.Drawing.Size(160, 26);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "到：";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(64, 14);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(96, 22);
             // 
             // layoutControlItem4
             // 
@@ -746,22 +754,22 @@ namespace WangDaDll
             this.layoutControlItem4.Size = new System.Drawing.Size(160, 26);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "支付日期从:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(64, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(96, 22);
             // 
             // splitterItem1
             // 
             this.splitterItem1.AllowHotTrack = true;
             this.splitterItem1.CustomizationFormText = "splitterItem1";
-            this.splitterItem1.Location = new System.Drawing.Point(959, 52);
+            this.splitterItem1.Location = new System.Drawing.Point(1368, 52);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 628);
+            this.splitterItem1.Size = new System.Drawing.Size(8, 1018);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(283, 26);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(681, 26);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(1093, 26);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
@@ -804,10 +812,11 @@ namespace WangDaDll
             // 
             // FrmPaymentManagerCF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 700);
+            this.ClientSize = new System.Drawing.Size(1406, 1100);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmPaymentManagerCF";
             this.Text = "收款拆分";
             this.Load += new System.EventHandler(this.FrmPaymentManagerCF_Load);

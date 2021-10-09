@@ -121,8 +121,12 @@ namespace WangDaDll.Common
         /// </summary>
         public void CFPayment(int month, DataRow aRow)
         {
+
             TW_PaymentRow paymentRow = aRow as TW_PaymentRow;
+            string pch = paymentRow.支付单位 + DateTime.Now.ToString("yyyyMMddHHmmss");
             DateTime startDate = paymentRow.上次到期月份;
+            decimal sumprice = paymentRow.月平均费* month;
+            decimal firstmonth = paymentRow.支付金额 - sumprice;
             //开始拆分记录
             for (int i = 1; i <= month; i++)
             {
@@ -141,13 +145,24 @@ namespace WangDaDll.Common
                 row.注册员ID = paymentRow.注册员ID;
                 row.做账会计 = paymentRow.做账会计;
                 row.做账会计ID = paymentRow.做账会计ID;
-                row.月平均费 = paymentRow.月平均费;
-                row.月做账费 = paymentRow.月平均费;
+                if (i == 1)
+                {
+                    row.月平均费 = paymentRow.月平均费+firstmonth;
+                    row.月做账费 = paymentRow.月平均费+ firstmonth;
+                    row.支付金额 = paymentRow.月平均费+ firstmonth;
+                }
+                else {
+                    row.月平均费 = paymentRow.月平均费;
+                    row.月做账费 = paymentRow.月平均费;
+                    row.支付金额 = paymentRow.月平均费;
+                }
+                
                 if (!paymentRow.Is备注Null())
                     row.备注 = string.Format("自动拆分,源金额：{0}元", paymentRow.支付金额) + "  " + paymentRow.备注;
                 else
                     row.备注 = string.Format("自动拆分,源金额：{0}元", paymentRow.支付金额);
-                row.支付金额 = paymentRow.月平均费;
+               
+               
                 row.支付日期 = paymentRow.支付日期;
                 row.支付单位 = paymentRow.支付单位;
                 row.支付方式 = paymentRow.支付方式;
@@ -165,6 +180,7 @@ namespace WangDaDll.Common
                 row.业务年提成 = 0;
                 row.工本开票提成 = 0;
                 row.做账业务团队提成 = 0;
+                row.批次号 = pch;
 
 
                 if (!paymentRow.Is零申报Null())
@@ -740,7 +756,7 @@ namespace WangDaDll.Common
         {
             try
             {
-                DBHelper.WangDaSer.UpdateClientPaymentDate(payEndDate,clientId);
+                DBHelper.WangDaSer.UpdateClientPaymentDate(payEndDate, clientId);
             }
             catch (Exception ex)
             {

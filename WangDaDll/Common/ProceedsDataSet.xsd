@@ -15,7 +15,7 @@
   <xs:element name="ProceedsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ProceedsDataSet" msprop:Generator_UserDSName="ProceedsDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TW_PaymentDetail" msprop:Generator_TableClassName="TW_PaymentDetailDataTable" msprop:Generator_TableVarName="tableTW_PaymentDetail" msprop:Generator_TablePropName="TW_PaymentDetail" msprop:Generator_RowDeletingName="TW_PaymentDetailRowDeleting" msprop:Generator_RowChangingName="TW_PaymentDetailRowChanging" msprop:Generator_RowEvHandlerName="TW_PaymentDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_PaymentDetailRowDeleted" msprop:Generator_UserTableName="TW_PaymentDetail" msprop:Generator_RowChangedName="TW_PaymentDetailRowChanged" msprop:Generator_RowEvArgName="TW_PaymentDetailRowChangeEvent" msprop:Generator_RowClassName="TW_PaymentDetailRow">
+        <xs:element name="TW_PaymentDetail" msprop:Generator_TableClassName="TW_PaymentDetailDataTable" msprop:Generator_TableVarName="tableTW_PaymentDetail" msprop:Generator_RowChangedName="TW_PaymentDetailRowChanged" msprop:Generator_TablePropName="TW_PaymentDetail" msprop:Generator_RowDeletingName="TW_PaymentDetailRowDeleting" msprop:Generator_RowChangingName="TW_PaymentDetailRowChanging" msprop:Generator_RowEvHandlerName="TW_PaymentDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_PaymentDetailRowDeleted" msprop:Generator_RowClassName="TW_PaymentDetailRow" msprop:Generator_UserTableName="TW_PaymentDetail" msprop:Generator_RowEvArgName="TW_PaymentDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TW_PaymentDetailID" msprop:Generator_ColumnVarNameInTable="columnTW_PaymentDetailID" msprop:Generator_ColumnPropNameInRow="TW_PaymentDetailID" msprop:Generator_ColumnPropNameInTable="TW_PaymentDetailIDColumn" msprop:Generator_UserColumnName="TW_PaymentDetailID" type="xs:string" />
@@ -101,7 +101,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_PaymentDetail" msprop:Generator_TableClassName="VW_PaymentDetailDataTable" msprop:Generator_TableVarName="tableVW_PaymentDetail" msprop:Generator_TablePropName="VW_PaymentDetail" msprop:Generator_RowDeletingName="VW_PaymentDetailRowDeleting" msprop:Generator_RowChangingName="VW_PaymentDetailRowChanging" msprop:Generator_RowEvHandlerName="VW_PaymentDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_PaymentDetailRowDeleted" msprop:Generator_UserTableName="VW_PaymentDetail" msprop:Generator_RowChangedName="VW_PaymentDetailRowChanged" msprop:Generator_RowEvArgName="VW_PaymentDetailRowChangeEvent" msprop:Generator_RowClassName="VW_PaymentDetailRow">
+        <xs:element name="VW_PaymentDetail" msprop:Generator_TableClassName="VW_PaymentDetailDataTable" msprop:Generator_TableVarName="tableVW_PaymentDetail" msprop:Generator_RowChangedName="VW_PaymentDetailRowChanged" msprop:Generator_TablePropName="VW_PaymentDetail" msprop:Generator_RowDeletingName="VW_PaymentDetailRowDeleting" msprop:Generator_RowChangingName="VW_PaymentDetailRowChanging" msprop:Generator_RowEvHandlerName="VW_PaymentDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_PaymentDetailRowDeleted" msprop:Generator_RowClassName="VW_PaymentDetailRow" msprop:Generator_UserTableName="VW_PaymentDetail" msprop:Generator_RowEvArgName="VW_PaymentDetailRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="公司预核名称" msprop:Generator_ColumnVarNameInTable="column公司预核名称" msprop:Generator_ColumnPropNameInRow="公司预核名称" msprop:Generator_ColumnPropNameInTable="公司预核名称Column" msprop:Generator_UserColumnName="公司预核名称" minOccurs="0">
@@ -263,7 +263,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_PaymentRegSum" msprop:Generator_TableClassName="VW_PaymentRegSumDataTable" msprop:Generator_TableVarName="tableVW_PaymentRegSum" msprop:Generator_TablePropName="VW_PaymentRegSum" msprop:Generator_RowDeletingName="VW_PaymentRegSumRowDeleting" msprop:Generator_RowChangingName="VW_PaymentRegSumRowChanging" msprop:Generator_RowEvHandlerName="VW_PaymentRegSumRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_PaymentRegSumRowDeleted" msprop:Generator_UserTableName="VW_PaymentRegSum" msprop:Generator_RowChangedName="VW_PaymentRegSumRowChanged" msprop:Generator_RowEvArgName="VW_PaymentRegSumRowChangeEvent" msprop:Generator_RowClassName="VW_PaymentRegSumRow">
+        <xs:element name="VW_PaymentRegSum" msprop:Generator_TableClassName="VW_PaymentRegSumDataTable" msprop:Generator_TableVarName="tableVW_PaymentRegSum" msprop:Generator_RowChangedName="VW_PaymentRegSumRowChanged" msprop:Generator_TablePropName="VW_PaymentRegSum" msprop:Generator_RowDeletingName="VW_PaymentRegSumRowDeleting" msprop:Generator_RowChangingName="VW_PaymentRegSumRowChanging" msprop:Generator_RowEvHandlerName="VW_PaymentRegSumRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_PaymentRegSumRowDeleted" msprop:Generator_RowClassName="VW_PaymentRegSumRow" msprop:Generator_UserTableName="VW_PaymentRegSum" msprop:Generator_RowEvArgName="VW_PaymentRegSumRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="开票费收款额" msprop:Generator_ColumnVarNameInTable="column开票费收款额" msprop:Generator_ColumnPropNameInRow="开票费收款额" msprop:Generator_ColumnPropNameInTable="开票费收款额Column" msprop:Generator_UserColumnName="开票费收款额" type="xs:decimal" minOccurs="0" />
@@ -296,7 +296,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TW_Payment" msprop:Generator_TableClassName="TW_PaymentDataTable" msprop:Generator_TableVarName="tableTW_Payment" msprop:Generator_RowChangedName="TW_PaymentRowChanged" msprop:Generator_TablePropName="TW_Payment" msprop:Generator_RowDeletingName="TW_PaymentRowDeleting" msprop:Generator_RowChangingName="TW_PaymentRowChanging" msprop:Generator_RowEvHandlerName="TW_PaymentRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_PaymentRowDeleted" msprop:Generator_RowClassName="TW_PaymentRow" msprop:Generator_UserTableName="TW_Payment" msprop:Generator_RowEvArgName="TW_PaymentRowChangeEvent">
+        <xs:element name="TW_Payment" msprop:Generator_TableClassName="TW_PaymentDataTable" msprop:Generator_TableVarName="tableTW_Payment" msprop:Generator_TablePropName="TW_Payment" msprop:Generator_RowDeletingName="TW_PaymentRowDeleting" msprop:Generator_RowChangingName="TW_PaymentRowChanging" msprop:Generator_RowEvHandlerName="TW_PaymentRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_PaymentRowDeleted" msprop:Generator_UserTableName="TW_Payment" msprop:Generator_RowChangedName="TW_PaymentRowChanged" msprop:Generator_RowEvArgName="TW_PaymentRowChangeEvent" msprop:Generator_RowClassName="TW_PaymentRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TW_PaymentID" msprop:Generator_ColumnVarNameInTable="columnTW_PaymentID" msprop:Generator_ColumnPropNameInRow="TW_PaymentID" msprop:Generator_ColumnPropNameInTable="TW_PaymentIDColumn" msprop:Generator_UserColumnName="TW_PaymentID">
@@ -442,10 +442,17 @@
               <xs:element name="工本开票提成" msprop:Generator_ColumnVarNameInTable="column工本开票提成" msprop:Generator_ColumnPropNameInRow="工本开票提成" msprop:Generator_ColumnPropNameInTable="工本开票提成Column" msprop:Generator_UserColumnName="工本开票提成" type="xs:decimal" minOccurs="0" />
               <xs:element name="做账业务团队提成" msprop:Generator_ColumnVarNameInTable="column做账业务团队提成" msprop:Generator_ColumnPropNameInRow="做账业务团队提成" msprop:Generator_ColumnPropNameInTable="做账业务团队提成Column" msprop:Generator_UserColumnName="做账业务团队提成" type="xs:decimal" minOccurs="0" />
               <xs:element name="总额" msdata:ReadOnly="true" msdata:Expression="支付金额+开票费+工本费" msprop:Generator_ColumnVarNameInTable="column总额" msprop:Generator_ColumnPropNameInRow="总额" msprop:Generator_ColumnPropNameInTable="总额Column" msprop:Generator_UserColumnName="总额" type="xs:decimal" minOccurs="0" />
+              <xs:element name="批次号" msprop:Generator_ColumnVarNameInTable="column批次号" msprop:Generator_ColumnPropNameInRow="批次号" msprop:Generator_ColumnPropNameInTable="批次号Column" msprop:Generator_UserColumnName="批次号" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="300" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TCOM_USER" msprop:Generator_TableClassName="TCOM_USERDataTable" msprop:Generator_TableVarName="tableTCOM_USER" msprop:Generator_RowChangedName="TCOM_USERRowChanged" msprop:Generator_TablePropName="TCOM_USER" msprop:Generator_RowDeletingName="TCOM_USERRowDeleting" msprop:Generator_RowChangingName="TCOM_USERRowChanging" msprop:Generator_RowEvHandlerName="TCOM_USERRowChangeEventHandler" msprop:Generator_RowDeletedName="TCOM_USERRowDeleted" msprop:Generator_RowClassName="TCOM_USERRow" msprop:Generator_UserTableName="TCOM_USER" msprop:Generator_RowEvArgName="TCOM_USERRowChangeEvent">
+        <xs:element name="TCOM_USER" msprop:Generator_TableClassName="TCOM_USERDataTable" msprop:Generator_TableVarName="tableTCOM_USER" msprop:Generator_TablePropName="TCOM_USER" msprop:Generator_RowDeletingName="TCOM_USERRowDeleting" msprop:Generator_RowChangingName="TCOM_USERRowChanging" msprop:Generator_RowEvHandlerName="TCOM_USERRowChangeEventHandler" msprop:Generator_RowDeletedName="TCOM_USERRowDeleted" msprop:Generator_UserTableName="TCOM_USER" msprop:Generator_RowChangedName="TCOM_USERRowChanged" msprop:Generator_RowEvArgName="TCOM_USERRowChangeEvent" msprop:Generator_RowClassName="TCOM_USERRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="USERID" msprop:Generator_ColumnVarNameInTable="columnUSERID" msprop:Generator_ColumnPropNameInRow="USERID" msprop:Generator_ColumnPropNameInTable="USERIDColumn" msprop:Generator_UserColumnName="USERID">
@@ -486,7 +493,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TWS_Commission" msprop:Generator_TableClassName="TWS_CommissionDataTable" msprop:Generator_TableVarName="tableTWS_Commission" msprop:Generator_TablePropName="TWS_Commission" msprop:Generator_RowDeletingName="TWS_CommissionRowDeleting" msprop:Generator_RowChangingName="TWS_CommissionRowChanging" msprop:Generator_RowEvHandlerName="TWS_CommissionRowChangeEventHandler" msprop:Generator_RowDeletedName="TWS_CommissionRowDeleted" msprop:Generator_UserTableName="TWS_Commission" msprop:Generator_RowChangedName="TWS_CommissionRowChanged" msprop:Generator_RowEvArgName="TWS_CommissionRowChangeEvent" msprop:Generator_RowClassName="TWS_CommissionRow">
+        <xs:element name="TWS_Commission" msprop:Generator_TableClassName="TWS_CommissionDataTable" msprop:Generator_TableVarName="tableTWS_Commission" msprop:Generator_RowChangedName="TWS_CommissionRowChanged" msprop:Generator_TablePropName="TWS_Commission" msprop:Generator_RowDeletingName="TWS_CommissionRowDeleting" msprop:Generator_RowChangingName="TWS_CommissionRowChanging" msprop:Generator_RowEvHandlerName="TWS_CommissionRowChangeEventHandler" msprop:Generator_RowDeletedName="TWS_CommissionRowDeleted" msprop:Generator_RowClassName="TWS_CommissionRow" msprop:Generator_UserTableName="TWS_Commission" msprop:Generator_RowEvArgName="TWS_CommissionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="业务_注册提成" msprop:Generator_ColumnVarNameInTable="column业务_注册提成" msprop:Generator_ColumnPropNameInRow="业务_注册提成" msprop:Generator_ColumnPropNameInTable="业务_注册提成Column" msprop:Generator_UserColumnName="业务_注册提成" type="xs:decimal" minOccurs="0" />

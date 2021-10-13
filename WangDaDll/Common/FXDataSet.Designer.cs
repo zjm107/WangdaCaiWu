@@ -26,6 +26,8 @@ namespace WangDaDll.Common {
         
         private VW_客户收支表DataTable tableVW_客户收支表;
         
+        private VW_月份统计表DataTable tableVW_月份统计表;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -61,6 +63,9 @@ namespace WangDaDll.Common {
                 if ((ds.Tables["VW_客户收支表"] != null)) {
                     base.Tables.Add(new VW_客户收支表DataTable(ds.Tables["VW_客户收支表"]));
                 }
+                if ((ds.Tables["VW_月份统计表"] != null)) {
+                    base.Tables.Add(new VW_月份统计表DataTable(ds.Tables["VW_月份统计表"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -87,6 +92,16 @@ namespace WangDaDll.Common {
         public VW_客户收支表DataTable VW_客户收支表 {
             get {
                 return this.tableVW_客户收支表;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public VW_月份统计表DataTable VW_月份统计表 {
+            get {
+                return this.tableVW_月份统计表;
             }
         }
         
@@ -161,6 +176,9 @@ namespace WangDaDll.Common {
                 if ((ds.Tables["VW_客户收支表"] != null)) {
                     base.Tables.Add(new VW_客户收支表DataTable(ds.Tables["VW_客户收支表"]));
                 }
+                if ((ds.Tables["VW_月份统计表"] != null)) {
+                    base.Tables.Add(new VW_月份统计表DataTable(ds.Tables["VW_月份统计表"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -200,6 +218,12 @@ namespace WangDaDll.Common {
                     this.tableVW_客户收支表.InitVars();
                 }
             }
+            this.tableVW_月份统计表 = ((VW_月份统计表DataTable)(base.Tables["VW_月份统计表"]));
+            if ((initTable == true)) {
+                if ((this.tableVW_月份统计表 != null)) {
+                    this.tableVW_月份统计表.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -212,11 +236,19 @@ namespace WangDaDll.Common {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableVW_客户收支表 = new VW_客户收支表DataTable(false);
             base.Tables.Add(this.tableVW_客户收支表);
+            this.tableVW_月份统计表 = new VW_月份统计表DataTable(false);
+            base.Tables.Add(this.tableVW_月份统计表);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeVW_客户收支表() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeVW_月份统计表() {
             return false;
         }
         
@@ -279,12 +311,18 @@ namespace WangDaDll.Common {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitExpressions() {
             this.VW_客户收支表.提成总额Column.Expression = "注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成+做账部经理业务团队提成";
-            this.VW_客户收支表.毛利润Column.Expression = "收款金额-(注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成+做账部经理业务" +
-                "团队提成)";
+            this.VW_客户收支表.毛利润Column.Expression = "收款金额+工本费+开票费-(注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成" +
+                "+做账部经理业务团队提成)";
+            this.VW_月份统计表.提成总成本Column.Expression = "注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成+做账部经理业务团队提成";
+            this.VW_月份统计表.毛利润Column.Expression = "总收款额+工本费+开票费-(注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成" +
+                "+做账部经理业务团队提成)";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void VW_客户收支表RowChangeEventHandler(object sender, VW_客户收支表RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void VW_月份统计表RowChangeEventHandler(object sender, VW_月份统计表RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -743,8 +781,8 @@ namespace WangDaDll.Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitExpressions() {
                 this.提成总额Column.Expression = "注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成+做账部经理业务团队提成";
-                this.毛利润Column.Expression = "收款金额-(注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成+做账部经理业务" +
-                    "团队提成)";
+                this.毛利润Column.Expression = "收款金额+工本费+开票费-(注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成" +
+                    "+做账部经理业务团队提成)";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -813,6 +851,524 @@ namespace WangDaDll.Common {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "VW_客户收支表DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class VW_月份统计表DataTable : global::System.Data.TypedTableBase<VW_月份统计表Row> {
+            
+            private global::System.Data.DataColumn column月份;
+            
+            private global::System.Data.DataColumn column总收款额;
+            
+            private global::System.Data.DataColumn column工本费;
+            
+            private global::System.Data.DataColumn column开票费;
+            
+            private global::System.Data.DataColumn column做账提成;
+            
+            private global::System.Data.DataColumn column做账部经理提成;
+            
+            private global::System.Data.DataColumn column做账主管团队提成;
+            
+            private global::System.Data.DataColumn column累计工本开票提成;
+            
+            private global::System.Data.DataColumn column做账部经理业务团队提成;
+            
+            private global::System.Data.DataColumn column注册员提成;
+            
+            private global::System.Data.DataColumn column注册主管提成;
+            
+            private global::System.Data.DataColumn column注册员做账费提成;
+            
+            private global::System.Data.DataColumn column业务员提成;
+            
+            private global::System.Data.DataColumn column业务主管团队提成;
+            
+            private global::System.Data.DataColumn column提成总成本;
+            
+            private global::System.Data.DataColumn column毛利润;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_月份统计表DataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_月份统计表DataTable(bool initExpressions) {
+                this.TableName = "VW_月份统计表";
+                this.BeginInit();
+                this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal VW_月份统计表DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected VW_月份统计表DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 月份Column {
+                get {
+                    return this.column月份;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 总收款额Column {
+                get {
+                    return this.column总收款额;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 工本费Column {
+                get {
+                    return this.column工本费;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 开票费Column {
+                get {
+                    return this.column开票费;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账提成Column {
+                get {
+                    return this.column做账提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账部经理提成Column {
+                get {
+                    return this.column做账部经理提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账主管团队提成Column {
+                get {
+                    return this.column做账主管团队提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 累计工本开票提成Column {
+                get {
+                    return this.column累计工本开票提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账部经理业务团队提成Column {
+                get {
+                    return this.column做账部经理业务团队提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册员提成Column {
+                get {
+                    return this.column注册员提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册主管提成Column {
+                get {
+                    return this.column注册主管提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 注册员做账费提成Column {
+                get {
+                    return this.column注册员做账费提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务员提成Column {
+                get {
+                    return this.column业务员提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 业务主管团队提成Column {
+                get {
+                    return this.column业务主管团队提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 提成总成本Column {
+                get {
+                    return this.column提成总成本;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 毛利润Column {
+                get {
+                    return this.column毛利润;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_月份统计表Row this[int index] {
+                get {
+                    return ((VW_月份统计表Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event VW_月份统计表RowChangeEventHandler VW_月份统计表RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event VW_月份统计表RowChangeEventHandler VW_月份统计表RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event VW_月份统计表RowChangeEventHandler VW_月份统计表RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event VW_月份统计表RowChangeEventHandler VW_月份统计表RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddVW_月份统计表Row(VW_月份统计表Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_月份统计表Row AddVW_月份统计表Row(
+                        int 月份, 
+                        decimal 总收款额, 
+                        decimal 工本费, 
+                        decimal 开票费, 
+                        decimal 做账提成, 
+                        decimal 做账部经理提成, 
+                        decimal 做账主管团队提成, 
+                        decimal 累计工本开票提成, 
+                        decimal 做账部经理业务团队提成, 
+                        decimal 注册员提成, 
+                        decimal 注册主管提成, 
+                        decimal 注册员做账费提成, 
+                        decimal 业务员提成, 
+                        decimal 业务主管团队提成, 
+                        decimal 提成总成本, 
+                        decimal 毛利润) {
+                VW_月份统计表Row rowVW_月份统计表Row = ((VW_月份统计表Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        月份,
+                        总收款额,
+                        工本费,
+                        开票费,
+                        做账提成,
+                        做账部经理提成,
+                        做账主管团队提成,
+                        累计工本开票提成,
+                        做账部经理业务团队提成,
+                        注册员提成,
+                        注册主管提成,
+                        注册员做账费提成,
+                        业务员提成,
+                        业务主管团队提成,
+                        提成总成本,
+                        毛利润};
+                rowVW_月份统计表Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVW_月份统计表Row);
+                return rowVW_月份统计表Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_月份统计表Row AddVW_月份统计表Row(int 月份, decimal 总收款额, decimal 工本费, decimal 开票费, decimal 做账提成, decimal 做账部经理提成, decimal 做账主管团队提成, decimal 累计工本开票提成, decimal 做账部经理业务团队提成, decimal 注册员提成, decimal 注册主管提成, decimal 注册员做账费提成, decimal 业务员提成, decimal 业务主管团队提成) {
+                VW_月份统计表Row rowVW_月份统计表Row = ((VW_月份统计表Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        月份,
+                        总收款额,
+                        工本费,
+                        开票费,
+                        做账提成,
+                        做账部经理提成,
+                        做账主管团队提成,
+                        累计工本开票提成,
+                        做账部经理业务团队提成,
+                        注册员提成,
+                        注册主管提成,
+                        注册员做账费提成,
+                        业务员提成,
+                        业务主管团队提成,
+                        null,
+                        null};
+                rowVW_月份统计表Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVW_月份统计表Row);
+                return rowVW_月份统计表Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                VW_月份统计表DataTable cln = ((VW_月份统计表DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new VW_月份统计表DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.column月份 = base.Columns["月份"];
+                this.column总收款额 = base.Columns["总收款额"];
+                this.column工本费 = base.Columns["工本费"];
+                this.column开票费 = base.Columns["开票费"];
+                this.column做账提成 = base.Columns["做账提成"];
+                this.column做账部经理提成 = base.Columns["做账部经理提成"];
+                this.column做账主管团队提成 = base.Columns["做账主管团队提成"];
+                this.column累计工本开票提成 = base.Columns["累计工本开票提成"];
+                this.column做账部经理业务团队提成 = base.Columns["做账部经理业务团队提成"];
+                this.column注册员提成 = base.Columns["注册员提成"];
+                this.column注册主管提成 = base.Columns["注册主管提成"];
+                this.column注册员做账费提成 = base.Columns["注册员做账费提成"];
+                this.column业务员提成 = base.Columns["业务员提成"];
+                this.column业务主管团队提成 = base.Columns["业务主管团队提成"];
+                this.column提成总成本 = base.Columns["提成总成本"];
+                this.column毛利润 = base.Columns["毛利润"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.column月份 = new global::System.Data.DataColumn("月份", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column月份);
+                this.column总收款额 = new global::System.Data.DataColumn("总收款额", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column总收款额);
+                this.column工本费 = new global::System.Data.DataColumn("工本费", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column工本费);
+                this.column开票费 = new global::System.Data.DataColumn("开票费", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column开票费);
+                this.column做账提成 = new global::System.Data.DataColumn("做账提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账提成);
+                this.column做账部经理提成 = new global::System.Data.DataColumn("做账部经理提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账部经理提成);
+                this.column做账主管团队提成 = new global::System.Data.DataColumn("做账主管团队提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账主管团队提成);
+                this.column累计工本开票提成 = new global::System.Data.DataColumn("累计工本开票提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column累计工本开票提成);
+                this.column做账部经理业务团队提成 = new global::System.Data.DataColumn("做账部经理业务团队提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账部经理业务团队提成);
+                this.column注册员提成 = new global::System.Data.DataColumn("注册员提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册员提成);
+                this.column注册主管提成 = new global::System.Data.DataColumn("注册主管提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册主管提成);
+                this.column注册员做账费提成 = new global::System.Data.DataColumn("注册员做账费提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column注册员做账费提成);
+                this.column业务员提成 = new global::System.Data.DataColumn("业务员提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务员提成);
+                this.column业务主管团队提成 = new global::System.Data.DataColumn("业务主管团队提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column业务主管团队提成);
+                this.column提成总成本 = new global::System.Data.DataColumn("提成总成本", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column提成总成本);
+                this.column毛利润 = new global::System.Data.DataColumn("毛利润", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column毛利润);
+                this.column提成总成本.ReadOnly = true;
+                this.column毛利润.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_月份统计表Row NewVW_月份统计表Row() {
+                return ((VW_月份统计表Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new VW_月份统计表Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(VW_月份统计表Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitExpressions() {
+                this.提成总成本Column.Expression = "注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成+做账部经理业务团队提成";
+                this.毛利润Column.Expression = "总收款额+工本费+开票费-(注册员提成+业务员提成+做账提成+做账部经理提成+业务主管团队提成+做账主管团队提成+注册主管提成+注册员做账费提成+累计工本开票提成" +
+                    "+做账部经理业务团队提成)";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.VW_月份统计表RowChanged != null)) {
+                    this.VW_月份统计表RowChanged(this, new VW_月份统计表RowChangeEvent(((VW_月份统计表Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.VW_月份统计表RowChanging != null)) {
+                    this.VW_月份统计表RowChanging(this, new VW_月份统计表RowChangeEvent(((VW_月份统计表Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.VW_月份统计表RowDeleted != null)) {
+                    this.VW_月份统计表RowDeleted(this, new VW_月份统计表RowChangeEvent(((VW_月份统计表Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.VW_月份统计表RowDeleting != null)) {
+                    this.VW_月份统计表RowDeleting(this, new VW_月份统计表RowChangeEvent(((VW_月份统计表Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveVW_月份统计表Row(VW_月份统计表Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FXDataSet ds = new FXDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "VW_月份统计表DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1373,6 +1929,469 @@ namespace WangDaDll.Common {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class VW_月份统计表Row : global::System.Data.DataRow {
+            
+            private VW_月份统计表DataTable tableVW_月份统计表;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal VW_月份统计表Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableVW_月份统计表 = ((VW_月份统计表DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int 月份 {
+                get {
+                    try {
+                        return ((int)(this[this.tableVW_月份统计表.月份Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“月份”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.月份Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 总收款额 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.总收款额Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“总收款额”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.总收款额Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 工本费 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.工本费Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“工本费”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.工本费Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 开票费 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.开票费Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“开票费”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.开票费Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 做账提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.做账提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“做账提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.做账提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 做账部经理提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.做账部经理提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“做账部经理提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.做账部经理提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 做账主管团队提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.做账主管团队提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“做账主管团队提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.做账主管团队提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 累计工本开票提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.累计工本开票提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“累计工本开票提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.累计工本开票提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 做账部经理业务团队提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.做账部经理业务团队提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“做账部经理业务团队提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.做账部经理业务团队提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册员提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.注册员提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“注册员提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.注册员提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册主管提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.注册主管提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“注册主管提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.注册主管提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 注册员做账费提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.注册员做账费提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“注册员做账费提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.注册员做账费提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 业务员提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.业务员提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“业务员提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.业务员提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 业务主管团队提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.业务主管团队提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“业务主管团队提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.业务主管团队提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 提成总成本 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.提成总成本Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“提成总成本”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.提成总成本Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 毛利润 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_月份统计表.毛利润Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_月份统计表”中列“毛利润”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_月份统计表.毛利润Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is月份Null() {
+                return this.IsNull(this.tableVW_月份统计表.月份Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set月份Null() {
+                this[this.tableVW_月份统计表.月份Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is总收款额Null() {
+                return this.IsNull(this.tableVW_月份统计表.总收款额Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set总收款额Null() {
+                this[this.tableVW_月份统计表.总收款额Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is工本费Null() {
+                return this.IsNull(this.tableVW_月份统计表.工本费Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set工本费Null() {
+                this[this.tableVW_月份统计表.工本费Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is开票费Null() {
+                return this.IsNull(this.tableVW_月份统计表.开票费Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set开票费Null() {
+                this[this.tableVW_月份统计表.开票费Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is做账提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.做账提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set做账提成Null() {
+                this[this.tableVW_月份统计表.做账提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is做账部经理提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.做账部经理提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set做账部经理提成Null() {
+                this[this.tableVW_月份统计表.做账部经理提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is做账主管团队提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.做账主管团队提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set做账主管团队提成Null() {
+                this[this.tableVW_月份统计表.做账主管团队提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is累计工本开票提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.累计工本开票提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set累计工本开票提成Null() {
+                this[this.tableVW_月份统计表.累计工本开票提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is做账部经理业务团队提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.做账部经理业务团队提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set做账部经理业务团队提成Null() {
+                this[this.tableVW_月份统计表.做账部经理业务团队提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is注册员提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.注册员提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set注册员提成Null() {
+                this[this.tableVW_月份统计表.注册员提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is注册主管提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.注册主管提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set注册主管提成Null() {
+                this[this.tableVW_月份统计表.注册主管提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is注册员做账费提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.注册员做账费提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set注册员做账费提成Null() {
+                this[this.tableVW_月份统计表.注册员做账费提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is业务员提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.业务员提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set业务员提成Null() {
+                this[this.tableVW_月份统计表.业务员提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is业务主管团队提成Null() {
+                return this.IsNull(this.tableVW_月份统计表.业务主管团队提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set业务主管团队提成Null() {
+                this[this.tableVW_月份统计表.业务主管团队提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is提成总成本Null() {
+                return this.IsNull(this.tableVW_月份统计表.提成总成本Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set提成总成本Null() {
+                this[this.tableVW_月份统计表.提成总成本Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is毛利润Null() {
+                return this.IsNull(this.tableVW_月份统计表.毛利润Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set毛利润Null() {
+                this[this.tableVW_月份统计表.毛利润Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1392,6 +2411,40 @@ namespace WangDaDll.Common {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public VW_客户收支表Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class VW_月份统计表RowChangeEvent : global::System.EventArgs {
+            
+            private VW_月份统计表Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_月份统计表RowChangeEvent(VW_月份统计表Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_月份统计表Row Row {
                 get {
                     return this.eventRow;
                 }

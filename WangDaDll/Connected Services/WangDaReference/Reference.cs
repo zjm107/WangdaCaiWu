@@ -215,6 +215,14 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientFX", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetClientFX(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLRByDate", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetLRByDate(string beginDate, string endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetYingShou", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetYingShou(string endDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -442,6 +450,14 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetClientFX(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName) {
             return base.Channel.GetClientFX(zzKSDate, zzDQDate, zfKSData, zfJSData, clientName);
+        }
+        
+        public System.Data.DataSet GetLRByDate(string beginDate, string endDate) {
+            return base.Channel.GetLRByDate(beginDate, endDate);
+        }
+        
+        public System.Data.DataSet GetYingShou(string endDate) {
+            return base.Channel.GetYingShou(endDate);
         }
     }
 }

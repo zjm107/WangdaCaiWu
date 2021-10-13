@@ -936,7 +936,7 @@ and TW_Client.初始做账时间 is not null )";
         where
 		t.客户名称ID=t2.客户名称ID
         and t.本次到期月份 <= t2.首年提成结束期
-        and  year(t.操作时间)= " + year + " and month(t.操作时间) = " + month + @"
+        and  year(t.支付日期)= " + year + " and month(t.支付日期) = " + month + @"
         and t.收款类别 = '常规收款'
         and t.业务员ID = '{0}'
         and t.是否审核=1
@@ -1019,7 +1019,7 @@ or 注册类型='变更' or 注册类型='注销')
         where
 		t.客户名称ID=t2.客户名称ID
         and t.本次到期月份 <= t2.首年提成结束期
-        and  year(t.操作时间)= " + year + " and month(t.操作时间) = " + month + @"
+        and  year(t.支付日期)= " + year + " and month(t.支付日期) = " + month + @"
         and t.收款类别 = '常规收款'
         and t.业务员ID = '{0}'
         and t.是否审核=1
@@ -1187,7 +1187,7 @@ or 注册类型='变更' or 注册类型='注销')
             0 as 工本费开票费提成,
             t.业务员 as 员工,
             t.业务员ID as 员工ID,
-            t.操作时间 as 支付日期,
+            t.支付日期 as 支付日期,
             0 as 注册费收款额,
             0 as 注册提成,
             t.收款类别,
@@ -1203,7 +1203,7 @@ or 注册类型='变更' or 注册类型='注销')
             where
 		    t.客户名称ID=t2.客户名称ID
             and  t.本次到期月份 <= t2.首年提成结束期
-            and  year(t.操作时间)= " + year + @" and month(t.操作时间) = " + month + @"
+            and  year(t.支付日期)= " + year + @" and month(t.支付日期) = " + month + @"
             and t.收款类别 = '常规收款'
             and t.业务员ID is not null
             and t.是否审核=1
@@ -1316,7 +1316,7 @@ or 注册类型='变更' or 注册类型='注销')
             0 as 工本费开票费提成,
             t.业务员 as 员工,
             t.业务员ID as 员工ID,
-            t.操作时间 as 支付日期,
+            t.支付日期 as 支付日期,
             0 as 注册费收款额,
             0 as 注册提成,
             t.收款类别,
@@ -1332,7 +1332,7 @@ or 注册类型='变更' or 注册类型='注销')
             where
 		    t.客户名称ID=t2.客户名称ID
             and  t.本次到期月份 <= t2.首年提成结束期
-            and  year(t.操作时间)= " + year + @" and month(t.操作时间) = " + month + @"
+            and  year(t.支付日期)= " + year + @" and month(t.支付日期) = " + month + @"
             and t.收款类别 = '常规收款'
             and t.业务员ID is not null
             and t.是否审核=1
@@ -1446,7 +1446,7 @@ or 注册类型='变更' or 注册类型='注销')
             0 as 工本费开票费提成,
             t.业务员 as 员工,
             t.业务员ID as 员工ID,
-            t.操作时间 as 支付日期,
+            t.支付日期 as 支付日期,
             0 as 注册费收款额,
             0 as 注册提成,
             t.收款类别,
@@ -1464,7 +1464,7 @@ or 注册类型='变更' or 注册类型='注销')
             where
 		    t.客户名称ID=t2.客户名称ID
             and  t.本次到期月份 <= t2.首年提成结束期
-            and  year(t.操作时间)= " + year + @" and month(t.操作时间) = " + month + @"
+            and  year(t.支付日期)= " + year + @" and month(t.支付日期) = " + month + @"
             and t.收款类别 = '常规收款'
             and t.业务员ID is not null
             and t.是否审核=1
@@ -1678,7 +1678,7 @@ or 注册类型='变更' or 注册类型='注销')
             0 as 工本费开票费提成,
             t.业务员 as 员工,
             t.业务员ID as 员工ID,
-            t.操作时间 as 支付日期,
+            t.支付日期 as 支付日期,
             0 as 注册费收款额,
             0 as 注册提成,
             t.收款类别,
@@ -1696,7 +1696,7 @@ or 注册类型='变更' or 注册类型='注销')
             where
 		    t.客户名称ID=t2.客户名称ID
             and  t.本次到期月份 <= t2.首年提成结束期
-            and  year(t.操作时间)= " + year + @" and month(t.操作时间) = " + month + @"
+            and  year(t.支付日期)= " + year + @" and month(t.支付日期) = " + month + @"
             and t.收款类别 = '常规收款'
             and t.业务员ID is not null
             and t.是否审核=1
@@ -1869,7 +1869,7 @@ or 注册类型='变更' or 注册类型='注销')
             0 as 工本费开票费提成,
             t.业务员 as 员工,
             t.业务员ID as 员工ID,
-            t.操作时间 as 支付日期,
+            t.支付日期 as 支付日期,
             0 as 注册费收款额,
             0 as 注册提成,
             t.收款类别,
@@ -1885,7 +1885,7 @@ or 注册类型='变更' or 注册类型='注销')
             where
 		    t.客户名称ID=t2.客户名称ID
             and  t.本次到期月份 <= t2.首年提成结束期
-            and  year(t.操作时间)= " + year + @" and month(t.操作时间) = " + month + @"
+            and  year(t.支付日期)= " + year + @" and month(t.支付日期) = " + month + @"
             and t.收款类别 = '常规收款'
             and t.业务员ID is not null
             and t.是否审核=1
@@ -1968,7 +1968,7 @@ or 注册类型='变更' or 注册类型='注销')
             0 as 工本费开票费提成,
             t.业务员 as 员工,
             t.业务员ID as 员工ID,
-            t.操作时间 as 支付日期,
+            t.支付日期 as 支付日期,
             0 as 注册费收款额,
             0 as 注册提成,
             t.收款类别,
@@ -1986,7 +1986,7 @@ or 注册类型='变更' or 注册类型='注销')
             where
 		    t.客户名称ID=t2.客户名称ID
             and  t.本次到期月份 <= t2.首年提成结束期
-            and  year(t.操作时间)= " + year + @" and month(t.操作时间) = " + month + @"
+            and  year(t.支付日期)= " + year + @" and month(t.支付日期) = " + month + @"
             and t.收款类别 = '常规收款'
             and t.业务员ID is not null
             and t.是否审核=1
@@ -2134,7 +2134,7 @@ or 注册类型='变更' or 注册类型='注销')
             0 as 工本费开票费提成,
             t.业务员 as 员工,
             t.业务员ID as 员工ID,
-            t.操作时间 as 支付日期,
+            t.支付日期 as 支付日期,
             0 as 注册费收款额,
             0 as 注册提成,
             t.收款类别,
@@ -2152,7 +2152,7 @@ or 注册类型='变更' or 注册类型='注销')
             where
 		    t.客户名称ID=t2.客户名称ID
             and  t.本次到期月份 <= t2.首年提成结束期
-            and  year(t.操作时间)= " + year + @" and month(t.操作时间) = " + month + @"
+            and  year(t.支付日期)= " + year + @" and month(t.支付日期) = " + month + @"
             and t.收款类别 = '常规收款'
             and t.业务员ID is not null
             and t.是否审核=1
@@ -2312,7 +2312,7 @@ or 注册类型='变更' or 注册类型='注销')
         from TW_Payment  t
         where
          t.本次到期月份 <= t.首年提成结束期
-        and year(t.操作时间)= 2017 and month(t.操作时间) = 11
+        and year(t.支付日期)= 2017 and month(t.支付日期) = 11
         and t.收款类别 = '常规收款'
         and t.是否审核=1
         and t.业务员ID<>'{0}' and t.业务员ID in (select USERID from [dbo].[TCOM_USER] where DEPTNAME='业务部') ", businessID);
@@ -2418,7 +2418,7 @@ or 注册类型='变更' or 注册类型='注销')
                   0 as 工本费开票费提成,
                   t.业务员 as 员工,
                   t.业务员ID as 员工ID,
-                  t.操作时间 as 支付日期,
+                  t.支付日期 as 支付日期,
                   0 as 注册费收款额,
                   0 as 注册提成,
                   t.收款类别,
@@ -2453,7 +2453,7 @@ or 注册类型='变更' or 注册类型='注销')
                   0 as 工本费开票费提成,
                   t.业务员 as 员工,
                   t.业务员ID as 员工ID,
-                  t.操作时间 as 支付日期,
+                  t.支付日期 as 支付日期,
                   0 as 注册费收款额,
                   0 as 注册提成,
                   t.收款类别,
@@ -2510,7 +2510,7 @@ or 注册类型='变更' or 注册类型='注销')
     0 as 工本费开票费提成,
     t.注册员 as 员工,
     t.注册员ID as 员工ID,
-     t.操作时间 as 支付日期,
+     t.支付日期 as 支付日期,
     0 as 注册费收款额,
     0 as 注册提成,
     t.收款类别,
@@ -2526,7 +2526,7 @@ or 注册类型='变更' or 注册类型='注销')
     where
     t.客户名称ID = t2.客户名称ID
     and t.本次到期月份 <= t2.首年提成结束期
-    and year(t.操作时间)= " + year + " and month(t.操作时间) = " + month + @"
+    and year(t.支付日期)= " + year + " and month(t.支付日期) = " + month + @"
     and t.收款类别 = '常规收款'
     and t.注册员ID is not null
     and t.是否审核=1
@@ -2689,7 +2689,7 @@ or 注册类型='变更' or 注册类型='注销')
     0 as 工本费开票费提成,
     t.注册员 as 员工,
     t.注册员ID as 员工ID,
-     t.操作时间 as 支付日期,
+     t.支付日期 as 支付日期,
     0 as 注册费收款额,
     0 as 注册提成,
     t.收款类别,
@@ -2705,7 +2705,7 @@ or 注册类型='变更' or 注册类型='注销')
     where
     t.客户名称ID = t2.客户名称ID
     and t.本次到期月份 <= t2.首年提成结束期
-    and year(t.操作时间)= " + year + " and month(t.操作时间) = " + month + @"
+    and year(t.支付日期)= " + year + " and month(t.支付日期) = " + month + @"
     and t.收款类别 = '常规收款'
     and t.注册员ID is not null
     and t.是否审核=1
@@ -2857,7 +2857,7 @@ or 注册类型='变更' or 注册类型='注销')
             t.支付金额 as 做账收款额,
             t.注册员 as 员工,
             t.注册员ID as 员工ID,
-            t.操作时间 as 支付日期,
+            t.支付日期 as 支付日期,
             0 as 注册费收款额,
             t.收款类别,
             t.月做账费,
@@ -2869,7 +2869,7 @@ or 注册类型='变更' or 注册类型='注销')
             where
             t.客户名称ID = t2.客户名称ID
             and t.本次到期月份 <= t2.首年提成结束期
-            and  year(t.操作时间)= " + year + " and month(t.操作时间) = " + month + @"
+            and  year(t.支付日期)= " + year + " and month(t.支付日期) = " + month + @"
             and t.收款类别 = '常规收款'
             and t.注册员ID='" + userID + @"'
             and t.是否审核=1 and t2.初始做账时间>'2017-12-31'
@@ -2969,7 +2969,7 @@ or 注册类型='变更' or 注册类型='注销')
            0 as 工本费开票费提成,
            t.做账会计 as 员工,
            t.做账会计ID as 员工ID,
-           t.操作时间 as 支付日期,
+           t.支付日期 as 支付日期,
            0 as 注册费收款额,
            0 as 注册提成,
            t.收款类别,
@@ -2983,7 +2983,7 @@ or 注册类型='变更' or 注册类型='注销')
            and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
            and t.收款类别 = '常规收款'
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.是否审核=1
            and tuu.userid =  t.做账会计ID ";
             if (!string.IsNullOrEmpty(deptid))
@@ -3001,7 +3001,7 @@ or 注册类型='变更' or 注册类型='注销')
            0 as 工本费开票费提成,
            t.做账会计 as 员工,
            t.做账会计ID as 员工ID,
-           t.操作时间 as 支付日期,
+           t.支付日期 as 支付日期,
            0 as 注册费收款额,
            0 as 注册提成,
            t.收款类别,
@@ -3012,7 +3012,7 @@ or 注册类型='变更' or 注册类型='注销')
            where
            t.客户名称ID = t2.客户名称ID
            and isnull(t.零申报,0)=0
-		   and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+		   and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
 
            and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
            and t.收款类别 = '常规收款'
@@ -3125,7 +3125,7 @@ or 注册类型='变更' or 注册类型='注销')
             strSql += @" and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
            and t.收款类别 = '常规收款'
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.是否审核=1
             union
              select
@@ -3153,7 +3153,7 @@ or 注册类型='变更' or 注册类型='注销')
                 strSql += " and tuu.deptid = '" + deptid + "'";
 
             strSql += @" and isnull(t.零申报,0)=1
-           and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+           and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
 
            --  and  '" + date.ToString() + @"' <= t.本次到期月份
           and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
@@ -3615,7 +3615,7 @@ or 注册类型='变更' or 注册类型='注销')
            0 as 工本费开票费提成,
            t.做账会计 as 员工,
            t.做账会计ID as 员工ID,
-           t.操作时间 as 支付日期,
+           t.支付日期 as 支付日期,
            0 as 注册费收款额,
            0 as 注册提成,
            t.收款类别,
@@ -3629,7 +3629,7 @@ or 注册类型='变更' or 注册类型='注销')
            and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
            and t.收款类别 = '常规收款'
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.是否审核=1
 --加入补收款 收款日期这个月，但是到期月份是小于这个月
              union
@@ -3643,7 +3643,7 @@ or 注册类型='变更' or 注册类型='注销')
            0 as 工本费开票费提成,
            t.做账会计 as 员工,
            t.做账会计ID as 员工ID,
-           t.操作时间 as 支付日期,
+           t.支付日期 as 支付日期,
            0 as 注册费收款额,
            0 as 注册提成,
            t.收款类别,
@@ -3654,7 +3654,7 @@ or 注册类型='变更' or 注册类型='注销')
            where
            t.客户名称ID = t2.客户名称ID
            and isnull(t.零申报,0)=0
-		   and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+		   and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
 
            and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
            and t.收款类别 = '常规收款'
@@ -3749,7 +3749,7 @@ or 注册类型='变更' or 注册类型='注销')
            and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
            and t.收款类别 = '常规收款'
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.是否审核=1
             union
              select
@@ -3773,7 +3773,7 @@ or 注册类型='变更' or 注册类型='注销')
            where
            t.客户名称ID = t2.客户名称ID
            and isnull(t.零申报,0)=1
-           and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+           and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
 
            --  and  '" + date.ToString() + @"' <= t.本次到期月份
           and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
@@ -3883,7 +3883,7 @@ or 注册类型='变更' or 注册类型='注销')
            and isnull(t.零申报,0)=0
             and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.收款类别 = '常规收款'
            and t.是否审核=1
            union
@@ -3911,10 +3911,10 @@ or 注册类型='变更' or 注册类型='注销')
            and t.做账会计ID = t3.USERID
            and t3.EMPLOYEETYPE='学徒'
            and isnull(t.零申报,0)=0
-           and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+           and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
            and  '" + pdate.ToString("yyyy-MM-dd") + @"' >= t.本次到期月份
             and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.收款类别 = '常规收款'
            and t.是否审核=1
            union
@@ -4110,7 +4110,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -4126,7 +4126,7 @@ or 注册类型='变更' or 注册类型='注销')
           and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
           and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
           and t.收款类别 = '常规收款'
-          and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+          and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
           and t.做账会计ID='" + userID + @"'
           and t.是否审核=1
           union
@@ -4141,7 +4141,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -4154,7 +4154,7 @@ or 注册类型='变更' or 注册类型='注销')
            where
            t.客户名称ID = t2.客户名称ID
            and isnull(t.零申报,0)=0
-		   and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+		   and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
                       and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
           and  '" + pdate.ToString("yyyy-MM-dd") + @"' >= isnull(t.本次到期月份,'1900-1-1')
             and t.收款类别 = '常规收款'
@@ -4230,7 +4230,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -4246,7 +4246,7 @@ or 注册类型='变更' or 注册类型='注销')
            and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
            and t.收款类别 = '常规收款'
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
           and t.做账会计ID='" + userID + @"'
           and t.是否审核=1
           union
@@ -4261,7 +4261,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -4276,7 +4276,7 @@ or 注册类型='变更' or 注册类型='注销')
            and t.做账会计ID = t3.USERID
            and t3.EMPLOYEETYPE='学徒'
            and isnull(t.零申报,0)=1
-           and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+           and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
            -- and  '" + pdate.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
            and t.收款类别 = '常规收款'
@@ -4294,7 +4294,7 @@ or 注册类型='变更' or 注册类型='注销')
            0 as 工本费开票费提成,
            t.做账会计 as 员工,
            t.做账会计ID as 员工ID,
-           t.操作时间 as 支付日期,
+           t.支付日期 as 支付日期,
            0 as 注册费收款额,
            0 as 注册提成,
            t.收款类别,
@@ -4307,7 +4307,7 @@ or 注册类型='变更' or 注册类型='注销')
            where
            t.客户名称ID = t2.客户名称ID
            and isnull(t.零申报,0)=1
-           and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+           and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
            --and  '" + pdate.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
            and t.收款类别 ='常规收款'
@@ -4402,7 +4402,7 @@ or 注册类型='变更' or 注册类型='注销')
            and isnull(t.零申报,0)=0
             and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.收款类别 = '常规收款'
            and t3.TeacherID='" + userID + @"'
             and t.是否审核=1
@@ -4429,10 +4429,10 @@ or 注册类型='变更' or 注册类型='注销')
            and t.做账会计ID = t3.USERID
            and t3.EMPLOYEETYPE='学徒'
            and isnull(t.零申报,0)=0
-           and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+           and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
            and  '" + pdate.ToString("yyyy-MM-dd") + @"' >= t.本次到期月份
            and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.收款类别 = '常规收款'
            and t3.TeacherID='" + userID + @"'
            and t.是否审核=1
@@ -4532,7 +4532,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -4564,7 +4564,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -4579,7 +4579,7 @@ or 注册类型='变更' or 注册类型='注销')
           t.客户名称ID = t2.客户名称ID
           and t.做账会计ID=tu.USERID
           and isnull(t.零申报,0) = 0
-          and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+          and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
           and  '" + pdate.ToString("yyyy-MM-dd") + @"' >=isnull(t.本次到期月份,'1900-1-1')
           and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
           and t.收款类别 = '常规收款'
@@ -4658,7 +4658,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -4689,7 +4689,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -4704,7 +4704,7 @@ or 注册类型='变更' or 注册类型='注销')
           t.客户名称ID = t2.客户名称ID
           and t.做账会计ID=tu.USERID
           and isnull(t.零申报,0) = 0
-          and YEAR(t.操作时间)=" + year + @" and  month(t.操作时间)=" + month + @"
+          and YEAR(t.支付日期)=" + year + @" and  month(t.支付日期)=" + month + @"
           and  '" + pdate.ToString("yyyy-MM-dd") + @"' >=isnull(t.本次到期月份,'1900-1-1')
           and  '" + pdate.ToString("yyyy-MM-dd") + @"' > isnull(t.上次到期月份,'1900-1-1')
           and t.收款类别 = '常规收款'
@@ -4794,7 +4794,7 @@ or 注册类型='变更' or 注册类型='注销')
           0 as 工本费开票费提成,
           t.做账会计 as 员工,
           t.做账会计ID as 员工ID,
-          t.操作时间 as 支付日期,
+          t.支付日期 as 支付日期,
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
@@ -5128,6 +5128,86 @@ from
             return dst;
         }
 
+        /// <summary>
+        /// 按照年月分析全年利润情况
+        /// </summary>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetLRByDate(string beginDate, string endDate)
+        {
+            string strSql = @"select t1.月份
+            ,sum(t1.总收款额) as 总收款额 
+                 ,sum(t1.[工本费]) as [工本费]
+                  ,sum(t1.[开票费]) as [开票费]
+                  ,sum(做账提成) as 做账提成
+                  ,sum(做账部经理提成) as 做账部经理提成
+                  ,sum(做账主管团队提成) as 做账主管团队提成
+	              ,sum(累计工本开票提成) as 累计工本开票提成
+                  ,sum(做账部经理业务团队提成) as 做账部经理业务团队提成
+	              ,sum(注册员提成) as 注册员提成
+	              ,sum(注册主管提成) as 注册主管提成
+                  ,sum(注册员做账费提成) as 注册员做账费提成
+                  ,sum(业务员提成) as 业务员提成
+                  ,sum(业务主管团队提成) as 业务主管团队提成
+            from (
+            select 
+            DATEPART(mm,上次到期月份) as 月份
+	             ,sum(t1.支付金额) as 总收款额 
+                 ,sum(t1.[工本费]) as [工本费]
+                  ,sum(t1.[开票费]) as [开票费]
+                  ,sum([做账提成月]) as 做账提成
+                  ,sum([做账团队提成]) as 做账部经理提成
+                  ,sum([做账主管提成]) as 做账主管团队提成
+	              ,sum([工本开票提成]) as 累计工本开票提成
+                  ,sum([做账业务团队提成]) as 做账部经理业务团队提成
+	              ,sum([注册提成月]) as 注册员提成
+	              ,sum([注册团队提成]) as 注册主管提成
+                  ,sum([注册年提成]) as 注册员做账费提成
+                  ,sum([业务提成月]) as 业务员提成
+                  ,sum([业务团队提成]) as 业务主管团队提成
+            from [dbo].[TW_Payment] t1
+            where 收款类别 ='常规收款' and [本次到期月份]>='" + beginDate + "' and [本次到期月份]<='" + endDate + @"'
+            group by DATEPART(mm,上次到期月份) 
+            union 
+            select 
+            DATEPART(mm,支付日期) as 月份
+	             ,sum(t1.支付金额) as 总收款额 
+                 ,sum(t1.[工本费]) as [工本费]
+                  ,sum(t1.[开票费]) as [开票费]
+                  ,sum([做账提成月]) as 做账提成
+                  ,sum([做账团队提成]) as 做账部经理提成
+                  ,sum([做账主管提成]) as 做账主管团队提成
+	              ,sum([工本开票提成]) as 累计工本开票提成
+                  ,sum([做账业务团队提成]) as 做账部经理业务团队提成
+	              ,sum([注册提成月]) as 注册员提成
+	              ,sum([注册团队提成]) as 注册主管提成
+                  ,sum([注册年提成]) as 注册员做账费提成
+                  ,sum([业务提成月]) as 业务员提成
+                  ,sum([业务团队提成]) as 业务主管团队提成
+            from [dbo].[TW_Payment] t1
+            where 收款类别 !='常规收款' and 支付日期>='" + beginDate + "' and 支付日期<='" + endDate + @"'
+            group by DATEPART(mm,支付日期) ) t1
+            group by 月份 ";
+            var db =ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "VW_月份统计表");
+            return dst;
+
+        }
+
+        /// <summary>
+        /// 查询到截止日的应收款和牵收款，以及每家公司的预收款
+        /// </summary>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetYingShou(string endDate)
+        {
+            string strSql = "";
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_Payment");
+            return dst;
+        }
        
 
     }

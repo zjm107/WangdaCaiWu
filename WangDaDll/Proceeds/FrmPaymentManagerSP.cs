@@ -429,5 +429,22 @@ namespace WangDaDll
             FrmPaymentManagerCF cf = new FrmPaymentManagerCF();
             cf.Show();
         }
+
+        private void btnDelall_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+            }
+        }
     }
 }

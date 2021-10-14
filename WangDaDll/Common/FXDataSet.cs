@@ -41,5 +41,23 @@ namespace WangDaDll.Common
             DataSet dst = DBHelper.WangDaSer.GetLRByDate(beginDate, endDate);
             DataManager.ImpDataSet(dst.Tables[0], this.VW_月份统计表);
         }
+
+        /// <summary>
+        /// 查询应收款
+        /// </summary>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="clientName"></param>
+        /// <param name="userid"></param>
+        /// <returns></returns>
+        public void GetYingShou(string beginDate, string endDate, string clientName, string userid)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetYingShou( beginDate,  endDate,  clientName,  userid);
+            DataManager.ImpDataSet(dst.Tables[0], this.VM_应收款);
+        }
+
+
+       
+
     }
 }

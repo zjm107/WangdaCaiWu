@@ -410,23 +410,17 @@
     <Compile Include="SalaryServer\FrmTJClient.Designer.cs">
       <DependentUpon>FrmTJClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="SalaryServer\FrmTJGroup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SalaryServer\FrmTJGroup.Designer.cs">
-      <DependentUpon>FrmTJGroup.cs</DependentUpon>
-    </Compile>
     <Compile Include="SalaryServer\FrmTJmmYY.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SalaryServer\FrmTJmmYY.Designer.cs">
       <DependentUpon>FrmTJmmYY.cs</DependentUpon>
     </Compile>
-    <Compile Include="SalaryServer\FrmTJUser.cs">
+    <Compile Include="SalaryServer\FrmYingshou.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SalaryServer\FrmTJUser.Designer.cs">
-      <DependentUpon>FrmTJUser.cs</DependentUpon>
+    <Compile Include="SalaryServer\FrmYingshou.Designer.cs">
+      <DependentUpon>FrmYingshou.cs</DependentUpon>
     </Compile>
     <Compile Include="SalaryServer\SalaryDataSet.cs">
       <DependentUpon>SalaryDataSet.xsd</DependentUpon>
@@ -610,14 +604,11 @@
     <EmbeddedResource Include="SalaryServer\FrmTJClient.resx">
       <DependentUpon>FrmTJClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SalaryServer\FrmTJGroup.resx">
-      <DependentUpon>FrmTJGroup.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SalaryServer\FrmTJmmYY.resx">
       <DependentUpon>FrmTJmmYY.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SalaryServer\FrmTJUser.resx">
-      <DependentUpon>FrmTJUser.cs</DependentUpon>
+    <EmbeddedResource Include="SalaryServer\FrmYingshou.resx">
+      <DependentUpon>FrmYingshou.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

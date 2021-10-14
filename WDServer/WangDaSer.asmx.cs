@@ -5199,16 +5199,104 @@ from
         /// <summary>
         /// 查询到截止日的应收款和牵收款，以及每家公司的预收款
         /// </summary>
+        /// <param name="beginDate">开始时间</param>
+        /// <param name="endDate">截止时间</param>
+        /// <param name="clientName">客户名称</param>
+        /// <param name="kuaiji">会计</param>
+        /// <param name="yewuyuan">业务员</param>
+        /// <param name="zhuceyuan">注册员</param>
         /// <returns></returns>
         [WebMethod]
-        public DataSet GetYingShou(string endDate)
+        public DataSet GetYingShou(string beginDate,string endDate,string clientName,string userid)
         {
-            string strSql = "";
+            string deptid = "";
+            string sqlUser = "select DEPTID,DEPTNAME,WorkType from TCOM_USER where USERID='" + userid + "' ";
+
+            DataSet dstuser = ServiceManager.GetDatabase().GetEntity(sqlUser, "TCOM_USER");
+            if (dstuser.Tables["TCOM_USER"].Rows.Count > 0)
+            {
+                DataRow row = dstuser.Tables["TCOM_USER"].Rows[0];
+                string worktype = row["WorkType"].ToString();
+                if (worktype == "二级部门经理" || worktype == "业务主管" || worktype == "注册主管")
+                {
+                    deptid = row["DEPTID"].ToString();
+                }
+            }
+
+            string strSql = @"select 客户名称,tp.收款金额 as 已收款金额,月收费标准,初始做账时间,费用到期月份,欠费月数,欠费月数*月收费标准 as 欠费金额,到期欠缴月数 as 预期应收月数,到期欠缴月数* 月收费标准 预期应收 ,预交月数,预交月数*月收费标准 as 预交金额 
+            ,联系电话,客户姓名,业务员,做账会计,注册员,公司地址,业务员ID,注册员ID,做账会计ID,td1.DEPTID as 做账部门ID,td1.DEPTNAME as 做账部门
+            ,td2.DEPTID as 业务部门ID,td2.DEPTNAME as 业务部门,td3.DEPTID as 注册部门ID,td3.DEPTNAME as 注册部门
+            from [dbo].[TW_Client] tc
+            join (
+            select 
+            t1.客户名称ID,
+	            t1.支付单位
+            ,sum(t1.收款金额) as 收款金额
+                  ,sum(t1.[工本费]) as [工本费]
+                  ,sum(t1.[开票费]) as [开票费]
+                  ,min(t1.上次到期月份) as [上次到期月份]
+                  ,max(t1.[本次到期月份]) as [本次到期月份]
+	              ,dbo.GetMonthCount(DATEPART(mm,GETDATE()) - DATEPART(mm,max(t1.[本次到期月份]))) as 欠费月数
+	              ,DATEPART(mm,'"+ endDate+@"') - DATEPART(mm,max(t1.[本次到期月份])) as 到期欠缴月数
+	              ,dbo.GetMonthCount(DATEPART(mm,max(t1.[本次到期月份])) -DATEPART(mm,GETDATE())) as 预交月数
+            from 
+            (SELECT
+	            客户名称ID,
+                  [支付单位]
+                  ,sum([支付金额]) as 收款金额
+                  ,sum([工本费]) as [工本费]
+                  ,sum([开票费]) as [开票费]
+                  ,min(isnull([上次到期月份],'1900-1-1')) as [上次到期月份]
+                  ,max(isnull([本次到期月份],'1900-1-1')) as [本次到期月份]
+              FROM [dbo].[TW_Payment]
+              where 本次到期月份>'"+beginDate+@"' and 本次到期月份<='"+endDate+@"'
+              group by 支付单位,客户名称ID
+              union
+              SELECT
+		            客户名称ID,
+                  [支付单位]
+                  ,sum([支付金额]) as 收款金额
+                  ,sum([工本费]) as [工本费]
+                  ,sum([开票费]) as [开票费]
+                  ,min(isnull([上次到期月份],'1900-1-1')) as [上次到期月份]
+                  ,max(isnull([本次到期月份],'1900-1-1')) as [本次到期月份]
+              FROM [dbo].[TW_Payment]
+              where ( [本次到期月份] is null   and [本次到期月份] is null )
+               and 支付日期>='"+beginDate+@"' and 支付日期<='"+endDate+@"' group by 支付单位,客户名称ID ) t1
+              group by t1.支付单位,t1.客户名称ID
+            ) tp
+            on tc.客户名称ID =tp.客户名称ID
+            left join [dbo].[TCOM_USER] td1
+            on tc.做账会计ID = td1.USERID 
+            left join [dbo].[TCOM_USER] td2
+            on tc.业务员ID = td2.USERID 
+            left join [dbo].[TCOM_USER] td3
+            on tc.注册员ID = td3.USERID 
+            where isnull(tc.客户状态,'')=''  or tc.客户状态='正常'  ";
+            if (string.IsNullOrEmpty(clientName))
+            {
+                strSql = " and tc.客户名称 like '%"+ clientName +"%'";
+            }
+            
+            if (deptid != "")
+            {
+                strSql = " and (td1.DEPTID = '" + deptid + "' or td2.DEPTID='" + deptid + "' or td3.DEPTID='" + deptid + "' )";
+            }
+            else {
+                if (string.IsNullOrEmpty(userid))
+                {
+                    strSql = " and (tc.做账会计ID = '" + userid + "' or tc.业务员ID='" + userid + "' or tc.注册员ID='" + userid + "' )";
+                }
+
+            }
+
             var db = ServiceManager.GetDatabase();
-            DataSet dst = db.GetEntity(strSql, "TW_Payment");
+            DataSet dst = db.GetEntity(strSql, "VM_应收款");
             return dst;
         }
        
+
+
 
     }
 }

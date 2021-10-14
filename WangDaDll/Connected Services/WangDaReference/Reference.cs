@@ -222,7 +222,7 @@ namespace WangDaDll.WangDaReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetYingShou", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetYingShou(string endDate);
+        System.Data.DataSet GetYingShou(string beginDate, string endDate, string clientName, string userid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -456,8 +456,8 @@ namespace WangDaDll.WangDaReference {
             return base.Channel.GetLRByDate(beginDate, endDate);
         }
         
-        public System.Data.DataSet GetYingShou(string endDate) {
-            return base.Channel.GetYingShou(endDate);
+        public System.Data.DataSet GetYingShou(string beginDate, string endDate, string clientName, string userid) {
+            return base.Channel.GetYingShou(beginDate, endDate, clientName, userid);
         }
     }
 }

@@ -5272,20 +5272,20 @@ from
             on tc.业务员ID = td2.USERID 
             left join [dbo].[TCOM_USER] td3
             on tc.注册员ID = td3.USERID 
-            where isnull(tc.客户状态,'')=''  or tc.客户状态='正常'  ";
+            where (isnull(tc.客户状态,'')=''  or tc.客户状态='正常')  ";
             if (string.IsNullOrEmpty(clientName))
             {
-                strSql = " and tc.客户名称 like '%"+ clientName +"%'";
+                strSql += " and tc.客户名称 like '%"+ clientName +"%'";
             }
             
             if (deptid != "")
             {
-                strSql = " and (td1.DEPTID = '" + deptid + "' or td2.DEPTID='" + deptid + "' or td3.DEPTID='" + deptid + "' )";
+                strSql += " and (td1.DEPTID = '" + deptid + "' or td2.DEPTID='" + deptid + "' or td3.DEPTID='" + deptid + "' )";
             }
             else {
                 if (string.IsNullOrEmpty(userid))
                 {
-                    strSql = " and (tc.做账会计ID = '" + userid + "' or tc.业务员ID='" + userid + "' or tc.注册员ID='" + userid + "' )";
+                    strSql += " and (tc.做账会计ID = '" + userid + "' or tc.业务员ID='" + userid + "' or tc.注册员ID='" + userid + "' )";
                 }
 
             }

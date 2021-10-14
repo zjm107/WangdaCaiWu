@@ -48,5 +48,11 @@ namespace WangDaDll.SalaryServer
             dateEdit2.Text = "";
             fXDataSet.Clear();
         }
+
+        private void FrmTJmmYY_Load(object sender, EventArgs e)
+        {
+            dateEdit1.DateTime = new DateTime(DateTime.Today.Year, 1, 1);
+            dateEdit2.DateTime = new DateTime(DateTime.Today.Year, 12, 31);
+        }
     }
 }

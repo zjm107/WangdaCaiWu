@@ -47,5 +47,11 @@ namespace WangDaDll.SalaryServer
             支付单位TextEdit.Text = "";
             fXDataSet.VW_客户收支表.Clear();
         }
+
+        private void FrmTJClient_Load(object sender, EventArgs e)
+        {
+            上次到期月份DateEdit.DateTime = new DateTime(DateTime.Today.Year, 1, 1);
+            本次到期月份DateEdit.DateTime = new DateTime(DateTime.Today.Year, 12, 31);
+        }
     }
 }

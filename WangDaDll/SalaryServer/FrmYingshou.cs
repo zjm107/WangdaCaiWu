@@ -58,5 +58,11 @@ namespace WangDaDll.SalaryServer
                     splash.CloseWaitForm();
             }
         }
+
+        private void FrmYingshou_Load(object sender, EventArgs e)
+        {
+            beginDatedateEdit.DateTime = new DateTime(DateTime.Today.Year, 1, 1);
+            endDatedateEdit.DateTime = new DateTime(DateTime.Today.Year, 12, 31);
+        }
     }
 }

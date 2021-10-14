@@ -657,6 +657,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmTJClient";
             this.Text = "按客户统计";
+            this.Load += new System.EventHandler(this.FrmTJClient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();

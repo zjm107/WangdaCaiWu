@@ -2,9 +2,10 @@
 <xs:schema id="SalaryDataSet" targetNamespace="http://tempuri.org/SalaryDataSet.xsd" xmlns:mstns="http://tempuri.org/SalaryDataSet.xsd" xmlns="http://tempuri.org/SalaryDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="WangDaDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WangDaDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WangDaDll.Properties.Settings.GlobalReference.Default.WangDaDBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="WangDaDBConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="WangDaDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WangDaDll.Properties.Settings.GlobalReference.Default.WangDaDBConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="WangDaDBConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WangDaDBConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WangDaDll.Properties.Settings.GlobalReference.Default.WangDaDBConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables />
         <Sources />
@@ -14,7 +15,7 @@
   <xs:element name="SalaryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="SalaryDataSet" msprop:Generator_UserDSName="SalaryDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TWS_Commission" msprop:Generator_TableClassName="TWS_CommissionDataTable" msprop:Generator_TableVarName="tableTWS_Commission" msprop:Generator_TablePropName="TWS_Commission" msprop:Generator_RowDeletingName="TWS_CommissionRowDeleting" msprop:Generator_RowChangingName="TWS_CommissionRowChanging" msprop:Generator_RowEvHandlerName="TWS_CommissionRowChangeEventHandler" msprop:Generator_RowDeletedName="TWS_CommissionRowDeleted" msprop:Generator_UserTableName="TWS_Commission" msprop:Generator_RowChangedName="TWS_CommissionRowChanged" msprop:Generator_RowEvArgName="TWS_CommissionRowChangeEvent" msprop:Generator_RowClassName="TWS_CommissionRow">
+        <xs:element name="TWS_Commission" msprop:Generator_TableClassName="TWS_CommissionDataTable" msprop:Generator_TableVarName="tableTWS_Commission" msprop:Generator_RowChangedName="TWS_CommissionRowChanged" msprop:Generator_TablePropName="TWS_Commission" msprop:Generator_RowDeletingName="TWS_CommissionRowDeleting" msprop:Generator_RowChangingName="TWS_CommissionRowChanging" msprop:Generator_RowEvHandlerName="TWS_CommissionRowChangeEventHandler" msprop:Generator_RowDeletedName="TWS_CommissionRowDeleted" msprop:Generator_RowClassName="TWS_CommissionRow" msprop:Generator_UserTableName="TWS_Commission" msprop:Generator_RowEvArgName="TWS_CommissionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="业务_注册提成" msprop:Generator_ColumnVarNameInTable="column业务_注册提成" msprop:Generator_ColumnPropNameInRow="业务_注册提成" msprop:Generator_ColumnPropNameInTable="业务_注册提成Column" msprop:Generator_UserColumnName="业务_注册提成" type="xs:decimal" minOccurs="0" />
@@ -40,7 +41,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TW_SalarySum" msprop:Generator_TableClassName="TW_SalarySumDataTable" msprop:Generator_TableVarName="tableTW_SalarySum" msprop:Generator_TablePropName="TW_SalarySum" msprop:Generator_RowDeletingName="TW_SalarySumRowDeleting" msprop:Generator_RowChangingName="TW_SalarySumRowChanging" msprop:Generator_RowEvHandlerName="TW_SalarySumRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_SalarySumRowDeleted" msprop:Generator_UserTableName="TW_SalarySum" msprop:Generator_RowChangedName="TW_SalarySumRowChanged" msprop:Generator_RowEvArgName="TW_SalarySumRowChangeEvent" msprop:Generator_RowClassName="TW_SalarySumRow">
+        <xs:element name="TW_SalarySum" msprop:Generator_TableClassName="TW_SalarySumDataTable" msprop:Generator_TableVarName="tableTW_SalarySum" msprop:Generator_RowChangedName="TW_SalarySumRowChanged" msprop:Generator_TablePropName="TW_SalarySum" msprop:Generator_RowDeletingName="TW_SalarySumRowDeleting" msprop:Generator_RowChangingName="TW_SalarySumRowChanging" msprop:Generator_RowEvHandlerName="TW_SalarySumRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_SalarySumRowDeleted" msprop:Generator_RowClassName="TW_SalarySumRow" msprop:Generator_UserTableName="TW_SalarySum" msprop:Generator_RowEvArgName="TW_SalarySumRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TW_SalarySumID" msprop:Generator_ColumnVarNameInTable="columnTW_SalarySumID" msprop:Generator_ColumnPropNameInRow="TW_SalarySumID" msprop:Generator_ColumnPropNameInTable="TW_SalarySumIDColumn" msprop:Generator_UserColumnName="TW_SalarySumID">
@@ -129,7 +130,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_AllBusinessSalary" msprop:Generator_TableClassName="VW_AllBusinessSalaryDataTable" msprop:Generator_TableVarName="tableVW_AllBusinessSalary" msprop:Generator_TablePropName="VW_AllBusinessSalary" msprop:Generator_RowDeletingName="VW_AllBusinessSalaryRowDeleting" msprop:Generator_RowChangingName="VW_AllBusinessSalaryRowChanging" msprop:Generator_RowEvHandlerName="VW_AllBusinessSalaryRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllBusinessSalaryRowDeleted" msprop:Generator_UserTableName="VW_AllBusinessSalary" msprop:Generator_RowChangedName="VW_AllBusinessSalaryRowChanged" msprop:Generator_RowEvArgName="VW_AllBusinessSalaryRowChangeEvent" msprop:Generator_RowClassName="VW_AllBusinessSalaryRow">
+        <xs:element name="VW_AllBusinessSalary" msprop:Generator_TableClassName="VW_AllBusinessSalaryDataTable" msprop:Generator_TableVarName="tableVW_AllBusinessSalary" msprop:Generator_RowChangedName="VW_AllBusinessSalaryRowChanged" msprop:Generator_TablePropName="VW_AllBusinessSalary" msprop:Generator_RowDeletingName="VW_AllBusinessSalaryRowDeleting" msprop:Generator_RowChangingName="VW_AllBusinessSalaryRowChanging" msprop:Generator_RowEvHandlerName="VW_AllBusinessSalaryRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllBusinessSalaryRowDeleted" msprop:Generator_RowClassName="VW_AllBusinessSalaryRow" msprop:Generator_UserTableName="VW_AllBusinessSalary" msprop:Generator_RowEvArgName="VW_AllBusinessSalaryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="员工" msprop:Generator_ColumnVarNameInTable="column员工" msprop:Generator_ColumnPropNameInRow="员工" msprop:Generator_ColumnPropNameInTable="员工Column" msprop:Generator_UserColumnName="员工" minOccurs="0">
@@ -167,7 +168,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_AllBusinessSalaryYear" msprop:Generator_TableClassName="VW_AllBusinessSalaryYearDataTable" msprop:Generator_TableVarName="tableVW_AllBusinessSalaryYear" msprop:Generator_TablePropName="VW_AllBusinessSalaryYear" msprop:Generator_RowDeletingName="VW_AllBusinessSalaryYearRowDeleting" msprop:Generator_RowChangingName="VW_AllBusinessSalaryYearRowChanging" msprop:Generator_RowEvHandlerName="VW_AllBusinessSalaryYearRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllBusinessSalaryYearRowDeleted" msprop:Generator_UserTableName="VW_AllBusinessSalaryYear" msprop:Generator_RowChangedName="VW_AllBusinessSalaryYearRowChanged" msprop:Generator_RowEvArgName="VW_AllBusinessSalaryYearRowChangeEvent" msprop:Generator_RowClassName="VW_AllBusinessSalaryYearRow">
+        <xs:element name="VW_AllBusinessSalaryYear" msprop:Generator_TableClassName="VW_AllBusinessSalaryYearDataTable" msprop:Generator_TableVarName="tableVW_AllBusinessSalaryYear" msprop:Generator_RowChangedName="VW_AllBusinessSalaryYearRowChanged" msprop:Generator_TablePropName="VW_AllBusinessSalaryYear" msprop:Generator_RowDeletingName="VW_AllBusinessSalaryYearRowDeleting" msprop:Generator_RowChangingName="VW_AllBusinessSalaryYearRowChanging" msprop:Generator_RowEvHandlerName="VW_AllBusinessSalaryYearRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllBusinessSalaryYearRowDeleted" msprop:Generator_RowClassName="VW_AllBusinessSalaryYearRow" msprop:Generator_UserTableName="VW_AllBusinessSalaryYear" msprop:Generator_RowEvArgName="VW_AllBusinessSalaryYearRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="员工" msprop:Generator_ColumnVarNameInTable="column员工" msprop:Generator_ColumnPropNameInRow="员工" msprop:Generator_ColumnPropNameInTable="员工Column" msprop:Generator_UserColumnName="员工" minOccurs="0">
@@ -189,7 +190,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_AllAccountantSalary" msprop:Generator_TableClassName="VW_AllAccountantSalaryDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalary" msprop:Generator_RowChangedName="VW_AllAccountantSalaryRowChanged" msprop:Generator_TablePropName="VW_AllAccountantSalary" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryRowDeleted" msprop:Generator_RowClassName="VW_AllAccountantSalaryRow" msprop:Generator_UserTableName="VW_AllAccountantSalary" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryRowChangeEvent">
+        <xs:element name="VW_AllAccountantSalary" msprop:Generator_TableClassName="VW_AllAccountantSalaryDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalary" msprop:Generator_TablePropName="VW_AllAccountantSalary" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryRowDeleted" msprop:Generator_UserTableName="VW_AllAccountantSalary" msprop:Generator_RowChangedName="VW_AllAccountantSalaryRowChanged" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryRowChangeEvent" msprop:Generator_RowClassName="VW_AllAccountantSalaryRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="员工" msprop:Generator_ColumnVarNameInTable="column员工" msprop:Generator_ColumnPropNameInRow="员工" msprop:Generator_ColumnPropNameInTable="员工Column" msprop:Generator_UserColumnName="员工" minOccurs="0">
@@ -228,7 +229,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_AllAccountantSalaryDetail" msprop:Generator_TableClassName="VW_AllAccountantSalaryDetailDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalaryDetail" msprop:Generator_RowChangedName="VW_AllAccountantSalaryDetailRowChanged" msprop:Generator_TablePropName="VW_AllAccountantSalaryDetail" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryDetailRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryDetailRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryDetailRowDeleted" msprop:Generator_RowClassName="VW_AllAccountantSalaryDetailRow" msprop:Generator_UserTableName="VW_AllAccountantSalaryDetail" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryDetailRowChangeEvent">
+        <xs:element name="VW_AllAccountantSalaryDetail" msprop:Generator_TableClassName="VW_AllAccountantSalaryDetailDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalaryDetail" msprop:Generator_TablePropName="VW_AllAccountantSalaryDetail" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryDetailRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryDetailRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryDetailRowDeleted" msprop:Generator_UserTableName="VW_AllAccountantSalaryDetail" msprop:Generator_RowChangedName="VW_AllAccountantSalaryDetailRowChanged" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryDetailRowChangeEvent" msprop:Generator_RowClassName="VW_AllAccountantSalaryDetailRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="员工" msprop:Generator_ColumnVarNameInTable="column员工" msprop:Generator_ColumnPropNameInRow="员工" msprop:Generator_ColumnPropNameInTable="员工Column" msprop:Generator_UserColumnName="员工" minOccurs="0">
@@ -260,7 +261,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_AllAccountantSalaryDetailZ" msprop:Generator_TableClassName="VW_AllAccountantSalaryDetailZDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalaryDetailZ" msprop:Generator_RowChangedName="VW_AllAccountantSalaryDetailZRowChanged" msprop:Generator_TablePropName="VW_AllAccountantSalaryDetailZ" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryDetailZRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryDetailZRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryDetailZRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryDetailZRowDeleted" msprop:Generator_RowClassName="VW_AllAccountantSalaryDetailZRow" msprop:Generator_UserTableName="VW_AllAccountantSalaryDetailZ" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryDetailZRowChangeEvent">
+        <xs:element name="VW_AllAccountantSalaryDetailZ" msprop:Generator_TableClassName="VW_AllAccountantSalaryDetailZDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalaryDetailZ" msprop:Generator_TablePropName="VW_AllAccountantSalaryDetailZ" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryDetailZRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryDetailZRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryDetailZRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryDetailZRowDeleted" msprop:Generator_UserTableName="VW_AllAccountantSalaryDetailZ" msprop:Generator_RowChangedName="VW_AllAccountantSalaryDetailZRowChanged" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryDetailZRowChangeEvent" msprop:Generator_RowClassName="VW_AllAccountantSalaryDetailZRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="员工" msprop:Generator_ColumnVarNameInTable="column员工" msprop:Generator_ColumnPropNameInRow="员工" msprop:Generator_ColumnPropNameInTable="员工Column" msprop:Generator_UserColumnName="员工" minOccurs="0">
@@ -292,7 +293,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_AllAccountantSalaryTeacher" msprop:Generator_TableClassName="VW_AllAccountantSalaryTeacherDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalaryTeacher" msprop:Generator_RowChangedName="VW_AllAccountantSalaryTeacherRowChanged" msprop:Generator_TablePropName="VW_AllAccountantSalaryTeacher" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryTeacherRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryTeacherRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryTeacherRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryTeacherRowDeleted" msprop:Generator_RowClassName="VW_AllAccountantSalaryTeacherRow" msprop:Generator_UserTableName="VW_AllAccountantSalaryTeacher" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryTeacherRowChangeEvent">
+        <xs:element name="VW_AllAccountantSalaryTeacher" msprop:Generator_TableClassName="VW_AllAccountantSalaryTeacherDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalaryTeacher" msprop:Generator_TablePropName="VW_AllAccountantSalaryTeacher" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryTeacherRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryTeacherRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryTeacherRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryTeacherRowDeleted" msprop:Generator_UserTableName="VW_AllAccountantSalaryTeacher" msprop:Generator_RowChangedName="VW_AllAccountantSalaryTeacherRowChanged" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryTeacherRowChangeEvent" msprop:Generator_RowClassName="VW_AllAccountantSalaryTeacherRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="员工" msprop:Generator_ColumnVarNameInTable="column员工" msprop:Generator_ColumnPropNameInRow="员工" msprop:Generator_ColumnPropNameInTable="员工Column" msprop:Generator_UserColumnName="员工" minOccurs="0">
@@ -326,7 +327,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="VW_AllAccountantSalaryUser" msprop:Generator_TableClassName="VW_AllAccountantSalaryUserDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalaryUser" msprop:Generator_RowChangedName="VW_AllAccountantSalaryUserRowChanged" msprop:Generator_TablePropName="VW_AllAccountantSalaryUser" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryUserRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryUserRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryUserRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryUserRowDeleted" msprop:Generator_RowClassName="VW_AllAccountantSalaryUserRow" msprop:Generator_UserTableName="VW_AllAccountantSalaryUser" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryUserRowChangeEvent">
+        <xs:element name="VW_AllAccountantSalaryUser" msprop:Generator_TableClassName="VW_AllAccountantSalaryUserDataTable" msprop:Generator_TableVarName="tableVW_AllAccountantSalaryUser" msprop:Generator_TablePropName="VW_AllAccountantSalaryUser" msprop:Generator_RowDeletingName="VW_AllAccountantSalaryUserRowDeleting" msprop:Generator_RowChangingName="VW_AllAccountantSalaryUserRowChanging" msprop:Generator_RowEvHandlerName="VW_AllAccountantSalaryUserRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_AllAccountantSalaryUserRowDeleted" msprop:Generator_UserTableName="VW_AllAccountantSalaryUser" msprop:Generator_RowChangedName="VW_AllAccountantSalaryUserRowChanged" msprop:Generator_RowEvArgName="VW_AllAccountantSalaryUserRowChangeEvent" msprop:Generator_RowClassName="VW_AllAccountantSalaryUserRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="USERID" msdata:Caption="" msprop:Generator_ColumnVarNameInTable="columnUSERID" msprop:Generator_ColumnPropNameInRow="USERID" msprop:Generator_ColumnPropNameInTable="USERIDColumn" msprop:Generator_UserColumnName="USERID" minOccurs="0">
@@ -351,7 +352,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TW_SalarySumReg" msprop:Generator_TableClassName="TW_SalarySumRegDataTable" msprop:Generator_TableVarName="tableTW_SalarySumReg" msprop:Generator_TablePropName="TW_SalarySumReg" msprop:Generator_RowDeletingName="TW_SalarySumRegRowDeleting" msprop:Generator_RowChangingName="TW_SalarySumRegRowChanging" msprop:Generator_RowEvHandlerName="TW_SalarySumRegRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_SalarySumRegRowDeleted" msprop:Generator_UserTableName="TW_SalarySumReg" msprop:Generator_RowChangedName="TW_SalarySumRegRowChanged" msprop:Generator_RowEvArgName="TW_SalarySumRegRowChangeEvent" msprop:Generator_RowClassName="TW_SalarySumRegRow">
+        <xs:element name="TW_SalarySumReg" msprop:Generator_TableClassName="TW_SalarySumRegDataTable" msprop:Generator_TableVarName="tableTW_SalarySumReg" msprop:Generator_RowChangedName="TW_SalarySumRegRowChanged" msprop:Generator_TablePropName="TW_SalarySumReg" msprop:Generator_RowDeletingName="TW_SalarySumRegRowDeleting" msprop:Generator_RowChangingName="TW_SalarySumRegRowChanging" msprop:Generator_RowEvHandlerName="TW_SalarySumRegRowChangeEventHandler" msprop:Generator_RowDeletedName="TW_SalarySumRegRowDeleted" msprop:Generator_RowClassName="TW_SalarySumRegRow" msprop:Generator_UserTableName="TW_SalarySumReg" msprop:Generator_RowEvArgName="TW_SalarySumRegRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TW_SalarySumID" msprop:Generator_ColumnVarNameInTable="columnTW_SalarySumID" msprop:Generator_ColumnPropNameInRow="TW_SalarySumID" msprop:Generator_ColumnPropNameInTable="TW_SalarySumIDColumn" msprop:Generator_UserColumnName="TW_SalarySumID">
@@ -434,6 +435,29 @@
               </xs:element>
               <xs:element name="注册类型" msprop:Generator_ColumnVarNameInTable="column注册类型" msprop:Generator_ColumnPropNameInRow="注册类型" msprop:Generator_ColumnPropNameInTable="注册类型Column" msprop:Generator_UserColumnName="注册类型" type="xs:string" minOccurs="0" />
               <xs:element name="业务提成" msprop:Generator_ColumnVarNameInTable="column业务提成" msprop:Generator_ColumnPropNameInRow="业务提成" msprop:Generator_ColumnPropNameInTable="业务提成Column" msprop:Generator_UserColumnName="业务提成" type="xs:decimal" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VW_GBTC" msprop:Generator_TableClassName="VW_GBTCDataTable" msprop:Generator_TableVarName="tableVW_GBTC" msprop:Generator_TablePropName="VW_GBTC" msprop:Generator_RowDeletingName="VW_GBTCRowDeleting" msprop:Generator_RowChangingName="VW_GBTCRowChanging" msprop:Generator_RowEvHandlerName="VW_GBTCRowChangeEventHandler" msprop:Generator_RowDeletedName="VW_GBTCRowDeleted" msprop:Generator_UserTableName="VW_GBTC" msprop:Generator_RowChangedName="VW_GBTCRowChanged" msprop:Generator_RowEvArgName="VW_GBTCRowChangeEvent" msprop:Generator_RowClassName="VW_GBTCRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="年" msprop:Generator_ColumnVarNameInTable="column年" msprop:Generator_ColumnPropNameInRow="年" msprop:Generator_ColumnPropNameInTable="年Column" msprop:Generator_UserColumnName="年" type="xs:int" minOccurs="0" />
+              <xs:element name="做账会计ID" msprop:Generator_ColumnVarNameInTable="column做账会计ID" msprop:Generator_ColumnPropNameInRow="做账会计ID" msprop:Generator_ColumnPropNameInTable="做账会计IDColumn" msprop:Generator_UserColumnName="做账会计ID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="做账会计" msprop:Generator_ColumnVarNameInTable="column做账会计" msprop:Generator_ColumnPropNameInRow="做账会计" msprop:Generator_ColumnPropNameInTable="做账会计Column" msprop:Generator_UserColumnName="做账会计" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="工本开票费" msprop:Generator_ColumnVarNameInTable="column工本开票费" msprop:Generator_ColumnPropNameInRow="工本开票费" msprop:Generator_ColumnPropNameInTable="工本开票费Column" msprop:Generator_UserColumnName="工本开票费" type="xs:decimal" minOccurs="0" />
+              <xs:element name="工本开票提成" msprop:Generator_ColumnVarNameInTable="column工本开票提成" msprop:Generator_ColumnPropNameInRow="工本开票提成" msprop:Generator_ColumnPropNameInTable="工本开票提成Column" msprop:Generator_UserColumnName="工本开票提成" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

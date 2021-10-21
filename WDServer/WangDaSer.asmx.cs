@@ -5296,6 +5296,30 @@ from
         }
        
 
+        /// <summary>
+        /// 获取工本费开票费
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetGongbenKaipiao(string year,string userId,string deptName)
+        {
+            string strSql = string.Format("select * from VW_工本开票费提成 where 年 = '{0}'", year);
+            if (!string.IsNullOrEmpty(userId))
+            {
+                strSql += " and 做账会计ID='"+ userId +"'";
+            }
+            if (!string.IsNullOrEmpty(deptName))
+            {
+                strSql += " and DEPTNAME='" + deptName + "'";
+            }
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "VW_工本开票费提成");
+            return dst;
+        }
+
+        
 
 
     }

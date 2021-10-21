@@ -298,6 +298,16 @@ namespace WangDaDll.SalaryServer
 
         }
 
+        /// <summary>
+        /// 获取开票工本费
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="userId"></param>
+        public void GetGongbenKaipiao(string year, string userId)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetGongbenKaipiao(year, userId);
+            DataManager.ImpDataSet(dst.Tables["VW_工本开票费提成"], this.VW_GBTC);
+        }
 
     }
 

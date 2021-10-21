@@ -223,6 +223,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetYingShou", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetYingShou(string beginDate, string endDate, string clientName, string userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenKaipiao", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetGongbenKaipiao(string year, string userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -458,6 +462,10 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetYingShou(string beginDate, string endDate, string clientName, string userid) {
             return base.Channel.GetYingShou(beginDate, endDate, clientName, userid);
+        }
+        
+        public System.Data.DataSet GetGongbenKaipiao(string year, string userId) {
+            return base.Channel.GetGongbenKaipiao(year, userId);
         }
     }
 }

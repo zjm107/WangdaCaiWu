@@ -32,7 +32,17 @@ namespace WangDaDll
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.vW_GBTCGridControl = new DevExpress.XtraGrid.GridControl();
+            this.vW_GBTCBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.salaryDataSet1 = new WangDaDll.SalaryServer.SalaryDataSet();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnSCYJ = new DevExpress.XtraEditors.SimpleButton();
+            this.vW_工本开票费提成GridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col年 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col做账会计 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col工本开票费 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col工本开票提成 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnSaveLayout = new DevExpress.XtraEditors.SimpleButton();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnViewDetail = new DevExpress.XtraEditors.SimpleButton();
@@ -42,7 +52,6 @@ namespace WangDaDll
             this.monthComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.vW_AllAccountantSalaryGridControl = new DevExpress.XtraGrid.GridControl();
             this.vW_AllAccountantSalaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.salaryDataSet = new WangDaDll.SalaryServer.SalaryDataSet();
             this.vW_AllAccountantSalaryGridview = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col员工 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col做账收款额 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,8 +71,8 @@ namespace WangDaDll
             this.col业务团队提成 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col团队总提成 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -73,21 +82,32 @@ namespace WangDaDll
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             this.tW_SalarySumBindingSourceYW = new System.Windows.Forms.BindingSource(this.components);
-            this.salaryDataSetYW = new WangDaDll.SalaryServer.SalaryDataSet();
+            this.salaryDataSet2 = new WangDaDll.SalaryServer.SalaryDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vW_GBTCGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vW_GBTCBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vW_工本开票费提成GridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountantBtn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yearSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthComboBoxEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vW_AllAccountantSalaryGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vW_AllAccountantSalaryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vW_AllAccountantSalaryGridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
@@ -97,13 +117,21 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumBindingSourceYW)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSetYW)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.vW_GBTCGridControl);
             this.layoutControl1.Controls.Add(this.btnSCYJ);
+            this.layoutControl1.Controls.Add(this.vW_工本开票费提成GridControl);
             this.layoutControl1.Controls.Add(this.btnSaveLayout);
             this.layoutControl1.Controls.Add(this.btnClear);
             this.layoutControl1.Controls.Add(this.btnViewDetail);
@@ -114,13 +142,41 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.vW_AllAccountantSalaryGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.layoutControlGroup4});
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(342, 283, 829, 636);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(870, 562);
+            this.layoutControl1.Size = new System.Drawing.Size(981, 673);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // vW_GBTCGridControl
+            // 
+            this.vW_GBTCGridControl.DataSource = this.vW_GBTCBindingSource;
+            this.vW_GBTCGridControl.Location = new System.Drawing.Point(12, 640);
+            this.vW_GBTCGridControl.MainView = this.gridView2;
+            this.vW_GBTCGridControl.Name = "vW_GBTCGridControl";
+            this.vW_GBTCGridControl.Size = new System.Drawing.Size(957, 21);
+            this.vW_GBTCGridControl.TabIndex = 14;
+            this.vW_GBTCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // vW_GBTCBindingSource
+            // 
+            this.vW_GBTCBindingSource.DataMember = "VW_GBTC";
+            this.vW_GBTCBindingSource.DataSource = this.salaryDataSet1;
+            // 
+            // salaryDataSet1
+            // 
+            this.salaryDataSet1.DataSetName = "SalaryDataSet";
+            this.salaryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.vW_GBTCGridControl;
+            this.gridView2.Name = "gridView2";
             // 
             // btnSCYJ
             // 
@@ -131,6 +187,176 @@ namespace WangDaDll
             this.btnSCYJ.TabIndex = 12;
             this.btnSCYJ.Text = "生成业绩";
             this.btnSCYJ.Click += new System.EventHandler(this.btnSCYJ_Click);
+            // 
+            // vW_工本开票费提成GridControl
+            // 
+            this.vW_工本开票费提成GridControl.DataSource = this.vW_GBTCBindingSource;
+            this.vW_工本开票费提成GridControl.Location = new System.Drawing.Point(24, 97);
+            this.vW_工本开票费提成GridControl.MainView = this.gridView1;
+            this.vW_工本开票费提成GridControl.Name = "vW_工本开票费提成GridControl";
+            this.vW_工本开票费提成GridControl.Size = new System.Drawing.Size(933, 527);
+            this.vW_工本开票费提成GridControl.TabIndex = 13;
+            this.vW_工本开票费提成GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.ColumnFilterButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView1.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.ColumnFilterButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView1.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.gridView1.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.gridView1.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.gridView1.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.ColumnFilterButtonActive.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(190)))), ((int)(((byte)(243)))));
+            this.gridView1.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.ColumnFilterButtonActive.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
+            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
+            this.gridView1.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
+            this.gridView1.Appearance.Empty.BackColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.Empty.Options.UseBackColor = true;
+            this.gridView1.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(242)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.EvenRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.EvenRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.FilterCloseButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView1.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.FilterCloseButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView1.Appearance.FilterCloseButton.Options.UseBackColor = true;
+            this.gridView1.Appearance.FilterCloseButton.Options.UseBorderColor = true;
+            this.gridView1.Appearance.FilterCloseButton.Options.UseForeColor = true;
+            this.gridView1.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
+            this.gridView1.Appearance.FilterPanel.ForeColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.FilterPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.FilterPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.gridView1.Appearance.FixedLine.Options.UseBackColor = true;
+            this.gridView1.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gridView1.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.gridView1.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(106)))), ((int)(((byte)(197)))));
+            this.gridView1.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView1.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView1.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.gridView1.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView1.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView1.Appearance.GroupButton.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.GroupButton.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.gridView1.Appearance.GroupButton.Options.UseForeColor = true;
+            this.gridView1.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView1.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView1.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.gridView1.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.gridView1.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
+            this.gridView1.Appearance.GroupPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView1.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.gridView1.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.GroupRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.gridView1.Appearance.GroupRow.Options.UseFont = true;
+            this.gridView1.Appearance.GroupRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.gridView1.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.gridView1.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.gridView1.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.gridView1.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridView1.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(153)))), ((int)(((byte)(228)))));
+            this.gridView1.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(224)))), ((int)(((byte)(251)))));
+            this.gridView1.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
+            this.gridView1.Appearance.HorzLine.Options.UseBackColor = true;
+            this.gridView1.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.OddRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.OddRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
+            this.gridView1.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(129)))), ((int)(((byte)(185)))));
+            this.gridView1.Appearance.Preview.Options.UseBackColor = true;
+            this.gridView1.Appearance.Preview.Options.UseForeColor = true;
+            this.gridView1.Appearance.Row.BackColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.gridView1.Appearance.Row.Options.UseBackColor = true;
+            this.gridView1.Appearance.Row.Options.UseForeColor = true;
+            this.gridView1.Appearance.RowSeparator.BackColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.gridView1.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(126)))), ((int)(((byte)(217)))));
+            this.gridView1.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.gridView1.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView1.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.gridView1.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
+            this.gridView1.Appearance.VertLine.Options.UseBackColor = true;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col年,
+            this.col做账会计,
+            this.col工本开票费,
+            this.col工本开票提成});
+            this.gridView1.GridControl = this.vW_工本开票费提成GridControl;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ColumnAutoWidth = false;
+            this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridView1.OptionsView.EnableAppearanceOddRow = true;
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.PaintStyleName = "Flat";
+            // 
+            // col年
+            // 
+            this.col年.FieldName = "年";
+            this.col年.Name = "col年";
+            this.col年.Visible = true;
+            this.col年.VisibleIndex = 0;
+            // 
+            // col做账会计
+            // 
+            this.col做账会计.FieldName = "做账会计";
+            this.col做账会计.Name = "col做账会计";
+            this.col做账会计.Visible = true;
+            this.col做账会计.VisibleIndex = 1;
+            // 
+            // col工本开票费
+            // 
+            this.col工本开票费.FieldName = "工本开票费";
+            this.col工本开票费.Name = "col工本开票费";
+            this.col工本开票费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "工本开票费", "{0:0.##}")});
+            this.col工本开票费.Visible = true;
+            this.col工本开票费.VisibleIndex = 2;
+            this.col工本开票费.Width = 109;
+            // 
+            // col工本开票提成
+            // 
+            this.col工本开票提成.FieldName = "工本开票提成";
+            this.col工本开票提成.Name = "col工本开票提成";
+            this.col工本开票提成.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "工本开票提成", "{0:0.##}")});
+            this.col工本开票提成.Visible = true;
+            this.col工本开票提成.VisibleIndex = 3;
+            this.col工本开票提成.Width = 204;
             // 
             // btnSaveLayout
             // 
@@ -226,10 +452,10 @@ namespace WangDaDll
             // 
             this.vW_AllAccountantSalaryGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.vW_AllAccountantSalaryGridControl.DataSource = this.vW_AllAccountantSalaryBindingSource;
-            this.vW_AllAccountantSalaryGridControl.Location = new System.Drawing.Point(12, 62);
+            this.vW_AllAccountantSalaryGridControl.Location = new System.Drawing.Point(24, 97);
             this.vW_AllAccountantSalaryGridControl.MainView = this.vW_AllAccountantSalaryGridview;
             this.vW_AllAccountantSalaryGridControl.Name = "vW_AllAccountantSalaryGridControl";
-            this.vW_AllAccountantSalaryGridControl.Size = new System.Drawing.Size(846, 488);
+            this.vW_AllAccountantSalaryGridControl.Size = new System.Drawing.Size(933, 527);
             this.vW_AllAccountantSalaryGridControl.TabIndex = 4;
             this.vW_AllAccountantSalaryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vW_AllAccountantSalaryGridview});
@@ -238,12 +464,7 @@ namespace WangDaDll
             // vW_AllAccountantSalaryBindingSource
             // 
             this.vW_AllAccountantSalaryBindingSource.DataMember = "VW_AllAccountantSalary";
-            this.vW_AllAccountantSalaryBindingSource.DataSource = this.salaryDataSet;
-            // 
-            // salaryDataSet
-            // 
-            this.salaryDataSet.DataSetName = "SalaryDataSet";
-            this.salaryDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.vW_AllAccountantSalaryBindingSource.DataSource = this.salaryDataSet1;
             // 
             // vW_AllAccountantSalaryGridview
             // 
@@ -580,13 +801,18 @@ namespace WangDaDll
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
+            // layoutControlGroup4
+            // 
+            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup4.Name = "layoutControlGroup4";
+            this.layoutControlGroup4.Size = new System.Drawing.Size(937, 531);
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.CustomizationFormText = "layoutControlGroup1";
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem4,
@@ -595,21 +821,13 @@ namespace WangDaDll
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.emptySpaceItem2,
-            this.layoutControlItem8});
+            this.layoutControlItem8,
+            this.tabbedControlGroup1,
+            this.layoutControlItem11});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(870, 562);
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(981, 673);
             this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.vW_AllAccountantSalaryGridControl;
-            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 50);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(850, 492);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
@@ -656,7 +874,7 @@ namespace WangDaDll
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(433, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(417, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(528, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -704,7 +922,7 @@ namespace WangDaDll
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(372, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(478, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(589, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem8
@@ -720,37 +938,99 @@ namespace WangDaDll
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
+            // tabbedControlGroup1
+            // 
+            this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 50);
+            this.tabbedControlGroup1.Name = "tabbedControlGroup1";
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(961, 578);
+            this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlGroup2,
+            this.layoutControlGroup3});
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem10});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Name = "layoutControlGroup3";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(937, 531);
+            this.layoutControlGroup3.Text = "年工本开票提成";
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.vW_工本开票费提成GridControl;
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(937, 531);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
+            // 
+            // layoutControlGroup2
+            // 
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(937, 531);
+            this.layoutControlGroup2.Text = "月提成统计";
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.vW_AllAccountantSalaryGridControl;
+            this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(937, 531);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem11
+            // 
+            this.layoutControlItem11.Control = this.vW_GBTCGridControl;
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 628);
+            this.layoutControlItem11.Name = "layoutControlItem11";
+            this.layoutControlItem11.Size = new System.Drawing.Size(961, 25);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem11.TextVisible = false;
+            // 
             // tW_SalarySumBindingSourceYW
             // 
             this.tW_SalarySumBindingSourceYW.DataMember = "TW_SalarySum";
-            this.tW_SalarySumBindingSourceYW.DataSource = this.salaryDataSetYW;
+            this.tW_SalarySumBindingSourceYW.DataSource = this.salaryDataSet2;
             // 
-            // salaryDataSetYW
+            // salaryDataSet2
             // 
-            this.salaryDataSetYW.DataSetName = "SalaryDataSet";
-            this.salaryDataSetYW.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.salaryDataSet2.DataSetName = "SalaryDataSet";
+            this.salaryDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // FrmAccountantSalary2021
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 562);
+            this.ClientSize = new System.Drawing.Size(981, 673);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FrmAccountantSalary2021";
             this.Text = "做账会计业绩统计";
             this.Load += new System.EventHandler(this.FrmAccountantSalary2021_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.vW_GBTCGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vW_GBTCBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vW_工本开票费提成GridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountantBtn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yearSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monthComboBoxEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vW_AllAccountantSalaryGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vW_AllAccountantSalaryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vW_AllAccountantSalaryGridview)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
@@ -760,8 +1040,14 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumBindingSourceYW)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSetYW)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -775,7 +1061,7 @@ namespace WangDaDll
         private DevExpress.XtraEditors.ComboBoxEdit monthComboBoxEdit;
         private DevExpress.XtraGrid.GridControl vW_AllAccountantSalaryGridControl;
         private System.Windows.Forms.BindingSource vW_AllAccountantSalaryBindingSource;
-        private SalaryDataSet salaryDataSet;
+       
         private DevExpress.XtraGrid.Views.Grid.GridView vW_AllAccountantSalaryGridview;
         private DevExpress.XtraGrid.Columns.GridColumn col员工;
         private DevExpress.XtraGrid.Columns.GridColumn col做账收款额;
@@ -785,7 +1071,6 @@ namespace WangDaDll
         private DevExpress.XtraGrid.Columns.GridColumn col工本费开票费提成;
         private DevExpress.XtraGrid.Columns.GridColumn col团队提成;
         private DevExpress.XtraGrid.Columns.GridColumn col学徒提成;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
@@ -804,7 +1089,7 @@ namespace WangDaDll
         private DevExpress.XtraEditors.SimpleButton btnSCYJ;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private System.Windows.Forms.BindingSource tW_SalarySumBindingSourceYW;
-        private SalaryDataSet salaryDataSetYW;
+     
         private DevExpress.XtraGrid.Columns.GridColumn col业务提成;
         private DevExpress.XtraSplashScreen.SplashScreenManager splash;
         private DevExpress.XtraGrid.Columns.GridColumn col成长版;
@@ -813,5 +1098,23 @@ namespace WangDaDll
         private DevExpress.XtraGrid.Columns.GridColumn col其他一次性业务;
         private DevExpress.XtraGrid.Columns.GridColumn col业务团队提成;
         private DevExpress.XtraGrid.Columns.GridColumn col团队总提成;
+        private DevExpress.XtraLayout.TabbedControlGroup tabbedControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraGrid.GridControl vW_工本开票费提成GridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
+        private DevExpress.XtraGrid.GridControl vW_GBTCGridControl;
+        private System.Windows.Forms.BindingSource vW_GBTCBindingSource;
+        private SalaryDataSet salaryDataSet1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
+        private DevExpress.XtraGrid.Columns.GridColumn col年;
+        private DevExpress.XtraGrid.Columns.GridColumn col做账会计;
+        private DevExpress.XtraGrid.Columns.GridColumn col工本开票费;
+        private DevExpress.XtraGrid.Columns.GridColumn col工本开票提成;
+        private SalaryDataSet salaryDataSet2;
     }
 }

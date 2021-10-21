@@ -46,7 +46,7 @@ namespace WangDaDll
                 {
                     salaryDataSet1.GetAccountantSum(year, month, "","");
                     salaryDataSet2.GetAllBusinessSumOther2021(year, month, "", "","");
-                    salaryDataSet1.GetGongbenKaipiao(year, "");
+                    salaryDataSet1.GetGongbenKaipiao(year, "","");
                     foreach (DataRow row in salaryDataSet2.VW_AllBusinessSalary.Rows)
                     {
                         string userName = row["员工"].ToString();
@@ -75,7 +75,8 @@ namespace WangDaDll
                 }
                 else if (Security.UserBusiness.Contains("二级部门经理"))
                     {
-                        salaryDataSet1.GetAccountantSum(year, month, "", Security.DeptID);  //获取做账提层
+                    salaryDataSet1.GetGongbenKaipiao(year, "", Security.DeptName);
+                    salaryDataSet1.GetAccountantSum(year, month, "", Security.DeptID);  //获取做账提层
                         salaryDataSet2.GetAllBusinessSumOther2021(year, month, "", "",Security.DeptID);   //获取业务提成
                         //合并计算提层
                         foreach (DataRow row in salaryDataSet2.VW_AllBusinessSalary.Rows)
@@ -106,7 +107,7 @@ namespace WangDaDll
                     }
                     else
                     {
-                    salaryDataSet1.GetGongbenKaipiao(year, Security.UserID );
+                    salaryDataSet1.GetGongbenKaipiao(year, Security.UserID,"" );
                     salaryDataSet1.GetAccountantSum(year, month, Security.UserName,"");
                         salaryDataSet2.GetAllBusinessSumOther2021(year, month,Security.UserID, Security.UserName,"");
                         DataRow arow  = salaryDataSet2.VW_AllBusinessSalary.Rows[0];

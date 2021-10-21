@@ -226,7 +226,7 @@ namespace WangDaDll.WangDaReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenKaipiao", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetGongbenKaipiao(string year, string userId);
+        System.Data.DataSet GetGongbenKaipiao(string year, string userId, string deptName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -464,8 +464,8 @@ namespace WangDaDll.WangDaReference {
             return base.Channel.GetYingShou(beginDate, endDate, clientName, userid);
         }
         
-        public System.Data.DataSet GetGongbenKaipiao(string year, string userId) {
-            return base.Channel.GetGongbenKaipiao(year, userId);
+        public System.Data.DataSet GetGongbenKaipiao(string year, string userId, string deptName) {
+            return base.Channel.GetGongbenKaipiao(year, userId, deptName);
         }
     }
 }

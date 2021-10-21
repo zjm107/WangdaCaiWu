@@ -467,6 +467,7 @@
       <DependentUpon>FXDataSet.xsd</DependentUpon>
     </None>
     <None Include="Connected Services\BaseSerReference\BaseSer.disco" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="SalaryServer\SalaryDataSet.xsc">
       <DependentUpon>SalaryDataSet.xsd</DependentUpon>
     </None>
@@ -737,8 +738,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

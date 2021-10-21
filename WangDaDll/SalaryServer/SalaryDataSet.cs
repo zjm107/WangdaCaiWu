@@ -303,9 +303,9 @@ namespace WangDaDll.SalaryServer
         /// </summary>
         /// <param name="year"></param>
         /// <param name="userId"></param>
-        public void GetGongbenKaipiao(string year, string userId)
+        public void GetGongbenKaipiao(int year, string userId,string deptName)
         {
-            DataSet dst = DBHelper.WangDaSer.GetGongbenKaipiao(year, userId);
+            DataSet dst = DBHelper.WangDaSer.GetGongbenKaipiao(year.ToString(), userId, deptName);
             DataManager.ImpDataSet(dst.Tables["VW_工本开票费提成"], this.VW_GBTC);
         }
 

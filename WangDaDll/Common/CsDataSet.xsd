@@ -182,6 +182,9 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="月收费标准" msprop:Generator_ColumnVarNameInTable="column月收费标准" msprop:Generator_ColumnPropNameInRow="月收费标准" msprop:Generator_ColumnPropNameInTable="月收费标准Column" msprop:Generator_UserColumnName="月收费标准" type="xs:decimal" minOccurs="0" />
+              <xs:element name="做账时间" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column做账时间" msprop:Generator_ColumnPropNameInRow="做账时间" msprop:Generator_ColumnPropNameInTable="做账时间Column" msprop:Generator_UserColumnName="做账时间" type="xs:int" minOccurs="0" />
+              <xs:element name="年龄" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column年龄" msprop:Generator_ColumnPropNameInRow="年龄" msprop:Generator_ColumnPropNameInTable="年龄Column" msprop:Generator_UserColumnName="年龄" type="xs:int" minOccurs="0" />
+              <xs:element name="预警生日" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="column预警生日" msprop:Generator_ColumnPropNameInRow="预警生日" msprop:Generator_ColumnPropNameInTable="预警生日Column" msprop:Generator_UserColumnName="预警生日" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

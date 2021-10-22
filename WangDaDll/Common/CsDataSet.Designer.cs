@@ -345,6 +345,12 @@ namespace WangDaDll.Common {
             
             private global::System.Data.DataColumn column月收费标准;
             
+            private global::System.Data.DataColumn column做账时间;
+            
+            private global::System.Data.DataColumn column年龄;
+            
+            private global::System.Data.DataColumn column预警生日;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TW_ClientDataTable() {
@@ -644,6 +650,30 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 做账时间Column {
+                get {
+                    return this.column做账时间;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 年龄Column {
+                get {
+                    return this.column年龄;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 预警生日Column {
+                get {
+                    return this.column预警生日;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -712,7 +742,10 @@ namespace WangDaDll.Common {
                         string 合同编号, 
                         System.DateTime 合同到期时间, 
                         string 客户状态, 
-                        decimal 月收费标准) {
+                        decimal 月收费标准, 
+                        int 做账时间, 
+                        int 年龄, 
+                        System.DateTime 预警生日) {
                 TW_ClientRow rowTW_ClientRow = ((TW_ClientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         客户名称,
@@ -747,7 +780,10 @@ namespace WangDaDll.Common {
                         合同编号,
                         合同到期时间,
                         客户状态,
-                        月收费标准};
+                        月收费标准,
+                        做账时间,
+                        年龄,
+                        预警生日};
                 rowTW_ClientRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTW_ClientRow);
                 return rowTW_ClientRow;
@@ -810,6 +846,9 @@ namespace WangDaDll.Common {
                 this.column合同到期时间 = base.Columns["合同到期时间"];
                 this.column客户状态 = base.Columns["客户状态"];
                 this.column月收费标准 = base.Columns["月收费标准"];
+                this.column做账时间 = base.Columns["做账时间"];
+                this.column年龄 = base.Columns["年龄"];
+                this.column预警生日 = base.Columns["预警生日"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -881,6 +920,12 @@ namespace WangDaDll.Common {
                 base.Columns.Add(this.column客户状态);
                 this.column月收费标准 = new global::System.Data.DataColumn("月收费标准", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column月收费标准);
+                this.column做账时间 = new global::System.Data.DataColumn("做账时间", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column做账时间);
+                this.column年龄 = new global::System.Data.DataColumn("年龄", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column年龄);
+                this.column预警生日 = new global::System.Data.DataColumn("预警生日", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column预警生日);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.column客户名称ID}, true));
                 this.column客户名称.MaxLength = 200;
@@ -907,6 +952,9 @@ namespace WangDaDll.Common {
                 this.column客户名称ID.MaxLength = 50;
                 this.column合同编号.MaxLength = 50;
                 this.column客户状态.MaxLength = 50;
+                this.column做账时间.ReadOnly = true;
+                this.column年龄.ReadOnly = true;
+                this.column预警生日.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1572,6 +1620,54 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int 做账时间 {
+                get {
+                    try {
+                        return ((int)(this[this.tableTW_Client.做账时间Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_Client”中列“做账时间”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_Client.做账时间Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int 年龄 {
+                get {
+                    try {
+                        return ((int)(this[this.tableTW_Client.年龄Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_Client”中列“年龄”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_Client.年龄Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime 预警生日 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTW_Client.预警生日Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_Client”中列“预警生日”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_Client.预警生日Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is客户名称Null() {
                 return this.IsNull(this.tableTW_Client.客户名称Column);
             }
@@ -1952,6 +2048,42 @@ namespace WangDaDll.Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set月收费标准Null() {
                 this[this.tableTW_Client.月收费标准Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is做账时间Null() {
+                return this.IsNull(this.tableTW_Client.做账时间Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set做账时间Null() {
+                this[this.tableTW_Client.做账时间Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is年龄Null() {
+                return this.IsNull(this.tableTW_Client.年龄Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set年龄Null() {
+                this[this.tableTW_Client.年龄Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is预警生日Null() {
+                return this.IsNull(this.tableTW_Client.预警生日Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set预警生日Null() {
+                this[this.tableTW_Client.预警生日Column] = global::System.Convert.DBNull;
             }
         }
         

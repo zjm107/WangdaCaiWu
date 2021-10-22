@@ -186,7 +186,7 @@ and TW_Client.初始做账时间 is not null )";
         /// <param name="accountant">做账会计</param>
         /// <returns></returns>
         [WebMethod]
-        public DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant)
+        public DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant,string clientState)
         {
             try
             {
@@ -210,6 +210,17 @@ and TW_Client.初始做账时间 is not null )";
                 if (!string.IsNullOrEmpty(accountant))
                 {
                     strSql += " and (业务员 like '%" + accountant + "%' or 注册员 like '%" + accountant + "%' or 做账会计 like '%" + accountant + "%')";
+                }
+
+                if (!string.IsNullOrEmpty(clientState))
+                {
+                    strSql += " and isnull(客户状态,'')='"+ clientState +"'";
+                }
+                else {
+                    strSql += @" and isnull(客户状态,'')<>'转让'
+                                and isnull(客户状态,'')<> '注销'
+                                and isnull(客户状态,'')<> '非正常'
+                                and isnull(客户状态,'')<> '取走'";
                 }
                 DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Client");
                 return dst;

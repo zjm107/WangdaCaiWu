@@ -31,19 +31,21 @@ namespace WangDaDll
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
             DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.col客户状态 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col预警生日 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btntb = new DevExpress.XtraEditors.SimpleButton();
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.btnDelFJ = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpload = new DevExpress.XtraEditors.SimpleButton();
             this.btnDownload = new DevExpress.XtraEditors.SimpleButton();
             this.tF_FILEGridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.HTtF_FILEBindingSource = new System.Windows.Forms.BindingSource();
+            this.HTtF_FILEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.HTfileDataSet = new WangDaDll.Common.FileDataSet();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileByte1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -51,7 +53,7 @@ namespace WangDaDll
             this.colUploader1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUpload_Date1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tF_FILEGridControl = new DevExpress.XtraGrid.GridControl();
-            this.tF_FILEBindingSource = new System.Windows.Forms.BindingSource();
+            this.tF_FILEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fileDataSet = new WangDaDll.Common.FileDataSet();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFileByte = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -71,7 +73,7 @@ namespace WangDaDll
             this.公司性质ComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.客户名称TextEdit = new DevExpress.XtraEditors.TextEdit();
             this.tW_ClientGridControl = new DevExpress.XtraGrid.GridControl();
-            this.tW_ClientBindingSource = new System.Windows.Forms.BindingSource();
+            this.tW_ClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.csDataSet = new WangDaDll.Common.CsDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col客户名称 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -134,12 +136,14 @@ namespace WangDaDll
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.btntb = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.col月收费标准 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.客户状态ComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
@@ -192,8 +196,10 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.客户状态ComboBoxEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
             this.SuspendLayout();
             // 
             // col客户状态
@@ -203,7 +209,7 @@ namespace WangDaDll
             this.col客户状态.OptionsColumn.AllowEdit = false;
             this.col客户状态.OptionsColumn.ReadOnly = true;
             this.col客户状态.Visible = true;
-            this.col客户状态.VisibleIndex = 21;
+            this.col客户状态.VisibleIndex = 23;
             // 
             // col预警生日
             // 
@@ -218,6 +224,7 @@ namespace WangDaDll
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.客户状态ComboBoxEdit);
             this.layoutControl1.Controls.Add(this.btntb);
             this.layoutControl1.Controls.Add(this.dateEdit2);
             this.layoutControl1.Controls.Add(this.dateEdit1);
@@ -242,9 +249,19 @@ namespace WangDaDll
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1082, 688);
+            this.layoutControl1.Size = new System.Drawing.Size(1119, 725);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // btntb
+            // 
+            this.btntb.Location = new System.Drawing.Point(112, 60);
+            this.btntb.Name = "btntb";
+            this.btntb.Size = new System.Drawing.Size(87, 22);
+            this.btntb.StyleController = this.layoutControl1;
+            this.btntb.TabIndex = 23;
+            this.btntb.Text = "同步";
+            this.btntb.Click += new System.EventHandler(this.btntb_Click);
             // 
             // dateEdit2
             // 
@@ -311,7 +328,7 @@ namespace WangDaDll
             this.tF_FILEGridControl1.Location = new System.Drawing.Point(24, 121);
             this.tF_FILEGridControl1.MainView = this.gridView3;
             this.tF_FILEGridControl1.Name = "tF_FILEGridControl1";
-            this.tF_FILEGridControl1.Size = new System.Drawing.Size(1034, 543);
+            this.tF_FILEGridControl1.Size = new System.Drawing.Size(1071, 580);
             this.tF_FILEGridControl1.TabIndex = 17;
             this.tF_FILEGridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -499,7 +516,7 @@ namespace WangDaDll
             this.tF_FILEGridControl.Location = new System.Drawing.Point(24, 121);
             this.tF_FILEGridControl.MainView = this.gridView2;
             this.tF_FILEGridControl.Name = "tF_FILEGridControl";
-            this.tF_FILEGridControl.Size = new System.Drawing.Size(1034, 543);
+            this.tF_FILEGridControl.Size = new System.Drawing.Size(1071, 580);
             this.tF_FILEGridControl.TabIndex = 16;
             this.tF_FILEGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -801,7 +818,7 @@ namespace WangDaDll
             this.tW_ClientGridControl.Location = new System.Drawing.Point(24, 121);
             this.tW_ClientGridControl.MainView = this.gridView1;
             this.tW_ClientGridControl.Name = "tW_ClientGridControl";
-            this.tW_ClientGridControl.Size = new System.Drawing.Size(1034, 543);
+            this.tW_ClientGridControl.Size = new System.Drawing.Size(1071, 580);
             this.tW_ClientGridControl.TabIndex = 4;
             this.tW_ClientGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -962,9 +979,10 @@ namespace WangDaDll
             this.col合同编号,
             this.col合同到期时间,
             this.col客户状态,
-            this.col首年提成结束期});
+            this.col首年提成结束期,
+            this.col月收费标准});
             styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            styleFormatCondition4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            styleFormatCondition4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout);
             styleFormatCondition4.Appearance.Options.UseBackColor = true;
             styleFormatCondition4.Appearance.Options.UseFont = true;
             styleFormatCondition4.ApplyToRow = true;
@@ -1043,7 +1061,7 @@ namespace WangDaDll
             this.col成立时间.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col成立时间.Visible = true;
             this.col成立时间.VisibleIndex = 4;
-            this.col成立时间.Width = 66;
+            this.col成立时间.Width = 68;
             // 
             // col公司性质
             // 
@@ -1054,7 +1072,7 @@ namespace WangDaDll
             this.col公司性质.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col公司性质.Visible = true;
             this.col公司性质.VisibleIndex = 5;
-            this.col公司性质.Width = 66;
+            this.col公司性质.Width = 68;
             // 
             // col公司类型
             // 
@@ -1065,7 +1083,7 @@ namespace WangDaDll
             this.col公司类型.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col公司类型.Visible = true;
             this.col公司类型.VisibleIndex = 6;
-            this.col公司类型.Width = 66;
+            this.col公司类型.Width = 68;
             // 
             // col公司地址
             // 
@@ -1087,7 +1105,7 @@ namespace WangDaDll
             this.col客户姓名.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col客户姓名.Visible = true;
             this.col客户姓名.VisibleIndex = 8;
-            this.col客户姓名.Width = 59;
+            this.col客户姓名.Width = 68;
             // 
             // col出生日期
             // 
@@ -1098,7 +1116,7 @@ namespace WangDaDll
             this.col出生日期.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col出生日期.Visible = true;
             this.col出生日期.VisibleIndex = 9;
-            this.col出生日期.Width = 59;
+            this.col出生日期.Width = 68;
             // 
             // col联系电话
             // 
@@ -1109,7 +1127,7 @@ namespace WangDaDll
             this.col联系电话.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col联系电话.Visible = true;
             this.col联系电话.VisibleIndex = 12;
-            this.col联系电话.Width = 59;
+            this.col联系电话.Width = 68;
             // 
             // col年销售额
             // 
@@ -1130,8 +1148,8 @@ namespace WangDaDll
             this.col做账会计.OptionsColumn.ReadOnly = true;
             this.col做账会计.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col做账会计.Visible = true;
-            this.col做账会计.VisibleIndex = 14;
-            this.col做账会计.Width = 67;
+            this.col做账会计.VisibleIndex = 16;
+            this.col做账会计.Width = 68;
             // 
             // col初始做账时间
             // 
@@ -1141,8 +1159,8 @@ namespace WangDaDll
             this.col初始做账时间.OptionsColumn.ReadOnly = true;
             this.col初始做账时间.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col初始做账时间.Visible = true;
-            this.col初始做账时间.VisibleIndex = 15;
-            this.col初始做账时间.Width = 84;
+            this.col初始做账时间.VisibleIndex = 17;
+            this.col初始做账时间.Width = 92;
             // 
             // col收费标准
             // 
@@ -1152,7 +1170,7 @@ namespace WangDaDll
             this.col收费标准.OptionsColumn.ReadOnly = true;
             this.col收费标准.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col收费标准.Visible = true;
-            this.col收费标准.VisibleIndex = 17;
+            this.col收费标准.VisibleIndex = 19;
             this.col收费标准.Width = 71;
             // 
             // col客户分级
@@ -1163,8 +1181,8 @@ namespace WangDaDll
             this.col客户分级.OptionsColumn.ReadOnly = true;
             this.col客户分级.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col客户分级.Visible = true;
-            this.col客户分级.VisibleIndex = 18;
-            this.col客户分级.Width = 63;
+            this.col客户分级.VisibleIndex = 20;
+            this.col客户分级.Width = 68;
             // 
             // col注册员
             // 
@@ -1174,7 +1192,7 @@ namespace WangDaDll
             this.col注册员.OptionsColumn.ReadOnly = true;
             this.col注册员.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col注册员.Visible = true;
-            this.col注册员.VisibleIndex = 19;
+            this.col注册员.VisibleIndex = 21;
             this.col注册员.Width = 57;
             // 
             // col业务员
@@ -1185,8 +1203,8 @@ namespace WangDaDll
             this.col业务员.OptionsColumn.ReadOnly = true;
             this.col业务员.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col业务员.Visible = true;
-            this.col业务员.VisibleIndex = 20;
-            this.col业务员.Width = 46;
+            this.col业务员.VisibleIndex = 22;
+            this.col业务员.Width = 56;
             // 
             // col注册员ID
             // 
@@ -1223,7 +1241,7 @@ namespace WangDaDll
             this.col修改人.OptionsColumn.ReadOnly = true;
             this.col修改人.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col修改人.Visible = true;
-            this.col修改人.VisibleIndex = 23;
+            this.col修改人.VisibleIndex = 25;
             this.col修改人.Width = 56;
             // 
             // col修改时间
@@ -1234,7 +1252,7 @@ namespace WangDaDll
             this.col修改时间.OptionsColumn.ReadOnly = true;
             this.col修改时间.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col修改时间.Visible = true;
-            this.col修改时间.VisibleIndex = 24;
+            this.col修改时间.VisibleIndex = 26;
             this.col修改时间.Width = 68;
             // 
             // col客户名称ID
@@ -1254,7 +1272,7 @@ namespace WangDaDll
             this.col做账时间.OptionsColumn.ReadOnly = true;
             this.col做账时间.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col做账时间.Visible = true;
-            this.col做账时间.VisibleIndex = 16;
+            this.col做账时间.VisibleIndex = 18;
             this.col做账时间.Width = 68;
             // 
             // col年龄
@@ -1276,7 +1294,7 @@ namespace WangDaDll
             this.col零申报.OptionsColumn.ReadOnly = true;
             this.col零申报.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col零申报.Visible = true;
-            this.col零申报.VisibleIndex = 22;
+            this.col零申报.VisibleIndex = 24;
             // 
             // col序号
             // 
@@ -1296,7 +1314,8 @@ namespace WangDaDll
             this.col费用到期月份.OptionsColumn.AllowEdit = false;
             this.col费用到期月份.OptionsColumn.ReadOnly = true;
             this.col费用到期月份.Visible = true;
-            this.col费用到期月份.VisibleIndex = 25;
+            this.col费用到期月份.VisibleIndex = 27;
+            this.col费用到期月份.Width = 92;
             // 
             // col合同编号
             // 
@@ -1305,7 +1324,7 @@ namespace WangDaDll
             this.col合同编号.OptionsColumn.AllowEdit = false;
             this.col合同编号.OptionsColumn.ReadOnly = true;
             this.col合同编号.Visible = true;
-            this.col合同编号.VisibleIndex = 26;
+            this.col合同编号.VisibleIndex = 28;
             // 
             // col合同到期时间
             // 
@@ -1314,7 +1333,8 @@ namespace WangDaDll
             this.col合同到期时间.OptionsColumn.AllowEdit = false;
             this.col合同到期时间.OptionsColumn.ReadOnly = true;
             this.col合同到期时间.Visible = true;
-            this.col合同到期时间.VisibleIndex = 27;
+            this.col合同到期时间.VisibleIndex = 29;
+            this.col合同到期时间.Width = 92;
             // 
             // col首年提成结束期
             // 
@@ -1322,7 +1342,8 @@ namespace WangDaDll
             this.col首年提成结束期.Name = "col首年提成结束期";
             this.col首年提成结束期.OptionsColumn.ReadOnly = true;
             this.col首年提成结束期.Visible = true;
-            this.col首年提成结束期.VisibleIndex = 28;
+            this.col首年提成结束期.VisibleIndex = 15;
+            this.col首年提成结束期.Width = 104;
             // 
             // layoutControlGroup1
             // 
@@ -1352,10 +1373,11 @@ namespace WangDaDll
             this.emptySpaceItem4,
             this.emptySpaceItem3,
             this.emptySpaceItem5,
-            this.layoutControlItem20});
+            this.layoutControlItem20,
+            this.layoutControlItem21});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1082, 688);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1119, 725);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -1442,7 +1464,7 @@ namespace WangDaDll
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(970, 48);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(92, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(129, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem7
@@ -1477,7 +1499,7 @@ namespace WangDaDll
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(900, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(162, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(199, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
@@ -1526,7 +1548,7 @@ namespace WangDaDll
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
             this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
             this.tabbedControlGroup1.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(1062, 594);
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(1099, 631);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
             this.layoutControlGroup3,
@@ -1539,7 +1561,7 @@ namespace WangDaDll
             this.layoutControlItem1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1038, 547);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1075, 584);
             this.layoutControlGroup2.Text = "客户信息";
             // 
             // layoutControlItem1
@@ -1548,7 +1570,7 @@ namespace WangDaDll
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1038, 547);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1075, 584);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -1559,7 +1581,7 @@ namespace WangDaDll
             this.layoutControlItem14});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(1038, 547);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1075, 584);
             this.layoutControlGroup3.Text = "合同信息";
             // 
             // layoutControlItem14
@@ -1568,7 +1590,7 @@ namespace WangDaDll
             this.layoutControlItem14.CustomizationFormText = "layoutControlItem14";
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(1038, 547);
+            this.layoutControlItem14.Size = new System.Drawing.Size(1075, 584);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
             // 
@@ -1579,7 +1601,7 @@ namespace WangDaDll
             this.layoutControlItem13});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(1038, 547);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(1075, 584);
             this.layoutControlGroup4.Text = "档案信息";
             // 
             // layoutControlItem13
@@ -1588,7 +1610,7 @@ namespace WangDaDll
             this.layoutControlItem13.CustomizationFormText = "layoutControlItem13";
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(1038, 547);
+            this.layoutControlItem13.Size = new System.Drawing.Size(1075, 584);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
@@ -1652,45 +1674,26 @@ namespace WangDaDll
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(926, 24);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(989, 24);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(136, 24);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(110, 24);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(591, 24);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(746, 24);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(225, 24);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(155, 24);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(816, 24);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(901, 24);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(110, 24);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(88, 24);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // dstTCONF_WORD
-            // 
-            this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
-            this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            // 
-            // btntb
-            // 
-            this.btntb.Location = new System.Drawing.Point(112, 60);
-            this.btntb.Name = "btntb";
-            this.btntb.Size = new System.Drawing.Size(87, 22);
-            this.btntb.StyleController = this.layoutControl1;
-            this.btntb.TabIndex = 23;
-            this.btntb.Text = "同步";
-            this.btntb.Click += new System.EventHandler(this.btntb_Click);
             // 
             // layoutControlItem20
             // 
@@ -1704,11 +1707,53 @@ namespace WangDaDll
             this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem20.TextVisible = false;
             // 
+            // dstTCONF_WORD
+            // 
+            this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
+            this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
+            // col月收费标准
+            // 
+            this.col月收费标准.FieldName = "月收费标准";
+            this.col月收费标准.Name = "col月收费标准";
+            this.col月收费标准.Visible = true;
+            this.col月收费标准.VisibleIndex = 14;
+            this.col月收费标准.Width = 80;
+            // 
+            // 客户状态ComboBoxEdit
+            // 
+            this.客户状态ComboBoxEdit.Location = new System.Drawing.Point(678, 36);
+            this.客户状态ComboBoxEdit.Name = "客户状态ComboBoxEdit";
+            this.客户状态ComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.客户状态ComboBoxEdit.Properties.Items.AddRange(new object[] {
+            "取走",
+            "注销",
+            "不收",
+            "非正常",
+            "转让"});
+            this.客户状态ComboBoxEdit.Size = new System.Drawing.Size(76, 20);
+            this.客户状态ComboBoxEdit.StyleController = this.layoutControl1;
+            this.客户状态ComboBoxEdit.TabIndex = 45;
+            // 
+            // layoutControlItem21
+            // 
+            this.layoutControlItem21.Control = this.客户状态ComboBoxEdit;
+            this.layoutControlItem21.Location = new System.Drawing.Point(591, 24);
+            this.layoutControlItem21.Name = "layoutControlItem21";
+            this.layoutControlItem21.Size = new System.Drawing.Size(155, 24);
+            this.layoutControlItem21.Text = "客户状态";
+            this.layoutControlItem21.TextSize = new System.Drawing.Size(72, 14);
+            // 
             // FrmClientManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 688);
+            this.ClientSize = new System.Drawing.Size(1119, 725);
             this.Controls.Add(this.layoutControl1);
             this.Name = "FrmClientManager";
             this.Text = "客户信息管理";
@@ -1765,8 +1810,10 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.客户状态ComboBoxEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1879,5 +1926,8 @@ namespace WangDaDll
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraEditors.SimpleButton btntb;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
+        private DevExpress.XtraGrid.Columns.GridColumn col月收费标准;
+        private DevExpress.XtraEditors.ComboBoxEdit 客户状态ComboBoxEdit;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem21;
     }
 }

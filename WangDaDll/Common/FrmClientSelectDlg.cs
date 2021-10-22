@@ -20,11 +20,11 @@ namespace WangDaDll
 
             if (Security.UserBusiness == "总经理" || Security.UserBusiness == "注册主管" || Security.UserName.ToLower()=="admin")
             {
-                csDataSet.GetClientInfo("", "", "", "", "");
+                csDataSet.GetClientInfo("", "", "", "", "","");
             }
             else
             {
-                csDataSet.GetClientInfo("", "", "", "",Security.UserName);
+                csDataSet.GetClientInfo("", "", "", "",Security.UserName,"");
             }
             
         }

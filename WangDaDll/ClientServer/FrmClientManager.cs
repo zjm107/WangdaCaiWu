@@ -54,12 +54,12 @@ namespace WangDaDll
                 if (Security.UserBusiness.Contains("总经理") || Security.UserBusiness.Contains("注册主管") || Security.UserName.ToLower()=="admin")
                 {
                     csDataSet.GetClientInfo(客户名称TextEdit.Text, 公司类型ComboBoxEdit.Text
-                    , 客户分级ComboBoxEdit.Text, 公司性质ComboBoxEdit.Text, 做账会计TextEdit.Text);
+                    , 客户分级ComboBoxEdit.Text, 公司性质ComboBoxEdit.Text, 做账会计TextEdit.Text,客户状态ComboBoxEdit.Text);
                 }
                 else
                 {
                     csDataSet.GetClientInfo(客户名称TextEdit.Text, 公司类型ComboBoxEdit.Text
-                    , 客户分级ComboBoxEdit.Text, 公司性质ComboBoxEdit.Text, Security.UserName);
+                    , 客户分级ComboBoxEdit.Text, 公司性质ComboBoxEdit.Text, Security.UserName, 客户状态ComboBoxEdit.Text);
                 }
 
             }

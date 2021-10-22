@@ -42,7 +42,7 @@ namespace WangDaDll.WangDaReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientInfo", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant);
+        System.Data.DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEndDateClient", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -284,8 +284,8 @@ namespace WangDaDll.WangDaReference {
             return base.Channel.GetImagebyID(FileID);
         }
         
-        public System.Data.DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant) {
-            return base.Channel.GetClientInfo(clientName, clientType, clientLevel, clientPropety, accountant);
+        public System.Data.DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState) {
+            return base.Channel.GetClientInfo(clientName, clientType, clientLevel, clientPropety, accountant, clientState);
         }
         
         public System.Data.DataSet GetEndDateClient(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate) {

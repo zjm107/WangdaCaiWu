@@ -410,6 +410,12 @@
     <Compile Include="SalaryServer\FrmTJClient.Designer.cs">
       <DependentUpon>FrmTJClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalaryServer\FrmTJClientDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryServer\FrmTJClientDetail.Designer.cs">
+      <DependentUpon>FrmTJClientDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="SalaryServer\FrmTJmmYY.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -616,6 +622,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SalaryServer\FrmTJClient.resx">
       <DependentUpon>FrmTJClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryServer\FrmTJClientDetail.resx">
+      <DependentUpon>FrmTJClientDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalaryServer\FrmTJmmYY.resx">
       <DependentUpon>FrmTJmmYY.cs</DependentUpon>

@@ -69,6 +69,10 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
+            this.btnShowDetail = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -93,6 +97,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -105,6 +112,7 @@
             this.layoutControl1.Controls.Add(this.支付日期DateEdit1);
             this.layoutControl1.Controls.Add(this.本次到期月份DateEdit);
             this.layoutControl1.Controls.Add(this.上次到期月份DateEdit);
+            this.layoutControl1.Controls.Add(this.btnShowDetail);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -123,6 +131,7 @@
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.DoubleClick += new System.EventHandler(this.gridControl1_DoubleClick);
             // 
             // vW_客户收支表BindingSource
             // 
@@ -548,7 +557,10 @@
             this.layoutControlItem7,
             this.layoutControlItem4,
             this.layoutControlItem5,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.emptySpaceItem1,
+            this.emptySpaceItem2,
+            this.layoutControlItem9});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(851, 594);
@@ -606,7 +618,7 @@
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(132, 26);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(132, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(703, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(132, 26);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
@@ -630,7 +642,7 @@
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(207, 24);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(207, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(207, 48);
+            this.layoutControlItem5.Size = new System.Drawing.Size(207, 24);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "到：";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(64, 14);
@@ -647,6 +659,44 @@
             // splash
             // 
             this.splash.ClosingDelay = 500;
+            // 
+            // btnShowDetail
+            // 
+            this.btnShowDetail.Location = new System.Drawing.Point(272, 60);
+            this.btnShowDetail.Name = "btnShowDetail";
+            this.btnShowDetail.Size = new System.Drawing.Size(125, 22);
+            this.btnShowDetail.StyleController = this.layoutControl1;
+            this.btnShowDetail.TabIndex = 13;
+            this.btnShowDetail.Text = "明细";
+            this.btnShowDetail.Click += new System.EventHandler(this.btnShowDetail_Click);
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.btnShowDetail;
+            this.layoutControlItem9.Location = new System.Drawing.Point(260, 48);
+            this.layoutControlItem9.MaxSize = new System.Drawing.Size(129, 26);
+            this.layoutControlItem9.MinSize = new System.Drawing.Size(129, 26);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(129, 26);
+            this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(624, 24);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(207, 24);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(389, 48);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(442, 26);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // FrmTJClient
             // 
@@ -682,6 +732,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -728,5 +781,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraSplashScreen.SplashScreenManager splash;
+        private DevExpress.XtraEditors.SimpleButton btnShowDetail;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
     }
 }

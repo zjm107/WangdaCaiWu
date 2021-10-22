@@ -5318,8 +5318,44 @@ from
             DataSet dst = db.GetEntity(strSql, "VW_工本开票费提成");
             return dst;
         }
+        /// <summary>
+        /// 根据客户名称获取付款信息
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetPaymentByClient(string clientName, string beginDate, string endDate,string zfDate1,string zfDate2)
+        {
+            string strSql = " select * from VW_Payment where 1=1 ";
+            if (!string.IsNullOrEmpty(clientName))
+            { 
+                strSql += string.Format(" and 支付单位='{0}' ", clientName);
+            }
 
-        
+            if (!string.IsNullOrEmpty(beginDate) && !string.IsNullOrEmpty(endDate))
+            {
+                strSql +=string.Format(" and ((本次到期月份 is not null and 本次到期月份>'{0}' and  本次到期月份<='{1}')", beginDate,endDate);
+                strSql += string.Format(" or (本次到期月份 is null and 支付日期>='{0}' and  支付日期<='{1}'))", beginDate, endDate);
+            }
+
+
+            if (!string.IsNullOrEmpty(zfDate1))
+            {
+                strSql += string.Format(" and 支付日期>='{0}' ", zfDate1);
+            }
+
+            if (!string.IsNullOrEmpty(zfDate2))
+            {
+                strSql += string.Format(" and 支付日期<='{0}' ", zfDate2);
+            }
+
+
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_Payment");
+            return dst;
+        }
 
 
     }

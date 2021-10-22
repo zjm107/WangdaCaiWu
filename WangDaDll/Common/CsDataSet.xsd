@@ -20,7 +20,7 @@
               <xs:element name="客户名称" msprop:Generator_ColumnVarNameInTable="column客户名称" msprop:Generator_ColumnPropNameInRow="客户名称" msprop:Generator_ColumnPropNameInTable="客户名称Column" msprop:Generator_UserColumnName="客户名称" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -181,6 +181,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="月收费标准" msprop:Generator_ColumnVarNameInTable="column月收费标准" msprop:Generator_ColumnPropNameInRow="月收费标准" msprop:Generator_ColumnPropNameInTable="月收费标准Column" msprop:Generator_UserColumnName="月收费标准" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

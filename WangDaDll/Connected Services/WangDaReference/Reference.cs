@@ -227,6 +227,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenKaipiao", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetGongbenKaipiao(string year, string userId, string deptName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByClient", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentByClient(string clientName, string beginDate, string endDate, string zfDate1, string zfDate2);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -466,6 +470,10 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetGongbenKaipiao(string year, string userId, string deptName) {
             return base.Channel.GetGongbenKaipiao(year, userId, deptName);
+        }
+        
+        public System.Data.DataSet GetPaymentByClient(string clientName, string beginDate, string endDate, string zfDate1, string zfDate2) {
+            return base.Channel.GetPaymentByClient(clientName, beginDate, endDate, zfDate1, zfDate2);
         }
     }
 }

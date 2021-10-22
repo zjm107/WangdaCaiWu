@@ -343,6 +343,8 @@ namespace WangDaDll.Common {
             
             private global::System.Data.DataColumn column客户状态;
             
+            private global::System.Data.DataColumn column月收费标准;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TW_ClientDataTable() {
@@ -634,6 +636,14 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 月收费标准Column {
+                get {
+                    return this.column月收费标准;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -701,7 +711,8 @@ namespace WangDaDll.Common {
                         int 序号, 
                         string 合同编号, 
                         System.DateTime 合同到期时间, 
-                        string 客户状态) {
+                        string 客户状态, 
+                        decimal 月收费标准) {
                 TW_ClientRow rowTW_ClientRow = ((TW_ClientRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         客户名称,
@@ -735,7 +746,8 @@ namespace WangDaDll.Common {
                         序号,
                         合同编号,
                         合同到期时间,
-                        客户状态};
+                        客户状态,
+                        月收费标准};
                 rowTW_ClientRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTW_ClientRow);
                 return rowTW_ClientRow;
@@ -797,6 +809,7 @@ namespace WangDaDll.Common {
                 this.column合同编号 = base.Columns["合同编号"];
                 this.column合同到期时间 = base.Columns["合同到期时间"];
                 this.column客户状态 = base.Columns["客户状态"];
+                this.column月收费标准 = base.Columns["月收费标准"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -866,9 +879,11 @@ namespace WangDaDll.Common {
                 base.Columns.Add(this.column合同到期时间);
                 this.column客户状态 = new global::System.Data.DataColumn("客户状态", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column客户状态);
+                this.column月收费标准 = new global::System.Data.DataColumn("月收费标准", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column月收费标准);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.column客户名称ID}, true));
-                this.column客户名称.MaxLength = 100;
+                this.column客户名称.MaxLength = 200;
                 this.column税号.MaxLength = 100;
                 this.column开户行及账号.MaxLength = 300;
                 this.column缴税账户及账号.MaxLength = 300;
@@ -1541,6 +1556,22 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 月收费标准 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTW_Client.月收费标准Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_Client”中列“月收费标准”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_Client.月收费标准Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is客户名称Null() {
                 return this.IsNull(this.tableTW_Client.客户名称Column);
             }
@@ -1909,6 +1940,18 @@ namespace WangDaDll.Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set客户状态Null() {
                 this[this.tableTW_Client.客户状态Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is月收费标准Null() {
+                return this.IsNull(this.tableTW_Client.月收费标准Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set月收费标准Null() {
+                this[this.tableTW_Client.月收费标准Column] = global::System.Convert.DBNull;
             }
         }
         

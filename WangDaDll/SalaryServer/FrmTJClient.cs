@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using Tiger.Tools;
 
@@ -52,6 +53,42 @@ namespace WangDaDll.SalaryServer
         {
             上次到期月份DateEdit.DateTime = new DateTime(DateTime.Today.Year, 1, 1);
             本次到期月份DateEdit.DateTime = new DateTime(DateTime.Today.Year, 12, 31);
+        }
+
+        private void btnShowDetail_Click(object sender, EventArgs e)
+        {
+            ShowDetail();
+        }
+
+        private void ShowDetail()
+        {
+            try
+            {
+                DataRowView rv = gridView1.GetFocusedRow() as DataRowView;
+                string clientName = rv["支付单位"].ToString();
+                string zzKSDate = 上次到期月份DateEdit.Text;
+                string zzDQDate = 本次到期月份DateEdit.Text;
+                string zfKSData = 支付日期DateEdit1.Text;
+                string zfJSData = 支付日期DateEdit2.Text;
+                FrmTJClientDetail frmshow = new FrmTJClientDetail();
+               // frmshow.clientId = clientName;
+                frmshow.clientName = clientName;
+                frmshow.BeginDate = zzKSDate;
+                frmshow.EndDate = zzDQDate;
+                frmshow.ZFBeginDate = zfKSData;
+                frmshow.ZFEndDate = zfJSData;
+                frmshow.Show();
+
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+        }
+
+        private void gridControl1_DoubleClick(object sender, EventArgs e)
+        {
+            ShowDetail();
         }
     }
 }

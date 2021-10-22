@@ -47,8 +47,9 @@ namespace WangDaDll.Common
         /// </summary>
         public void UpdateClient()
         {
-            try {
-                 DBHelper.WangDaSer.UpdateClient();
+            try
+            {
+                DBHelper.WangDaSer.UpdateClient();
             }
             catch (Exception ex)
             {
@@ -57,17 +58,17 @@ namespace WangDaDll.Common
         }
 
 
-            /// <summary>
-            /// 做账费到期客户查询
-            /// </summary>
-            /// <param name="clientName"></param>
-            /// <param name="clientType"></param>
-            /// <param name="clientLevel"></param>
-            /// <param name="clientPropety"></param>
-            /// <param name="accountant"></param>
-            /// <param name="endDate"></param>
-            /// <returns></returns>
-            public void GetEndDateClient(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate)
+        /// <summary>
+        /// 做账费到期客户查询
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="clientType"></param>
+        /// <param name="clientLevel"></param>
+        /// <param name="clientPropety"></param>
+        /// <param name="accountant"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        public void GetEndDateClient(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate)
         {
             try
             {

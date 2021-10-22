@@ -1138,6 +1138,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetPaymentByClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zfDate1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zfDate2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentByClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentByClientResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CheckCompanyNameSoapIn">
@@ -1458,6 +1483,12 @@
   <wsdl:message name="GetGongbenKaipiaoSoapOut">
     <wsdl:part name="parameters" element="tns:GetGongbenKaipiaoResponse" />
   </wsdl:message>
+  <wsdl:message name="GetPaymentByClientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentByClient" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentByClientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentByClientResponse" />
+  </wsdl:message>
   <wsdl:portType name="WangDaSerSoap">
     <wsdl:operation name="CheckCompanyName">
       <wsdl:input message="tns:CheckCompanyNameSoapIn" />
@@ -1670,6 +1701,10 @@
     <wsdl:operation name="GetGongbenKaipiao">
       <wsdl:input message="tns:GetGongbenKaipiaoSoapIn" />
       <wsdl:output message="tns:GetGongbenKaipiaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByClient">
+      <wsdl:input message="tns:GetPaymentByClientSoapIn" />
+      <wsdl:output message="tns:GetPaymentByClientSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
@@ -2151,6 +2186,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPaymentByClient">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentByClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WangDaSerSoap12" type="tns:WangDaSerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2624,6 +2668,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetGongbenKaipiao">
       <soap12:operation soapAction="http://tempuri.org/GetGongbenKaipiao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByClient">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentByClient" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

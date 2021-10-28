@@ -174,6 +174,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FXDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Common\ProceedsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProceedsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\BaseSerReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -220,11 +225,6 @@
       <DependentUpon>FrmUserSelectDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\ProceedsDataSet.cs">
-      <DependentUpon>ProceedsDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Common\ProceedsDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>ProceedsDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Common\UserDataSet.cs">

@@ -52,12 +52,12 @@ namespace WangDaDll.Common
         /// <returns></returns>
         public void GetYingShou(string beginDate, string endDate, string clientName, string userid)
         {
-            DataSet dst = DBHelper.WangDaSer.GetYingShou( beginDate,  endDate,  clientName,  userid);
+            DataSet dst = DBHelper.WangDaSer.GetYingShou(beginDate, endDate, clientName, userid);
             DataManager.ImpDataSet(dst.Tables[0], this.VM_应收款);
         }
 
 
-       
+
 
     }
 }

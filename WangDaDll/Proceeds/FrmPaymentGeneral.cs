@@ -215,6 +215,8 @@ namespace WangDaDll
             splash.SetWaitFormDescription("正在收款中……");
             try
             {
+                //添加主收款记录
+                proceedsDataSet.AddPaymentMainRow(rv.Row as ProceedsDataSet.TW_PaymentRow);
                 string endPaymentDate = rv["本次到期月份"].ToString();
                 string clientId = rv["客户名称ID"].ToString();
                 ///查询关联人员

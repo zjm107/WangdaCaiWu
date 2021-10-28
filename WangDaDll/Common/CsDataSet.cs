@@ -28,7 +28,7 @@ namespace WangDaDll.Common
         /// <param name="clientPropety">客户性质</param>
         /// <param name="accountant">做账会计</param>
         /// <returns></returns>
-        public void GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant,string clientState)
+        public void GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState)
         {
             try
             {

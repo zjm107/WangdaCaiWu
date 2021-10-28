@@ -3,9 +3,6 @@
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-        <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="WangDaDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="WangDaDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WangDaDll.Properties.Settings.GlobalReference.Default.WangDaDBConnectionString" Provider="System.Data.SqlClient" />
-        </Connections>
         <Tables />
         <Sources />
       </DataSource>

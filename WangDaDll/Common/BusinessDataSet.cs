@@ -19,12 +19,12 @@ namespace WangDaDll.Common
         /// <param name="regState">注册进度</param>
         /// <param name="wqState">外勤进度</param>
         public void GetBusinessRegData(string businessMan, string beginRegDate, string endRegDate, string companyName
-            , string isPayment, string regState, string wqState, string deptname, string regTag, string wqTag, string frmType,string fBeginDate,string fEndDate)
+            , string isPayment, string regState, string wqState, string deptname, string regTag, string wqTag, string frmType, string fBeginDate, string fEndDate)
         {
             try
             {
                 DataSet dst = DBHelper.WangDaSer.GetBusinessRegData(businessMan, beginRegDate, endRegDate, companyName,
-                    isPayment, regState, wqState, deptname, regTag, wqTag, frmType,fBeginDate,fEndDate);
+                    isPayment, regState, wqState, deptname, regTag, wqTag, frmType, fBeginDate, fEndDate);
                 dst.Tables[0].ImpDataSet(TW_BusinessReg);
             }
             catch (Exception ex)
@@ -63,7 +63,7 @@ namespace WangDaDll.Common
         /// <param name="bdae">完成开始时间</param>
         ///<param name="eDate">完成结束时间</param>
         public void GetBusinessRegDataEdit(string businessMan, string beginRegDate, string endRegDate, string companyName
-           , string isPayment, string regState, string wqState, string deptname, string regTag, string wqTag, string frmType, string regWC,string bdae,string eDate)
+           , string isPayment, string regState, string wqState, string deptname, string regTag, string wqTag, string frmType, string regWC, string bdae, string eDate)
         {
             try
             {

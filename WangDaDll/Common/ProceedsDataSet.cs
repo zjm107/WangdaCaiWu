@@ -115,6 +115,69 @@ namespace WangDaDll.Common
 
         }
 
+        /// <summary>
+        /// 添加一个收款主记录
+        /// </summary>
+        /// <param name="mainRow"></param>
+        public void AddPaymentMainRow(TW_PaymentRow mainRow)
+        {
+            TW_PaymentMainRow paymentMain = this.TW_PaymentMain.NewTW_PaymentMainRow();
+            paymentMain.TW_PaymentID = mainRow.TW_PaymentID;
+            paymentMain.批次号 = mainRow.TW_PaymentID;
+            paymentMain.支付单位 = mainRow.支付单位;
+            paymentMain.支付金额 = mainRow.支付金额;
+            paymentMain.支付日期 = mainRow.支付日期;
+            paymentMain.支付方式 = mainRow.支付方式;
+            paymentMain.收款人 = mainRow.收款人;
+            paymentMain.收款类别 = mainRow.收款类别;
+            paymentMain.备注 = mainRow.备注;
+            paymentMain.客户名称ID = mainRow.客户名称ID;
+            paymentMain.操作人 = mainRow.操作人;
+            paymentMain.操作时间 = mainRow.操作时间;
+            paymentMain.工本费 = mainRow.工本费;
+            paymentMain.开票费 = mainRow.开票费;
+            paymentMain.做账会计 = mainRow.做账会计;
+            paymentMain.上次到期月份 = mainRow.上次到期月份;
+            paymentMain.本次到期月份 = mainRow.本次到期月份;
+            paymentMain.做账会计ID = mainRow.做账会计ID;
+            paymentMain.业务员 = mainRow.业务员;
+            paymentMain.业务员ID = mainRow.业务员ID;
+            paymentMain.注册员 = mainRow.注册员;
+            paymentMain.注册员ID = mainRow.注册员ID;
+            
+            paymentMain.缴费月数 = mainRow.缴费月数;
+            paymentMain.月平均费 = mainRow.月平均费;
+            paymentMain.月做账费 = mainRow.月平均费;
+
+            if (!mainRow.Is零申报Null())
+                paymentMain.零申报 = mainRow.零申报;
+            else
+                paymentMain.零申报 = false;
+            if (!mainRow.Is首年提成结束期Null())
+                paymentMain.首年提成结束期 = mainRow.首年提成结束期;
+            if (!mainRow.Is银行账号Null())
+                paymentMain.银行账号 = mainRow.银行账号;
+        
+            if (!mainRow.Is不收款Null())
+            {
+                paymentMain.不收款 = mainRow.不收款;
+            }
+            else
+            {
+                paymentMain.不收款 = false;
+            }
+
+      
+            paymentMain.是否审核 = false;
+         
+            this.TW_PaymentMain.AddTW_PaymentMainRow(paymentMain);
+
+            //paymentMain.做账会计已提 = mainRow.做账会计已提;
+            //paymentMain.注册员已提 = mainRow.注册员已提;
+            //paymentMain.业务员已提 = mainRow.业务员已提;
+
+        }
+
 
         /// <summary>
         /// 拆分收款，才分成每个月一笔收款
@@ -123,7 +186,7 @@ namespace WangDaDll.Common
         {
 
             TW_PaymentRow paymentRow = aRow as TW_PaymentRow;
-            string pch = paymentRow.支付单位 + DateTime.Now.ToString("yyyyMMddHHmmss");
+            string pch = paymentRow.TW_PaymentID;
             DateTime startDate = paymentRow.上次到期月份;
             decimal sumprice = paymentRow.月平均费 * month;
             decimal firstmonth = paymentRow.支付金额 - sumprice;

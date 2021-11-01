@@ -12,9 +12,9 @@ using WangDaDll.Proceeds;
 
 namespace WangDaDll
 {
-    public partial class FrmPaymentManagerSP : DevExpress.XtraEditors.XtraForm
+    public partial class FrmPaymentManagerSPOld : DevExpress.XtraEditors.XtraForm
     {
-        public FrmPaymentManagerSP()
+        public FrmPaymentManagerSPOld()
         {
             InitializeComponent();
         }

@@ -231,6 +231,14 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByClient", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetPaymentByClient(string clientName, string beginDate, string endDate, string zfDate1, string zfDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByPch", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentByPch(string pch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentByInfoSP2021(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -474,6 +482,14 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetPaymentByClient(string clientName, string beginDate, string endDate, string zfDate1, string zfDate2) {
             return base.Channel.GetPaymentByClient(clientName, beginDate, endDate, zfDate1, zfDate2);
+        }
+        
+        public System.Data.DataSet GetPaymentByPch(string pch) {
+            return base.Channel.GetPaymentByPch(pch);
+        }
+        
+        public System.Data.DataSet GetPaymentByInfoSP2021(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2) {
+            return base.Channel.GetPaymentByInfoSP2021(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount, bcdqDate1, bcdqDate2, cszzDate1, cszzDate2);
         }
     }
 }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
 using WangDaDll.Proceeds;
@@ -54,7 +48,7 @@ namespace WangDaDll
                     cszzDate2 = ((DateTime)cszzdateEdit2.EditValue).ToShortDateString();
                 }
 
-                proceedsDataSet.GetPaymentByInfoSP(是否审批comboBoxEdit.Text, 支付单位TextEdit.Text, "", 支付日期DateEdit.Text
+                proceedsDataSet.GetPaymentByInfoSP2021(是否审批comboBoxEdit.Text, 支付单位TextEdit.Text, "", 支付日期DateEdit.Text
                     , 支付日期DateEdit1.Text, 收款类别ComboBoxEdit.Text
                     , paymentEndDate,comboBoxEditBSK.Text,comboBoxEditLSB.Text
                     ,cszzDate1,cszzDate2,bcDate1,bcDate2);
@@ -143,7 +137,9 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 查询付款明细子记录
+        /// </summary>
         private void GetPaymentDetail()
         {
             DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
@@ -154,8 +150,16 @@ namespace WangDaDll
                 proceedsDataSet.GetPaymentDetailID(paymentID);
             }
             else
+            {
                 proceedsDataSet.TW_PaymentDetail.Clear();
+                string paymentid = rv["TW_PaymentID"].ToString();//批次号
+                proceedsDataSet.GetPaymentByPch(paymentid);
+
+            }
+              
         }
+
+       
 
         private void btnSP_Click(object sender, EventArgs e)
         {

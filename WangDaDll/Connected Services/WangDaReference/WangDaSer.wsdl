@@ -1164,6 +1164,60 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetPaymentByPch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pch" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentByPchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentByPchResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentByInfoSP2021">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="spType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="unitName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beginDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endPaymentDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="isPay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zeroAccount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcdqDate1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bcdqDate2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cszzDate1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cszzDate2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentByInfoSP2021Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentByInfoSP2021Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CheckCompanyNameSoapIn">
@@ -1490,6 +1544,18 @@
   <wsdl:message name="GetPaymentByClientSoapOut">
     <wsdl:part name="parameters" element="tns:GetPaymentByClientResponse" />
   </wsdl:message>
+  <wsdl:message name="GetPaymentByPchSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentByPch" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentByPchSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentByPchResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentByInfoSP2021SoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentByInfoSP2021" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentByInfoSP2021SoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentByInfoSP2021Response" />
+  </wsdl:message>
   <wsdl:portType name="WangDaSerSoap">
     <wsdl:operation name="CheckCompanyName">
       <wsdl:input message="tns:CheckCompanyNameSoapIn" />
@@ -1706,6 +1772,14 @@
     <wsdl:operation name="GetPaymentByClient">
       <wsdl:input message="tns:GetPaymentByClientSoapIn" />
       <wsdl:output message="tns:GetPaymentByClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByPch">
+      <wsdl:input message="tns:GetPaymentByPchSoapIn" />
+      <wsdl:output message="tns:GetPaymentByPchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfoSP2021">
+      <wsdl:input message="tns:GetPaymentByInfoSP2021SoapIn" />
+      <wsdl:output message="tns:GetPaymentByInfoSP2021SoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
@@ -2196,6 +2270,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPaymentByPch">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentByPch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfoSP2021">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentByInfoSP2021" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WangDaSerSoap12" type="tns:WangDaSerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2678,6 +2770,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetPaymentByClient">
       <soap12:operation soapAction="http://tempuri.org/GetPaymentByClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByPch">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentByPch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentByInfoSP2021">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentByInfoSP2021" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

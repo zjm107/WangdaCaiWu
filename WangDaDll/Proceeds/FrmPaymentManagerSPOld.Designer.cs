@@ -2,7 +2,7 @@
 
 namespace WangDaDll
 {
-    partial class FrmPaymentManagerSP
+    partial class FrmPaymentManagerSPOld
     {
         /// <summary>
         /// Required designer variable.

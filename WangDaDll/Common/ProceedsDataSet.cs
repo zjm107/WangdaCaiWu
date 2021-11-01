@@ -757,6 +757,38 @@ namespace WangDaDll.Common
                 throw ex;
             }
         }
+        /// <summary>
+        /// 获取付款审批信息2021
+        /// </summary>
+        /// <param name="spType"></param>
+        /// <param name="unitName"></param>
+        /// <param name="account"></param>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="paymentType"></param>
+        /// <param name="endPaymentDate"></param>
+        /// <param name="isPay"></param>
+        /// <param name="zeroAccount"></param>
+        /// <param name="cszzDate1"></param>
+        /// <param name="cszzDate2"></param>
+        /// <param name="dqDate1"></param>
+        /// <param name="dqDate2"></param>
+        public void GetPaymentByInfoSP2021(string spType, string unitName, string account, string beginDate, string endDate
+         , string paymentType, string endPaymentDate, string isPay, string zeroAccount, string cszzDate1, string cszzDate2, string dqDate1, string dqDate2)
+        {
+            try
+            {
+                DataSet dst = DBHelper.WangDaSer.GetPaymentByInfoSP2021(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate
+                    , isPay, zeroAccount, dqDate1, dqDate2, cszzDate1, cszzDate2);
+                DataManager.ImpDataSet(dst.Tables[0], this.TW_PaymentMain);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         /// <summary>
         /// 获取付款明细
@@ -769,6 +801,22 @@ namespace WangDaDll.Common
             {
                 DataSet dst = DBHelper.WangDaSer.GetPaymentDetailID(paymentID);
                 DataManager.ImpDataSet(dst.Tables[0], this.TW_PaymentDetail);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        /// <summary>
+        /// 根据批次号获取paymentrow
+        /// </summary>
+        /// <param name="pch"></param>
+        public void GetPaymentByPch(string pch)
+        {
+            try
+            {
+                DataSet dst = DBHelper.WangDaSer.GetPaymentByPch(pch);
+                DataManager.ImpDataSet(dst.Tables[0], this.TW_Payment);
             }
             catch (Exception ex)
             {

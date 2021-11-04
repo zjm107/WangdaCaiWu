@@ -236,9 +236,17 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetPaymentByPch(string pch);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentMainById", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentMainById(string id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP2021", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetPaymentByInfoSP2021(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentSpDate", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdatePaymentSpDate();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -488,8 +496,16 @@ namespace WangDaDll.WangDaReference {
             return base.Channel.GetPaymentByPch(pch);
         }
         
+        public System.Data.DataSet GetPaymentMainById(string id) {
+            return base.Channel.GetPaymentMainById(id);
+        }
+        
         public System.Data.DataSet GetPaymentByInfoSP2021(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2) {
             return base.Channel.GetPaymentByInfoSP2021(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount, bcdqDate1, bcdqDate2, cszzDate1, cszzDate2);
+        }
+        
+        public void UpdatePaymentSpDate() {
+            base.Channel.UpdatePaymentSpDate();
         }
     }
 }

@@ -144,7 +144,7 @@ namespace WangDaDll.Common
             paymentMain.业务员ID = mainRow.业务员ID;
             paymentMain.注册员 = mainRow.注册员;
             paymentMain.注册员ID = mainRow.注册员ID;
-            
+
             paymentMain.缴费月数 = mainRow.缴费月数;
             paymentMain.月平均费 = mainRow.月平均费;
             paymentMain.月做账费 = mainRow.月平均费;
@@ -157,7 +157,7 @@ namespace WangDaDll.Common
                 paymentMain.首年提成结束期 = mainRow.首年提成结束期;
             if (!mainRow.Is银行账号Null())
                 paymentMain.银行账号 = mainRow.银行账号;
-        
+
             if (!mainRow.Is不收款Null())
             {
                 paymentMain.不收款 = mainRow.不收款;
@@ -167,9 +167,9 @@ namespace WangDaDll.Common
                 paymentMain.不收款 = false;
             }
 
-      
+
             paymentMain.是否审核 = false;
-         
+
             this.TW_PaymentMain.AddTW_PaymentMainRow(paymentMain);
 
             //paymentMain.做账会计已提 = mainRow.做账会计已提;
@@ -206,8 +206,7 @@ namespace WangDaDll.Common
                 row.业务员ID = paymentRow.业务员ID;
                 row.注册员 = paymentRow.注册员;
                 row.注册员ID = paymentRow.注册员ID;
-                row.做账会计 = paymentRow.做账会计;
-                row.做账会计ID = paymentRow.做账会计ID;
+
                 if (i == 1)
                 {
                     row.月平均费 = paymentRow.月平均费 + firstmonth;
@@ -529,6 +528,17 @@ namespace WangDaDll.Common
             }
             mainRow.EndEdit();
         }
+        /// <summary>
+        /// 添加注册主记录
+        /// </summary>
+        public void AddmainRegRow()
+        {
+            TW_PaymentRow row = null;
+            if (TW_Payment.Rows.Count == 1)
+                row = TW_Payment.Rows[0] as TW_PaymentRow;
+            AddPaymentMainRow(row);
+
+        }
 
         /// <summary>
         /// 计算收款总额
@@ -644,6 +654,8 @@ namespace WangDaDll.Common
         /// </summary>
         public void SaveDataSet()
         {
+            DataTable tbm = this.TW_PaymentMain.GetChanges();
+
             DataTable tb1 = TW_Payment.GetChanges();
             if (tb1 != null)
             {
@@ -668,6 +680,24 @@ namespace WangDaDll.Common
 
         }
         /// <summary>
+        /// 批量删除付款记录
+        /// </summary>
+        /// <param name="pch"></param>
+        public void DeletePaymentByPCH(string pch)
+        {
+            var mainRow = this.TW_PaymentMain.FindByTW_PaymentID(pch);
+            TW_PaymentMain.RemoveTW_PaymentMainRow(mainRow);
+            foreach (DataRow row in this.TW_Payment.Rows)
+            {
+                if (row["批次号"].ToString() == pch)
+                {
+                    var pRow = row as TW_PaymentRow;
+                    TW_Payment.RemoveTW_PaymentRow(pRow);
+                }
+
+            }
+        }
+        /// <summary>
         /// 根据ID获取收款信息
         /// </summary>
         /// <param name="paymentID"></param>
@@ -676,6 +706,16 @@ namespace WangDaDll.Common
         {
             DataSet dst = DBHelper.WangDaSer.GetPayment(paymentID);
             return dst;
+        }
+        /// <summary>
+        /// 获取paymentmain主记录和payment子记录
+        /// </summary>
+        /// <param name="id"></param>
+        public void GetPaymentMainById(string id)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetPaymentMainById(id);
+            DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
+            DataManager.ImpDataSet(dst.Tables[""], this.TW_Payment);
         }
         /// <summary>
         /// 根据ID获取收款信息
@@ -702,6 +742,9 @@ namespace WangDaDll.Common
             }
 
         }
+
+
+
 
         /// <summary>
         /// 查询收款
@@ -895,6 +938,15 @@ namespace WangDaDll.Common
             {
                 throw ex;
             }
+        }
+
+
+        /// <summary>
+        /// 更新子审批记录
+        /// </summary>
+        public void UpdatePaymentSpDate()
+        {
+            DBHelper.WangDaSer.UpdatePaymentSpDate();
         }
     }
 }

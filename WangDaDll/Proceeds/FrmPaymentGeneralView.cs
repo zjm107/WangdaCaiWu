@@ -19,8 +19,8 @@ namespace WangDaDll
         {
             InitializeComponent();
             PaymentID = paymentID;
-            proceedsDataSet.GetPaymentById(PaymentID);
-
+         
+            proceedsDataSet.GetPaymentMainById(paymentID);
 
         }
         /// <summary>

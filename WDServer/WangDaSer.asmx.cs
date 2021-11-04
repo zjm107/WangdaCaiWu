@@ -745,32 +745,47 @@ and TW_Client.初始做账时间 is not null )";
             string strSql = @"select t.*,tc.初始做账时间,tc.首年提成结束期 from TW_Payment t  
                                 left join [dbo].[TW_Client] tc
                                 on t.客户名称ID =tc.客户名称ID where 1=1  ";
+
+            string strSqlMain = @"select t.*,tc.初始做账时间,tc.首年提成结束期 from TW_PaymentMain t  
+                                left join TW_Client tc
+                                on t.客户名称ID = tc.客户名称ID where 1 = 1";
             if (!string.IsNullOrEmpty(unitName))
             {
                 strSql += " and t.支付单位 like '%" + unitName + "%'";
+                strSqlMain += " and t.支付单位 like '%" + unitName + "%'";
             }
             if (manager == "注册主管")
             {
                 if (!string.IsNullOrEmpty(account))
+                {
                     strSql += " and  (t.注册员='" + account + "') ";
+                    strSqlMain += " and  (t.注册员='" + account + "') ";
+                }
+
             }
             else
             if (!string.IsNullOrEmpty(account))
             {
                 strSql += " and  ((t.做账会计 = '" + account + "' or t.业务员='" + account + "' or t.注册员='" + account +
                 @"') or t.TW_PaymentID in ( select t2.TW_PaymentID from [dbo].[TW_PaymentDetail] t2 where t2.业务员 = '" + account + "' or 注册员 = '" + account + "' or 做账会计 = '" + account + "')) ";
+                strSqlMain += " and  ((t.做账会计 = '" + account + "' or t.业务员='" + account + "' or t.注册员='" + account +
+                @"') or t.TW_PaymentID in ( select t2.TW_PaymentID from [dbo].[TW_PaymentDetail] t2 where t2.业务员 = '" + account + "' or 注册员 = '" + account + "' or 做账会计 = '" + account + "')) ";
             }
             if (!string.IsNullOrEmpty(beginDate))
             {
                 strSql += " and t.支付日期>='" + beginDate + "'";
+                strSqlMain += " and t.支付日期>='" + beginDate + "'";
+
             }
             if (!string.IsNullOrEmpty(endDate))
             {
                 strSql += " and t.支付日期<='" + endDate + "'";
+                strSqlMain += " and t.支付日期<='" + endDate + "'";
             }
             if (!string.IsNullOrEmpty(paymentType))
             {
                 strSql += " and t.收款类别 ='" + paymentType + "'";
+                strSqlMain += " and t.收款类别 ='" + paymentType + "'";
             }
             if (!string.IsNullOrEmpty(endPaymentDate))
             {
@@ -778,26 +793,32 @@ and TW_Client.初始做账时间 is not null )";
                 int year = paymentEndDate.Year;
                 int month = paymentEndDate.Month;
                 strSql += " and Year(t.本次到期月份)=" + year.ToString() + " and Month(t.本次到期月份)=" + month;
+                strSqlMain += " and Year(t.本次到期月份)=" + year.ToString() + " and Month(t.本次到期月份)=" + month;
             }
 
             if (isPay == "是")
             {
                 strSql += " and t.不收款=1 ";
+                strSqlMain += " and t.不收款=1 ";
             }
             else if (isPay == "否")
             {
                 strSql += " and ( t.不收款=0 or t.不收款 is null ) ";
+                strSqlMain += " and ( t.不收款=0 or t.不收款 is null ) ";
             }
             if (zeroAccount == "是")
             {
                 strSql += " and t.零申报=1 ";
+                strSqlMain += " and t.零申报=1 ";
             }
             else if (zeroAccount == "否")
             {
                 strSql += " and ( t.零申报=0 or t.零申报 is null ) ";
+                strSqlMain += " and ( t.零申报=0 or t.零申报 is null ) ";
             }
 
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Payment");
+            ServiceManager.GetDatabase().FillEntity(strSql, dst, "TW_PaymentMain");
             return dst;
         }
 
@@ -3257,7 +3278,7 @@ or 注册类型='变更' or 注册类型='注销')
             {
                 strUserSql += " and USERNAME ='" + userName + "'";
             }
-
+            ///没做账收入，添加0记录
             DataSet userDst = ServiceManager.GetDatabase().GetEntity(strUserSql, "TCOM_USER");
             foreach (DataRow row in userDst.Tables[0].Rows)
             {
@@ -5379,8 +5400,23 @@ from
         public DataSet GetPaymentByPch(string pch)
         {
             string strSql = string.Format("select * from [dbo].[TW_Payment] where 批次号='{0}'", pch);
-            var db =ServiceManager.GetDatabase();
+            var db = ServiceManager.GetDatabase();
             DataSet dst = db.GetEntity(strSql, "TW_Payment");
+            return dst;
+        }
+        /// <summary>
+        /// 获取付款主记录
+        /// </summary>
+        /// <param name="id">主记录ID</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetPaymentMainById(string id)
+        {
+            string strSql = string.Format(" select * from TW_PaymentMain where [TW_PaymentID]='{0}'", id);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_PaymentMain");
+            strSql = string.Format("select * from [dbo].[TW_Payment] where 批次号='{0}'", id);
+            db.FillEntity(strSql, dst, "TW_Payment");
             return dst;
         }
 
@@ -5477,6 +5513,23 @@ from
             return dst;
         }
 
+        /// <summary>
+        /// 更新子审批记录
+        /// </summary>
+        [WebMethod]
+        public void UpdatePaymentSpDate()
+        {
+            string strSql = @"update [TW_Payment]
+                  set [TW_Payment].审核人 =[dbo].[TW_PaymentMain].审核人,
+                  [TW_Payment].审核时间=[dbo].[TW_PaymentMain].审核时间,
+                  [TW_Payment].是否审核=[dbo].[TW_PaymentMain].是否审核
+                from
+                [TW_Payment], [TW_PaymentMain]
+                  where [TW_Payment].批次号=[TW_PaymentMain].[TW_PaymentID]
+                 and [TW_Payment].审核时间>=GETDATE()";
+
+            ServiceManager.GetDatabase().ExecuteNonQuery(strSql);
+        }
 
     }
 }

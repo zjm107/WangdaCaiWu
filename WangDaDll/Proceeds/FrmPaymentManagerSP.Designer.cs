@@ -301,7 +301,8 @@ namespace WangDaDll
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem24,
-            this.layoutControlItem25});
+            this.layoutControlItem25,
+            this.layoutControlItem9});
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(973, 470, 250, 350);
@@ -574,9 +575,9 @@ namespace WangDaDll
             // 
             // btnDelall
             // 
-            this.btnDelall.Location = new System.Drawing.Point(522, 88);
+            this.btnDelall.Location = new System.Drawing.Point(459, 88);
             this.btnDelall.Name = "btnDelall";
-            this.btnDelall.Size = new System.Drawing.Size(94, 22);
+            this.btnDelall.Size = new System.Drawing.Size(108, 22);
             this.btnDelall.StyleController = this.layoutControl1;
             this.btnDelall.TabIndex = 32;
             this.btnDelall.Text = "批量删除";
@@ -604,7 +605,7 @@ namespace WangDaDll
             // 
             // btnJJ
             // 
-            this.btnJJ.Location = new System.Drawing.Point(436, 88);
+            this.btnJJ.Location = new System.Drawing.Point(373, 88);
             this.btnJJ.Name = "btnJJ";
             this.btnJJ.Size = new System.Drawing.Size(82, 22);
             this.btnJJ.StyleController = this.layoutControl1;
@@ -670,7 +671,7 @@ namespace WangDaDll
             // 
             // btnCX
             // 
-            this.btnCX.Location = new System.Drawing.Point(345, 88);
+            this.btnCX.Location = new System.Drawing.Point(192, 88);
             this.btnCX.Name = "btnCX";
             this.btnCX.Size = new System.Drawing.Size(87, 22);
             this.btnCX.StyleController = this.layoutControl1;
@@ -716,7 +717,7 @@ namespace WangDaDll
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(192, 88);
+            this.btnEdit.Location = new System.Drawing.Point(283, 88);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(86, 22);
             this.btnEdit.StyleController = this.layoutControl1;
@@ -1591,10 +1592,8 @@ namespace WangDaDll
             this.emptySpaceItem3,
             this.layoutControlItem15,
             this.layoutControlItem16,
-            this.layoutControlItem9,
             this.layoutControlItem10,
             this.layoutControlItem17,
-            this.layoutControlItem18,
             this.emptySpaceItem4,
             this.layoutControlItem19,
             this.layoutControlItem20,
@@ -1604,7 +1603,8 @@ namespace WangDaDll
             this.layoutControlItem2,
             this.layoutControlItem23,
             this.layoutControlItem26,
-            this.tabbedControlGroup1});
+            this.tabbedControlGroup1,
+            this.layoutControlItem18});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(984, 700);
@@ -1754,9 +1754,9 @@ namespace WangDaDll
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(608, 76);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(559, 76);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(356, 26);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(405, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem15
@@ -1776,7 +1776,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem16.Control = this.btnEdit;
             this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
-            this.layoutControlItem16.Location = new System.Drawing.Point(180, 76);
+            this.layoutControlItem16.Location = new System.Drawing.Point(271, 76);
             this.layoutControlItem16.MaxSize = new System.Drawing.Size(90, 26);
             this.layoutControlItem16.MinSize = new System.Drawing.Size(90, 26);
             this.layoutControlItem16.Name = "layoutControlItem16";
@@ -1819,7 +1819,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem18.Control = this.btnCX;
             this.layoutControlItem18.CustomizationFormText = "layoutControlItem18";
-            this.layoutControlItem18.Location = new System.Drawing.Point(333, 76);
+            this.layoutControlItem18.Location = new System.Drawing.Point(180, 76);
             this.layoutControlItem18.MaxSize = new System.Drawing.Size(91, 26);
             this.layoutControlItem18.MinSize = new System.Drawing.Size(91, 26);
             this.layoutControlItem18.Name = "layoutControlItem18";
@@ -1901,7 +1901,7 @@ namespace WangDaDll
             // layoutControlItem23
             // 
             this.layoutControlItem23.Control = this.btnJJ;
-            this.layoutControlItem23.Location = new System.Drawing.Point(424, 76);
+            this.layoutControlItem23.Location = new System.Drawing.Point(361, 76);
             this.layoutControlItem23.MaxSize = new System.Drawing.Size(86, 26);
             this.layoutControlItem23.MinSize = new System.Drawing.Size(86, 26);
             this.layoutControlItem23.Name = "layoutControlItem23";
@@ -1913,9 +1913,9 @@ namespace WangDaDll
             // layoutControlItem26
             // 
             this.layoutControlItem26.Control = this.btnDelall;
-            this.layoutControlItem26.Location = new System.Drawing.Point(510, 76);
+            this.layoutControlItem26.Location = new System.Drawing.Point(447, 76);
             this.layoutControlItem26.Name = "layoutControlItem26";
-            this.layoutControlItem26.Size = new System.Drawing.Size(98, 26);
+            this.layoutControlItem26.Size = new System.Drawing.Size(112, 26);
             this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem26.TextVisible = false;
             // 

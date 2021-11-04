@@ -112,14 +112,27 @@ namespace WangDaDll
                 paymentRow.BeginEdit();
                 paymentRow.客户名称ID = row["客户名称ID"].ToString();
                 paymentRow.支付单位 = row["客户名称"].ToString();
-                paymentRow.做账会计 = row["做账会计"].ToString();
-                paymentRow.做账会计ID = row["做账会计ID"].ToString();
                 paymentRow.业务员 = row["业务员"].ToString();
                 paymentRow.业务员ID = row["业务员ID"].ToString();
                 paymentRow.注册员 = row["注册员"].ToString();
                 paymentRow.注册员ID = row["注册员ID"].ToString();
-                paymentRow.做账会计 = row["做账会计"].ToString();
-                paymentRow.做账会计ID = row["做账会计ID"].ToString();
+                if(paymentRow.Is做账会计Null())
+                {
+                    paymentRow.做账会计 = row["做账会计"].ToString();
+                    paymentRow.做账会计ID = row["做账会计ID"].ToString();
+                }
+                else
+                {
+                    if (paymentRow.做账会计ID != row["做账会计ID"].ToString())
+                    {
+                        if (UserMessages.ShowQuestionBox("做账会计要变更为:" + row["做账会计"].ToString() + "么？"))
+                        {
+                            paymentRow.做账会计 = row["做账会计"].ToString();
+                            paymentRow.做账会计ID = row["做账会计ID"].ToString();
+                        }
+                    }
+                  
+                }
                 paymentRow.注册提成月 = 0;
                 paymentRow.业务提成月 = 0;
                 paymentRow.做账提成月 = 0;

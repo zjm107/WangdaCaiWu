@@ -307,7 +307,33 @@ namespace WangDaDll
             this.Cursor = Cursors.WaitCursor;
             try
             {
+                if (MessageBox.Show("确定要批量删除当前收款项目么？", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+                    if (rv != null)
+                    {
+                        string paymentID = rv["TW_PaymentID"].ToString();
+                        string paymentType = rv["收款类别"].ToString();
+                        string creater = rv["操作人"].ToString();
+                        if (creater != Security.UserName) { UserMessages.ShowInfoBox("操作人本人可以进行删除!"); return; }
+                        bool sp = false;
+                        if (!string.IsNullOrEmpty(rv["是否审核"].ToString()))
+                            sp = bool.Parse(rv["是否审核"].ToString());
 
+                        if (sp)
+                        {
+                            UserMessages.ShowInfoBox("收款信息已审批,不能删除!");
+                            return;
+                        }
+                        string pch = rv["批次号"].ToString();
+
+                        proceedsDataSet.DeletePaymentByPCH(pch);
+
+
+                        proceedsDataSet.SaveDataSet();
+                    }
+
+                }
             }
             catch (Exception ex)
             {

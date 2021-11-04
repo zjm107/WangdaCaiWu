@@ -160,6 +160,7 @@ namespace WangDaDll
             splash.SetWaitFormDescription("正在收款中……");
             try
             {
+                proceedsDataSet.AddmainRegRow();//添加注册主记录
                 proceedsDataSet.GetRegTC(this.ZCLX);  //计算注册提成
                 proceedsDataSet.SaveDataSet(); //保存数据
                 this.DialogResult = DialogResult.OK;

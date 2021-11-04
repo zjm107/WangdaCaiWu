@@ -1185,6 +1185,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetPaymentMainById">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentMainByIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentMainByIdResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetPaymentByInfoSP2021">
         <s:complexType>
           <s:sequence>
@@ -1217,6 +1238,12 @@
             </s:element>
           </s:sequence>
         </s:complexType>
+      </s:element>
+      <s:element name="UpdatePaymentSpDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdatePaymentSpDateResponse">
+        <s:complexType />
       </s:element>
     </s:schema>
   </wsdl:types>
@@ -1550,11 +1577,23 @@
   <wsdl:message name="GetPaymentByPchSoapOut">
     <wsdl:part name="parameters" element="tns:GetPaymentByPchResponse" />
   </wsdl:message>
+  <wsdl:message name="GetPaymentMainByIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentMainById" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentMainByIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentMainByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="GetPaymentByInfoSP2021SoapIn">
     <wsdl:part name="parameters" element="tns:GetPaymentByInfoSP2021" />
   </wsdl:message>
   <wsdl:message name="GetPaymentByInfoSP2021SoapOut">
     <wsdl:part name="parameters" element="tns:GetPaymentByInfoSP2021Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentSpDateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentSpDate" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePaymentSpDateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePaymentSpDateResponse" />
   </wsdl:message>
   <wsdl:portType name="WangDaSerSoap">
     <wsdl:operation name="CheckCompanyName">
@@ -1777,9 +1816,17 @@
       <wsdl:input message="tns:GetPaymentByPchSoapIn" />
       <wsdl:output message="tns:GetPaymentByPchSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetPaymentMainById">
+      <wsdl:input message="tns:GetPaymentMainByIdSoapIn" />
+      <wsdl:output message="tns:GetPaymentMainByIdSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetPaymentByInfoSP2021">
       <wsdl:input message="tns:GetPaymentByInfoSP2021SoapIn" />
       <wsdl:output message="tns:GetPaymentByInfoSP2021SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentSpDate">
+      <wsdl:input message="tns:UpdatePaymentSpDateSoapIn" />
+      <wsdl:output message="tns:UpdatePaymentSpDateSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
@@ -2279,8 +2326,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPaymentMainById">
+      <soap:operation soapAction="http://tempuri.org/GetPaymentMainById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetPaymentByInfoSP2021">
       <soap:operation soapAction="http://tempuri.org/GetPaymentByInfoSP2021" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentSpDate">
+      <soap:operation soapAction="http://tempuri.org/UpdatePaymentSpDate" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2786,8 +2851,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPaymentMainById">
+      <soap12:operation soapAction="http://tempuri.org/GetPaymentMainById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetPaymentByInfoSP2021">
       <soap12:operation soapAction="http://tempuri.org/GetPaymentByInfoSP2021" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePaymentSpDate">
+      <soap12:operation soapAction="http://tempuri.org/UpdatePaymentSpDate" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

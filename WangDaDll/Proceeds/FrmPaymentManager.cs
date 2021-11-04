@@ -43,7 +43,7 @@ namespace WangDaDll
                 }
                 tW_PaymentBindingSource.MoveFirst();
                 GetPaymentDetail();
-
+                gridView1.ExpandAllGroups();
             }
             catch (Exception ex)
             {

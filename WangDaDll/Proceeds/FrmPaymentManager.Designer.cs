@@ -182,9 +182,10 @@ namespace WangDaDll
             this.col不收款.ColumnEdit = this.不收款ItemCheckEdit1;
             this.col不收款.FieldName = "不收款";
             this.col不收款.Name = "col不收款";
+            this.col不收款.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col不收款.OptionsColumn.ReadOnly = true;
             this.col不收款.Visible = true;
-            this.col不收款.VisibleIndex = 17;
+            this.col不收款.VisibleIndex = 16;
             // 
             // 不收款ItemCheckEdit1
             // 
@@ -837,22 +838,34 @@ namespace WangDaDll
             this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition1});
             this.gridView1.GridControl = this.tW_PaymentGridControl;
+            this.gridView1.GroupCount = 1;
+            this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "支付金额", null, "支付金额：{0:0.##}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "工本费", null, "工本费：{0:0.##}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "开票费", null, "开票费：{0:0.##}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Max, "本次到期月份", null, "截止月份:{0}"),
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "缴费月数", null, "缴费月数：{0}")});
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView1.OptionsView.EnableAppearanceOddRow = true;
+            this.gridView1.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways;
             this.gridView1.OptionsView.ShowAutoFilterRow = true;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.PaintStyleName = "Flat";
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.col支付单位, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.col本次到期月, DevExpress.Data.ColumnSortOrder.Descending)});
             // 
             // col支付单位
             // 
             this.col支付单位.FieldName = "支付单位";
+            this.col支付单位.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.col支付单位.Name = "col支付单位";
             this.col支付单位.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col支付单位.Visible = true;
             this.col支付单位.VisibleIndex = 0;
-            this.col支付单位.Width = 80;
+            this.col支付单位.Width = 181;
             // 
             // col支付金额
             // 
@@ -867,86 +880,96 @@ namespace WangDaDll
             // 
             this.col支付日期.FieldName = "支付日期";
             this.col支付日期.Name = "col支付日期";
+            this.col支付日期.OptionsColumn.AllowShowHide = false;
             this.col支付日期.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col支付日期.Visible = true;
-            this.col支付日期.VisibleIndex = 3;
-            this.col支付日期.Width = 80;
+            this.col支付日期.VisibleIndex = 0;
+            this.col支付日期.Width = 107;
             // 
             // col支付方式
             // 
             this.col支付方式.FieldName = "支付方式";
             this.col支付方式.Name = "col支付方式";
+            this.col支付方式.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col支付方式.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col支付方式.Visible = true;
-            this.col支付方式.VisibleIndex = 4;
+            this.col支付方式.VisibleIndex = 3;
             this.col支付方式.Width = 80;
             // 
             // col收款人
             // 
             this.col收款人.FieldName = "收款人";
             this.col收款人.Name = "col收款人";
+            this.col收款人.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col收款人.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col收款人.Visible = true;
-            this.col收款人.VisibleIndex = 5;
+            this.col收款人.VisibleIndex = 4;
             // 
             // col收款类别
             // 
             this.col收款类别.FieldName = "收款类别";
             this.col收款类别.Name = "col收款类别";
+            this.col收款类别.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col收款类别.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col收款类别.Visible = true;
-            this.col收款类别.VisibleIndex = 20;
+            this.col收款类别.VisibleIndex = 19;
             this.col收款类别.Width = 80;
             // 
             // col备注
             // 
             this.col备注.FieldName = "备注";
             this.col备注.Name = "col备注";
+            this.col备注.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col备注.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col备注.Visible = true;
-            this.col备注.VisibleIndex = 25;
+            this.col备注.VisibleIndex = 24;
             // 
             // col操作人
             // 
             this.col操作人.FieldName = "操作人";
             this.col操作人.Name = "col操作人";
+            this.col操作人.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col操作人.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col操作人.Visible = true;
-            this.col操作人.VisibleIndex = 23;
+            this.col操作人.VisibleIndex = 22;
             // 
             // col操作时间
             // 
             this.col操作时间.FieldName = "操作时间";
             this.col操作时间.Name = "col操作时间";
+            this.col操作时间.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col操作时间.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col操作时间.Visible = true;
-            this.col操作时间.VisibleIndex = 24;
+            this.col操作时间.VisibleIndex = 23;
             this.col操作时间.Width = 80;
             // 
             // col工本费
             // 
             this.col工本费.FieldName = "工本费";
             this.col工本费.Name = "col工本费";
+            this.col工本费.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col工本费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col工本费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "工本费", "{0:0.##}")});
             this.col工本费.Visible = true;
-            this.col工本费.VisibleIndex = 6;
+            this.col工本费.VisibleIndex = 5;
             // 
             // col开票费
             // 
             this.col开票费.FieldName = "开票费";
             this.col开票费.Name = "col开票费";
+            this.col开票费.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col开票费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col开票费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "开票费", "{0:0.##}")});
             this.col开票费.Visible = true;
-            this.col开票费.VisibleIndex = 7;
+            this.col开票费.VisibleIndex = 6;
             // 
             // col做账会计
             // 
             this.col做账会计.FieldName = "做账会计";
             this.col做账会计.Name = "col做账会计";
+            this.col做账会计.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col做账会计.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col做账会计.Visible = true;
             this.col做账会计.VisibleIndex = 2;
@@ -956,22 +979,25 @@ namespace WangDaDll
             // 
             this.col上次到期月.FieldName = "上次到期月";
             this.col上次到期月.Name = "col上次到期月";
+            this.col上次到期月.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col上次到期月.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             // 
             // col本次到期月
             // 
             this.col本次到期月.FieldName = "本次到期月份";
             this.col本次到期月.Name = "col本次到期月";
+            this.col本次到期月.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col本次到期月.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col本次到期月.Visible = true;
-            this.col本次到期月.VisibleIndex = 10;
-            this.col本次到期月.Width = 80;
+            this.col本次到期月.VisibleIndex = 9;
+            this.col本次到期月.Width = 104;
             // 
             // col总额
             // 
             this.col总额.Caption = "支付总额";
             this.col总额.FieldName = "总额";
             this.col总额.Name = "col总额";
+            this.col总额.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col总额.OptionsColumn.ReadOnly = true;
             this.col总额.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col总额.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -984,17 +1010,19 @@ namespace WangDaDll
             // 
             this.col审核人.FieldName = "审核人";
             this.col审核人.Name = "col审核人";
+            this.col审核人.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col审核人.OptionsColumn.ReadOnly = true;
             this.col审核人.Visible = true;
-            this.col审核人.VisibleIndex = 15;
+            this.col审核人.VisibleIndex = 14;
             // 
             // col审核时间
             // 
             this.col审核时间.FieldName = "审核时间";
             this.col审核时间.Name = "col审核时间";
+            this.col审核时间.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col审核时间.OptionsColumn.ReadOnly = true;
             this.col审核时间.Visible = true;
-            this.col审核时间.VisibleIndex = 16;
+            this.col审核时间.VisibleIndex = 15;
             this.col审核时间.Width = 80;
             // 
             // col是否审批
@@ -1002,9 +1030,10 @@ namespace WangDaDll
             this.col是否审批.ColumnEdit = this.是否审批CheckEdit1;
             this.col是否审批.FieldName = "是否审批";
             this.col是否审批.Name = "col是否审批";
+            this.col是否审批.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col是否审批.OptionsColumn.ReadOnly = true;
             this.col是否审批.Visible = true;
-            this.col是否审批.VisibleIndex = 14;
+            this.col是否审批.VisibleIndex = 13;
             this.col是否审批.Width = 80;
             // 
             // 是否审批CheckEdit1
@@ -1019,26 +1048,29 @@ namespace WangDaDll
             // 
             this.col业务员1.FieldName = "业务员";
             this.col业务员1.Name = "col业务员1";
+            this.col业务员1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col业务员1.OptionsColumn.ReadOnly = true;
             this.col业务员1.Visible = true;
-            this.col业务员1.VisibleIndex = 12;
+            this.col业务员1.VisibleIndex = 11;
             // 
             // col注册员1
             // 
             this.col注册员1.FieldName = "注册员";
             this.col注册员1.Name = "col注册员1";
+            this.col注册员1.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col注册员1.OptionsColumn.ReadOnly = true;
             this.col注册员1.Visible = true;
-            this.col注册员1.VisibleIndex = 13;
+            this.col注册员1.VisibleIndex = 12;
             // 
             // col补缴款
             // 
             this.col补缴款.ColumnEdit = this.补缴款ItemCheckEdit1;
             this.col补缴款.FieldName = "补缴款";
             this.col补缴款.Name = "col补缴款";
+            this.col补缴款.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col补缴款.OptionsColumn.ReadOnly = true;
             this.col补缴款.Visible = true;
-            this.col补缴款.VisibleIndex = 18;
+            this.col补缴款.VisibleIndex = 17;
             // 
             // 补缴款ItemCheckEdit1
             // 
@@ -1053,9 +1085,10 @@ namespace WangDaDll
             this.col零申报.ColumnEdit = this.repositoryItemCheckEdit1;
             this.col零申报.FieldName = "零申报";
             this.col零申报.Name = "col零申报";
+            this.col零申报.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col零申报.OptionsColumn.ReadOnly = true;
             this.col零申报.Visible = true;
-            this.col零申报.VisibleIndex = 19;
+            this.col零申报.VisibleIndex = 18;
             // 
             // repositoryItemCheckEdit1
             // 
@@ -1068,47 +1101,52 @@ namespace WangDaDll
             // 
             this.col上次到期月份.FieldName = "上次到期月份";
             this.col上次到期月份.Name = "col上次到期月份";
+            this.col上次到期月份.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col上次到期月份.OptionsColumn.ReadOnly = true;
             this.col上次到期月份.Visible = true;
-            this.col上次到期月份.VisibleIndex = 9;
+            this.col上次到期月份.VisibleIndex = 8;
             this.col上次到期月份.Width = 80;
             // 
             // col缴费月数
             // 
             this.col缴费月数.FieldName = "缴费月数";
             this.col缴费月数.Name = "col缴费月数";
+            this.col缴费月数.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col缴费月数.OptionsColumn.ReadOnly = true;
             this.col缴费月数.Visible = true;
-            this.col缴费月数.VisibleIndex = 11;
+            this.col缴费月数.VisibleIndex = 10;
             this.col缴费月数.Width = 80;
             // 
             // col月平均费
             // 
             this.col月平均费.FieldName = "月平均费";
             this.col月平均费.Name = "col月平均费";
+            this.col月平均费.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col月平均费.OptionsColumn.ReadOnly = true;
             this.col月平均费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "月平均费", "{0:0.##}")});
             this.col月平均费.Visible = true;
-            this.col月平均费.VisibleIndex = 8;
+            this.col月平均费.VisibleIndex = 7;
             this.col月平均费.Width = 80;
             // 
             // col首年提成结束期
             // 
             this.col首年提成结束期.FieldName = "首年提成结束期";
             this.col首年提成结束期.Name = "col首年提成结束期";
+            this.col首年提成结束期.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col首年提成结束期.OptionsColumn.ReadOnly = true;
             this.col首年提成结束期.Visible = true;
-            this.col首年提成结束期.VisibleIndex = 21;
+            this.col首年提成结束期.VisibleIndex = 20;
             this.col首年提成结束期.Width = 125;
             // 
             // col初始做账时间
             // 
             this.col初始做账时间.FieldName = "初始做账时间";
             this.col初始做账时间.Name = "col初始做账时间";
+            this.col初始做账时间.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.col初始做账时间.OptionsColumn.ReadOnly = true;
             this.col初始做账时间.Visible = true;
-            this.col初始做账时间.VisibleIndex = 22;
+            this.col初始做账时间.VisibleIndex = 21;
             this.col初始做账时间.Width = 110;
             // 
             // txtRY

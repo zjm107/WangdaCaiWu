@@ -185,6 +185,12 @@
     <Compile Include="Proceeds\FrmEndDateQuery.Designer.cs">
       <DependentUpon>FrmEndDateQuery.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proceeds\FrmJiaojie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmJiaojie.Designer.cs">
+      <DependentUpon>FrmJiaojie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proceeds\FrmNoPaymentDlg.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -447,6 +453,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmEndDateQuery.resx">
       <DependentUpon>FrmEndDateQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmJiaojie.resx">
+      <DependentUpon>FrmJiaojie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmNoPaymentDlg.resx">
       <DependentUpon>FrmNoPaymentDlg.cs</DependentUpon>

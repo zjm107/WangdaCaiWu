@@ -945,6 +945,32 @@
       <s:element name="UpdateClientResponse">
         <s:complexType />
       </s:element>
+      <s:element name="JiaoJieOnce">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kuaiji" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kuaijiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JJDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JiaoJieOnceResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="JiaoJieByKuaiji">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kuaiji" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="kuaijiId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JJDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldKuaijiId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JiaoJieByKuaijiResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CheckCompanyNameSoapIn">
@@ -1205,6 +1231,18 @@
   <wsdl:message name="UpdateClientSoapOut">
     <wsdl:part name="parameters" element="tns:UpdateClientResponse" />
   </wsdl:message>
+  <wsdl:message name="JiaoJieOnceSoapIn">
+    <wsdl:part name="parameters" element="tns:JiaoJieOnce" />
+  </wsdl:message>
+  <wsdl:message name="JiaoJieOnceSoapOut">
+    <wsdl:part name="parameters" element="tns:JiaoJieOnceResponse" />
+  </wsdl:message>
+  <wsdl:message name="JiaoJieByKuaijiSoapIn">
+    <wsdl:part name="parameters" element="tns:JiaoJieByKuaiji" />
+  </wsdl:message>
+  <wsdl:message name="JiaoJieByKuaijiSoapOut">
+    <wsdl:part name="parameters" element="tns:JiaoJieByKuaijiResponse" />
+  </wsdl:message>
   <wsdl:portType name="WangDaSerSoap">
     <wsdl:operation name="CheckCompanyName">
       <wsdl:input message="tns:CheckCompanyNameSoapIn" />
@@ -1377,6 +1415,14 @@
     <wsdl:operation name="UpdateClient">
       <wsdl:input message="tns:UpdateClientSoapIn" />
       <wsdl:output message="tns:UpdateClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JiaoJieOnce">
+      <wsdl:input message="tns:JiaoJieOnceSoapIn" />
+      <wsdl:output message="tns:JiaoJieOnceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JiaoJieByKuaiji">
+      <wsdl:input message="tns:JiaoJieByKuaijiSoapIn" />
+      <wsdl:output message="tns:JiaoJieByKuaijiSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WangDaSerSoap" type="tns:WangDaSerSoap">
@@ -1768,6 +1814,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="JiaoJieOnce">
+      <soap:operation soapAction="http://tempuri.org/JiaoJieOnce" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JiaoJieByKuaiji">
+      <soap:operation soapAction="http://tempuri.org/JiaoJieByKuaiji" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WangDaSerSoap12" type="tns:WangDaSerSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -2151,6 +2215,24 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateClient">
       <soap12:operation soapAction="http://tempuri.org/UpdateClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JiaoJieOnce">
+      <soap12:operation soapAction="http://tempuri.org/JiaoJieOnce" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JiaoJieByKuaiji">
+      <soap12:operation soapAction="http://tempuri.org/JiaoJieByKuaiji" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
+using WangDaDll.Proceeds;
+
 namespace WangDaDll
 {
     public partial class FrmPaymentManagerSP : DevExpress.XtraEditors.XtraForm
@@ -333,6 +335,81 @@ namespace WangDaDll
 
                     }
                     proceedsDataSet.SaveDataSet();
+                }
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+                if (splash.IsSplashFormVisible)
+                    splash.CloseWaitForm();
+            }
+        }
+        /// <summary>
+        /// 交接
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnJJ_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                //splash.SetWaitFormCaption("交接中");
+                //splash.SetWaitFormDescription("正在进行交接……");
+                FrmJiaojie frmjj = new FrmJiaojie();
+                frmjj.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+            finally
+            {
+                this.Cursor = Cursors.Default;
+                //if (splash.IsSplashFormVisible)
+                //    splash.CloseWaitForm();
+            }
+        }
+        /// <summary>
+        /// 拆分
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCF_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.WaitCursor;
+            try
+            {
+                int[] rowIndexs = gridView1.GetSelectedRows();
+                if (rowIndexs.Length > 0)
+                {
+                    splash.ShowWaitForm();
+                    splash.SetWaitFormCaption("拆分中");
+                    splash.SetWaitFormDescription("正在进行拆分……");
+                    foreach (int i in rowIndexs)
+                    {
+                        DataRowView rv = gridView1.GetRow(i) as DataRowView;
+                        int monthCount = int.Parse(rv["缴费月数"].ToString());
+                        if(monthCount>1)
+                        {
+                            proceedsDataSet.CFPayments(monthCount, rv.Row);
+                        }
+                    }
+                    foreach (int i in rowIndexs)
+                    {
+                        DataRowView rv = gridView1.GetRow(i) as DataRowView;
+                        int monthCount = int.Parse(rv["缴费月数"].ToString());
+                        if (monthCount == 0 || monthCount==1)
+                        {
+                            gridView1.UnselectRow(i);
+                        }
+                    }
+                    gridView1.DeleteSelectedRows();//删除选中行
+                    proceedsDataSet.SaveDataSet(); //保存
                 }
             }
             catch (Exception ex)

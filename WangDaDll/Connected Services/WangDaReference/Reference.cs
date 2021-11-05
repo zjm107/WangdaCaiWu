@@ -187,6 +187,14 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClient", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void UpdateClient();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieOnce", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void JiaoJieOnce(string kuaiji, string kuaijiId, string JJDate, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieByKuaiji", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -386,6 +394,14 @@ namespace WangDaDll.WangDaReference {
         
         public void UpdateClient() {
             base.Channel.UpdateClient();
+        }
+        
+        public void JiaoJieOnce(string kuaiji, string kuaijiId, string JJDate, string clientName) {
+            base.Channel.JiaoJieOnce(kuaiji, kuaijiId, JJDate, clientName);
+        }
+        
+        public void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId) {
+            base.Channel.JiaoJieByKuaiji(kuaiji, kuaijiId, JJDate, oldKuaijiId);
         }
     }
 }

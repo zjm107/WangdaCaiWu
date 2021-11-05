@@ -4842,5 +4842,65 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
             }
        
         }
+
+        /// <summary>
+        /// 单次交接
+        /// </summary>
+        /// <param name="kuaiji">会计</param>
+        /// <param name="kuaijiId">会计Id</param>
+        /// <param name="JJDate">交接起始月</param>
+        /// <param name="clientName">客户名称</param>
+        [WebMethod]
+        public void JiaoJieOnce(string kuaiji,string kuaijiId,string JJDate,string clientName)
+        {
+            string strSql = @"update [TW_Payment]
+                                set 做账会计='{0}',
+                                做账会计ID='{1}'
+                                where 支付单位='{2}'
+                                and 上次到期月份>'{3}'";
+            strSql = String.Format(strSql, kuaiji, kuaijiId, clientName, JJDate);
+            var db = ServiceManager.GetDatabase();
+            db.ExecuteNonQuery(strSql);
+
+            strSql = @"update [TW_Client]
+                        set 做账会计 = '{0}',
+                        做账会计ID = '{1}'
+                        where 客户名称 = '{2}'";
+            strSql = string.Format(strSql, kuaiji, kuaijiId, clientName);
+            db.ExecuteNonQuery(strSql);
+
+        }
+
+
+        /// <summary>
+        /// 按照会计批量交接
+        /// </summary>
+        /// <param name="kuaiji">会计</param>
+        /// <param name="kuaijiId">会计Id</param>
+        /// <param name="JJDate">交接起始月</param>
+        /// <param name="clientName">客户名称</param>
+        [WebMethod]
+        public void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId)
+        {
+            string strSql = @"update [TW_Payment]
+                                set 做账会计='{0}',
+                                做账会计ID='{1}'
+                                where 做账会计ID='{2}'
+                                and 上次到期月份>'{3}'";
+            strSql = String.Format(strSql, kuaiji, kuaijiId, oldKuaijiId, JJDate);
+            var db = ServiceManager.GetDatabase();
+            db.ExecuteNonQuery(strSql);
+
+            strSql = @"update [TW_Client]
+                        set 做账会计 = '{0}',
+                        做账会计ID = '{1}'
+                        where 做账会计ID = '{2}'";
+            strSql = string.Format(strSql, kuaiji, kuaijiId, oldKuaijiId);
+            db.ExecuteNonQuery(strSql);
+
+        }
+
+
+
     }
 }

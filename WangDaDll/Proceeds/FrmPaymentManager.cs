@@ -290,7 +290,7 @@ namespace WangDaDll
             this.Cursor = Cursors.WaitCursor;
             try
             {
-
+               
             }
             catch (Exception ex)
             {

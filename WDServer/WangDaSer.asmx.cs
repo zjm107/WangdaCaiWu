@@ -4900,7 +4900,23 @@ where 首年提成结束期 is null and 初始做账时间 is not null";
 
         }
 
+        /// <summary>
+        /// 获取待拆分数据集
+        /// </summary>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetCFDataSet(string beginDate,string endDate)
+        {
+            string strSql = string.Format(@"select * from [dbo].[TW_Payment]
+                                where 缴费月数> 1 and 收款类别 = '常规收款'
+                                and 支付日期>= '{0}' and 支付日期<= '{1}'", beginDate, endDate);
 
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "strSql");
+            return dst;
+        }
 
     }
 }

@@ -423,5 +423,11 @@ namespace WangDaDll
                     splash.CloseWaitForm();
             }
         }
+
+        private void btnCFAll_Click(object sender, EventArgs e)
+        {
+            FrmPaymentManagerCF cf = new FrmPaymentManagerCF();
+            cf.Show();
+        }
     }
 }

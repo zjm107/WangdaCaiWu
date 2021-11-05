@@ -195,6 +195,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieByKuaiji", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCFDataSet", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetCFDataSet(string beginDate, string endDate);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -402,6 +406,10 @@ namespace WangDaDll.WangDaReference {
         
         public void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId) {
             base.Channel.JiaoJieByKuaiji(kuaiji, kuaijiId, JJDate, oldKuaijiId);
+        }
+        
+        public System.Data.DataSet GetCFDataSet(string beginDate, string endDate) {
+            return base.Channel.GetCFDataSet(beginDate, endDate);
         }
     }
 }

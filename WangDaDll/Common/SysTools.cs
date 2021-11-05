@@ -24,6 +24,7 @@ namespace WangDaDll
                 BasicSer = new WangDaDll.BaseSerReference.BaseSerSoapClient(WebServiceConfig.BuildBinding(), new System.ServiceModel.EndpointAddress(WebServiceConfig.BaseSerURL));
                 WangDaSer =new WangDaDll.WangDaReference.WangDaSerSoapClient(WebServiceConfig.BuildBinding(), new System.ServiceModel.EndpointAddress(WebServiceConfig.WangDaSerURL));
                 UserSer = new WangDaDll.UserSerReference.UserSerSoapClient(WebServiceConfig.BuildBinding(), new System.ServiceModel.EndpointAddress(WebServiceConfig.UserSerURL));
+                
             }
             catch (Exception ex)
             {

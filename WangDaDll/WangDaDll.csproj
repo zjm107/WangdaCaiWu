@@ -112,6 +112,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BusinessDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Common\CFDataSet.cs">
+      <DependentUpon>CFDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Common\CFDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CFDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Common\CsDataSet.cs">
       <DependentUpon>CsDataSet.xsd</DependentUpon>
     </Compile>
@@ -261,6 +269,12 @@
     <Compile Include="Proceeds\FrmPaymentManager.Designer.cs">
       <DependentUpon>FrmPaymentManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proceeds\FrmPaymentManagerCF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\FrmPaymentManagerCF.Designer.cs">
+      <DependentUpon>FrmPaymentManagerCF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proceeds\FrmPaymentManagerQuery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +412,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Common\CFDataSet.xsc">
+      <DependentUpon>CFDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Common\CFDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CFDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Common\CFDataSet.xss">
+      <DependentUpon>CFDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Common\FileDataSet.xsc">
       <DependentUpon>FileDataSet.xsd</DependentUpon>
     </None>
@@ -483,6 +508,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmPaymentManager.resx">
       <DependentUpon>FrmPaymentManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\FrmPaymentManagerCF.resx">
+      <DependentUpon>FrmPaymentManagerCF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmPaymentManagerQuery.resx">
       <DependentUpon>FrmPaymentManagerQuery.cs</DependentUpon>

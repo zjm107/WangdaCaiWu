@@ -204,7 +204,7 @@ namespace WangDaDll
                 DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
                 if (rv != null)
                 {
-                    string paymentID = rv["TW_PaymentID"].ToString();
+                    string paymentID = rv["批次号"].ToString();
                     string paymentType = rv["收款类别"].ToString();
                     if (paymentType == "常规收款")
                     {
@@ -228,7 +228,7 @@ namespace WangDaDll
         {
             try
             {
-                DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+                DataRowView rv = bindingSource1.Current as DataRowView;
                 if (rv != null)
                 {
                     string paymentID = rv["TW_PaymentID"].ToString();
@@ -276,6 +276,11 @@ namespace WangDaDll
                 是否审批comboBoxEdit.Enabled = false;
 
             proceedsDataSet.DBHelper.WangDaSer.UpdateUserID();
+            var ldate = DateTime.Today.AddMonths(-2);
+            var adate = DateTime.Today;
+            支付日期DateEdit.DateTime = new DateTime(ldate.Year, ldate.Month, 1);
+            支付日期DateEdit1.DateTime = new DateTime(adate.Year, adate.Month, DateTime.DaysInMonth(adate.Year, adate.Month));
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -459,9 +464,9 @@ namespace WangDaDll
                             UserMessages.ShowInfoBox("收款信息已审批,不能删除!");
                             return;
                         }
-                        string pch = rv["批次号"].ToString();
+                        //string pch = rv["批次号"].ToString();
 
-                        proceedsDataSet.DeletePaymentByPCH(pch);
+                        proceedsDataSet.DeletePaymentByPCH(paymentID);
 
 
                         proceedsDataSet.SaveDataSet();
@@ -476,6 +481,52 @@ namespace WangDaDll
             finally
             {
                 this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void repositoryItemHyperLinkEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+           
+        }
+
+        private void repositoryItemHyperLinkEdit1_OpenLink(object sender, DevExpress.XtraEditors.Controls.OpenLinkEventArgs e)
+        {
+            try
+            {
+                DataRowView rv = bindingSource1.Current as DataRowView;
+                if (rv != null)
+                {
+                    string paymentID = rv["TW_PaymentID"].ToString();
+                    string paymentType = rv["收款类别"].ToString();
+                    if (Security.UserName != "秦艳" && Security.UserName != "高红艳")
+                    {
+
+                        bool sp = false;
+                        if (!string.IsNullOrEmpty(rv["是否审核"].ToString()))
+                            sp = bool.Parse(rv["是否审核"].ToString());
+                        if (sp)
+                        {
+                            UserMessages.ShowInfoBox("收款信息已审批,不能修改!");
+                            return;
+                        }
+                    }
+                    if (paymentType == "常规收款")
+                    {
+                        FrmPaymentGeneralEdit frmGeneralEdit = new FrmPaymentGeneralEdit(paymentID);
+                        frmGeneralEdit.ShowDialog();
+                    }
+                    else
+                    {
+                        FrmPayMentRegEdit frmRegEdit = new FrmPayMentRegEdit(paymentID);
+                        frmRegEdit.ShowDialog();
+                    }
+
+                    btnQuery_Click(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
             }
         }
     }

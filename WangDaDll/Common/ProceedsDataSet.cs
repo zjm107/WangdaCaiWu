@@ -1,6 +1,7 @@
 ﻿using Tiger.Tools;
 using System.Data;
 using System;
+using System.Collections;
 
 namespace WangDaDll.Common
 {
@@ -112,69 +113,6 @@ namespace WangDaDll.Common
             }
 
 
-
-        }
-
-        /// <summary>
-        /// 添加一个收款主记录
-        /// </summary>
-        /// <param name="mainRow"></param>
-        public void AddPaymentMainRow(TW_PaymentRow mainRow)
-        {
-            TW_PaymentMainRow paymentMain = this.TW_PaymentMain.NewTW_PaymentMainRow();
-            paymentMain.TW_PaymentID = mainRow.TW_PaymentID;
-            paymentMain.批次号 = mainRow.TW_PaymentID;
-            paymentMain.支付单位 = mainRow.支付单位;
-            paymentMain.支付金额 = mainRow.支付金额;
-            paymentMain.支付日期 = mainRow.支付日期;
-            paymentMain.支付方式 = mainRow.支付方式;
-            paymentMain.收款人 = mainRow.收款人;
-            paymentMain.收款类别 = mainRow.收款类别;
-            paymentMain.备注 = mainRow.备注;
-            paymentMain.客户名称ID = mainRow.客户名称ID;
-            paymentMain.操作人 = mainRow.操作人;
-            paymentMain.操作时间 = mainRow.操作时间;
-            paymentMain.工本费 = mainRow.工本费;
-            paymentMain.开票费 = mainRow.开票费;
-            paymentMain.做账会计 = mainRow.做账会计;
-            paymentMain.上次到期月份 = mainRow.上次到期月份;
-            paymentMain.本次到期月份 = mainRow.本次到期月份;
-            paymentMain.做账会计ID = mainRow.做账会计ID;
-            paymentMain.业务员 = mainRow.业务员;
-            paymentMain.业务员ID = mainRow.业务员ID;
-            paymentMain.注册员 = mainRow.注册员;
-            paymentMain.注册员ID = mainRow.注册员ID;
-
-            paymentMain.缴费月数 = mainRow.缴费月数;
-            paymentMain.月平均费 = mainRow.月平均费;
-            paymentMain.月做账费 = mainRow.月平均费;
-
-            if (!mainRow.Is零申报Null())
-                paymentMain.零申报 = mainRow.零申报;
-            else
-                paymentMain.零申报 = false;
-            if (!mainRow.Is首年提成结束期Null())
-                paymentMain.首年提成结束期 = mainRow.首年提成结束期;
-            if (!mainRow.Is银行账号Null())
-                paymentMain.银行账号 = mainRow.银行账号;
-
-            if (!mainRow.Is不收款Null())
-            {
-                paymentMain.不收款 = mainRow.不收款;
-            }
-            else
-            {
-                paymentMain.不收款 = false;
-            }
-
-
-            paymentMain.是否审核 = false;
-
-            this.TW_PaymentMain.AddTW_PaymentMainRow(paymentMain);
-
-            //paymentMain.做账会计已提 = mainRow.做账会计已提;
-            //paymentMain.注册员已提 = mainRow.注册员已提;
-            //paymentMain.业务员已提 = mainRow.业务员已提;
 
         }
 
@@ -655,28 +593,35 @@ namespace WangDaDll.Common
         public void SaveDataSet()
         {
             DataTable tbm = this.TW_PaymentMain.GetChanges();
+            
+            if (tbm != null)
+            {
+                tbm.TableName = "TW_PaymentMain";
+            }
 
+        
             DataTable tb1 = TW_Payment.GetChanges();
             if (tb1 != null)
             {
                 tb1.TableName = "TW_Payment";
             }
+
             DataTable tb2 = TW_PaymentDetail.GetChanges();
             if (tb2 != null)
                 tb2.TableName = "TW_PaymentDetail";
-            if (tb1 != null)
-            {
 
-                DataSet dst = new DataSet();
+
+            DataSet dst = new DataSet();
+            if (tbm != null)
+                dst.Tables.Add(tbm);
+            if (tb1 != null)
                 dst.Tables.Add(tb1);
-                if (tb2 != null)
-                    dst.Tables.Add(tb2);
-                DBHelper.BasicSer.SaveDataSet(dst);
-            }
-            else
-            {
-                throw new Exception("收款数据出错，请重新收款!");
-            }
+            if (tb2 != null)
+                dst.Tables.Add(tb2);
+            //dst.Tables[0].GetChanges(DataRowState.)
+            DBHelper.BasicSer.SaveDataSet(dst);
+
+
 
         }
         /// <summary>
@@ -686,15 +631,21 @@ namespace WangDaDll.Common
         public void DeletePaymentByPCH(string pch)
         {
             var mainRow = this.TW_PaymentMain.FindByTW_PaymentID(pch);
-            TW_PaymentMain.RemoveTW_PaymentMainRow(mainRow);
+            mainRow.Delete();
+          //  TW_PaymentMain.RemoveTW_PaymentMainRow(mainRow);
+            ArrayList list = new ArrayList();
             foreach (DataRow row in this.TW_Payment.Rows)
             {
                 if (row["批次号"].ToString() == pch)
                 {
-                    var pRow = row as TW_PaymentRow;
-                    TW_Payment.RemoveTW_PaymentRow(pRow);
+                    list.Add(row);
                 }
 
+            }
+            foreach (var row in list)
+            {
+                var pRow = row as TW_PaymentRow;
+                pRow.Delete();
             }
         }
         /// <summary>
@@ -715,7 +666,7 @@ namespace WangDaDll.Common
         {
             DataSet dst = DBHelper.WangDaSer.GetPaymentMainById(id);
             DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
-            DataManager.ImpDataSet(dst.Tables[""], this.TW_Payment);
+            DataManager.ImpDataSet(dst.Tables["TW_Payment"], this.TW_Payment);
         }
         /// <summary>
         /// 根据ID获取收款信息
@@ -918,6 +869,24 @@ namespace WangDaDll.Common
                 throw ex;
             }
         }
+        /// <summary>
+        /// 更新主记录数据
+        /// </summary>
+        /// <param name="pch"></param>
+        public void UpdatePaymentMainByPch(string pch)
+        {
+            try
+            {
+                DBHelper.WangDaSer.UpdatePaymentMain(pch);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+           
+        }
 
         /// <summary>
         /// 获取客户的详细付款信息
@@ -948,5 +917,79 @@ namespace WangDaDll.Common
         {
             DBHelper.WangDaSer.UpdatePaymentSpDate();
         }
+
+
+
+        /// <summary>
+        /// 添加一个收款主记录
+        /// </summary>
+        /// <param name="mainRow"></param>
+        public void AddPaymentMainRow(TW_PaymentRow mainRow)
+        {
+            TW_PaymentMainRow paymentMain = this.TW_PaymentMain.NewTW_PaymentMainRow();
+            paymentMain.TW_PaymentID = mainRow.TW_PaymentID;
+            paymentMain.批次号 = mainRow.TW_PaymentID;
+            paymentMain.支付单位 = mainRow.支付单位;
+            paymentMain.支付金额 = mainRow.支付金额;
+            paymentMain.支付日期 = mainRow.支付日期;
+            paymentMain.支付方式 = mainRow.支付方式;
+            paymentMain.收款人 = mainRow.收款人;
+            paymentMain.收款类别 = mainRow.收款类别;
+            if (!mainRow.Is备注Null())
+                paymentMain.备注 = mainRow.备注;
+            paymentMain.客户名称ID = mainRow.客户名称ID;
+            paymentMain.操作人 = mainRow.操作人;
+            paymentMain.操作时间 = mainRow.操作时间;
+            paymentMain.工本费 = mainRow.工本费;
+            paymentMain.开票费 = mainRow.开票费;
+            paymentMain.做账会计 = mainRow.做账会计;
+            paymentMain.上次到期月份 = mainRow.上次到期月份;
+            paymentMain.本次到期月份 = mainRow.本次到期月份;
+            paymentMain.做账会计ID = mainRow.做账会计ID;
+            paymentMain.业务员 = mainRow.业务员;
+            paymentMain.业务员ID = mainRow.业务员ID;
+            paymentMain.注册员 = mainRow.注册员;
+            paymentMain.注册员ID = mainRow.注册员ID;
+
+            paymentMain.缴费月数 = mainRow.缴费月数;
+            paymentMain.月平均费 = mainRow.月平均费;
+            paymentMain.月做账费 = mainRow.月平均费;
+
+            if (!mainRow.Is零申报Null())
+                paymentMain.零申报 = mainRow.零申报;
+            else
+                paymentMain.零申报 = false;
+            if (!mainRow.Is首年提成结束期Null())
+                paymentMain.首年提成结束期 = mainRow.首年提成结束期;
+            if (!mainRow.Is银行账号Null())
+                paymentMain.银行账号 = mainRow.银行账号;
+
+            if (!mainRow.Is不收款Null())
+            {
+                paymentMain.不收款 = mainRow.不收款;
+            }
+            else
+            {
+                paymentMain.不收款 = false;
+            }
+
+
+            paymentMain.是否审核 = false;
+
+            this.TW_PaymentMain.AddTW_PaymentMainRow(paymentMain);
+
+            //paymentMain.做账会计已提 = mainRow.做账会计已提;
+            //paymentMain.注册员已提 = mainRow.注册员已提;
+            //paymentMain.业务员已提 = mainRow.业务员已提;
+
+        }
+
+
+        public void AddPaymentMainRows()
+        {
+            DataView dv = new DataView(this.TW_Payment);
+            dv.Sort = "";
+        }
+
     }
 }

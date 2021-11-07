@@ -142,21 +142,27 @@ namespace WangDaDll
 
         private void btnView_Click(object sender, EventArgs e)
         {
-            DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
-            if (rv != null)
+            try
             {
-                string paymentID = rv["TW_PaymentID"].ToString();
-                string paymentType = rv["收款类别"].ToString();
-                if (paymentType == "常规收款")
+                DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+                if (rv != null)
                 {
-                    FrmPaymentGeneralView frmGeneralView = new FrmPaymentGeneralView(paymentID);
-                    frmGeneralView.ShowDialog();
+                    string paymentID = rv["批次号"].ToString();
+                    string paymentType = rv["收款类别"].ToString();
+                    if (paymentType == "常规收款")
+                    {
+                        FrmPaymentGeneralView frmGeneralView = new FrmPaymentGeneralView(paymentID);
+                        frmGeneralView.ShowDialog();
+                    }
+                    else
+                    {
+                        FrmPayMentRegView frmRegView = new FrmPayMentRegView(paymentID);
+                        frmRegView.ShowDialog();
+                    }
                 }
-                else
-                {
-                    FrmPayMentRegView frmRegView = new FrmPayMentRegView(paymentID);
-                    frmRegView.ShowDialog();
-                }
+            }catch(Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
             }
         }
 
@@ -202,6 +208,18 @@ namespace WangDaDll
         {
             dstTCONF_WORD.FillDevComboBox("支付方式", 支付方式ComboBoxEdit);
             proceedsDataSet.DBHelper.WangDaSer.UpdateUserID();
+
+            if (DateTime.Today.Day >= 15)
+            {
+                支付日期DateEdit.DateTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+                支付日期DateEdit1.DateTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month));
+            }
+            else
+            {
+                var ldate = DateTime.Today.AddMonths(-1);
+                支付日期DateEdit.DateTime = new DateTime(ldate.Year, ldate.Month, 1);
+                支付日期DateEdit1.DateTime = new DateTime(ldate.Year, ldate.Month, DateTime.DaysInMonth(ldate.Year, ldate.Month));
+            }
         }
         /// <summary>
         /// 删除

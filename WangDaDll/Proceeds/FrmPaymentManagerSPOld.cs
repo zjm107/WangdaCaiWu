@@ -60,6 +60,7 @@ namespace WangDaDll
                     ,cszzDate1,cszzDate2,bcDate1,bcDate2);
                 tW_PaymentBindingSource.MoveFirst();
                 GetPaymentDetail();
+                gridView1.ExpandAllGroups();
 
             }
             catch (Exception ex)

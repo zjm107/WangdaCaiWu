@@ -186,6 +186,7 @@ namespace WangDaDll
             this.Cursor = Cursors.WaitCursor;
             tW_PaymentBindingSource.EndEdit();
             DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+            string pch = rv["批次号"].ToString();
             splash.ShowWaitForm();
             splash.SetWaitFormCaption("收款");
             splash.SetWaitFormDescription("正在收款中……");
@@ -213,6 +214,8 @@ namespace WangDaDll
                 
                 proceedsDataSet.SaveDataSet(); //保存数据
                 proceedsDataSet.UpdateClientPaymentDate(endPaymentDate, clientId);
+                proceedsDataSet.UpdatePaymentMainByPch(pch);//更新主记录得费用信息
+                //更新总金额
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

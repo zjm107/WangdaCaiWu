@@ -392,7 +392,7 @@ namespace WangDaDll.Common {
             base.Tables.Add(this.tableTWS_Commission);
             this.tableVW_Payment = new VW_PaymentDataTable();
             base.Tables.Add(this.tableVW_Payment);
-            this.tableTW_PaymentMain = new TW_PaymentMainDataTable();
+            this.tableTW_PaymentMain = new TW_PaymentMainDataTable(false);
             base.Tables.Add(this.tableTW_PaymentMain);
         }
         
@@ -507,6 +507,7 @@ namespace WangDaDll.Common {
             this.VW_PaymentDetail.工本费未收款Column.Expression = "工本费-工本费收款额";
             this.VW_PaymentDetail.开票费未收款Column.Expression = "开票费-开票费收款额";
             this.TW_Payment.总额Column.Expression = "支付金额+开票费+工本费";
+            this.TW_PaymentMain.总额Column.Expression = "支付金额+开票费+工本费";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -5675,12 +5676,23 @@ namespace WangDaDll.Common {
             
             private global::System.Data.DataColumn column批次号;
             
+            private global::System.Data.DataColumn column总额;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TW_PaymentMainDataTable() {
+            public TW_PaymentMainDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TW_PaymentMainDataTable(bool initExpressions) {
                 this.TableName = "TW_PaymentMain";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -5990,6 +6002,14 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 总额Column {
+                get {
+                    return this.column总额;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -6021,6 +6041,88 @@ namespace WangDaDll.Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void AddTW_PaymentMainRow(TW_PaymentMainRow row) {
                 this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public TW_PaymentMainRow AddTW_PaymentMainRow(
+                        string TW_PaymentID, 
+                        string 支付单位, 
+                        decimal 支付金额, 
+                        System.DateTime 支付日期, 
+                        string 支付方式, 
+                        string 收款人, 
+                        string 收款类别, 
+                        string 备注, 
+                        string 客户名称ID, 
+                        string 操作人, 
+                        System.DateTime 操作时间, 
+                        decimal 工本费, 
+                        decimal 开票费, 
+                        string 做账会计, 
+                        System.DateTime 上次到期月份, 
+                        System.DateTime 本次到期月份, 
+                        string 做账会计ID, 
+                        bool 做账会计已提, 
+                        bool 注册员已提, 
+                        System.DateTime 首年提成结束期, 
+                        bool 业务员已提, 
+                        string 业务员, 
+                        string 业务员ID, 
+                        string 注册员, 
+                        string 注册员ID, 
+                        decimal 月做账费, 
+                        int 缴费月数, 
+                        decimal 月平均费, 
+                        bool 不收款, 
+                        string 银行账号, 
+                        bool 是否审核, 
+                        string 审核人, 
+                        System.DateTime 审核时间, 
+                        bool 零申报, 
+                        string 批次号, 
+                        decimal 总额) {
+                TW_PaymentMainRow rowTW_PaymentMainRow = ((TW_PaymentMainRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        TW_PaymentID,
+                        支付单位,
+                        支付金额,
+                        支付日期,
+                        支付方式,
+                        收款人,
+                        收款类别,
+                        备注,
+                        客户名称ID,
+                        操作人,
+                        操作时间,
+                        工本费,
+                        开票费,
+                        做账会计,
+                        上次到期月份,
+                        本次到期月份,
+                        做账会计ID,
+                        做账会计已提,
+                        注册员已提,
+                        首年提成结束期,
+                        业务员已提,
+                        业务员,
+                        业务员ID,
+                        注册员,
+                        注册员ID,
+                        月做账费,
+                        缴费月数,
+                        月平均费,
+                        不收款,
+                        银行账号,
+                        是否审核,
+                        审核人,
+                        审核时间,
+                        零申报,
+                        批次号,
+                        总额};
+                rowTW_PaymentMainRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTW_PaymentMainRow);
+                return rowTW_PaymentMainRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6097,7 +6199,8 @@ namespace WangDaDll.Common {
                         审核人,
                         审核时间,
                         零申报,
-                        批次号};
+                        批次号,
+                        null};
                 rowTW_PaymentMainRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTW_PaymentMainRow);
                 return rowTW_PaymentMainRow;
@@ -6162,6 +6265,7 @@ namespace WangDaDll.Common {
                 this.column审核时间 = base.Columns["审核时间"];
                 this.column零申报 = base.Columns["零申报"];
                 this.column批次号 = base.Columns["批次号"];
+                this.column总额 = base.Columns["总额"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6237,6 +6341,8 @@ namespace WangDaDll.Common {
                 base.Columns.Add(this.column零申报);
                 this.column批次号 = new global::System.Data.DataColumn("批次号", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column批次号);
+                this.column总额 = new global::System.Data.DataColumn("总额", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column总额);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnTW_PaymentID}, true));
                 this.columnTW_PaymentID.AllowDBNull = false;
@@ -6258,6 +6364,7 @@ namespace WangDaDll.Common {
                 this.column银行账号.MaxLength = 100;
                 this.column审核人.MaxLength = 50;
                 this.column批次号.MaxLength = 300;
+                this.column总额.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6276,6 +6383,12 @@ namespace WangDaDll.Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(TW_PaymentMainRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitExpressions() {
+                this.总额Column.Expression = "支付金额+开票费+工本费";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12468,6 +12581,22 @@ namespace WangDaDll.Common {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 总额 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableTW_PaymentMain.总额Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“TW_PaymentMain”中列“总额”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableTW_PaymentMain.总额Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is支付单位Null() {
                 return this.IsNull(this.tableTW_PaymentMain.支付单位Column);
             }
@@ -12872,6 +13001,18 @@ namespace WangDaDll.Common {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set批次号Null() {
                 this[this.tableTW_PaymentMain.批次号Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is总额Null() {
+                return this.IsNull(this.tableTW_PaymentMain.总额Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set总额Null() {
+                this[this.tableTW_PaymentMain.总额Column] = global::System.Convert.DBNull;
             }
         }
         

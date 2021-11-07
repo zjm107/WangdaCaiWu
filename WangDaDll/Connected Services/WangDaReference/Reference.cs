@@ -247,6 +247,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentSpDate", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void UpdatePaymentSpDate();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentMain", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdatePaymentMain(string pch);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -506,6 +510,10 @@ namespace WangDaDll.WangDaReference {
         
         public void UpdatePaymentSpDate() {
             base.Channel.UpdatePaymentSpDate();
+        }
+        
+        public void UpdatePaymentMain(string pch) {
+            base.Channel.UpdatePaymentMain(pch);
         }
     }
 }

@@ -5526,8 +5526,30 @@ from
                 from
                 [TW_Payment], [TW_PaymentMain]
                   where [TW_Payment].批次号=[TW_PaymentMain].[TW_PaymentID]
-                 and [TW_Payment].审核时间>=GETDATE()";
+                 and [TW_PaymentMain].审核时间>= CONVERT(varchar(10) ,getdate(), 120) ";
 
+            ServiceManager.GetDatabase().ExecuteNonQuery(strSql);
+        }
+
+        /// <summary>
+        /// 更新主记录值
+        /// </summary>
+        /// <param name="pch"></param>
+        [WebMethod]
+        public void UpdatePaymentMain(string pch)
+        {
+            string strSql = string.Format(@"update
+                    [dbo].[TW_PaymentMain]
+                    set 支付金额=t2.支付金额,
+                    开票费=t2.开票费,
+                    工本费=t2.工本费,
+                    本次到期月份 =t2.本次到期月份,
+                    上次到期月份=t2.上次到期月份
+                    from [TW_PaymentMain] t1,(
+                    select  批次号, sum(支付金额) 支付金额,SUM(开票费) 开票费,sum(工本费) 工本费,
+                    max([本次到期月份]) [本次到期月份],min([上次到期月份]) [上次到期月份] from [TW_Payment]
+                    where 批次号='{0}' group by 批次号) t2
+                    where t1.TW_PaymentID = t2.批次号 and t1.TW_PaymentID='{1}'", pch, pch);
             ServiceManager.GetDatabase().ExecuteNonQuery(strSql);
         }
 

@@ -58,6 +58,7 @@ namespace WangDaDll
             this.col备注1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemHyperLinkEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit();
+            this.col支付金额1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnDelall = new DevExpress.XtraEditors.SimpleButton();
             this.btnCFAll = new DevExpress.XtraEditors.SimpleButton();
             this.btnCF = new DevExpress.XtraEditors.SimpleButton();
@@ -162,7 +163,6 @@ namespace WangDaDll
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
-            this.col支付金额1 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -472,6 +472,7 @@ namespace WangDaDll
             this.gridView3.OptionsView.ColumnAutoWidth = false;
             this.gridView3.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView3.OptionsView.EnableAppearanceOddRow = true;
+            this.gridView3.OptionsView.ShowFooter = true;
             this.gridView3.OptionsView.ShowGroupPanel = false;
             this.gridView3.PaintStyleName = "Flat";
             // 
@@ -496,6 +497,8 @@ namespace WangDaDll
             this.col工本费1.FieldName = "工本费";
             this.col工本费1.Name = "col工本费1";
             this.col工本费1.OptionsColumn.ReadOnly = true;
+            this.col工本费1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "工本费", "{0:0.##}")});
             this.col工本费1.Visible = true;
             this.col工本费1.VisibleIndex = 3;
             // 
@@ -504,6 +507,8 @@ namespace WangDaDll
             this.col开票费1.FieldName = "开票费";
             this.col开票费1.Name = "col开票费1";
             this.col开票费1.OptionsColumn.ReadOnly = true;
+            this.col开票费1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "开票费", "{0:0.##}")});
             this.col开票费1.Visible = true;
             this.col开票费1.VisibleIndex = 4;
             // 
@@ -600,6 +605,16 @@ namespace WangDaDll
             this.repositoryItemHyperLinkEdit1.NullText = "修改";
             this.repositoryItemHyperLinkEdit1.OpenLink += new DevExpress.XtraEditors.Controls.OpenLinkEventHandler(this.repositoryItemHyperLinkEdit1_OpenLink);
             this.repositoryItemHyperLinkEdit1.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemHyperLinkEdit1_ButtonClick);
+            // 
+            // col支付金额1
+            // 
+            this.col支付金额1.FieldName = "支付金额";
+            this.col支付金额1.Name = "col支付金额1";
+            this.col支付金额1.OptionsColumn.ReadOnly = true;
+            this.col支付金额1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "支付金额", "{0:0.##}")});
+            this.col支付金额1.Visible = true;
+            this.col支付金额1.VisibleIndex = 2;
             // 
             // btnDelall
             // 
@@ -1998,14 +2013,6 @@ namespace WangDaDll
             this.layoutControlItem18.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem18.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem18.TextVisible = false;
-            // 
-            // col支付金额1
-            // 
-            this.col支付金额1.FieldName = "支付金额";
-            this.col支付金额1.Name = "col支付金额1";
-            this.col支付金额1.OptionsColumn.ReadOnly = true;
-            this.col支付金额1.Visible = true;
-            this.col支付金额1.VisibleIndex = 2;
             // 
             // FrmPaymentManagerSP
             // 

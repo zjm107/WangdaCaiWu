@@ -36,6 +36,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetImage(string fkID, string fileType);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DelByPCH", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void DelByPCH(string pch);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetImagebyID", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetImagebyID(string FileID);
@@ -298,6 +302,10 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetImage(string fkID, string fileType) {
             return base.Channel.GetImage(fkID, fileType);
+        }
+        
+        public void DelByPCH(string pch) {
+            base.Channel.DelByPCH(pch);
         }
         
         public System.Data.DataSet GetImagebyID(string FileID) {

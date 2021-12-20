@@ -137,5 +137,15 @@ namespace WangDaDll
                 MessageBox.Show("错误:" + ex.Message);
             }
         }
+
+        private void 做账会计TextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void 做账会计TextEdit_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+
+        }
     }
 }

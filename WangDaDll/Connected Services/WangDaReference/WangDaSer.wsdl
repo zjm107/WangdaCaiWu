@@ -64,6 +64,16 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="DelByPCH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pch" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DelByPCHResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="GetImagebyID">
         <s:complexType>
           <s:sequence>
@@ -1287,6 +1297,12 @@
   <wsdl:message name="GetImageSoapOut">
     <wsdl:part name="parameters" element="tns:GetImageResponse" />
   </wsdl:message>
+  <wsdl:message name="DelByPCHSoapIn">
+    <wsdl:part name="parameters" element="tns:DelByPCH" />
+  </wsdl:message>
+  <wsdl:message name="DelByPCHSoapOut">
+    <wsdl:part name="parameters" element="tns:DelByPCHResponse" />
+  </wsdl:message>
   <wsdl:message name="GetImagebyIDSoapIn">
     <wsdl:part name="parameters" element="tns:GetImagebyID" />
   </wsdl:message>
@@ -1632,6 +1648,10 @@
       <wsdl:input message="tns:GetImageSoapIn" />
       <wsdl:output message="tns:GetImageSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="DelByPCH">
+      <wsdl:input message="tns:DelByPCHSoapIn" />
+      <wsdl:output message="tns:DelByPCHSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetImagebyID">
       <wsdl:input message="tns:GetImagebyIDSoapIn" />
       <wsdl:output message="tns:GetImagebyIDSoapOut" />
@@ -1889,6 +1909,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetImage">
       <soap:operation soapAction="http://tempuri.org/GetImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelByPCH">
+      <soap:operation soapAction="http://tempuri.org/DelByPCH" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2423,6 +2452,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetImage">
       <soap12:operation soapAction="http://tempuri.org/GetImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DelByPCH">
+      <soap12:operation soapAction="http://tempuri.org/DelByPCH" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

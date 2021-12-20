@@ -162,6 +162,19 @@ and TW_Client.初始做账时间 is not null )";
             DataSet dst = ServiceManager.GetDatabase("FileDB").GetEntity(strSql, "TF_FILE");
             return dst;
         }
+        /// <summary>
+        /// 按照批次号删除
+        /// </summary>
+        /// <param name="pch"></param>
+        [WebMethod]
+        public void DelByPCH(string pch)
+        {
+            string strsql = "delete from [TW_Payment] where 批次号='"+pch+"'";
+            var db = ServiceManager.GetDatabase();
+            db.ExecuteNonQuery(strsql);
+            strsql = "delete from [TW_PaymentMain] where 批次号='"+ pch + "'";
+            db.ExecuteNonQuery(strsql);
+        }
 
         /// <summary>
         /// 根据ID获取图片信息

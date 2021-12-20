@@ -344,11 +344,13 @@ namespace WangDaDll
                             return;
                         }
                         string pch = rv["批次号"].ToString();
+                        proceedsDataSet.DelByPCH(pch);
+                        btnQuery_Click(sender, e);
+                        //proceedsDataSet.GetPaymentMainRow(pch);
+                        //proceedsDataSet.DeletePaymentByPCH(pch);
 
-                        proceedsDataSet.DeletePaymentByPCH(pch);
 
-
-                        proceedsDataSet.SaveDataSet();
+                        //proceedsDataSet.SaveDataSet();
                     }
 
                 }

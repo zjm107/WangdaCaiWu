@@ -389,10 +389,18 @@ namespace WangDaDll.Common
                 string payCompany = VW_PaymentDetail.Rows[0]["公司预核名称"].ToString();
                 string payCompanyID = VW_PaymentDetail.Rows[0]["TW_BusinessRegID"].ToString();
                 zclx = VW_PaymentDetail.Rows[0]["注册类型"].ToString();
+                DataRow detailRow = VW_PaymentDetail.Rows[0];
+
                 TW_PaymentRow mainRow = this.TW_Payment.Rows[0] as TW_PaymentRow;
                 mainRow.BeginEdit();
                 mainRow["支付单位"] = payCompany;
                 mainRow["客户名称ID"] = payCompanyID;
+                mainRow.业务员 = detailRow["业务员"].ToString();
+                mainRow.业务员ID = detailRow["业务员ID"].ToString();
+                mainRow.注册员 = detailRow["注册员"].ToString();
+                mainRow.注册员ID = detailRow["注册员ID"].ToString();
+                mainRow.做账会计 = detailRow["做账会计"].ToString();
+                mainRow.做账会计ID = detailRow["做账会计ID"].ToString();
                 switch (zclx)
                 {
 
@@ -519,6 +527,7 @@ namespace WangDaDll.Common
             mainRow.工本开票提成 = 0;
             mainRow.做账业务团队提成 = 0;
             mainRow.TW_PaymentID = newID;
+
             TW_Payment.Rows.Add(mainRow);
             return newID;
         }
@@ -631,6 +640,7 @@ namespace WangDaDll.Common
         public void DeletePaymentByPCH(string pch)
         {
             var mainRow = this.TW_PaymentMain.FindByTW_PaymentID(pch);
+            if(mainRow!=null)
             mainRow.Delete();
           //  TW_PaymentMain.RemoveTW_PaymentMainRow(mainRow);
             ArrayList list = new ArrayList();
@@ -667,6 +677,24 @@ namespace WangDaDll.Common
             DataSet dst = DBHelper.WangDaSer.GetPaymentMainById(id);
             DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
             DataManager.ImpDataSet(dst.Tables["TW_Payment"], this.TW_Payment);
+        }
+        /// <summary>
+        /// 只查询主记录
+        /// </summary>
+        /// <param name="id"></param>
+        public void GetPaymentMainRow(string id)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetPaymentMainById(id);
+            DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
+            
+        }
+        /// <summary>
+        /// 按照批次号删除收款记录
+        /// </summary>
+        /// <param name="pch"></param>
+        public void DelByPCH(string pch)
+        {
+            DBHelper.WangDaSer.DelByPCH(pch);
         }
         /// <summary>
         /// 根据ID获取收款信息
@@ -942,12 +970,18 @@ namespace WangDaDll.Common
             paymentMain.操作时间 = mainRow.操作时间;
             paymentMain.工本费 = mainRow.工本费;
             paymentMain.开票费 = mainRow.开票费;
-            paymentMain.做账会计 = mainRow.做账会计;
-            paymentMain.上次到期月份 = mainRow.上次到期月份;
-            paymentMain.本次到期月份 = mainRow.本次到期月份;
-            paymentMain.做账会计ID = mainRow.做账会计ID;
-            paymentMain.业务员 = mainRow.业务员;
-            paymentMain.业务员ID = mainRow.业务员ID;
+            if(!mainRow.Is做账会计Null())
+                paymentMain.做账会计 = mainRow.做账会计;
+            if (!mainRow.Is上次到期月份Null())
+                paymentMain.上次到期月份 = mainRow.上次到期月份;
+            if (!mainRow.Is本次到期月份Null())
+                paymentMain.本次到期月份 = mainRow.本次到期月份;
+            if (!mainRow.Is做账会计IDNull())
+                paymentMain.做账会计ID = mainRow.做账会计ID;
+            if (!mainRow.Is业务员Null())
+                paymentMain.业务员 = mainRow.业务员;
+            if (!mainRow.Is业务员IDNull())
+                paymentMain.业务员ID = mainRow.业务员ID;
             paymentMain.注册员 = mainRow.注册员;
             paymentMain.注册员ID = mainRow.注册员ID;
 
@@ -977,7 +1011,7 @@ namespace WangDaDll.Common
             paymentMain.是否审核 = false;
 
             this.TW_PaymentMain.AddTW_PaymentMainRow(paymentMain);
-
+            mainRow.批次号 = paymentMain.批次号;
             //paymentMain.做账会计已提 = mainRow.做账会计已提;
             //paymentMain.注册员已提 = mainRow.注册员已提;
             //paymentMain.业务员已提 = mainRow.业务员已提;

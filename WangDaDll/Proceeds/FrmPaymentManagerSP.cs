@@ -143,18 +143,21 @@ namespace WangDaDll
         private void GetPaymentDetail()
         {
             DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
-            if (rv != null && (rv["收款类别"].ToString() == "注册收款" || rv["收款类别"].ToString() == "成长版收款" ||
-                 rv["收款类别"].ToString() == "其他一次性收款"))
+            if (rv != null)
             {
-                string paymentID = rv["tw_PaymentID"].ToString();
-                proceedsDataSet.GetPaymentDetailID(paymentID);
-            }
-            else
-            {
-                proceedsDataSet.TW_PaymentDetail.Clear();
-                string paymentid = rv["TW_PaymentID"].ToString();//批次号
-                proceedsDataSet.GetPaymentByPch(paymentid);
+                if (rv != null && (rv["收款类别"].ToString() == "注册收款" || rv["收款类别"].ToString() == "成长版收款" ||
+                     rv["收款类别"].ToString() == "其他一次性收款"))
+                {
+                    string paymentID = rv["tw_PaymentID"].ToString();
+                    proceedsDataSet.GetPaymentDetailID(paymentID);
+                }
+                else
+                {
+                    proceedsDataSet.TW_PaymentDetail.Clear();
+                    string paymentid = rv["TW_PaymentID"].ToString();//批次号
+                    proceedsDataSet.GetPaymentByPch(paymentid);
 
+                }
             }
               
         }
@@ -454,7 +457,7 @@ namespace WangDaDll
                         string paymentID = rv["TW_PaymentID"].ToString();
                         string paymentType = rv["收款类别"].ToString();
                         string creater = rv["操作人"].ToString();
-                        if (creater != Security.UserName) { UserMessages.ShowInfoBox("操作人本人可以进行删除!"); return; }
+                      //  if (creater != Security.UserName) { UserMessages.ShowInfoBox("操作人本人可以进行删除!"); return; }
                         bool sp = false;
                         if (!string.IsNullOrEmpty(rv["是否审核"].ToString()))
                             sp = bool.Parse(rv["是否审核"].ToString());
@@ -465,11 +468,9 @@ namespace WangDaDll
                             return;
                         }
                         //string pch = rv["批次号"].ToString();
+                        proceedsDataSet.DelByPCH(paymentID);
+                        btnQuery_Click(sender, e);
 
-                        proceedsDataSet.DeletePaymentByPCH(paymentID);
-
-
-                        proceedsDataSet.SaveDataSet();
                     }
 
                 }

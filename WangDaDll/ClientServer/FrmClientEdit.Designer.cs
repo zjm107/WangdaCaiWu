@@ -33,9 +33,10 @@ namespace WangDaDll
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.月收费标准SpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.tW_ClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.csDataSet = new WangDaDll.Common.CsDataSet();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.客户状态ComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.合同到期时间DateEdit = new DevExpress.XtraEditors.DateEdit();
@@ -85,15 +86,15 @@ namespace WangDaDll
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
-            this.月收费标准SpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.月收费标准SpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_ClientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.csDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.客户状态ComboBoxEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.合同到期时间DateEdit.Properties.CalendarTimeProperties)).BeginInit();
@@ -145,9 +146,8 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.月收费标准SpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -186,6 +186,32 @@ namespace WangDaDll
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // 月收费标准SpinEdit
+            // 
+            this.月收费标准SpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_ClientBindingSource, "月收费标准", true));
+            this.月收费标准SpinEdit.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.月收费标准SpinEdit.Location = new System.Drawing.Point(115, 326);
+            this.月收费标准SpinEdit.Name = "月收费标准SpinEdit";
+            this.月收费标准SpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.月收费标准SpinEdit.Size = new System.Drawing.Size(528, 20);
+            this.月收费标准SpinEdit.StyleController = this.layoutControl1;
+            this.月收费标准SpinEdit.TabIndex = 46;
+            // 
+            // tW_ClientBindingSource
+            // 
+            this.tW_ClientBindingSource.DataMember = "TW_Client";
+            this.tW_ClientBindingSource.DataSource = this.csDataSet;
+            // 
+            // csDataSet
+            // 
+            this.csDataSet.DataSetName = "CsDataSet";
+            this.csDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // dateEdit1
             // 
             this.dateEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_ClientBindingSource, "首年提成结束期", true));
@@ -199,16 +225,6 @@ namespace WangDaDll
             this.dateEdit1.Size = new System.Drawing.Size(528, 20);
             this.dateEdit1.StyleController = this.layoutControl1;
             this.dateEdit1.TabIndex = 45;
-            // 
-            // tW_ClientBindingSource
-            // 
-            this.tW_ClientBindingSource.DataMember = "TW_Client";
-            this.tW_ClientBindingSource.DataSource = this.csDataSet;
-            // 
-            // csDataSet
-            // 
-            this.csDataSet.DataSetName = "CsDataSet";
-            this.csDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // 客户状态ComboBoxEdit
             // 
@@ -435,6 +451,7 @@ namespace WangDaDll
             this.注册员TextEdit.Name = "注册员TextEdit";
             this.注册员TextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.注册员TextEdit.Properties.ReadOnly = true;
             this.注册员TextEdit.Size = new System.Drawing.Size(528, 20);
             this.注册员TextEdit.StyleController = this.layoutControl1;
             this.注册员TextEdit.TabIndex = 35;
@@ -447,6 +464,7 @@ namespace WangDaDll
             this.业务员TextEdit.Name = "业务员TextEdit";
             this.业务员TextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.业务员TextEdit.Properties.ReadOnly = true;
             this.业务员TextEdit.Size = new System.Drawing.Size(528, 20);
             this.业务员TextEdit.StyleController = this.layoutControl1;
             this.业务员TextEdit.TabIndex = 37;
@@ -459,10 +477,13 @@ namespace WangDaDll
             this.做账会计TextEdit.Name = "做账会计TextEdit";
             this.做账会计TextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.做账会计TextEdit.Properties.ReadOnly = true;
             this.做账会计TextEdit.Size = new System.Drawing.Size(528, 20);
             this.做账会计TextEdit.StyleController = this.layoutControl1;
             this.做账会计TextEdit.TabIndex = 27;
             this.做账会计TextEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.做账会计TextEdit_ButtonClick);
+            this.做账会计TextEdit.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.做账会计TextEdit_ButtonPressed);
+            this.做账会计TextEdit.EditValueChanged += new System.EventHandler(this.做账会计TextEdit_EditValueChanged);
             // 
             // layoutControlGroup1
             // 
@@ -755,27 +776,6 @@ namespace WangDaDll
             this.layoutControlItem7.Text = "首年提成结束时间:";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(100, 14);
             // 
-            // dstTCONF_WORD
-            // 
-            this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
-            this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // 月收费标准SpinEdit
-            // 
-            this.月收费标准SpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_ClientBindingSource, "月收费标准", true));
-            this.月收费标准SpinEdit.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.月收费标准SpinEdit.Location = new System.Drawing.Point(115, 326);
-            this.月收费标准SpinEdit.Name = "月收费标准SpinEdit";
-            this.月收费标准SpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.月收费标准SpinEdit.Size = new System.Drawing.Size(528, 20);
-            this.月收费标准SpinEdit.StyleController = this.layoutControl1;
-            this.月收费标准SpinEdit.TabIndex = 46;
-            // 
             // layoutControlItem17
             // 
             this.layoutControlItem17.Control = this.月收费标准SpinEdit;
@@ -784,6 +784,11 @@ namespace WangDaDll
             this.layoutControlItem17.Size = new System.Drawing.Size(635, 24);
             this.layoutControlItem17.Text = "月收费标准:";
             this.layoutControlItem17.TextSize = new System.Drawing.Size(100, 14);
+            // 
+            // dstTCONF_WORD
+            // 
+            this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
+            this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // FrmClientEdit
             // 
@@ -798,10 +803,11 @@ namespace WangDaDll
             this.Load += new System.EventHandler(this.FrmClientEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.月收费标准SpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_ClientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.csDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.客户状态ComboBoxEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.合同到期时间DateEdit.Properties.CalendarTimeProperties)).EndInit();
@@ -853,9 +859,8 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.月收费标准SpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
             this.ResumeLayout(false);
 
         }

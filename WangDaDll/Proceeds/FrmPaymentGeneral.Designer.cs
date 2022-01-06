@@ -397,7 +397,6 @@ namespace WangDaDll
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.操作时间DateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.操作时间DateEdit.Properties.ReadOnly = true;
             this.操作时间DateEdit.Size = new System.Drawing.Size(374, 20);
             this.操作时间DateEdit.StyleController = this.layoutControl1;
             this.操作时间DateEdit.TabIndex = 21;

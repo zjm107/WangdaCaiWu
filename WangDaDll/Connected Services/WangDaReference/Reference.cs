@@ -176,6 +176,10 @@ namespace WangDaDll.WangDaReference {
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetAccountantSumDetail(int year, int month, string userID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenDetail", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetGongbenDetail(int year, string userID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantDetail", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetAccountantDetail(int year, int month, string deptid);
@@ -442,6 +446,10 @@ namespace WangDaDll.WangDaReference {
         
         public System.Data.DataSet GetAccountantSumDetail(int year, int month, string userID) {
             return base.Channel.GetAccountantSumDetail(year, month, userID);
+        }
+        
+        public System.Data.DataSet GetGongbenDetail(int year, string userID) {
+            return base.Channel.GetGongbenDetail(year, userID);
         }
         
         public System.Data.DataSet GetAccountantDetail(int year, int month, string deptid) {

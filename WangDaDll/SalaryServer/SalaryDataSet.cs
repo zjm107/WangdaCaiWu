@@ -298,12 +298,27 @@ namespace WangDaDll.SalaryServer
 
         }
 
+
+        /// <summary>
+        /// 获取工本费开票费做账明细信息
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="userID"></param>
+        public void GetGongbenDetail(int year, string userID)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetGongbenDetail(year, userID);
+            DataManager.ImpDataSet(dst.Tables["VW_AllAccountantSalaryDetail"], this.tableVW_AllAccountantSalaryDetail);
+
+
+        }
+
         /// <summary>
         /// 获取开票工本费
         /// </summary>
         /// <param name="year"></param>
         /// <param name="userId"></param>
-        public void GetGongbenKaipiao(int year, string userId,string deptName)
+        public void GetGongbenKaipiao(int year, string userId, string deptName)
         {
             DataSet dst = DBHelper.WangDaSer.GetGongbenKaipiao(year.ToString(), userId, deptName);
             DataManager.ImpDataSet(dst.Tables["VW_工本开票费提成"], this.VW_GBTC);

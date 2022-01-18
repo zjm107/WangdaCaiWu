@@ -224,14 +224,29 @@ namespace WangDaDll
         private void vW_AllAccountantSalaryGridControl_DoubleClick(object sender, EventArgs e)
         {
             try {
-                int year = int.Parse(yearSpinEdit.Text);
-                int month = int.Parse(monthComboBoxEdit.Text);
-                DataRowView rv = vW_AllAccountantSalaryBindingSource.Current as DataRowView;
-                string userID = rv["员工ID"].ToString();
-                FrmAccountantSalaryDetail2021 frmDetailDlg = new FrmAccountantSalaryDetail2021(year, month, userID);
-                if (frmDetailDlg.ShowDialog() == DialogResult.OK)
+                if (tabbedControlGroup1.SelectedTabPageIndex == 0)
                 {
+                    int year = int.Parse(yearSpinEdit.Text);
+                    int month = int.Parse(monthComboBoxEdit.Text);
+                    DataRowView rv = vW_AllAccountantSalaryBindingSource.Current as DataRowView;
+                    string userID = rv["员工ID"].ToString();
+                    FrmAccountantSalaryDetail2021 frmDetailDlg = new FrmAccountantSalaryDetail2021(year, month, userID);
+                    if (frmDetailDlg.ShowDialog() == DialogResult.OK)
+                    {
 
+                    }
+                }
+                else
+                {
+                    int year = int.Parse(yearSpinEdit.Text);
+                    int month = int.Parse(monthComboBoxEdit.Text);
+                    DataRowView rv = vW_GBTCBindingSource.Current as DataRowView;
+                    string userID = rv["做账会计ID"].ToString();
+                    FrmAccountantSalaryDetail2022 frmDetailDlg = new FrmAccountantSalaryDetail2022(year,  userID);
+                    if (frmDetailDlg.ShowDialog() == DialogResult.OK)
+                    {
+
+                    }
                 }
             }
             catch (Exception ex)

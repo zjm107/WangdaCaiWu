@@ -3334,6 +3334,8 @@ namespace WangDaDll.SalaryServer {
             
             private global::System.Data.DataColumn column结束时间;
             
+            private global::System.Data.DataColumn column操作时间;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public VW_AllAccountantSalaryDetailDataTable() {
@@ -3481,6 +3483,14 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 操作时间Column {
+                get {
+                    return this.column操作时间;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3516,7 +3526,7 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VW_AllAccountantSalaryDetailRow AddVW_AllAccountantSalaryDetailRow(string 员工, string 员工ID, string 客户名称, string 客户名称Id, decimal 做账收款额, decimal 工本收款费, decimal 开票收款费, System.DateTime 支付日期, string 收款类别, decimal 月做账费, decimal 年做账费, string 工资统计类型, System.DateTime 开始时间, System.DateTime 结束时间) {
+            public VW_AllAccountantSalaryDetailRow AddVW_AllAccountantSalaryDetailRow(string 员工, string 员工ID, string 客户名称, string 客户名称Id, decimal 做账收款额, decimal 工本收款费, decimal 开票收款费, System.DateTime 支付日期, string 收款类别, decimal 月做账费, decimal 年做账费, string 工资统计类型, System.DateTime 开始时间, System.DateTime 结束时间, System.DateTime 操作时间) {
                 VW_AllAccountantSalaryDetailRow rowVW_AllAccountantSalaryDetailRow = ((VW_AllAccountantSalaryDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         员工,
@@ -3532,7 +3542,8 @@ namespace WangDaDll.SalaryServer {
                         年做账费,
                         工资统计类型,
                         开始时间,
-                        结束时间};
+                        结束时间,
+                        操作时间};
                 rowVW_AllAccountantSalaryDetailRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_AllAccountantSalaryDetailRow);
                 return rowVW_AllAccountantSalaryDetailRow;
@@ -3569,6 +3580,7 @@ namespace WangDaDll.SalaryServer {
                 this.column工资统计类型 = base.Columns["工资统计类型"];
                 this.column开始时间 = base.Columns["开始时间"];
                 this.column结束时间 = base.Columns["结束时间"];
+                this.column操作时间 = base.Columns["操作时间"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3602,6 +3614,8 @@ namespace WangDaDll.SalaryServer {
                 base.Columns.Add(this.column开始时间);
                 this.column结束时间 = new global::System.Data.DataColumn("结束时间", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column结束时间);
+                this.column操作时间 = new global::System.Data.DataColumn("操作时间", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column操作时间);
                 this.column员工.MaxLength = 50;
                 this.column员工ID.MaxLength = 50;
             }
@@ -8671,6 +8685,22 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime 操作时间 {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableVW_AllAccountantSalaryDetail.操作时间Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_AllAccountantSalaryDetail”中列“操作时间”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_AllAccountantSalaryDetail.操作时间Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is员工Null() {
                 return this.IsNull(this.tableVW_AllAccountantSalaryDetail.员工Column);
             }
@@ -8835,6 +8865,18 @@ namespace WangDaDll.SalaryServer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set结束时间Null() {
                 this[this.tableVW_AllAccountantSalaryDetail.结束时间Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is操作时间Null() {
+                return this.IsNull(this.tableVW_AllAccountantSalaryDetail.操作时间Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set操作时间Null() {
+                this[this.tableVW_AllAccountantSalaryDetail.操作时间Column] = global::System.Convert.DBNull;
             }
         }
         

@@ -32,10 +32,10 @@ namespace WangDaDll
         {
             this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.vW_GBTCBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.salaryDataSet1 = new WangDaDll.SalaryServer.SalaryDataSet();
             this.btnSCYJ = new DevExpress.XtraEditors.SimpleButton();
             this.vW_工本开票费提成GridControl = new DevExpress.XtraGrid.GridControl();
+            this.vW_GBTCBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.salaryDataSet1 = new WangDaDll.SalaryServer.SalaryDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col年 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col做账会计 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -90,9 +90,9 @@ namespace WangDaDll
             this.salaryDataSet2 = new WangDaDll.SalaryServer.SalaryDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vW_工本开票费提成GridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vW_GBTCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vW_工本开票费提成GridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountantBtn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.yearSpinEdit.Properties)).BeginInit();
@@ -145,16 +145,6 @@ namespace WangDaDll
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // vW_GBTCBindingSource
-            // 
-            this.vW_GBTCBindingSource.DataMember = "VW_GBTC";
-            this.vW_GBTCBindingSource.DataSource = this.salaryDataSet1;
-            // 
-            // salaryDataSet1
-            // 
-            this.salaryDataSet1.DataSetName = "SalaryDataSet";
-            this.salaryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // btnSCYJ
             // 
             this.btnSCYJ.Location = new System.Drawing.Point(291, 36);
@@ -175,6 +165,16 @@ namespace WangDaDll
             this.vW_工本开票费提成GridControl.TabIndex = 13;
             this.vW_工本开票费提成GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // vW_GBTCBindingSource
+            // 
+            this.vW_GBTCBindingSource.DataMember = "VW_GBTC";
+            this.vW_GBTCBindingSource.DataSource = this.salaryDataSet1;
+            // 
+            // salaryDataSet1
+            // 
+            this.salaryDataSet1.DataSetName = "SalaryDataSet";
+            this.salaryDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gridView1
             // 
@@ -918,8 +918,8 @@ namespace WangDaDll
             // 
             this.tabbedControlGroup1.Location = new System.Drawing.Point(0, 50);
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
-            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
-            this.tabbedControlGroup1.SelectedTabPageIndex = 0;
+            this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup3;
+            this.tabbedControlGroup1.SelectedTabPageIndex = 1;
             this.tabbedControlGroup1.Size = new System.Drawing.Size(961, 603);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
@@ -983,9 +983,9 @@ namespace WangDaDll
             this.Load += new System.EventHandler(this.FrmAccountantSalary2021_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.vW_工本开票费提成GridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vW_GBTCBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vW_工本开票费提成GridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountantBtn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.yearSpinEdit.Properties)).EndInit();

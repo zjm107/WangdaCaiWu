@@ -899,6 +899,28 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetGongbenDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGongbenDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGongbenDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetAccountantDetail">
         <s:complexType>
           <s:sequence>
@@ -1507,6 +1529,12 @@
   <wsdl:message name="GetAccountantSumDetailSoapOut">
     <wsdl:part name="parameters" element="tns:GetAccountantSumDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="GetGongbenDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGongbenDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetGongbenDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGongbenDetailResponse" />
+  </wsdl:message>
   <wsdl:message name="GetAccountantDetailSoapIn">
     <wsdl:part name="parameters" element="tns:GetAccountantDetail" />
   </wsdl:message>
@@ -1787,6 +1815,10 @@
     <wsdl:operation name="GetAccountantSumDetail">
       <wsdl:input message="tns:GetAccountantSumDetailSoapIn" />
       <wsdl:output message="tns:GetAccountantSumDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGongbenDetail">
+      <wsdl:input message="tns:GetGongbenDetailSoapIn" />
+      <wsdl:output message="tns:GetGongbenDetailSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAccountantDetail">
       <wsdl:input message="tns:GetAccountantDetailSoapIn" />
@@ -2224,6 +2256,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAccountantSumDetail">
       <soap:operation soapAction="http://tempuri.org/GetAccountantSumDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGongbenDetail">
+      <soap:operation soapAction="http://tempuri.org/GetGongbenDetail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2767,6 +2808,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAccountantSumDetail">
       <soap12:operation soapAction="http://tempuri.org/GetAccountantSumDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGongbenDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetGongbenDetail" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -4551,6 +4551,49 @@ or 注册类型='变更' or 注册类型='注销')
             return dst;
         }
 
+
+        /// <summary>
+        /// 查询工本费明细
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="month"></param>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetGongbenDetail(int year, string userID)
+        {
+            string strSql = @" select
+          	t.TW_PaymentID,
+          t.支付单位 as 客户名称,
+          newid() as  客户名称ID,
+          t.支付金额 as 做账收款额,
+          t.工本费 as 工本收款费,
+          t.开票费 as 开票收款费,
+          0 as 做账提成,
+          0 as 工本费开票费提成,
+          t.做账会计 as 员工,
+          t.做账会计ID as 员工ID,
+          t.支付日期 as 支付日期,
+          0 as 注册费收款额,
+          0 as 注册提成,
+          t.收款类别,
+          t.月平均费 as 月做账费,
+          t.月平均费 * 12 as 年做账费,
+          '做账会计常规' as 工资统计类型
+           ,t.上次到期月份 as 开始时间,
+		   t.本次到期月份 as 结束时间,t.操作时间 
+          from TW_Payment t,[dbo].[TW_Client] t2
+          where
+          t.客户名称ID = t2.客户名称ID
+          and isnull(t.零申报,0) = 0
+          and   datepart(yyyy,t.操作时间)=" + year + @" 
+          and (t.工本费>0 or t.开票费>0)
+          and t.做账会计ID='" + userID + @"' ";
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllAccountantSalaryDetail");
+
+            return dst;
+        }
+
         /// <summary>
         /// 获取做账月明细
         /// </summary>

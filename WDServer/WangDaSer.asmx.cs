@@ -4448,7 +4448,7 @@ or 注册类型='变更' or 注册类型='注销')
            and isnull(t.零申报,0)=0
             and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
-           and t.操作日期<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.收款类别 = '常规收款'
            and t3.TeacherID='" + userID + @"'
             and t.是否审核=1

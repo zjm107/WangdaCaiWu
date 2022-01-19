@@ -169,8 +169,9 @@ and TW_Client.初始做账时间 is not null )";
         [WebMethod]
         public void DelByPCH(string pch)
         {
-            string strsql = "delete from [TW_Payment] where 批次号='"+pch+"'";
+           
             var db = ServiceManager.GetDatabase();
+            string strsql = "delete from [TW_Payment] where 批次号='" + pch + "'";
             db.ExecuteNonQuery(strsql);
             strsql = "delete from [TW_PaymentMain] where 批次号='"+ pch + "'";
             db.ExecuteNonQuery(strsql);

@@ -2481,7 +2481,7 @@ or 注册类型='变更' or 注册类型='注销')
 					  where t.客户名称ID=t2.客户名称ID and  t.业务员ID =tu.USERID
                       and t.是否审核=1
                       and t.本次到期月份>  t2.首年提成结束期
-                      and year(t.本次到期月份)={0}
+                      and year(t.操作时间)={0}
                       and t.收款类别='常规收款'
                       and tu.DEPTNAME='业务部' ) ts
 					  group by ts.员工,ts.员工ID) tt,[dbo].[TWS_Commission] tc
@@ -2517,7 +2517,7 @@ or 注册类型='变更' or 注册类型='注销')
                       and t.业务员='{0}'
                       and t.是否审核=1
                       and t.本次到期月份>  t2.首年提成结束期
-                      and year(t.本次到期月份)={1}
+                      and year(t.操作时间)={1}
                       and t.收款类别='常规收款'
                       and tu.DEPTNAME='业务部' ) ts
 					  group by ts.员工,ts.员工ID) tt,[dbo].[TWS_Commission] tc

@@ -454,6 +454,29 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetBusinessSumReg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="businessID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBusinessSumRegResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBusinessSumRegResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="GetBusinessSum2021">
         <s:complexType>
           <s:sequence>
@@ -1415,6 +1438,12 @@
   <wsdl:message name="GetBusinessSumSoapOut">
     <wsdl:part name="parameters" element="tns:GetBusinessSumResponse" />
   </wsdl:message>
+  <wsdl:message name="GetBusinessSumRegSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBusinessSumReg" />
+  </wsdl:message>
+  <wsdl:message name="GetBusinessSumRegSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBusinessSumRegResponse" />
+  </wsdl:message>
   <wsdl:message name="GetBusinessSum2021SoapIn">
     <wsdl:part name="parameters" element="tns:GetBusinessSum2021" />
   </wsdl:message>
@@ -1739,6 +1768,10 @@
     <wsdl:operation name="GetBusinessSum">
       <wsdl:input message="tns:GetBusinessSumSoapIn" />
       <wsdl:output message="tns:GetBusinessSumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessSumReg">
+      <wsdl:input message="tns:GetBusinessSumRegSoapIn" />
+      <wsdl:output message="tns:GetBusinessSumRegSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetBusinessSum2021">
       <wsdl:input message="tns:GetBusinessSum2021SoapIn" />
@@ -2085,6 +2118,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetBusinessSum">
       <soap:operation soapAction="http://tempuri.org/GetBusinessSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessSumReg">
+      <soap:operation soapAction="http://tempuri.org/GetBusinessSumReg" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2637,6 +2679,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetBusinessSum">
       <soap12:operation soapAction="http://tempuri.org/GetBusinessSum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBusinessSumReg">
+      <soap12:operation soapAction="http://tempuri.org/GetBusinessSumReg" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -44,7 +44,7 @@ namespace WangDaDll
             try
             {
                 salaryDataSet.GetRegSumDetail(Year, Month, UserID);
-                salaryDataSetYW.GetBusinessSum(UserID, Year, Month);
+                salaryDataSetYW.GetBusinessSumReg(UserID, Year, Month);
                 salaryDataSet1.GetBusinessSumCZB(UserID, Year, Month);
                 salaryDataSet2.GetBusinessSumYCX(UserID, Year, Month);
             }

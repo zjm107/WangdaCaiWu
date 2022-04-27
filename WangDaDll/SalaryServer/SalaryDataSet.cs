@@ -24,6 +24,13 @@ namespace WangDaDll.SalaryServer
             DataManager.ImpDataSet(dst.Tables[0], this.tableTW_SalarySum);
         }
 
+
+        public void GetBusinessSumReg(string businessID, int year, int month)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetBusinessSumReg(businessID, year, month);
+            DataManager.ImpDataSet(dst.Tables[0], this.tableTW_SalarySum);
+        }
+
         /// <summary>
         /// 获取业务员指定月份的业绩
         /// </summary>

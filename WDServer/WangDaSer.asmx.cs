@@ -228,14 +228,17 @@ and TW_Client.初始做账时间 is not null )";
 
                 if (!string.IsNullOrEmpty(clientState))
                 {
+                    if(clientState=="全部")
+                    { }
+                    else
                     strSql += " and isnull(客户状态,'')='" + clientState + "'";
                 }
                 else
                 {
-                    strSql += @" and isnull(客户状态,'')<>'转让'
-                                and isnull(客户状态,'')<> '注销'
-                                and isnull(客户状态,'')<> '非正常'
-                                and isnull(客户状态,'')<> '取走'";
+                    //strSql += @" and isnull(客户状态,'')<>'转让'
+                    //            and isnull(客户状态,'')<> '注销'
+                    //            and isnull(客户状态,'')<> '非正常'
+                    //            and isnull(客户状态,'')<> '取走'";
                 }
                 DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Client");
                 return dst;
@@ -1016,9 +1019,53 @@ and TW_Client.初始做账时间 is not null )";
         ,t.做账到期月
         from VW_PaymentDetail t
         where  t.注册费<=t.注册费收款额 and (注册类型='注册' or  注册类型='设立'
-or 注册类型='变更' or 注册类型='注销')
+        or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办理权')
         and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
         and t.业务员ID='{1}'  ", businessID, businessID);
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_SalarySum");
+            return dst;
+        }
+
+
+
+        [WebMethod]
+        public DataSet GetBusinessSumReg(string businessID, int year, int month)
+        {
+            //获取一个业务员的做账费收款额
+            string strSql = string.Format(@"select
+        NEWID() as TW_SalarySumID,
+        t.支付单位 as 客户名称,
+        t.客户名称ID as 客户名称Id,
+        t.支付金额 as 做账收款额,
+        t.工本费 as 工本收款费,
+        t.开票费 as 开票收款费,
+        0 as 做账提成 ,
+        0 as 工本费开票费提成,
+        t.业务员 as 员工,
+        t.业务员ID as 员工ID,
+        t.支付日期,
+        0 as 注册费收款额,
+        0 as 注册提成,
+        t.收款类别,
+        t.月做账费,
+        t.月做账费 * 12 as 年做账费,
+        0 as 注册费,
+        0 as 图章,
+        0 as 银行,
+        0 as 其他,
+        0 as 注册利润,
+        '业务员做账费' as 工资统计类型
+        ,t2.初始做账时间
+        ,t2.首年提成结束期
+        ,t.本次到期月份
+       from TW_Payment  t,[dbo].[TW_Client] t2
+        where
+		t.客户名称ID=t2.客户名称ID
+        and t.本次到期月份 <= t2.首年提成结束期
+        and  year(t.操作时间)= " + year + " and month(t.操作时间) = " + month + @"
+        and t.收款类别 = '常规收款'
+        and t.业务员ID = '{0}'
+        and t.是否审核=1  ",businessID);
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_SalarySum");
             return dst;
         }
@@ -1101,7 +1148,7 @@ or 注册类型='变更' or 注册类型='注销')
         ,t.做账到期月
         from VW_PaymentDetail t
         where  t.注册费<=t.注册费收款额 and (注册类型='注册' or  注册类型='设立'
-or 注册类型='变更' or 注册类型='注销')
+or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办理权')
         and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
         and t.业务员ID='{1}'  ", businessID, businessID);
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_SalarySum");
@@ -1280,7 +1327,7 @@ or 注册类型='变更' or 注册类型='注销')
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额
             and (注册类型='注册' or  注册类型='设立'
-            or 注册类型='变更' or 注册类型='注销' or 注册类型='验资')
+            or 注册类型='变更' or 注册类型='注销' or 注册类型='验资' or 注册类型='进出口办理权' or 注册类型='验资报告')
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
 		    ) as ts
 		    group by ts.员工,ts.员工ID
@@ -1409,7 +1456,7 @@ or 注册类型='变更' or 注册类型='注销')
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额
             and (注册类型='注册' or  注册类型='设立'
-            or 注册类型='变更' or 注册类型='注销' or 注册类型='验资')
+            or 注册类型='变更' or 注册类型='注销' or 注册类型='验资' or 注册类型='验资报告' or 注册类型='进出口办理权')
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
 		    ) as ts
 		    group by ts.员工,ts.员工ID
@@ -1542,7 +1589,7 @@ or 注册类型='变更' or 注册类型='注销')
             '业务员注册费' as 工资统计类型
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额   and (注册类型='注册' or  注册类型='设立'
-            or 注册类型='变更' or 注册类型='注销')
+            or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办理权')
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
             union
             select
@@ -1570,7 +1617,7 @@ or 注册类型='变更' or 注册类型='注销')
             t.注册利润,
             '一次性业务' as 工资统计类型
             from VW_PaymentDetail t
-            where t.注册费<=t.注册费收款额  and (注册类型='验资' or  注册类型='审计' or  注册类型='商标')
+            where t.注册费<=t.注册费收款额  and (注册类型='验资' or  注册类型='审计' or  注册类型='商标' or 注册类型='验资报告' or 注册类型='审计报告')
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
 			union
 		    select
@@ -1774,7 +1821,7 @@ or 注册类型='变更' or 注册类型='注销')
             '业务员注册费' as 工资统计类型
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额   and (注册类型='注册' or  注册类型='设立'
-            or 注册类型='变更' or 注册类型='注销')
+            or 注册类型='变更' or 注册类型='注销'or 注册类型='进出口办理权')
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
             union
             select
@@ -1802,7 +1849,7 @@ or 注册类型='变更' or 注册类型='注销')
             t.注册利润,
             '一次性业务' as 工资统计类型
             from VW_PaymentDetail t
-            where t.注册费<=t.注册费收款额  and (注册类型='验资' or  注册类型='审计' or  注册类型='商标')
+            where t.注册费<=t.注册费收款额  and (注册类型='验资' or  注册类型='审计' or  注册类型='商标' or 注册类型='验资报告' or 注册类型='审计报告')
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
 			union
 		    select
@@ -1962,7 +2009,7 @@ or 注册类型='变更' or 注册类型='注销')
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额
              and (注册类型='注册' or  注册类型='设立'
-            or 注册类型='变更' or 注册类型='注销')
+            or 注册类型='变更' or 注册类型='注销' )
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
 		    ) as ts
 		    group by ts.员工,ts.员工ID
@@ -2094,7 +2141,7 @@ or 注册类型='变更' or 注册类型='注销')
             '业务员注册费' as 工资统计类型
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额
-            and (注册类型='验资' or  注册类型='审计' or  注册类型='商标')
+            and (注册类型='验资' or  注册类型='审计' or  注册类型='商标' or 注册类型='验资报告' or 注册类型='审计报告')
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
             union
 		    select
@@ -2231,7 +2278,7 @@ or 注册类型='变更' or 注册类型='注销')
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额
              and (注册类型='注册' or  注册类型='设立'
-            or 注册类型='变更' or 注册类型='注销')
+            or 注册类型='变更' or 注册类型='注销' )
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
             union
 		    select
@@ -2260,7 +2307,7 @@ or 注册类型='变更' or 注册类型='注销')
             '业务员注册费' as 工资统计类型
             from VW_PaymentDetail t
             where t.注册费<=t.注册费收款额
-            and (注册类型='验资' or  注册类型='审计' or  注册类型='商标')
+            and (注册类型='验资' or  注册类型='审计' or  注册类型='商标' or 注册类型='验资报告' or 注册类型='审计报告')
             and Year(t.收款日期)=" + year + " and MONTH(t.收款日期)=" + month + @"
             union
 		    select
@@ -2405,6 +2452,7 @@ or 注册类型='变更' or 注册类型='注销')
         [WebMethod]
         public DataSet GetBussinessSumByYear(int Year, string businessManID)
         {
+            int jYear = Year + 1;
             string strSql = @"select
                   NEWID() as TW_SalarySumID,
                   t.支付单位 as 客户名称,
@@ -2434,7 +2482,7 @@ or 注册类型='变更' or 注册类型='注销')
                       from [TW_Payment] t,[TW_Client] t2
                       where   t.客户名称ID=t2.客户名称ID
                       and t.本次到期月份>  t2.首年提成结束期
-                      and year(t.本次到期月份)=" + Year + @"
+                      and ((year(操作时间)="+Year+" and year(t.本次到期月份)<"+ jYear + ") or year(t.本次到期月份)="+Year+@")
                       and t.收款类别='常规收款'
                       and t.是否审核=1
                       and t.业务员ID='" + businessManID + "'";
@@ -2450,7 +2498,7 @@ or 注册类型='变更' or 注册类型='注销')
         [WebMethod]
         public DataSet GetBusinessLastYear(int year, string userName)
         {
-
+            int jYear = year + 1;
             string strSql = "";
             if (string.IsNullOrEmpty(userName))
             {
@@ -2481,11 +2529,11 @@ or 注册类型='变更' or 注册类型='注销')
 					  where t.客户名称ID=t2.客户名称ID and  t.业务员ID =tu.USERID
                       and t.是否审核=1
                       and t.本次到期月份>  t2.首年提成结束期
-                      and year(t.操作时间)={0}
+                    and ((year(操作时间)={0} and year(t.本次到期月份)<{1}) or year(t.本次到期月份)={2})
                       and t.收款类别='常规收款'
                       and tu.DEPTNAME='业务部' ) ts
 					  group by ts.员工,ts.员工ID) tt,[dbo].[TWS_Commission] tc
-					  where tc.TWS_CommissionID='1' ", year);
+					  where tc.TWS_CommissionID='1' ", year,jYear ,year);
             }
             else
             {
@@ -2517,11 +2565,11 @@ or 注册类型='变更' or 注册类型='注销')
                       and t.业务员='{0}'
                       and t.是否审核=1
                       and t.本次到期月份>  t2.首年提成结束期
-                      and year(t.操作时间)={1}
+                      and ((year(操作时间)={1} and year(t.本次到期月份)<{2}) or year(t.本次到期月份)={3})
                       and t.收款类别='常规收款'
                       and tu.DEPTNAME='业务部' ) ts
 					  group by ts.员工,ts.员工ID) tt,[dbo].[TWS_Commission] tc
-					  where tc.TWS_CommissionID='1' ", userName, year);
+					  where tc.TWS_CommissionID='1' ", userName, year,jYear,year);
             }
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllBusinessSalaryYear");
             return dst;
@@ -3030,7 +3078,7 @@ or 注册类型='变更' or 注册类型='注销')
            and  '" + date.ToString("yyyy-MM-dd") + @"' <= t.本次到期月份
            and  '" + date.ToString("yyyy-MM-dd") + "' > isnull(t.上次到期月份,'1900-1-1')" + @"
            and t.收款类别 = '常规收款'
-           and t.操作时间<='" + date.ToString("yyyy-MM-dd") + @"'
+           and t.支付日期<='" + date.ToString("yyyy-MM-dd") + @"'
            and t.是否审核=1
            and tuu.userid =  t.做账会计ID ";
             if (!string.IsNullOrEmpty(deptid))
@@ -4587,8 +4635,9 @@ or 注册类型='变更' or 注册类型='注销')
           where
           t.客户名称ID = t2.客户名称ID
           and isnull(t.零申报,0) = 0
-          and   datepart(yyyy,t.操作时间)=" + year + @" 
-          and (t.工本费>0 or t.开票费>0)
+          and  ((year(t.操作时间)=" + year + " and year(t.本次到期月份)<="+ year + @" )
+          or (year(t.本次到期月份)="+year+ " and year(t.操作时间)<"+year+"))"
+          + @" and (t.工本费>0 or t.开票费>0)
           and t.做账会计ID='" + userID + @"' ";
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllAccountantSalaryDetail");
 
@@ -5396,7 +5445,7 @@ from
         [WebMethod]
         public DataSet GetGongbenKaipiao(string year, string userId, string deptName)
         {
-            string strSql = string.Format("select * from VW_工本开票费提成 where 年 = '{0}'", year);
+            string strSql = string.Format("select max(年) 年 ,做账会计ID,做账会计,DEPTNAME,sum(工本开票费) as 工本开票费 ,sum(工本开票提成) as 工本开票提成  ,sum(工本费) as 工本费,sum(开票费) as 开票费,sum(工本费提成) as 工本费提成,sum(开票费提成) as 开票费提成 from VW_工本开票费提成 where ((年 = {0} and 费用年<={1}) or (费用年={2} and 年<{3}))", year,year,year,year);
             if (!string.IsNullOrEmpty(userId))
             {
                 strSql += " and 做账会计ID='" + userId + "'";
@@ -5405,6 +5454,7 @@ from
             {
                 strSql += " and DEPTNAME='" + deptName + "'";
             }
+            strSql += " group by 做账会计ID,做账会计,DEPTNAME ";
             var db = ServiceManager.GetDatabase();
             DataSet dst = db.GetEntity(strSql, "VW_工本开票费提成");
             return dst;

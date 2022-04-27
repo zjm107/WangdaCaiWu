@@ -470,7 +470,7 @@ namespace WangDaDll.SalaryServer {
             base.Tables.Add(this.tableVW_AllAccountantSalaryUser);
             this.tableTW_SalarySumReg = new TW_SalarySumRegDataTable();
             base.Tables.Add(this.tableTW_SalarySumReg);
-            this.tableVW_GBTC = new VW_GBTCDataTable();
+            this.tableVW_GBTC = new VW_GBTCDataTable(false);
             base.Tables.Add(this.tableVW_GBTC);
         }
         
@@ -601,6 +601,7 @@ namespace WangDaDll.SalaryServer {
             this.VW_AllBusinessSalary.提成汇总Column.Expression = "做账提成+注册提成+团队提成+业务提成+成长版提成+绩效+其他一次性业务提成";
             this.VW_AllAccountantSalary.提成汇总Column.Expression = "做账提成+团队提成+学徒提成+业务提成+成长版提成+其他一次性业务提成+绩效+业务团队提成";
             this.VW_AllAccountantSalary.团队总提成Column.Expression = "团队提成+业务团队提成";
+            this.VW_GBTC.汇总Column.Expression = "工本费提成+开票费提成";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -5652,12 +5653,31 @@ namespace WangDaDll.SalaryServer {
             
             private global::System.Data.DataColumn column工本开票提成;
             
+            private global::System.Data.DataColumn column工本费;
+            
+            private global::System.Data.DataColumn column开票费;
+            
+            private global::System.Data.DataColumn column工本费提成;
+            
+            private global::System.Data.DataColumn column开票费提成;
+            
+            private global::System.Data.DataColumn column汇总;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VW_GBTCDataTable() {
+            public VW_GBTCDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_GBTCDataTable(bool initExpressions) {
                 this.TableName = "VW_GBTC";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -5727,6 +5747,46 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 工本费Column {
+                get {
+                    return this.column工本费;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 开票费Column {
+                get {
+                    return this.column开票费;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 工本费提成Column {
+                get {
+                    return this.column工本费提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 开票费提成Column {
+                get {
+                    return this.column开票费提成;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn 汇总Column {
+                get {
+                    return this.column汇总;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -5762,14 +5822,39 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public VW_GBTCRow AddVW_GBTCRow(int 年, string 做账会计ID, string 做账会计, decimal 工本开票费, decimal 工本开票提成) {
+            public VW_GBTCRow AddVW_GBTCRow(int 年, string 做账会计ID, string 做账会计, decimal 工本开票费, decimal 工本开票提成, decimal 工本费, decimal 开票费, decimal 工本费提成, decimal 开票费提成, decimal 汇总) {
                 VW_GBTCRow rowVW_GBTCRow = ((VW_GBTCRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         年,
                         做账会计ID,
                         做账会计,
                         工本开票费,
-                        工本开票提成};
+                        工本开票提成,
+                        工本费,
+                        开票费,
+                        工本费提成,
+                        开票费提成,
+                        汇总};
+                rowVW_GBTCRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowVW_GBTCRow);
+                return rowVW_GBTCRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public VW_GBTCRow AddVW_GBTCRow(int 年, string 做账会计ID, string 做账会计, decimal 工本开票费, decimal 工本开票提成, decimal 工本费, decimal 开票费, decimal 工本费提成, decimal 开票费提成) {
+                VW_GBTCRow rowVW_GBTCRow = ((VW_GBTCRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        年,
+                        做账会计ID,
+                        做账会计,
+                        工本开票费,
+                        工本开票提成,
+                        工本费,
+                        开票费,
+                        工本费提成,
+                        开票费提成,
+                        null};
                 rowVW_GBTCRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVW_GBTCRow);
                 return rowVW_GBTCRow;
@@ -5797,6 +5882,11 @@ namespace WangDaDll.SalaryServer {
                 this.column做账会计 = base.Columns["做账会计"];
                 this.column工本开票费 = base.Columns["工本开票费"];
                 this.column工本开票提成 = base.Columns["工本开票提成"];
+                this.column工本费 = base.Columns["工本费"];
+                this.column开票费 = base.Columns["开票费"];
+                this.column工本费提成 = base.Columns["工本费提成"];
+                this.column开票费提成 = base.Columns["开票费提成"];
+                this.column汇总 = base.Columns["汇总"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5812,8 +5902,19 @@ namespace WangDaDll.SalaryServer {
                 base.Columns.Add(this.column工本开票费);
                 this.column工本开票提成 = new global::System.Data.DataColumn("工本开票提成", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.column工本开票提成);
+                this.column工本费 = new global::System.Data.DataColumn("工本费", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column工本费);
+                this.column开票费 = new global::System.Data.DataColumn("开票费", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column开票费);
+                this.column工本费提成 = new global::System.Data.DataColumn("工本费提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column工本费提成);
+                this.column开票费提成 = new global::System.Data.DataColumn("开票费提成", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column开票费提成);
+                this.column汇总 = new global::System.Data.DataColumn("汇总", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.column汇总);
                 this.column做账会计ID.MaxLength = 50;
                 this.column做账会计.MaxLength = 50;
+                this.column汇总.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5832,6 +5933,12 @@ namespace WangDaDll.SalaryServer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(VW_GBTCRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitExpressions() {
+                this.汇总Column.Expression = "工本费提成+开票费提成";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10783,6 +10890,86 @@ namespace WangDaDll.SalaryServer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 工本费 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_GBTC.工本费Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_GBTC”中列“工本费”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_GBTC.工本费Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 开票费 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_GBTC.开票费Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_GBTC”中列“开票费”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_GBTC.开票费Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 工本费提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_GBTC.工本费提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_GBTC”中列“工本费提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_GBTC.工本费提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 开票费提成 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_GBTC.开票费提成Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_GBTC”中列“开票费提成”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_GBTC.开票费提成Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal 汇总 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVW_GBTC.汇总Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“VW_GBTC”中列“汇总”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableVW_GBTC.汇总Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Is年Null() {
                 return this.IsNull(this.tableVW_GBTC.年Column);
             }
@@ -10839,6 +11026,66 @@ namespace WangDaDll.SalaryServer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Set工本开票提成Null() {
                 this[this.tableVW_GBTC.工本开票提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is工本费Null() {
+                return this.IsNull(this.tableVW_GBTC.工本费Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set工本费Null() {
+                this[this.tableVW_GBTC.工本费Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is开票费Null() {
+                return this.IsNull(this.tableVW_GBTC.开票费Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set开票费Null() {
+                this[this.tableVW_GBTC.开票费Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is工本费提成Null() {
+                return this.IsNull(this.tableVW_GBTC.工本费提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set工本费提成Null() {
+                this[this.tableVW_GBTC.工本费提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is开票费提成Null() {
+                return this.IsNull(this.tableVW_GBTC.开票费提成Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set开票费提成Null() {
+                this[this.tableVW_GBTC.开票费提成Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is汇总Null() {
+                return this.IsNull(this.tableVW_GBTC.汇总Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set汇总Null() {
+                this[this.tableVW_GBTC.汇总Column] = global::System.Convert.DBNull;
             }
         }
         

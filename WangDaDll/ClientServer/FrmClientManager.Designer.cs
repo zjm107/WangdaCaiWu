@@ -32,12 +32,13 @@ namespace WangDaDll
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
             this.col客户状态 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col预警生日 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.客户状态ComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btntb = new DevExpress.XtraEditors.SimpleButton();
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
@@ -107,6 +108,7 @@ namespace WangDaDll
             this.col合同编号 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col合同到期时间 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col首年提成结束期 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col月收费标准 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -137,15 +139,14 @@ namespace WangDaDll
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.col月收费标准 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.客户状态ComboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.客户状态ComboBoxEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
@@ -197,9 +198,8 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.客户状态ComboBoxEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).BeginInit();
             this.SuspendLayout();
             // 
             // col客户状态
@@ -252,6 +252,24 @@ namespace WangDaDll
             this.layoutControl1.Size = new System.Drawing.Size(1119, 725);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // 客户状态ComboBoxEdit
+            // 
+            this.客户状态ComboBoxEdit.EditValue = "全部";
+            this.客户状态ComboBoxEdit.Location = new System.Drawing.Point(678, 36);
+            this.客户状态ComboBoxEdit.Name = "客户状态ComboBoxEdit";
+            this.客户状态ComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.客户状态ComboBoxEdit.Properties.Items.AddRange(new object[] {
+            "取走",
+            "注销",
+            "不收",
+            "非正常",
+            "转让",
+            "全部"});
+            this.客户状态ComboBoxEdit.Size = new System.Drawing.Size(76, 20);
+            this.客户状态ComboBoxEdit.StyleController = this.layoutControl1;
+            this.客户状态ComboBoxEdit.TabIndex = 45;
             // 
             // btntb
             // 
@@ -981,30 +999,30 @@ namespace WangDaDll
             this.col客户状态,
             this.col首年提成结束期,
             this.col月收费标准});
-            styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            styleFormatCondition4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout);
-            styleFormatCondition4.Appearance.Options.UseBackColor = true;
-            styleFormatCondition4.Appearance.Options.UseFont = true;
-            styleFormatCondition4.ApplyToRow = true;
-            styleFormatCondition4.Column = this.col客户状态;
-            styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-            styleFormatCondition4.Expression = "Contains([客户状态], \'取走\') Or Contains([客户状态], \'注销\') Or Contains([客户状态], \'非正常\')";
-            styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.Salmon;
-            styleFormatCondition5.Appearance.Options.UseBackColor = true;
-            styleFormatCondition5.ApplyToRow = true;
-            styleFormatCondition5.Column = this.col预警生日;
-            styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-            styleFormatCondition5.Expression = "AddDays(LocalDateTimeToday(),10 ) >= [预警生日] And LocalDateTimeToday()  <=  [预警生日]";
-            styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            styleFormatCondition6.Appearance.Options.UseBackColor = true;
-            styleFormatCondition6.ApplyToRow = true;
-            styleFormatCondition6.Column = this.col客户状态;
-            styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-            styleFormatCondition6.Value1 = "不收";
+            styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout);
+            styleFormatCondition1.Appearance.Options.UseBackColor = true;
+            styleFormatCondition1.Appearance.Options.UseFont = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.col客户状态;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+            styleFormatCondition1.Expression = "Contains([客户状态], \'取走\') Or Contains([客户状态], \'注销\') Or Contains([客户状态], \'非正常\')";
+            styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.Salmon;
+            styleFormatCondition2.Appearance.Options.UseBackColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.col预警生日;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+            styleFormatCondition2.Expression = "AddDays(LocalDateTimeToday(),10 ) >= [预警生日] And LocalDateTimeToday()  <=  [预警生日]";
+            styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            styleFormatCondition3.Appearance.Options.UseBackColor = true;
+            styleFormatCondition3.ApplyToRow = true;
+            styleFormatCondition3.Column = this.col客户状态;
+            styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition3.Value1 = "不收";
             this.gridView1.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition4,
-            styleFormatCondition5,
-            styleFormatCondition6});
+            styleFormatCondition1,
+            styleFormatCondition2,
+            styleFormatCondition3});
             this.gridView1.GridControl = this.tW_ClientGridControl;
             this.gridView1.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, ""),
@@ -1344,6 +1362,14 @@ namespace WangDaDll
             this.col首年提成结束期.Visible = true;
             this.col首年提成结束期.VisibleIndex = 15;
             this.col首年提成结束期.Width = 104;
+            // 
+            // col月收费标准
+            // 
+            this.col月收费标准.FieldName = "月收费标准";
+            this.col月收费标准.Name = "col月收费标准";
+            this.col月收费标准.Visible = true;
+            this.col月收费标准.VisibleIndex = 14;
+            this.col月收费标准.Width = 80;
             // 
             // layoutControlGroup1
             // 
@@ -1707,39 +1733,6 @@ namespace WangDaDll
             this.layoutControlItem20.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem20.TextVisible = false;
             // 
-            // dstTCONF_WORD
-            // 
-            this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
-            this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            // 
-            // col月收费标准
-            // 
-            this.col月收费标准.FieldName = "月收费标准";
-            this.col月收费标准.Name = "col月收费标准";
-            this.col月收费标准.Visible = true;
-            this.col月收费标准.VisibleIndex = 14;
-            this.col月收费标准.Width = 80;
-            // 
-            // 客户状态ComboBoxEdit
-            // 
-            this.客户状态ComboBoxEdit.Location = new System.Drawing.Point(678, 36);
-            this.客户状态ComboBoxEdit.Name = "客户状态ComboBoxEdit";
-            this.客户状态ComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.客户状态ComboBoxEdit.Properties.Items.AddRange(new object[] {
-            "取走",
-            "注销",
-            "不收",
-            "非正常",
-            "转让"});
-            this.客户状态ComboBoxEdit.Size = new System.Drawing.Size(76, 20);
-            this.客户状态ComboBoxEdit.StyleController = this.layoutControl1;
-            this.客户状态ComboBoxEdit.TabIndex = 45;
-            // 
             // layoutControlItem21
             // 
             this.layoutControlItem21.Control = this.客户状态ComboBoxEdit;
@@ -1748,6 +1741,15 @@ namespace WangDaDll
             this.layoutControlItem21.Size = new System.Drawing.Size(155, 24);
             this.layoutControlItem21.Text = "客户状态";
             this.layoutControlItem21.TextSize = new System.Drawing.Size(72, 14);
+            // 
+            // dstTCONF_WORD
+            // 
+            this.dstTCONF_WORD.DataSetName = "DstTCONF_WORD";
+            this.dstTCONF_WORD.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // FrmClientManager
             // 
@@ -1760,6 +1762,7 @@ namespace WangDaDll
             this.Load += new System.EventHandler(this.FrmClientManager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.客户状态ComboBoxEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
@@ -1811,9 +1814,8 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.客户状态ComboBoxEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dstTCONF_WORD)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -14,9 +14,11 @@ namespace WangDaDll
 
         private void btnQuery_Click(object sender, EventArgs e)
         {
-            isQuery = false;
+          
             try
             {
+                splash.ShowWaitForm();
+                splash.SetWaitFormCaption("查询中...");
                 string beginDate = 支付日期DateEdit.DateTime.ToString("yyyy-MM-dd");
                 string endDate = 支付日期DateEdit1.DateTime.ToString("yyyy-MM-dd");
                 cfDataSet1.GetCFDataSet(beginDate,endDate);
@@ -27,10 +29,12 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
             finally {
-                isQuery = true;
+                if (splash.IsSplashFormVisible)
+                    splash.CloseWaitForm();
+
             }
         }
-
+      
         private void btnClear_Click(object sender, EventArgs e)
         {
             try
@@ -50,20 +54,7 @@ namespace WangDaDll
         }
 
         
-        bool isQuery = false;
-
-        private void tW_PaymentBindingSource_PositionChanged(object sender, EventArgs e)
-        {
-            try {
-               
-
-            }
-            catch (Exception ex)
-            {
-                UserMessages.ShowErrorBox(ex.Message);
-            }
-        }
-
+    
       
 
      

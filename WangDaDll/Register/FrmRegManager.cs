@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
-using WangDaDll;
 
 namespace WangDaDll
 {
@@ -200,6 +194,10 @@ namespace WangDaDll
                             }
                             //保存数据
                             businessDataSet.SaveTable();
+                            //rowids转换成字符串数组，然后调用UpdateRegName更新合同的注册员和做账会计
+                            string[] regIDs = rowids.ToArray();
+                            contractDataSet.UpdateRegName(regIDs);
+
                         }
                     }
                 }

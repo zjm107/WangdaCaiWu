@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
 
@@ -113,6 +106,18 @@ namespace WangDaDll
             finally
             {
                 this.Cursor = Cursors.Default;
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (xlsSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (xlsSaveFileDialog.FileName != "")
+                {
+                        gridView1.ExportToXlsx(xlsSaveFileDialog.FileName);
+
+                }
             }
         }
     }

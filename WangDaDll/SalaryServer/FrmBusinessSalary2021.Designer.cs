@@ -81,6 +81,7 @@ namespace WangDaDll
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
+            this.xlsSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -129,17 +130,19 @@ namespace WangDaDll
             this.layoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem8});
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(844, 592);
+            this.layoutControl1.Size = new System.Drawing.Size(916, 532);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnSCYJ
             // 
-            this.btnSCYJ.Location = new System.Drawing.Point(291, 36);
+            this.btnSCYJ.Location = new System.Drawing.Point(3991, 247);
+            this.btnSCYJ.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnSCYJ.Name = "btnSCYJ";
-            this.btnSCYJ.Size = new System.Drawing.Size(89, 22);
+            this.btnSCYJ.Size = new System.Drawing.Size(1221, 151);
             this.btnSCYJ.StyleController = this.layoutControl1;
             this.btnSCYJ.TabIndex = 11;
             this.btnSCYJ.Text = "生成业绩";
@@ -148,6 +151,7 @@ namespace WangDaDll
             // btnShowDetail
             // 
             this.btnShowDetail.Location = new System.Drawing.Point(198, 36);
+            this.btnShowDetail.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnShowDetail.Name = "btnShowDetail";
             this.btnShowDetail.Size = new System.Drawing.Size(89, 22);
             this.btnShowDetail.StyleController = this.layoutControl1;
@@ -158,6 +162,7 @@ namespace WangDaDll
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(105, 36);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(89, 22);
             this.btnClear.StyleController = this.layoutControl1;
@@ -168,6 +173,7 @@ namespace WangDaDll
             // btnQuery
             // 
             this.btnQuery.Location = new System.Drawing.Point(12, 36);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(89, 22);
             this.btnQuery.StyleController = this.layoutControl1;
@@ -178,6 +184,7 @@ namespace WangDaDll
             // btnUserID
             // 
             this.btnUserID.Location = new System.Drawing.Point(306, 12);
+            this.btnUserID.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnUserID.Name = "btnUserID";
             this.btnUserID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -190,6 +197,7 @@ namespace WangDaDll
             // monthComboBoxEdit
             // 
             this.monthComboBoxEdit.Location = new System.Drawing.Point(197, 12);
+            this.monthComboBoxEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.monthComboBoxEdit.Name = "monthComboBoxEdit";
             this.monthComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -213,9 +221,10 @@ namespace WangDaDll
             // pageControl1
             // 
             this.pageControl1.Location = new System.Drawing.Point(12, 62);
+            this.pageControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.pageControl1.Name = "pageControl1";
             this.pageControl1.SelectedTabPage = this.xtraTabPage1;
-            this.pageControl1.Size = new System.Drawing.Size(820, 518);
+            this.pageControl1.Size = new System.Drawing.Size(892, 458);
             this.pageControl1.TabIndex = 4;
             this.pageControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -224,8 +233,9 @@ namespace WangDaDll
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.vW_AllBusinessSalaryGridControl);
+            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(814, 489);
+            this.xtraTabPage1.Size = new System.Drawing.Size(886, 429);
             this.xtraTabPage1.Text = "月业绩统计";
             // 
             // vW_AllBusinessSalaryGridControl
@@ -233,10 +243,12 @@ namespace WangDaDll
             this.vW_AllBusinessSalaryGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.vW_AllBusinessSalaryGridControl.DataSource = this.vW_AllBusinessSalaryBindingSource;
             this.vW_AllBusinessSalaryGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vW_AllBusinessSalaryGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.vW_AllBusinessSalaryGridControl.Location = new System.Drawing.Point(0, 0);
             this.vW_AllBusinessSalaryGridControl.MainView = this.vW_AllBusinessSalaryGridView;
+            this.vW_AllBusinessSalaryGridControl.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.vW_AllBusinessSalaryGridControl.Name = "vW_AllBusinessSalaryGridControl";
-            this.vW_AllBusinessSalaryGridControl.Size = new System.Drawing.Size(814, 489);
+            this.vW_AllBusinessSalaryGridControl.Size = new System.Drawing.Size(886, 429);
             this.vW_AllBusinessSalaryGridControl.TabIndex = 0;
             this.vW_AllBusinessSalaryGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vW_AllBusinessSalaryGridView});
@@ -582,8 +594,9 @@ namespace WangDaDll
             // pageLastYear
             // 
             this.pageLastYear.Controls.Add(this.vW_AllBusinessSalaryYearGridControl);
+            this.pageLastYear.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.pageLastYear.Name = "pageLastYear";
-            this.pageLastYear.Size = new System.Drawing.Size(814, 489);
+            this.pageLastYear.Size = new System.Drawing.Size(11545, 3956);
             this.pageLastYear.Text = "上年业绩统计";
             // 
             // vW_AllBusinessSalaryYearGridControl
@@ -591,10 +604,12 @@ namespace WangDaDll
             this.vW_AllBusinessSalaryYearGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.vW_AllBusinessSalaryYearGridControl.DataSource = this.vW_AllBusinessSalaryYearBindingSource;
             this.vW_AllBusinessSalaryYearGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vW_AllBusinessSalaryYearGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.vW_AllBusinessSalaryYearGridControl.Location = new System.Drawing.Point(0, 0);
             this.vW_AllBusinessSalaryYearGridControl.MainView = this.vW_AllBusinessSalaryYearGridView;
+            this.vW_AllBusinessSalaryYearGridControl.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.vW_AllBusinessSalaryYearGridControl.Name = "vW_AllBusinessSalaryYearGridControl";
-            this.vW_AllBusinessSalaryYearGridControl.Size = new System.Drawing.Size(814, 489);
+            this.vW_AllBusinessSalaryYearGridControl.Size = new System.Drawing.Size(11545, 3956);
             this.vW_AllBusinessSalaryYearGridControl.TabIndex = 0;
             this.vW_AllBusinessSalaryYearGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.vW_AllBusinessSalaryYearGridView});
@@ -768,6 +783,7 @@ namespace WangDaDll
             0,
             0});
             this.YearComboBoxEdit.Location = new System.Drawing.Point(67, 12);
+            this.YearComboBoxEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.YearComboBoxEdit.Name = "YearComboBoxEdit";
             this.YearComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -807,7 +823,7 @@ namespace WangDaDll
             this.layoutControlItem7});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(844, 592);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(916, 532);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -816,7 +832,7 @@ namespace WangDaDll
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(824, 522);
+            this.layoutControlItem1.Size = new System.Drawing.Size(896, 462);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -839,7 +855,7 @@ namespace WangDaDll
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(396, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(428, 24);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(500, 24);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
@@ -848,7 +864,7 @@ namespace WangDaDll
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(279, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(545, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(617, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
@@ -916,12 +932,17 @@ namespace WangDaDll
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
+            // xlsSaveFileDialog
+            // 
+            this.xlsSaveFileDialog.Filter = "Excel文件 (*.xlsx)|所有文件(*.*)";
+            // 
             // FrmBusinessSalary2021
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 592);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(916, 532);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.Name = "FrmBusinessSalary2021";
             this.Text = "业务员业绩统计（2021版）";
             this.Load += new System.EventHandler(this.FrmBusinessSalary_Load);
@@ -1008,5 +1029,6 @@ namespace WangDaDll
         private DevExpress.XtraGrid.Columns.GridColumn col成长版提成;
         private DevExpress.XtraGrid.Columns.GridColumn col其他一次性业务;
         private DevExpress.XtraGrid.Columns.GridColumn col其他一次性业务提成;
+        private System.Windows.Forms.SaveFileDialog xlsSaveFileDialog;
     }
 }

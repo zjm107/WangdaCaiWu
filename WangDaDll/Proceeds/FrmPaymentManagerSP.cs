@@ -52,7 +52,7 @@ namespace WangDaDll
                     , 支付日期DateEdit1.Text, 收款类别ComboBoxEdit.Text
                     , paymentEndDate,comboBoxEditBSK.Text,comboBoxEditLSB.Text
                     ,cszzDate1,cszzDate2,bcDate1,bcDate2);
-                tW_PaymentBindingSource.MoveFirst();
+                TW_PaymentMainBindingSource.MoveFirst();
                 GetPaymentDetail();
 
             }
@@ -142,22 +142,22 @@ namespace WangDaDll
         /// </summary>
         private void GetPaymentDetail()
         {
-            DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+            DataRowView rv = TW_PaymentMainBindingSource.Current as DataRowView;
             if (rv != null)
             {
-                if (rv != null && (rv["收款类别"].ToString() == "注册收款" || rv["收款类别"].ToString() == "成长版收款" ||
-                     rv["收款类别"].ToString() == "其他一次性收款"))
-                {
+                //if (rv != null && (rv["收款类别"].ToString() == "注册收款" || rv["收款类别"].ToString() == "成长版收款" ||
+                //     rv["收款类别"].ToString() == "其他一次性收款"))
+                //{
                     string paymentID = rv["tw_PaymentID"].ToString();
                     proceedsDataSet.GetPaymentDetailID(paymentID);
-                }
-                else
-                {
-                    proceedsDataSet.TW_PaymentDetail.Clear();
+                //}
+                //else
+                //{
+                  //  proceedsDataSet.TW_PaymentDetail.Clear();
                     string paymentid = rv["TW_PaymentID"].ToString();//批次号
                     proceedsDataSet.GetPaymentByPch(paymentid);
 
-                }
+                //}
             }
               
         }
@@ -168,7 +168,7 @@ namespace WangDaDll
         {
             this.Cursor = Cursors.WaitCursor;
             try {
-                int[] rowIndexs = gridView1.GetSelectedRows();
+                int[] rowIndexs = tW_PaymentMainGridView.GetSelectedRows();
                 if (rowIndexs.Length > 0)
                 {
                     splash.ShowWaitForm();
@@ -176,7 +176,7 @@ namespace WangDaDll
                     splash.SetWaitFormDescription("正在审批……");
                     foreach (int i in rowIndexs)
                     {
-                        DataRowView rv= gridView1.GetRow(i) as DataRowView;
+                        DataRowView rv= tW_PaymentMainGridView.GetRow(i) as DataRowView;
                         rv.BeginEdit();
                         rv["审核人"] = Security.UserName;
                         rv["审核时间"] = DateTime.Now;
@@ -204,11 +204,18 @@ namespace WangDaDll
         {
             try
             {
-                DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+                DataRowView rv = TW_PaymentMainBindingSource.Current as DataRowView;
                 if (rv != null)
                 {
                     string paymentID = rv["批次号"].ToString();
                     string paymentType = rv["收款类别"].ToString();
+                    string contractNo = rv["合同编号"].ToString();
+                    if (!string.IsNullOrEmpty(contractNo))
+                    {
+                        FrmPaymentView frmPaymentView = new FrmPaymentView(paymentID);
+                        frmPaymentView.ShowDialog();
+                    }
+                    else
                     if (paymentType == "常规收款")
                     {
                         FrmPaymentGeneralView frmGeneralView = new FrmPaymentGeneralView(paymentID);
@@ -231,7 +238,7 @@ namespace WangDaDll
         {
             try
             {
-                DataRowView rv = bindingSource1.Current as DataRowView;
+                DataRowView rv = TW_PaymentBindingSource.Current as DataRowView;
                 if (rv != null)
                 {
                     string paymentID = rv["TW_PaymentID"].ToString();
@@ -292,7 +299,7 @@ namespace WangDaDll
             {
                 if (MessageBox.Show("确定要删除当前收款项目么？", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+                    DataRowView rv = TW_PaymentMainBindingSource.Current as DataRowView;
                     if (rv != null)
                     {
                         string paymentID = rv["TW_PaymentID"].ToString();
@@ -331,7 +338,7 @@ namespace WangDaDll
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                int[] rowIndexs = gridView1.GetSelectedRows();
+                int[] rowIndexs = tW_PaymentMainGridView.GetSelectedRows();
                 if (rowIndexs.Length > 0)
                 {
                     splash.ShowWaitForm();
@@ -339,7 +346,7 @@ namespace WangDaDll
                     splash.SetWaitFormDescription("正在撤销……");
                     foreach (int i in rowIndexs)
                     {
-                        DataRowView rv = gridView1.GetRow(i) as DataRowView;
+                        DataRowView rv = tW_PaymentMainGridView.GetRow(i) as DataRowView;
                         rv.BeginEdit();
                         rv["审核人"] = Security.UserName;
                         rv["审核时间"] = DateTime.Now;
@@ -398,7 +405,7 @@ namespace WangDaDll
             this.Cursor = Cursors.WaitCursor;
             try
             {
-                int[] rowIndexs = gridView1.GetSelectedRows();
+                int[] rowIndexs = tW_PaymentMainGridView.GetSelectedRows();
                 if (rowIndexs.Length > 0)
                 {
                     splash.ShowWaitForm();
@@ -406,7 +413,7 @@ namespace WangDaDll
                     splash.SetWaitFormDescription("正在进行拆分……");
                     foreach (int i in rowIndexs)
                     {
-                        DataRowView rv = gridView1.GetRow(i) as DataRowView;
+                        DataRowView rv = tW_PaymentMainGridView.GetRow(i) as DataRowView;
                         int monthCount = int.Parse(rv["缴费月数"].ToString());
                         if(monthCount>1)
                         {
@@ -415,14 +422,14 @@ namespace WangDaDll
                     }
                     foreach (int i in rowIndexs)
                     {
-                        DataRowView rv = gridView1.GetRow(i) as DataRowView;
+                        DataRowView rv = tW_PaymentMainGridView.GetRow(i) as DataRowView;
                         int monthCount = int.Parse(rv["缴费月数"].ToString());
                         if (monthCount == 0 || monthCount==1)
                         {
-                            gridView1.UnselectRow(i);
+                            tW_PaymentMainGridView.UnselectRow(i);
                         }
                     }
-                    gridView1.DeleteSelectedRows();//删除选中行
+                    tW_PaymentMainGridView.DeleteSelectedRows();//删除选中行
                     proceedsDataSet.SaveDataSet(); //保存
                 }
             }
@@ -451,7 +458,7 @@ namespace WangDaDll
             {
                 if (MessageBox.Show("确定要批量删除当前收款项目么？", "提示", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    DataRowView rv = tW_PaymentBindingSource.Current as DataRowView;
+                    DataRowView rv = TW_PaymentMainBindingSource.Current as DataRowView;
                     if (rv != null)
                     {
                         string paymentID = rv["TW_PaymentID"].ToString();
@@ -485,16 +492,12 @@ namespace WangDaDll
             }
         }
 
-        private void repositoryItemHyperLinkEdit1_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
-        {
-           
-        }
 
         private void repositoryItemHyperLinkEdit1_OpenLink(object sender, DevExpress.XtraEditors.Controls.OpenLinkEventArgs e)
         {
             try
             {
-                DataRowView rv = bindingSource1.Current as DataRowView;
+                DataRowView rv = TW_PaymentBindingSource.Current as DataRowView;
                 if (rv != null)
                 {
                     string paymentID = rv["TW_PaymentID"].ToString();
@@ -523,6 +526,78 @@ namespace WangDaDll
                     }
 
                     btnQuery_Click(sender, e);
+                }
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (Security.UserName.ToLower() != "admin")
+            {
+                MessageBox.Show("没有权限！");
+                return;
+            }
+
+            if (xlsSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (xlsSaveFileDialog.FileName != "")
+                {
+
+                    tW_PaymentMainGridView.ExportToXlsx(xlsSaveFileDialog.FileName);
+
+                }
+            }
+        }
+
+        private void 支付单位HyperLinkEdit_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tW_PaymentMainGridView.FocusedRowHandle < 0) return;
+                DataRow dr = tW_PaymentMainGridView.GetDataRow(tW_PaymentMainGridView.FocusedRowHandle);
+                if (dr == null) return;
+                string clientName = dr["支付单位"].ToString();
+                string clientId = dr["客户名称ID"].ToString();
+                FrmClientView frmClientView = new FrmClientView();
+                frmClientView.ClientName = clientName;
+                frmClientView.ClientId = clientId;
+                frmClientView.Text = clientName;
+                frmClientView.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ShowErrorBox(ex.Message);
+            }
+            finally
+            {
+            }
+
+        }
+        /// <summary>
+        /// 根据合同编号查询合同信息
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void 合同编号HyperLinkEdit_DoubleClick(object sender, EventArgs e)
+        {
+
+            try
+            {
+                DataRowView rv = TW_PaymentMainBindingSource.Current as DataRowView;
+                if (rv != null)
+                {
+                    string contractNo = rv["合同编号"].ToString();
+                    //根据不同的合同审批状态：未提交，待审批，已审批，打开对应的合同页面
+                    FrmContractEdit frmContractEdit = new FrmContractEdit();
+                    frmContractEdit.FormStatus = PageStatus.View;
+                    //frmContractEdit.ContractId = contractId;
+                    frmContractEdit.ContractNo = contractNo;
+
+                    frmContractEdit.ShowDialog();
                 }
             }
             catch (Exception ex)

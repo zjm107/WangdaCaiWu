@@ -16,253 +16,642 @@ namespace WangDaDll.WangDaReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WangDaReference.WangDaSerSoap")]
     public interface WangDaSerSoap {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CheckCompanyName", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool CheckCompanyName(string companyName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateCUserID", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UpdateCUserID();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserID", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UpdateUserID();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientId", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string GetClientId(string clientName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetImage", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetImage(string fkID, string fileType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DelByPCH", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void DelByPCH(string pch);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetImagebyID", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetImagebyID(string FileID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientInfo", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEndDateClient", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetEndDateClient(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSingleClient", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetSingleClient(string clientName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegData", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessRegData(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string FbeginDate, string FendDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegDataEdit", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessRegDataEdit(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string regWC, string fBeginDate, string fEndDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegByID", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessRegByID(string TW_BusinessRegID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessExamineData", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessExamineData(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string isExamine);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNoPaymentReg", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetNoPaymentReg(string accountant, string gsName, string isPayment);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SavePayment", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void SavePayment(System.Data.DataSet dst);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPayment", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetPayment(string paymentID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfo", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetPaymentByInfo(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentDetailID", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetPaymentDetailID(string paymentID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSum", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessSum(string businessID, int year, int month);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumReg", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessSumReg(string businessID, int year, int month);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSum2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessSum2021(string businessID, int year, int month);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumCZB2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessSumCZB2021(string businessID, int year, int month);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumYCX2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessSumYCX2021(string businessID, int year, int month);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSum", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllBusinessSum(int year, int month, string userManagerID, string userName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumZC", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllBusinessSumZC(int year, int month, string userManagerID, string userName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSum2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllBusinessSum2021(int year, int month, string userManagerID, string userName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumZC2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllBusinessSumZC2021(int year, int month, string userManagerID, string userName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumOther", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllBusinessSumOther(int year, int month, string userManagerID, string userName, string deptid);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumOther2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllBusinessSumOther2021(int year, int month, string userManagerID, string userName, string deptId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessGroupTC2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllBusinessGroupTC2021(int year, int month, string userManagerID, string userName, string deptId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBussinessManagerDept", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBussinessManagerDept(string businessID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBussinessSumByYear", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBussinessSumByYear(int Year, string businessManID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessLastYear", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetBusinessLastYear(int year, string userName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSum", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetRegSum(int year, int month, string userName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSum2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetRegSum2021(int year, int month, string userName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSumDetail", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetRegSumDetail(int year, int month, string userID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSum", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAccountantSum(int year, int month, string userName, string deptid);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSum2021", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAccountantSum2021(int year, int month, string userName, string deptid);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSumDetail", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAccountantSumDetail(int year, int month, string userID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenDetail", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetGongbenDetail(int year, string userID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantDetail", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAccountantDetail(int year, int month, string deptid);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLSBAccountantDetail", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetLSBAccountantDetail(int year, int month);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateYWY", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UpdateYWY();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClient", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UpdateClient();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieOnce", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void JiaoJieOnce(string kuaiji, string kuaijiId, string JJDate, string clientName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieByKuaiji", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCFDataSet", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetCFDataSet(string beginDate, string endDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCommission", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetCommission();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserBy3", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetUserBy3(string zcyId, string ywyId, string zzkjId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClientPaymentDate", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UpdateClientPaymentDate(string payEndDate, string clientId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientFX", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetClientFX(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLRByDate", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetLRByDate(string beginDate, string endDate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetYingShou", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetYingShou(string beginDate, string endDate, string clientName, string userid);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenKaipiao", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetGongbenKaipiao(string year, string userId, string deptName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenKaipiao", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetGongbenKaipiaoAsync(string year, string userId, string deptName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByClient", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetPaymentByClient(string clientName, string beginDate, string endDate, string zfDate1, string zfDate2);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByClient", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByClientAsync(string clientName, string beginDate, string endDate, string zfDate1, string zfDate2);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByPch", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetPaymentByPch(string pch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByPch", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByPchAsync(string pch);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentMainById", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetPaymentMainById(string id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentMainById", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentMainByIdAsync(string id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP2021", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet GetPaymentByInfoSP2021(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfoSP2021Async(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentSpDate", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void UpdatePaymentSpDate();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentSpDate", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdatePaymentSpDateAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentMain", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         void UpdatePaymentMain(string pch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentMain", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdatePaymentMainAsync(string pch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GenerateNewContractNumber", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string GenerateNewContractNumber();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GenerateNewContractNumber", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> GenerateNewContractNumberAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DoMaxSQ", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void DoMaxSQ();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DoMaxSQ", ReplyAction="*")]
+        System.Threading.Tasks.Task DoMaxSQAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContract", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetContract(string clientName, string accountant, int endMonth, string unpaidAmount, string spState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContract", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetContractAsync(string clientName, string accountant, int endMonth, string unpaidAmount, string spState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContractByID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetContractByID(string contractID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContractByID", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetContractByIDAsync(string contractID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReceivables", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetReceivables(string beginDate, string endDate, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReceivables", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetReceivablesAsync(string beginDate, string endDate, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReceivablesByAccounting", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetReceivablesByAccounting(string beginDate, string endDate, string accounting, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReceivablesByAccounting", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetReceivablesByAccountingAsync(string beginDate, string endDate, string accounting, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReceivedPayment", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetReceivedPayment(string clientName, string receiptDate1, string receiptDate2, string signDate1, string signDate2, string contractNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReceivedPayment", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetReceivedPaymentAsync(string clientName, string receiptDate1, string receiptDate2, string signDate1, string signDate2, string contractNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReceivedPaymentByAccounting", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetReceivedPaymentByAccounting(string clientName, string Accounting, string receiptDate1, string receiptDate2, string signDate1, string signDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetReceivedPaymentByAccounting", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetReceivedPaymentByAccountingAsync(string clientName, string Accounting, string receiptDate1, string receiptDate2, string signDate1, string signDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNoRegContract", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetNoRegContract(string clientName, string signDate1, string signDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNoRegContract", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetNoRegContractAsync(string clientName, string signDate1, string signDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateRegName", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdateRegName(string[] regId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateRegName", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdateRegNameAsync(string[] regId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContractChanged", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetContractChanged(string constractId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContractChanged", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetContractChangedAsync(string constractId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ContractChanged", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetTW_ContractChanged(string constractNo, string clientName, string beginDate, string endDate, string creater);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ContractChanged", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ContractChangedAsync(string constractNo, string clientName, string beginDate, string endDate, string creater);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ClientByClientName", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetTW_ClientByClientName(string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ClientByClientName", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ClientByClientNameAsync(string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContractByNo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetContractByNo(string contractNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContractByNo", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetContractByNoAsync(string contractNo);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentMainByContractId", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentMainByContractId(string contractId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentMainByContractId", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentMainByContractIdAsync(string contractId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContractInfoByClientId", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetContractInfoByClientId(string ClientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetContractInfoByClientId", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetContractInfoByClientIdAsync(string ClientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLastContractByClientId", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetLastContractByClientId(string ClientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLastContractByClientId", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetLastContractByClientIdAsync(string ClientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNoSignContract", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetNoSignContract(string clientName, string endDate, string Accounting);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNoSignContract", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetNoSignContractAsync(string clientName, string endDate, string Accounting);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNewCycleContract", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetNewCycleContract(string startDate, string endDate, string Accounting, string signState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNewCycleContract", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetNewCycleContractAsync(string startDate, string endDate, string Accounting, string signState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentAccount", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdatePaymentAccount(string startDate, string accountName, string accountId, string contractNo, string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePaymentAccount", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdatePaymentAccountAsync(string startDate, string accountName, string accountId, string contractNo, string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ImpContract", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string ImpContract();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ImpContract", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> ImpContractAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CheckCompanyName", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool CheckCompanyName(string companyName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/CheckCompanyName", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> CheckCompanyNameAsync(string companyName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateCUserID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdateCUserID();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateCUserID", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdateCUserIDAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdateUserID();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateUserID", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdateUserIDAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientId", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        string GetClientId(string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientId", ReplyAction="*")]
+        System.Threading.Tasks.Task<string> GetClientIdAsync(string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ClientByClientId", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetTW_ClientByClientId(string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ClientByClientId", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ClientByClientIdAsync(string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ClientByUser", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetTW_ClientByUser(string clientId, string userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ClientByUser", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ClientByUserAsync(string clientId, string userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ClientByUserName", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetTW_ClientByUserName(string clientName, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTW_ClientByUserName", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ClientByUserNameAsync(string clientName, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetImage", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetImage(string fkID, string fileType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetImage", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetImageAsync(string fkID, string fileType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DelFile", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void DelFile(string fkID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DelFile", ReplyAction="*")]
+        System.Threading.Tasks.Task DelFileAsync(string fkID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DelByPCH", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void DelByPCH(string pch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DelByPCH", ReplyAction="*")]
+        System.Threading.Tasks.Task DelByPCHAsync(string pch);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetImagebyID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetImagebyID(string FileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetImagebyID", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetImagebyIDAsync(string FileID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFileListByFkId", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetFileListByFkId(string fkId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetFileListByFkId", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetFileListByFkIdAsync(string fkId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientInfo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetClientInfoAsync(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientInfoSP", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetClientInfoSP(string clientName, string clientType, string accountant, string spState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientInfoSP", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetClientInfoSPAsync(string clientName, string clientType, string accountant, string spState);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEndDateClient", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetEndDateClient(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetEndDateClient", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetEndDateClientAsync(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSingleClient", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetSingleClient(string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSingleClient", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetSingleClientAsync(string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegData", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessRegData(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string FbeginDate, string FendDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegData", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessRegDataAsync(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string FbeginDate, string FendDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegDataEdit", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessRegDataEdit(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string regWC, string fBeginDate, string fEndDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegDataEdit", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessRegDataEditAsync(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string regWC, string fBeginDate, string fEndDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegByID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessRegByID(string TW_BusinessRegID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessRegByID", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessRegByIDAsync(string TW_BusinessRegID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessExamineData", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessExamineData(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string isExamine);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessExamineData", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessExamineDataAsync(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string isExamine);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNoPaymentReg", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetNoPaymentReg(string accountant, string gsName, string isPayment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetNoPaymentReg", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetNoPaymentRegAsync(string accountant, string gsName, string isPayment);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SavePayment", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void SavePayment(System.Data.DataSet dst);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SavePayment", ReplyAction="*")]
+        System.Threading.Tasks.Task SavePaymentAsync(System.Data.DataSet dst);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPayment", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPayment(string paymentID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPayment", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentAsync(string paymentID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfo", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentByInfo(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfo", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfoAsync(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfo2025", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentByInfo2025(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfo2025", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfo2025Async(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP2025", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentByInfoSP2025(string sp, string clientName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP2025", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfoSP2025Async(string sp, string clientName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentByInfoSP", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfoSPAsync(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentDetailID", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetPaymentDetailID(string paymentID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetPaymentDetailID", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentDetailIDAsync(string paymentID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSum", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessSum(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSum", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSumAsync(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumReg", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessSumReg(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumReg", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSumRegAsync(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSum2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessSum2021(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSum2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSum2021Async(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumCZB2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessSumCZB2021(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumCZB2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSumCZB2021Async(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumYCX2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessSumYCX2021(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessSumYCX2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSumYCX2021Async(string businessID, int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSum", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAllBusinessSum(int year, int month, string userManagerID, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSum", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumAsync(int year, int month, string userManagerID, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumZC", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAllBusinessSumZC(int year, int month, string userManagerID, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumZC", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumZCAsync(int year, int month, string userManagerID, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSum2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAllBusinessSum2021(int year, int month, string userManagerID, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSum2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSum2021Async(int year, int month, string userManagerID, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumZC2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAllBusinessSumZC2021(int year, int month, string userManagerID, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumZC2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumZC2021Async(int year, int month, string userManagerID, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumOther", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAllBusinessSumOther(int year, int month, string userManagerID, string userName, string deptid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumOther", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumOtherAsync(int year, int month, string userManagerID, string userName, string deptid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumOther2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAllBusinessSumOther2021(int year, int month, string userManagerID, string userName, string deptId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessSumOther2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumOther2021Async(int year, int month, string userManagerID, string userName, string deptId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessGroupTC2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAllBusinessGroupTC2021(int year, int month, string userManagerID, string userName, string deptId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAllBusinessGroupTC2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessGroupTC2021Async(int year, int month, string userManagerID, string userName, string deptId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBussinessManagerDept", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBussinessManagerDept(string businessID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBussinessManagerDept", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBussinessManagerDeptAsync(string businessID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBussinessSumByYear", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBussinessSumByYear(int Year, string businessManID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBussinessSumByYear", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBussinessSumByYearAsync(int Year, string businessManID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessLastYear", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetBusinessLastYear(int year, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetBusinessLastYear", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessLastYearAsync(int year, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSum", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetRegSum(int year, int month, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSum", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetRegSumAsync(int year, int month, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSum2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetRegSum2021(int year, int month, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSum2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetRegSum2021Async(int year, int month, string userName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSumDetail", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetRegSumDetail(int year, int month, string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRegSumDetail", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetRegSumDetailAsync(int year, int month, string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSum", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAccountantSum(int year, int month, string userName, string deptid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSum", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAccountantSumAsync(int year, int month, string userName, string deptid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSum2021", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAccountantSum2021(int year, int month, string userName, string deptid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSum2021", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAccountantSum2021Async(int year, int month, string userName, string deptid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSumDetail", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAccountantSumDetail(int year, int month, string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantSumDetail", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAccountantSumDetailAsync(int year, int month, string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenDetail", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetGongbenDetail(int year, string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetGongbenDetail", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetGongbenDetailAsync(int year, string userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantDetail", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetAccountantDetail(int year, int month, string deptid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAccountantDetail", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetAccountantDetailAsync(int year, int month, string deptid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLSBAccountantDetail", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetLSBAccountantDetail(int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLSBAccountantDetail", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetLSBAccountantDetailAsync(int year, int month);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateYWY", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdateYWY();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateYWY", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdateYWYAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClient", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdateClient();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClient", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdateClientAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieOnce", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void JiaoJieOnce(string kuaiji, string kuaijiId, string JJDate, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieOnce", ReplyAction="*")]
+        System.Threading.Tasks.Task JiaoJieOnceAsync(string kuaiji, string kuaijiId, string JJDate, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieByKuaiji", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/JiaoJieByKuaiji", ReplyAction="*")]
+        System.Threading.Tasks.Task JiaoJieByKuaijiAsync(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCFDataSet", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetCFDataSet(string beginDate, string endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCFDataSet", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetCFDataSetAsync(string beginDate, string endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCommission", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetCommission();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetCommission", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetCommissionAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserBy3", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetUserBy3(string zcyId, string ywyId, string zzkjId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetUserBy3", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetUserBy3Async(string zcyId, string ywyId, string zzkjId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClientPaymentDate", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        void UpdateClientPaymentDate(string payEndDate, string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateClientPaymentDate", ReplyAction="*")]
+        System.Threading.Tasks.Task UpdateClientPaymentDateAsync(string payEndDate, string clientId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientFX", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetClientFX(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetClientFX", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetClientFXAsync(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLRByDate", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetLRByDate(string beginDate, string endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetLRByDate", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetLRByDateAsync(string beginDate, string endDate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetYingShou", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet GetYingShou(string beginDate, string endDate, string clientName, string userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetYingShou", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> GetYingShouAsync(string beginDate, string endDate, string clientName, string userid);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -292,252 +681,732 @@ namespace WangDaDll.WangDaReference {
                 base(binding, remoteAddress) {
         }
         
-        public bool CheckCompanyName(string companyName) {
-            return base.Channel.CheckCompanyName(companyName);
-        }
-        
-        public void UpdateCUserID() {
-            base.Channel.UpdateCUserID();
-        }
-        
-        public void UpdateUserID() {
-            base.Channel.UpdateUserID();
-        }
-        
-        public string GetClientId(string clientName) {
-            return base.Channel.GetClientId(clientName);
-        }
-        
-        public System.Data.DataSet GetImage(string fkID, string fileType) {
-            return base.Channel.GetImage(fkID, fileType);
-        }
-        
-        public void DelByPCH(string pch) {
-            base.Channel.DelByPCH(pch);
-        }
-        
-        public System.Data.DataSet GetImagebyID(string FileID) {
-            return base.Channel.GetImagebyID(FileID);
-        }
-        
-        public System.Data.DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState) {
-            return base.Channel.GetClientInfo(clientName, clientType, clientLevel, clientPropety, accountant, clientState);
-        }
-        
-        public System.Data.DataSet GetEndDateClient(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate) {
-            return base.Channel.GetEndDateClient(clientName, clientType, clientLevel, clientPropety, accountant, endDate);
-        }
-        
-        public System.Data.DataSet GetSingleClient(string clientName) {
-            return base.Channel.GetSingleClient(clientName);
-        }
-        
-        public System.Data.DataSet GetBusinessRegData(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string FbeginDate, string FendDate) {
-            return base.Channel.GetBusinessRegData(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, frmType, FbeginDate, FendDate);
-        }
-        
-        public System.Data.DataSet GetBusinessRegDataEdit(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string regWC, string fBeginDate, string fEndDate) {
-            return base.Channel.GetBusinessRegDataEdit(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, frmType, regWC, fBeginDate, fEndDate);
-        }
-        
-        public System.Data.DataSet GetBusinessRegByID(string TW_BusinessRegID) {
-            return base.Channel.GetBusinessRegByID(TW_BusinessRegID);
-        }
-        
-        public System.Data.DataSet GetBusinessExamineData(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string isExamine) {
-            return base.Channel.GetBusinessExamineData(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, isExamine);
-        }
-        
-        public System.Data.DataSet GetNoPaymentReg(string accountant, string gsName, string isPayment) {
-            return base.Channel.GetNoPaymentReg(accountant, gsName, isPayment);
-        }
-        
-        public void SavePayment(System.Data.DataSet dst) {
-            base.Channel.SavePayment(dst);
-        }
-        
-        public System.Data.DataSet GetPayment(string paymentID) {
-            return base.Channel.GetPayment(paymentID);
-        }
-        
-        public System.Data.DataSet GetPaymentByInfo(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount) {
-            return base.Channel.GetPaymentByInfo(unitName, account, beginDate, endDate, paymentType, endPaymentDate, manager, isPay, zeroAccount);
-        }
-        
-        public System.Data.DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2) {
-            return base.Channel.GetPaymentByInfoSP(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount, bcdqDate1, bcdqDate2, cszzDate1, cszzDate2);
-        }
-        
-        public System.Data.DataSet GetPaymentDetailID(string paymentID) {
-            return base.Channel.GetPaymentDetailID(paymentID);
-        }
-        
-        public System.Data.DataSet GetBusinessSum(string businessID, int year, int month) {
-            return base.Channel.GetBusinessSum(businessID, year, month);
-        }
-        
-        public System.Data.DataSet GetBusinessSumReg(string businessID, int year, int month) {
-            return base.Channel.GetBusinessSumReg(businessID, year, month);
-        }
-        
-        public System.Data.DataSet GetBusinessSum2021(string businessID, int year, int month) {
-            return base.Channel.GetBusinessSum2021(businessID, year, month);
-        }
-        
-        public System.Data.DataSet GetBusinessSumCZB2021(string businessID, int year, int month) {
-            return base.Channel.GetBusinessSumCZB2021(businessID, year, month);
-        }
-        
-        public System.Data.DataSet GetBusinessSumYCX2021(string businessID, int year, int month) {
-            return base.Channel.GetBusinessSumYCX2021(businessID, year, month);
-        }
-        
-        public System.Data.DataSet GetAllBusinessSum(int year, int month, string userManagerID, string userName) {
-            return base.Channel.GetAllBusinessSum(year, month, userManagerID, userName);
-        }
-        
-        public System.Data.DataSet GetAllBusinessSumZC(int year, int month, string userManagerID, string userName) {
-            return base.Channel.GetAllBusinessSumZC(year, month, userManagerID, userName);
-        }
-        
-        public System.Data.DataSet GetAllBusinessSum2021(int year, int month, string userManagerID, string userName) {
-            return base.Channel.GetAllBusinessSum2021(year, month, userManagerID, userName);
-        }
-        
-        public System.Data.DataSet GetAllBusinessSumZC2021(int year, int month, string userManagerID, string userName) {
-            return base.Channel.GetAllBusinessSumZC2021(year, month, userManagerID, userName);
-        }
-        
-        public System.Data.DataSet GetAllBusinessSumOther(int year, int month, string userManagerID, string userName, string deptid) {
-            return base.Channel.GetAllBusinessSumOther(year, month, userManagerID, userName, deptid);
-        }
-        
-        public System.Data.DataSet GetAllBusinessSumOther2021(int year, int month, string userManagerID, string userName, string deptId) {
-            return base.Channel.GetAllBusinessSumOther2021(year, month, userManagerID, userName, deptId);
-        }
-        
-        public System.Data.DataSet GetAllBusinessGroupTC2021(int year, int month, string userManagerID, string userName, string deptId) {
-            return base.Channel.GetAllBusinessGroupTC2021(year, month, userManagerID, userName, deptId);
-        }
-        
-        public System.Data.DataSet GetBussinessManagerDept(string businessID) {
-            return base.Channel.GetBussinessManagerDept(businessID);
-        }
-        
-        public System.Data.DataSet GetBussinessSumByYear(int Year, string businessManID) {
-            return base.Channel.GetBussinessSumByYear(Year, businessManID);
-        }
-        
-        public System.Data.DataSet GetBusinessLastYear(int year, string userName) {
-            return base.Channel.GetBusinessLastYear(year, userName);
-        }
-        
-        public System.Data.DataSet GetRegSum(int year, int month, string userName) {
-            return base.Channel.GetRegSum(year, month, userName);
-        }
-        
-        public System.Data.DataSet GetRegSum2021(int year, int month, string userName) {
-            return base.Channel.GetRegSum2021(year, month, userName);
-        }
-        
-        public System.Data.DataSet GetRegSumDetail(int year, int month, string userID) {
-            return base.Channel.GetRegSumDetail(year, month, userID);
-        }
-        
-        public System.Data.DataSet GetAccountantSum(int year, int month, string userName, string deptid) {
-            return base.Channel.GetAccountantSum(year, month, userName, deptid);
-        }
-        
-        public System.Data.DataSet GetAccountantSum2021(int year, int month, string userName, string deptid) {
-            return base.Channel.GetAccountantSum2021(year, month, userName, deptid);
-        }
-        
-        public System.Data.DataSet GetAccountantSumDetail(int year, int month, string userID) {
-            return base.Channel.GetAccountantSumDetail(year, month, userID);
-        }
-        
-        public System.Data.DataSet GetGongbenDetail(int year, string userID) {
-            return base.Channel.GetGongbenDetail(year, userID);
-        }
-        
-        public System.Data.DataSet GetAccountantDetail(int year, int month, string deptid) {
-            return base.Channel.GetAccountantDetail(year, month, deptid);
-        }
-        
-        public System.Data.DataSet GetLSBAccountantDetail(int year, int month) {
-            return base.Channel.GetLSBAccountantDetail(year, month);
-        }
-        
-        public void UpdateYWY() {
-            base.Channel.UpdateYWY();
-        }
-        
-        public void UpdateClient() {
-            base.Channel.UpdateClient();
-        }
-        
-        public void JiaoJieOnce(string kuaiji, string kuaijiId, string JJDate, string clientName) {
-            base.Channel.JiaoJieOnce(kuaiji, kuaijiId, JJDate, clientName);
-        }
-        
-        public void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId) {
-            base.Channel.JiaoJieByKuaiji(kuaiji, kuaijiId, JJDate, oldKuaijiId);
-        }
-        
-        public System.Data.DataSet GetCFDataSet(string beginDate, string endDate) {
-            return base.Channel.GetCFDataSet(beginDate, endDate);
-        }
-        
-        public System.Data.DataSet GetCommission() {
-            return base.Channel.GetCommission();
-        }
-        
-        public System.Data.DataSet GetUserBy3(string zcyId, string ywyId, string zzkjId) {
-            return base.Channel.GetUserBy3(zcyId, ywyId, zzkjId);
-        }
-        
-        public void UpdateClientPaymentDate(string payEndDate, string clientId) {
-            base.Channel.UpdateClientPaymentDate(payEndDate, clientId);
-        }
-        
-        public System.Data.DataSet GetClientFX(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName) {
-            return base.Channel.GetClientFX(zzKSDate, zzDQDate, zfKSData, zfJSData, clientName);
-        }
-        
-        public System.Data.DataSet GetLRByDate(string beginDate, string endDate) {
-            return base.Channel.GetLRByDate(beginDate, endDate);
-        }
-        
-        public System.Data.DataSet GetYingShou(string beginDate, string endDate, string clientName, string userid) {
-            return base.Channel.GetYingShou(beginDate, endDate, clientName, userid);
-        }
-        
         public System.Data.DataSet GetGongbenKaipiao(string year, string userId, string deptName) {
             return base.Channel.GetGongbenKaipiao(year, userId, deptName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetGongbenKaipiaoAsync(string year, string userId, string deptName) {
+            return base.Channel.GetGongbenKaipiaoAsync(year, userId, deptName);
         }
         
         public System.Data.DataSet GetPaymentByClient(string clientName, string beginDate, string endDate, string zfDate1, string zfDate2) {
             return base.Channel.GetPaymentByClient(clientName, beginDate, endDate, zfDate1, zfDate2);
         }
         
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByClientAsync(string clientName, string beginDate, string endDate, string zfDate1, string zfDate2) {
+            return base.Channel.GetPaymentByClientAsync(clientName, beginDate, endDate, zfDate1, zfDate2);
+        }
+        
         public System.Data.DataSet GetPaymentByPch(string pch) {
             return base.Channel.GetPaymentByPch(pch);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByPchAsync(string pch) {
+            return base.Channel.GetPaymentByPchAsync(pch);
         }
         
         public System.Data.DataSet GetPaymentMainById(string id) {
             return base.Channel.GetPaymentMainById(id);
         }
         
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentMainByIdAsync(string id) {
+            return base.Channel.GetPaymentMainByIdAsync(id);
+        }
+        
         public System.Data.DataSet GetPaymentByInfoSP2021(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2) {
             return base.Channel.GetPaymentByInfoSP2021(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount, bcdqDate1, bcdqDate2, cszzDate1, cszzDate2);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfoSP2021Async(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2) {
+            return base.Channel.GetPaymentByInfoSP2021Async(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount, bcdqDate1, bcdqDate2, cszzDate1, cszzDate2);
         }
         
         public void UpdatePaymentSpDate() {
             base.Channel.UpdatePaymentSpDate();
         }
         
+        public System.Threading.Tasks.Task UpdatePaymentSpDateAsync() {
+            return base.Channel.UpdatePaymentSpDateAsync();
+        }
+        
         public void UpdatePaymentMain(string pch) {
             base.Channel.UpdatePaymentMain(pch);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePaymentMainAsync(string pch) {
+            return base.Channel.UpdatePaymentMainAsync(pch);
+        }
+        
+        public string GenerateNewContractNumber() {
+            return base.Channel.GenerateNewContractNumber();
+        }
+        
+        public System.Threading.Tasks.Task<string> GenerateNewContractNumberAsync() {
+            return base.Channel.GenerateNewContractNumberAsync();
+        }
+        
+        public void DoMaxSQ() {
+            base.Channel.DoMaxSQ();
+        }
+        
+        public System.Threading.Tasks.Task DoMaxSQAsync() {
+            return base.Channel.DoMaxSQAsync();
+        }
+        
+        public System.Data.DataSet GetContract(string clientName, string accountant, int endMonth, string unpaidAmount, string spState) {
+            return base.Channel.GetContract(clientName, accountant, endMonth, unpaidAmount, spState);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetContractAsync(string clientName, string accountant, int endMonth, string unpaidAmount, string spState) {
+            return base.Channel.GetContractAsync(clientName, accountant, endMonth, unpaidAmount, spState);
+        }
+        
+        public System.Data.DataSet GetContractByID(string contractID) {
+            return base.Channel.GetContractByID(contractID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetContractByIDAsync(string contractID) {
+            return base.Channel.GetContractByIDAsync(contractID);
+        }
+        
+        public System.Data.DataSet GetReceivables(string beginDate, string endDate, string clientName) {
+            return base.Channel.GetReceivables(beginDate, endDate, clientName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetReceivablesAsync(string beginDate, string endDate, string clientName) {
+            return base.Channel.GetReceivablesAsync(beginDate, endDate, clientName);
+        }
+        
+        public System.Data.DataSet GetReceivablesByAccounting(string beginDate, string endDate, string accounting, string clientName) {
+            return base.Channel.GetReceivablesByAccounting(beginDate, endDate, accounting, clientName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetReceivablesByAccountingAsync(string beginDate, string endDate, string accounting, string clientName) {
+            return base.Channel.GetReceivablesByAccountingAsync(beginDate, endDate, accounting, clientName);
+        }
+        
+        public System.Data.DataSet GetReceivedPayment(string clientName, string receiptDate1, string receiptDate2, string signDate1, string signDate2, string contractNo) {
+            return base.Channel.GetReceivedPayment(clientName, receiptDate1, receiptDate2, signDate1, signDate2, contractNo);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetReceivedPaymentAsync(string clientName, string receiptDate1, string receiptDate2, string signDate1, string signDate2, string contractNo) {
+            return base.Channel.GetReceivedPaymentAsync(clientName, receiptDate1, receiptDate2, signDate1, signDate2, contractNo);
+        }
+        
+        public System.Data.DataSet GetReceivedPaymentByAccounting(string clientName, string Accounting, string receiptDate1, string receiptDate2, string signDate1, string signDate2) {
+            return base.Channel.GetReceivedPaymentByAccounting(clientName, Accounting, receiptDate1, receiptDate2, signDate1, signDate2);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetReceivedPaymentByAccountingAsync(string clientName, string Accounting, string receiptDate1, string receiptDate2, string signDate1, string signDate2) {
+            return base.Channel.GetReceivedPaymentByAccountingAsync(clientName, Accounting, receiptDate1, receiptDate2, signDate1, signDate2);
+        }
+        
+        public System.Data.DataSet GetNoRegContract(string clientName, string signDate1, string signDate2) {
+            return base.Channel.GetNoRegContract(clientName, signDate1, signDate2);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetNoRegContractAsync(string clientName, string signDate1, string signDate2) {
+            return base.Channel.GetNoRegContractAsync(clientName, signDate1, signDate2);
+        }
+        
+        public void UpdateRegName(string[] regId) {
+            base.Channel.UpdateRegName(regId);
+        }
+        
+        public System.Threading.Tasks.Task UpdateRegNameAsync(string[] regId) {
+            return base.Channel.UpdateRegNameAsync(regId);
+        }
+        
+        public System.Data.DataSet GetContractChanged(string constractId) {
+            return base.Channel.GetContractChanged(constractId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetContractChangedAsync(string constractId) {
+            return base.Channel.GetContractChangedAsync(constractId);
+        }
+        
+        public System.Data.DataSet GetTW_ContractChanged(string constractNo, string clientName, string beginDate, string endDate, string creater) {
+            return base.Channel.GetTW_ContractChanged(constractNo, clientName, beginDate, endDate, creater);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ContractChangedAsync(string constractNo, string clientName, string beginDate, string endDate, string creater) {
+            return base.Channel.GetTW_ContractChangedAsync(constractNo, clientName, beginDate, endDate, creater);
+        }
+        
+        public System.Data.DataSet GetTW_ClientByClientName(string clientName) {
+            return base.Channel.GetTW_ClientByClientName(clientName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ClientByClientNameAsync(string clientName) {
+            return base.Channel.GetTW_ClientByClientNameAsync(clientName);
+        }
+        
+        public System.Data.DataSet GetContractByNo(string contractNo) {
+            return base.Channel.GetContractByNo(contractNo);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetContractByNoAsync(string contractNo) {
+            return base.Channel.GetContractByNoAsync(contractNo);
+        }
+        
+        public System.Data.DataSet GetPaymentMainByContractId(string contractId) {
+            return base.Channel.GetPaymentMainByContractId(contractId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentMainByContractIdAsync(string contractId) {
+            return base.Channel.GetPaymentMainByContractIdAsync(contractId);
+        }
+        
+        public System.Data.DataSet GetContractInfoByClientId(string ClientId) {
+            return base.Channel.GetContractInfoByClientId(ClientId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetContractInfoByClientIdAsync(string ClientId) {
+            return base.Channel.GetContractInfoByClientIdAsync(ClientId);
+        }
+        
+        public System.Data.DataSet GetLastContractByClientId(string ClientId) {
+            return base.Channel.GetLastContractByClientId(ClientId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetLastContractByClientIdAsync(string ClientId) {
+            return base.Channel.GetLastContractByClientIdAsync(ClientId);
+        }
+        
+        public System.Data.DataSet GetNoSignContract(string clientName, string endDate, string Accounting) {
+            return base.Channel.GetNoSignContract(clientName, endDate, Accounting);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetNoSignContractAsync(string clientName, string endDate, string Accounting) {
+            return base.Channel.GetNoSignContractAsync(clientName, endDate, Accounting);
+        }
+        
+        public System.Data.DataSet GetNewCycleContract(string startDate, string endDate, string Accounting, string signState) {
+            return base.Channel.GetNewCycleContract(startDate, endDate, Accounting, signState);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetNewCycleContractAsync(string startDate, string endDate, string Accounting, string signState) {
+            return base.Channel.GetNewCycleContractAsync(startDate, endDate, Accounting, signState);
+        }
+        
+        public void UpdatePaymentAccount(string startDate, string accountName, string accountId, string contractNo, string clientId) {
+            base.Channel.UpdatePaymentAccount(startDate, accountName, accountId, contractNo, clientId);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePaymentAccountAsync(string startDate, string accountName, string accountId, string contractNo, string clientId) {
+            return base.Channel.UpdatePaymentAccountAsync(startDate, accountName, accountId, contractNo, clientId);
+        }
+        
+        public string ImpContract() {
+            return base.Channel.ImpContract();
+        }
+        
+        public System.Threading.Tasks.Task<string> ImpContractAsync() {
+            return base.Channel.ImpContractAsync();
+        }
+        
+        public bool CheckCompanyName(string companyName) {
+            return base.Channel.CheckCompanyName(companyName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckCompanyNameAsync(string companyName) {
+            return base.Channel.CheckCompanyNameAsync(companyName);
+        }
+        
+        public void UpdateCUserID() {
+            base.Channel.UpdateCUserID();
+        }
+        
+        public System.Threading.Tasks.Task UpdateCUserIDAsync() {
+            return base.Channel.UpdateCUserIDAsync();
+        }
+        
+        public void UpdateUserID() {
+            base.Channel.UpdateUserID();
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserIDAsync() {
+            return base.Channel.UpdateUserIDAsync();
+        }
+        
+        public string GetClientId(string clientName) {
+            return base.Channel.GetClientId(clientName);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetClientIdAsync(string clientName) {
+            return base.Channel.GetClientIdAsync(clientName);
+        }
+        
+        public System.Data.DataSet GetTW_ClientByClientId(string clientId) {
+            return base.Channel.GetTW_ClientByClientId(clientId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ClientByClientIdAsync(string clientId) {
+            return base.Channel.GetTW_ClientByClientIdAsync(clientId);
+        }
+        
+        public System.Data.DataSet GetTW_ClientByUser(string clientId, string userId) {
+            return base.Channel.GetTW_ClientByUser(clientId, userId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ClientByUserAsync(string clientId, string userId) {
+            return base.Channel.GetTW_ClientByUserAsync(clientId, userId);
+        }
+        
+        public System.Data.DataSet GetTW_ClientByUserName(string clientName, string userName) {
+            return base.Channel.GetTW_ClientByUserName(clientName, userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetTW_ClientByUserNameAsync(string clientName, string userName) {
+            return base.Channel.GetTW_ClientByUserNameAsync(clientName, userName);
+        }
+        
+        public System.Data.DataSet GetImage(string fkID, string fileType) {
+            return base.Channel.GetImage(fkID, fileType);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetImageAsync(string fkID, string fileType) {
+            return base.Channel.GetImageAsync(fkID, fileType);
+        }
+        
+        public void DelFile(string fkID) {
+            base.Channel.DelFile(fkID);
+        }
+        
+        public System.Threading.Tasks.Task DelFileAsync(string fkID) {
+            return base.Channel.DelFileAsync(fkID);
+        }
+        
+        public void DelByPCH(string pch) {
+            base.Channel.DelByPCH(pch);
+        }
+        
+        public System.Threading.Tasks.Task DelByPCHAsync(string pch) {
+            return base.Channel.DelByPCHAsync(pch);
+        }
+        
+        public System.Data.DataSet GetImagebyID(string FileID) {
+            return base.Channel.GetImagebyID(FileID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetImagebyIDAsync(string FileID) {
+            return base.Channel.GetImagebyIDAsync(FileID);
+        }
+        
+        public System.Data.DataSet GetFileListByFkId(string fkId) {
+            return base.Channel.GetFileListByFkId(fkId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetFileListByFkIdAsync(string fkId) {
+            return base.Channel.GetFileListByFkIdAsync(fkId);
+        }
+        
+        public System.Data.DataSet GetClientInfo(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState) {
+            return base.Channel.GetClientInfo(clientName, clientType, clientLevel, clientPropety, accountant, clientState);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetClientInfoAsync(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string clientState) {
+            return base.Channel.GetClientInfoAsync(clientName, clientType, clientLevel, clientPropety, accountant, clientState);
+        }
+        
+        public System.Data.DataSet GetClientInfoSP(string clientName, string clientType, string accountant, string spState) {
+            return base.Channel.GetClientInfoSP(clientName, clientType, accountant, spState);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetClientInfoSPAsync(string clientName, string clientType, string accountant, string spState) {
+            return base.Channel.GetClientInfoSPAsync(clientName, clientType, accountant, spState);
+        }
+        
+        public System.Data.DataSet GetEndDateClient(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate) {
+            return base.Channel.GetEndDateClient(clientName, clientType, clientLevel, clientPropety, accountant, endDate);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetEndDateClientAsync(string clientName, string clientType, string clientLevel, string clientPropety, string accountant, string endDate) {
+            return base.Channel.GetEndDateClientAsync(clientName, clientType, clientLevel, clientPropety, accountant, endDate);
+        }
+        
+        public System.Data.DataSet GetSingleClient(string clientName) {
+            return base.Channel.GetSingleClient(clientName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetSingleClientAsync(string clientName) {
+            return base.Channel.GetSingleClientAsync(clientName);
+        }
+        
+        public System.Data.DataSet GetBusinessRegData(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string FbeginDate, string FendDate) {
+            return base.Channel.GetBusinessRegData(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, frmType, FbeginDate, FendDate);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessRegDataAsync(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string FbeginDate, string FendDate) {
+            return base.Channel.GetBusinessRegDataAsync(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, frmType, FbeginDate, FendDate);
+        }
+        
+        public System.Data.DataSet GetBusinessRegDataEdit(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string regWC, string fBeginDate, string fEndDate) {
+            return base.Channel.GetBusinessRegDataEdit(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, frmType, regWC, fBeginDate, fEndDate);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessRegDataEditAsync(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string frmType, string regWC, string fBeginDate, string fEndDate) {
+            return base.Channel.GetBusinessRegDataEditAsync(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, frmType, regWC, fBeginDate, fEndDate);
+        }
+        
+        public System.Data.DataSet GetBusinessRegByID(string TW_BusinessRegID) {
+            return base.Channel.GetBusinessRegByID(TW_BusinessRegID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessRegByIDAsync(string TW_BusinessRegID) {
+            return base.Channel.GetBusinessRegByIDAsync(TW_BusinessRegID);
+        }
+        
+        public System.Data.DataSet GetBusinessExamineData(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string isExamine) {
+            return base.Channel.GetBusinessExamineData(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, isExamine);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessExamineDataAsync(string businessMan, string beginRegDate, string endRegDate, string companyName, string isPayment, string regState, string wqState, string deptName, string regTag, string wqTag, string isExamine) {
+            return base.Channel.GetBusinessExamineDataAsync(businessMan, beginRegDate, endRegDate, companyName, isPayment, regState, wqState, deptName, regTag, wqTag, isExamine);
+        }
+        
+        public System.Data.DataSet GetNoPaymentReg(string accountant, string gsName, string isPayment) {
+            return base.Channel.GetNoPaymentReg(accountant, gsName, isPayment);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetNoPaymentRegAsync(string accountant, string gsName, string isPayment) {
+            return base.Channel.GetNoPaymentRegAsync(accountant, gsName, isPayment);
+        }
+        
+        public void SavePayment(System.Data.DataSet dst) {
+            base.Channel.SavePayment(dst);
+        }
+        
+        public System.Threading.Tasks.Task SavePaymentAsync(System.Data.DataSet dst) {
+            return base.Channel.SavePaymentAsync(dst);
+        }
+        
+        public System.Data.DataSet GetPayment(string paymentID) {
+            return base.Channel.GetPayment(paymentID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentAsync(string paymentID) {
+            return base.Channel.GetPaymentAsync(paymentID);
+        }
+        
+        public System.Data.DataSet GetPaymentByInfo(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount) {
+            return base.Channel.GetPaymentByInfo(unitName, account, beginDate, endDate, paymentType, endPaymentDate, manager, isPay, zeroAccount);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfoAsync(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount) {
+            return base.Channel.GetPaymentByInfoAsync(unitName, account, beginDate, endDate, paymentType, endPaymentDate, manager, isPay, zeroAccount);
+        }
+        
+        public System.Data.DataSet GetPaymentByInfo2025(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount) {
+            return base.Channel.GetPaymentByInfo2025(unitName, account, beginDate, endDate, paymentType, endPaymentDate, manager, isPay, zeroAccount);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfo2025Async(string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount) {
+            return base.Channel.GetPaymentByInfo2025Async(unitName, account, beginDate, endDate, paymentType, endPaymentDate, manager, isPay, zeroAccount);
+        }
+        
+        public System.Data.DataSet GetPaymentByInfoSP2025(string sp, string clientName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount) {
+            return base.Channel.GetPaymentByInfoSP2025(sp, clientName, account, beginDate, endDate, paymentType, endPaymentDate, manager, isPay, zeroAccount);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfoSP2025Async(string sp, string clientName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string manager, string isPay, string zeroAccount) {
+            return base.Channel.GetPaymentByInfoSP2025Async(sp, clientName, account, beginDate, endDate, paymentType, endPaymentDate, manager, isPay, zeroAccount);
+        }
+        
+        public System.Data.DataSet GetPaymentByInfoSP(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2) {
+            return base.Channel.GetPaymentByInfoSP(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount, bcdqDate1, bcdqDate2, cszzDate1, cszzDate2);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentByInfoSPAsync(string spType, string unitName, string account, string beginDate, string endDate, string paymentType, string endPaymentDate, string isPay, string zeroAccount, string bcdqDate1, string bcdqDate2, string cszzDate1, string cszzDate2) {
+            return base.Channel.GetPaymentByInfoSPAsync(spType, unitName, account, beginDate, endDate, paymentType, endPaymentDate, isPay, zeroAccount, bcdqDate1, bcdqDate2, cszzDate1, cszzDate2);
+        }
+        
+        public System.Data.DataSet GetPaymentDetailID(string paymentID) {
+            return base.Channel.GetPaymentDetailID(paymentID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetPaymentDetailIDAsync(string paymentID) {
+            return base.Channel.GetPaymentDetailIDAsync(paymentID);
+        }
+        
+        public System.Data.DataSet GetBusinessSum(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSum(businessID, year, month);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSumAsync(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumAsync(businessID, year, month);
+        }
+        
+        public System.Data.DataSet GetBusinessSumReg(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumReg(businessID, year, month);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSumRegAsync(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumRegAsync(businessID, year, month);
+        }
+        
+        public System.Data.DataSet GetBusinessSum2021(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSum2021(businessID, year, month);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSum2021Async(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSum2021Async(businessID, year, month);
+        }
+        
+        public System.Data.DataSet GetBusinessSumCZB2021(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumCZB2021(businessID, year, month);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSumCZB2021Async(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumCZB2021Async(businessID, year, month);
+        }
+        
+        public System.Data.DataSet GetBusinessSumYCX2021(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumYCX2021(businessID, year, month);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessSumYCX2021Async(string businessID, int year, int month) {
+            return base.Channel.GetBusinessSumYCX2021Async(businessID, year, month);
+        }
+        
+        public System.Data.DataSet GetAllBusinessSum(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSum(year, month, userManagerID, userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumAsync(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSumAsync(year, month, userManagerID, userName);
+        }
+        
+        public System.Data.DataSet GetAllBusinessSumZC(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSumZC(year, month, userManagerID, userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumZCAsync(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSumZCAsync(year, month, userManagerID, userName);
+        }
+        
+        public System.Data.DataSet GetAllBusinessSum2021(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSum2021(year, month, userManagerID, userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSum2021Async(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSum2021Async(year, month, userManagerID, userName);
+        }
+        
+        public System.Data.DataSet GetAllBusinessSumZC2021(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSumZC2021(year, month, userManagerID, userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumZC2021Async(int year, int month, string userManagerID, string userName) {
+            return base.Channel.GetAllBusinessSumZC2021Async(year, month, userManagerID, userName);
+        }
+        
+        public System.Data.DataSet GetAllBusinessSumOther(int year, int month, string userManagerID, string userName, string deptid) {
+            return base.Channel.GetAllBusinessSumOther(year, month, userManagerID, userName, deptid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumOtherAsync(int year, int month, string userManagerID, string userName, string deptid) {
+            return base.Channel.GetAllBusinessSumOtherAsync(year, month, userManagerID, userName, deptid);
+        }
+        
+        public System.Data.DataSet GetAllBusinessSumOther2021(int year, int month, string userManagerID, string userName, string deptId) {
+            return base.Channel.GetAllBusinessSumOther2021(year, month, userManagerID, userName, deptId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessSumOther2021Async(int year, int month, string userManagerID, string userName, string deptId) {
+            return base.Channel.GetAllBusinessSumOther2021Async(year, month, userManagerID, userName, deptId);
+        }
+        
+        public System.Data.DataSet GetAllBusinessGroupTC2021(int year, int month, string userManagerID, string userName, string deptId) {
+            return base.Channel.GetAllBusinessGroupTC2021(year, month, userManagerID, userName, deptId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAllBusinessGroupTC2021Async(int year, int month, string userManagerID, string userName, string deptId) {
+            return base.Channel.GetAllBusinessGroupTC2021Async(year, month, userManagerID, userName, deptId);
+        }
+        
+        public System.Data.DataSet GetBussinessManagerDept(string businessID) {
+            return base.Channel.GetBussinessManagerDept(businessID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBussinessManagerDeptAsync(string businessID) {
+            return base.Channel.GetBussinessManagerDeptAsync(businessID);
+        }
+        
+        public System.Data.DataSet GetBussinessSumByYear(int Year, string businessManID) {
+            return base.Channel.GetBussinessSumByYear(Year, businessManID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBussinessSumByYearAsync(int Year, string businessManID) {
+            return base.Channel.GetBussinessSumByYearAsync(Year, businessManID);
+        }
+        
+        public System.Data.DataSet GetBusinessLastYear(int year, string userName) {
+            return base.Channel.GetBusinessLastYear(year, userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetBusinessLastYearAsync(int year, string userName) {
+            return base.Channel.GetBusinessLastYearAsync(year, userName);
+        }
+        
+        public System.Data.DataSet GetRegSum(int year, int month, string userName) {
+            return base.Channel.GetRegSum(year, month, userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetRegSumAsync(int year, int month, string userName) {
+            return base.Channel.GetRegSumAsync(year, month, userName);
+        }
+        
+        public System.Data.DataSet GetRegSum2021(int year, int month, string userName) {
+            return base.Channel.GetRegSum2021(year, month, userName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetRegSum2021Async(int year, int month, string userName) {
+            return base.Channel.GetRegSum2021Async(year, month, userName);
+        }
+        
+        public System.Data.DataSet GetRegSumDetail(int year, int month, string userID) {
+            return base.Channel.GetRegSumDetail(year, month, userID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetRegSumDetailAsync(int year, int month, string userID) {
+            return base.Channel.GetRegSumDetailAsync(year, month, userID);
+        }
+        
+        public System.Data.DataSet GetAccountantSum(int year, int month, string userName, string deptid) {
+            return base.Channel.GetAccountantSum(year, month, userName, deptid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAccountantSumAsync(int year, int month, string userName, string deptid) {
+            return base.Channel.GetAccountantSumAsync(year, month, userName, deptid);
+        }
+        
+        public System.Data.DataSet GetAccountantSum2021(int year, int month, string userName, string deptid) {
+            return base.Channel.GetAccountantSum2021(year, month, userName, deptid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAccountantSum2021Async(int year, int month, string userName, string deptid) {
+            return base.Channel.GetAccountantSum2021Async(year, month, userName, deptid);
+        }
+        
+        public System.Data.DataSet GetAccountantSumDetail(int year, int month, string userID) {
+            return base.Channel.GetAccountantSumDetail(year, month, userID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAccountantSumDetailAsync(int year, int month, string userID) {
+            return base.Channel.GetAccountantSumDetailAsync(year, month, userID);
+        }
+        
+        public System.Data.DataSet GetGongbenDetail(int year, string userID) {
+            return base.Channel.GetGongbenDetail(year, userID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetGongbenDetailAsync(int year, string userID) {
+            return base.Channel.GetGongbenDetailAsync(year, userID);
+        }
+        
+        public System.Data.DataSet GetAccountantDetail(int year, int month, string deptid) {
+            return base.Channel.GetAccountantDetail(year, month, deptid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetAccountantDetailAsync(int year, int month, string deptid) {
+            return base.Channel.GetAccountantDetailAsync(year, month, deptid);
+        }
+        
+        public System.Data.DataSet GetLSBAccountantDetail(int year, int month) {
+            return base.Channel.GetLSBAccountantDetail(year, month);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetLSBAccountantDetailAsync(int year, int month) {
+            return base.Channel.GetLSBAccountantDetailAsync(year, month);
+        }
+        
+        public void UpdateYWY() {
+            base.Channel.UpdateYWY();
+        }
+        
+        public System.Threading.Tasks.Task UpdateYWYAsync() {
+            return base.Channel.UpdateYWYAsync();
+        }
+        
+        public void UpdateClient() {
+            base.Channel.UpdateClient();
+        }
+        
+        public System.Threading.Tasks.Task UpdateClientAsync() {
+            return base.Channel.UpdateClientAsync();
+        }
+        
+        public void JiaoJieOnce(string kuaiji, string kuaijiId, string JJDate, string clientName) {
+            base.Channel.JiaoJieOnce(kuaiji, kuaijiId, JJDate, clientName);
+        }
+        
+        public System.Threading.Tasks.Task JiaoJieOnceAsync(string kuaiji, string kuaijiId, string JJDate, string clientName) {
+            return base.Channel.JiaoJieOnceAsync(kuaiji, kuaijiId, JJDate, clientName);
+        }
+        
+        public void JiaoJieByKuaiji(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId) {
+            base.Channel.JiaoJieByKuaiji(kuaiji, kuaijiId, JJDate, oldKuaijiId);
+        }
+        
+        public System.Threading.Tasks.Task JiaoJieByKuaijiAsync(string kuaiji, string kuaijiId, string JJDate, string oldKuaijiId) {
+            return base.Channel.JiaoJieByKuaijiAsync(kuaiji, kuaijiId, JJDate, oldKuaijiId);
+        }
+        
+        public System.Data.DataSet GetCFDataSet(string beginDate, string endDate) {
+            return base.Channel.GetCFDataSet(beginDate, endDate);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetCFDataSetAsync(string beginDate, string endDate) {
+            return base.Channel.GetCFDataSetAsync(beginDate, endDate);
+        }
+        
+        public System.Data.DataSet GetCommission() {
+            return base.Channel.GetCommission();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetCommissionAsync() {
+            return base.Channel.GetCommissionAsync();
+        }
+        
+        public System.Data.DataSet GetUserBy3(string zcyId, string ywyId, string zzkjId) {
+            return base.Channel.GetUserBy3(zcyId, ywyId, zzkjId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetUserBy3Async(string zcyId, string ywyId, string zzkjId) {
+            return base.Channel.GetUserBy3Async(zcyId, ywyId, zzkjId);
+        }
+        
+        public void UpdateClientPaymentDate(string payEndDate, string clientId) {
+            base.Channel.UpdateClientPaymentDate(payEndDate, clientId);
+        }
+        
+        public System.Threading.Tasks.Task UpdateClientPaymentDateAsync(string payEndDate, string clientId) {
+            return base.Channel.UpdateClientPaymentDateAsync(payEndDate, clientId);
+        }
+        
+        public System.Data.DataSet GetClientFX(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName) {
+            return base.Channel.GetClientFX(zzKSDate, zzDQDate, zfKSData, zfJSData, clientName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetClientFXAsync(string zzKSDate, string zzDQDate, string zfKSData, string zfJSData, string clientName) {
+            return base.Channel.GetClientFXAsync(zzKSDate, zzDQDate, zfKSData, zfJSData, clientName);
+        }
+        
+        public System.Data.DataSet GetLRByDate(string beginDate, string endDate) {
+            return base.Channel.GetLRByDate(beginDate, endDate);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetLRByDateAsync(string beginDate, string endDate) {
+            return base.Channel.GetLRByDateAsync(beginDate, endDate);
+        }
+        
+        public System.Data.DataSet GetYingShou(string beginDate, string endDate, string clientName, string userid) {
+            return base.Channel.GetYingShou(beginDate, endDate, clientName, userid);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> GetYingShouAsync(string beginDate, string endDate, string clientName, string userid) {
+            return base.Channel.GetYingShouAsync(beginDate, endDate, clientName, userid);
         }
     }
 }

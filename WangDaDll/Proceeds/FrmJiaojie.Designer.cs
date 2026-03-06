@@ -97,10 +97,11 @@
             this.layoutControl1.Controls.Add(this.btnDYBG);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(817, 112, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(649, 270);
+            this.layoutControl1.Size = new System.Drawing.Size(982, 619);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -108,6 +109,7 @@
             // 
             this.dateEdit交接批量起始月.EditValue = null;
             this.dateEdit交接批量起始月.Location = new System.Drawing.Point(99, 186);
+            this.dateEdit交接批量起始月.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.dateEdit交接批量起始月.Name = "dateEdit交接批量起始月";
             this.dateEdit交接批量起始月.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -119,12 +121,13 @@
             // 
             // txtPL交接会计
             // 
-            this.txtPL交接会计.Location = new System.Drawing.Point(401, 162);
+            this.txtPL交接会计.Location = new System.Drawing.Point(567, 162);
+            this.txtPL交接会计.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.txtPL交接会计.Name = "txtPL交接会计";
             this.txtPL交接会计.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtPL交接会计.Properties.ReadOnly = true;
-            this.txtPL交接会计.Size = new System.Drawing.Size(224, 20);
+            this.txtPL交接会计.Size = new System.Drawing.Size(391, 20);
             this.txtPL交接会计.StyleController = this.layoutControl1;
             this.txtPL交接会计.TabIndex = 29;
             this.txtPL交接会计.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtPL交接会计_ButtonClick);
@@ -132,11 +135,12 @@
             // txtPL原会计
             // 
             this.txtPL原会计.Location = new System.Drawing.Point(99, 162);
+            this.txtPL原会计.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.txtPL原会计.Name = "txtPL原会计";
             this.txtPL原会计.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txtPL原会计.Properties.ReadOnly = true;
-            this.txtPL原会计.Size = new System.Drawing.Size(223, 20);
+            this.txtPL原会计.Size = new System.Drawing.Size(389, 20);
             this.txtPL原会计.StyleController = this.layoutControl1;
             this.txtPL原会计.TabIndex = 28;
             this.txtPL原会计.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtPL原会计_ButtonClick);
@@ -144,11 +148,12 @@
             // txt新会计
             // 
             this.txt新会计.Location = new System.Drawing.Point(362, 69);
+            this.txt新会计.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.txt新会计.Name = "txt新会计";
             this.txt新会计.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.txt新会计.Properties.ReadOnly = true;
-            this.txt新会计.Size = new System.Drawing.Size(263, 20);
+            this.txt新会计.Size = new System.Drawing.Size(596, 20);
             this.txt新会计.StyleController = this.layoutControl1;
             this.txt新会计.TabIndex = 27;
             this.txt新会计.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txt新会计_ButtonClick);
@@ -157,6 +162,7 @@
             // 
             this.dateEdit交接起始月份.EditValue = null;
             this.dateEdit交接起始月份.Location = new System.Drawing.Point(99, 69);
+            this.dateEdit交接起始月份.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.dateEdit交接起始月份.Name = "dateEdit交接起始月份";
             this.dateEdit交接起始月份.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -169,6 +175,7 @@
             // btnSelectUnit
             // 
             this.btnSelectUnit.Location = new System.Drawing.Point(24, 43);
+            this.btnSelectUnit.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnSelectUnit.Name = "btnSelectUnit";
             this.btnSelectUnit.Size = new System.Drawing.Size(79, 22);
             this.btnSelectUnit.StyleController = this.layoutControl1;
@@ -179,15 +186,17 @@
             // 支付单位ButtonEdit
             // 
             this.支付单位ButtonEdit.Location = new System.Drawing.Point(107, 43);
+            this.支付单位ButtonEdit.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.支付单位ButtonEdit.Name = "支付单位ButtonEdit";
             this.支付单位ButtonEdit.Properties.ReadOnly = true;
-            this.支付单位ButtonEdit.Size = new System.Drawing.Size(518, 20);
+            this.支付单位ButtonEdit.Size = new System.Drawing.Size(851, 20);
             this.支付单位ButtonEdit.StyleController = this.layoutControl1;
             this.支付单位ButtonEdit.TabIndex = 6;
             // 
             // btnPLJJ
             // 
-            this.btnPLJJ.Location = new System.Drawing.Point(512, 210);
+            this.btnPLJJ.Location = new System.Drawing.Point(845, 210);
+            this.btnPLJJ.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnPLJJ.Name = "btnPLJJ";
             this.btnPLJJ.Size = new System.Drawing.Size(113, 22);
             this.btnPLJJ.StyleController = this.layoutControl1;
@@ -197,7 +206,8 @@
             // 
             // btnDYBG
             // 
-            this.btnDYBG.Location = new System.Drawing.Point(513, 93);
+            this.btnDYBG.Location = new System.Drawing.Point(846, 93);
+            this.btnDYBG.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnDYBG.Name = "btnDYBG";
             this.btnDYBG.Size = new System.Drawing.Size(112, 22);
             this.btnDYBG.StyleController = this.layoutControl1;
@@ -214,7 +224,7 @@
             this.layoutControlGroup3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(649, 270);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(982, 619);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -228,7 +238,7 @@
             this.emptySpaceItem1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(629, 119);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(962, 119);
             this.layoutControlGroup2.Text = "只变更一家客户做账会计";
             // 
             // layoutControlItem4
@@ -248,7 +258,7 @@
             this.layoutControlItem3.Control = this.支付单位ButtonEdit;
             this.layoutControlItem3.Location = new System.Drawing.Point(83, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(522, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(855, 26);
             this.layoutControlItem3.Text = "客户名称";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -270,14 +280,14 @@
             this.layoutControlItem6.Control = this.txt新会计;
             this.layoutControlItem6.Location = new System.Drawing.Point(263, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(342, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(675, 24);
             this.layoutControlItem6.Text = "交接会计";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.btnDYBG;
-            this.layoutControlItem1.Location = new System.Drawing.Point(489, 50);
+            this.layoutControlItem1.Location = new System.Drawing.Point(822, 50);
             this.layoutControlItem1.MaxSize = new System.Drawing.Size(116, 26);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(116, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
@@ -291,7 +301,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 50);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(489, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(822, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup3
@@ -306,7 +316,7 @@
             this.layoutControlItem2});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 119);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(629, 131);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(962, 480);
             this.layoutControlGroup3.Text = "将做账会计下的所有客户交接给新会计";
             // 
             // layoutControlItem7
@@ -314,16 +324,16 @@
             this.layoutControlItem7.Control = this.txtPL原会计;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(302, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(468, 24);
             this.layoutControlItem7.Text = "原会计";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(72, 14);
             // 
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.txtPL交接会计;
-            this.layoutControlItem8.Location = new System.Drawing.Point(302, 0);
+            this.layoutControlItem8.Location = new System.Drawing.Point(468, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(303, 24);
+            this.layoutControlItem8.Size = new System.Drawing.Size(470, 24);
             this.layoutControlItem8.Text = "交接会计";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(72, 14);
             // 
@@ -344,7 +354,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(268, 24);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(337, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(670, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
@@ -352,7 +362,7 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 48);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(488, 26);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(821, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -360,13 +370,13 @@
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(0, 74);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(605, 14);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(938, 363);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnPLJJ;
-            this.layoutControlItem2.Location = new System.Drawing.Point(488, 48);
+            this.layoutControlItem2.Location = new System.Drawing.Point(821, 48);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(117, 26);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(117, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -382,10 +392,11 @@
             // 
             // FrmJiaojie
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 270);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(982, 619);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.Name = "FrmJiaojie";
             this.Text = "交接";
             this.Load += new System.EventHandler(this.FrmJiaojie_Load);

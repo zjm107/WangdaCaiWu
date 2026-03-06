@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
 using WangDaDll.Common;
@@ -151,7 +145,7 @@ namespace WangDaDll
                         if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                         {
                             string fileName = saveFileDialog.FileName;
-                            byte[] bfile = dataset.GetImageByID(fileID);
+                            byte[] bfile = dataset.GetFileByID(fileID);
                             File.WriteAllBytes(fileName, bfile);
                         }
                     }
@@ -173,7 +167,7 @@ namespace WangDaDll
             {
                 DataRowView rv = this.HTtF_FILEBindingSource.Current as DataRowView;
                 string fileID = rv["FileID"].ToString();
-                var image = HTfileDataSet.GetImageByID(fileID);
+                var image = HTfileDataSet.GetFileByID(fileID);
                 FrmImageView frmImgView = new FrmImageView();
                 frmImgView.ImageBytes = image;
                 frmImgView.ShowDialog();
@@ -194,7 +188,7 @@ namespace WangDaDll
             {
                 DataRowView rv = this.tF_FILEBindingSource.Current as DataRowView;
                 string fileID = rv["FileID"].ToString();
-                var image = fileDataSet.GetImageByID(fileID);
+                var image = fileDataSet.GetFileByID(fileID);
                 FrmImageView frmImgView = new FrmImageView();
                 frmImgView.ImageBytes = image;
                 frmImgView.ShowDialog();
@@ -219,8 +213,8 @@ namespace WangDaDll
                     UserMessages.ShowInfoBox("公司名称不存在客户信息中！");
                     return;
                 }
-                fileDataSet.GetImage(fkID);
-                HTfileDataSet.GetImage(fkID, "合同");
+                fileDataSet.GetFile(fkID);
+                HTfileDataSet.GetFile(fkID, "合同");
             }
             catch (Exception ex)
             {

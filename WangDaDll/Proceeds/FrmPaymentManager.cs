@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
 namespace WangDaDll
@@ -72,7 +66,11 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 周期性服务收款，即常规收款
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGeneralPay_Click(object sender, EventArgs e)
         {
             try {
@@ -90,7 +88,11 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
         }
-
+        /// <summary>
+        /// 一次性服务收款，即注册收款
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegPay_Click(object sender, EventArgs e)
         {
             try {
@@ -363,6 +365,11 @@ namespace WangDaDll
             {
                 this.Cursor = Cursors.Default;
             }
+        }
+
+        private void 支付方式ComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

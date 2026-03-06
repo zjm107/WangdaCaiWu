@@ -260,6 +260,29 @@ namespace WangDaDll
 
         }
 
-      
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (Security.UserName.ToLower() != "admin")
+            {
+                MessageBox.Show("没有权限！");
+                return;
+            }
+                
+            if (xlsSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (xlsSaveFileDialog.FileName != "")
+                {
+                    if (tabbedControlGroup1.SelectedTabPageIndex == 0)
+                    {
+                        vW_AllAccountantSalaryGridview.ExportToXlsx(xlsSaveFileDialog.FileName);
+                    }
+                    else
+                    {
+                        gridView1.ExportToXlsx(xlsSaveFileDialog.FileName);
+                    }
+                    
+                }
+            }
+        }
     }
 }

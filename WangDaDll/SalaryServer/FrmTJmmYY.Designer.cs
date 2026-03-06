@@ -54,6 +54,7 @@
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.btnClear = new DevExpress.XtraEditors.SimpleButton();
             this.btnQuery = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -61,7 +62,9 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
+            this.xlsSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vW_月份统计表GridControl)).BeginInit();
@@ -79,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -88,21 +92,25 @@
             this.layoutControl1.Controls.Add(this.dateEdit2);
             this.layoutControl1.Controls.Add(this.btnClear);
             this.layoutControl1.Controls.Add(this.btnQuery);
+            this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(837, 487);
+            this.layoutControl1.Size = new System.Drawing.Size(911, 478);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // vW_月份统计表GridControl
             // 
             this.vW_月份统计表GridControl.DataSource = this.vW_月份统计表BindingSource;
+            this.vW_月份统计表GridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.vW_月份统计表GridControl.Location = new System.Drawing.Point(12, 38);
             this.vW_月份统计表GridControl.MainView = this.gridView1;
+            this.vW_月份统计表GridControl.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.vW_月份统计表GridControl.Name = "vW_月份统计表GridControl";
-            this.vW_月份统计表GridControl.Size = new System.Drawing.Size(813, 437);
+            this.vW_月份统计表GridControl.Size = new System.Drawing.Size(887, 428);
             this.vW_月份统计表GridControl.TabIndex = 8;
             this.vW_月份统计表GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -426,6 +434,7 @@
             // 
             this.dateEdit1.EditValue = null;
             this.dateEdit1.Location = new System.Drawing.Point(87, 12);
+            this.dateEdit1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.dateEdit1.Name = "dateEdit1";
             this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -439,6 +448,7 @@
             // 
             this.dateEdit2.EditValue = null;
             this.dateEdit2.Location = new System.Drawing.Point(280, 12);
+            this.dateEdit2.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.dateEdit2.Name = "dateEdit2";
             this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -451,6 +461,7 @@
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(515, 12);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(98, 22);
             this.btnClear.StyleController = this.layoutControl1;
@@ -461,12 +472,24 @@
             // btnQuery
             // 
             this.btnQuery.Location = new System.Drawing.Point(410, 12);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(101, 22);
             this.btnQuery.StyleController = this.layoutControl1;
             this.btnQuery.TabIndex = 7;
             this.btnQuery.Text = "查询";
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(617, 12);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(104, 22);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 9;
+            this.simpleButton1.Text = "导出";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // layoutControlGroup1
             // 
@@ -478,10 +501,11 @@
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem5,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem6});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(837, 487);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(911, 478);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -537,28 +561,42 @@
             this.layoutControlItem5.Control = this.vW_月份统计表GridControl;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(817, 441);
+            this.layoutControlItem5.Size = new System.Drawing.Size(891, 432);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(605, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(713, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(212, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(178, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.simpleButton1;
+            this.layoutControlItem6.Location = new System.Drawing.Point(605, 0);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(108, 26);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
             // 
             // splash
             // 
             this.splash.ClosingDelay = 500;
             // 
+            // xlsSaveFileDialog
+            // 
+            this.xlsSaveFileDialog.Filter = "Excel文件 (*.xlsx)|所有文件(*.*)";
+            // 
             // FrmTJmmYY
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 487);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(911, 478);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.Name = "FrmTJmmYY";
             this.Text = "综合利润分析";
             this.Load += new System.EventHandler(this.FrmTJmmYY_Load);
@@ -579,6 +617,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -618,5 +657,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraSplashScreen.SplashScreenManager splash;
+        private System.Windows.Forms.SaveFileDialog xlsSaveFileDialog;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
     }
 }

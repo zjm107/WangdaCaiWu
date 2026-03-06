@@ -45,57 +45,64 @@
             this.panelControl1.Controls.Add(this.btnZoomMinus);
             this.panelControl1.Controls.Add(this.btnZoomAdd);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 569);
+            this.panelControl1.Location = new System.Drawing.Point(0, 702);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(829, 40);
+            this.panelControl1.Size = new System.Drawing.Size(1192, 55);
             this.panelControl1.TabIndex = 1;
             // 
             // btnZoom100
             // 
-            this.btnZoom100.Image = ((System.Drawing.Image)(resources.GetObject("btnZoom100.Image")));
-            this.btnZoom100.Location = new System.Drawing.Point(93, 9);
+            this.btnZoom100.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnZoom100.ImageOptions.Image")));
+            this.btnZoom100.Location = new System.Drawing.Point(165, 10);
+            this.btnZoom100.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnZoom100.Name = "btnZoom100";
-            this.btnZoom100.Size = new System.Drawing.Size(75, 23);
+            this.btnZoom100.Size = new System.Drawing.Size(100, 30);
             this.btnZoom100.TabIndex = 2;
             this.btnZoom100.Text = "100%";
             this.btnZoom100.Click += new System.EventHandler(this.btnZoom100_Click);
             // 
             // btnZoomMinus
             // 
-            this.btnZoomMinus.Image = ((System.Drawing.Image)(resources.GetObject("btnZoomMinus.Image")));
-            this.btnZoomMinus.Location = new System.Drawing.Point(174, 9);
+            this.btnZoomMinus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnZoomMinus.ImageOptions.Image")));
+            this.btnZoomMinus.Location = new System.Drawing.Point(313, 10);
+            this.btnZoomMinus.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnZoomMinus.Name = "btnZoomMinus";
-            this.btnZoomMinus.Size = new System.Drawing.Size(75, 23);
+            this.btnZoomMinus.Size = new System.Drawing.Size(100, 30);
             this.btnZoomMinus.TabIndex = 1;
             this.btnZoomMinus.Text = "缩小";
             this.btnZoomMinus.Click += new System.EventHandler(this.btnZoomMinus_Click);
             // 
             // btnZoomAdd
             // 
-            this.btnZoomAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnZoomAdd.Image")));
-            this.btnZoomAdd.Location = new System.Drawing.Point(12, 9);
+            this.btnZoomAdd.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnZoomAdd.ImageOptions.Image")));
+            this.btnZoomAdd.Location = new System.Drawing.Point(16, 10);
+            this.btnZoomAdd.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnZoomAdd.Name = "btnZoomAdd";
-            this.btnZoomAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnZoomAdd.Size = new System.Drawing.Size(100, 30);
             this.btnZoomAdd.TabIndex = 0;
             this.btnZoomAdd.Text = "放大";
             this.btnZoomAdd.Click += new System.EventHandler(this.btnZoomAdd_Click);
             // 
             // imageView
             // 
+            this.imageView.Cursor = System.Windows.Forms.Cursors.Default;
             this.imageView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.imageView.Location = new System.Drawing.Point(0, 0);
+            this.imageView.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.imageView.Name = "imageView";
             this.imageView.Properties.ShowZoomSubMenu = DevExpress.Utils.DefaultBoolean.True;
-            this.imageView.Size = new System.Drawing.Size(829, 569);
+            this.imageView.Size = new System.Drawing.Size(1192, 702);
             this.imageView.TabIndex = 3;
             // 
             // FrmImageView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 609);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1192, 757);
             this.Controls.Add(this.imageView);
             this.Controls.Add(this.panelControl1);
+            this.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.Name = "FrmImageView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "图片查看";

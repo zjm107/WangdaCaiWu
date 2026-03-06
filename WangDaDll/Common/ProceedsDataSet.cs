@@ -1,7 +1,9 @@
-﻿using Tiger.Tools;
-using System.Data;
-using System;
+﻿using System;
 using System.Collections;
+using System.Data;
+using System.Diagnostics.Eventing.Reader;
+using System.Web.Services;
+using Tiger.Tools;
 
 namespace WangDaDll.Common
 {
@@ -9,6 +11,10 @@ namespace WangDaDll.Common
 
     partial class ProceedsDataSet
     {
+        partial class TW_PaymentMainDataTable
+        {
+        }
+
         partial class TW_PaymentDataTable
         {
         }
@@ -118,7 +124,7 @@ namespace WangDaDll.Common
 
 
         /// <summary>
-        /// 拆分收款，才分成每个月一笔收款
+        /// 拆分收款记录，拆分成每个月一笔收款,收款时用
         /// </summary>
         public void CFPayment(int month, DataRow aRow)
         {
@@ -222,9 +228,179 @@ namespace WangDaDll.Common
             this.TW_Payment.RemoveTW_PaymentRow(paymentRow);  //删除源记录
         }
 
+        public void CFPayment(TW_PaymentMainRow paymentRow)
+        {
+
+
+            string pch = paymentRow.TW_PaymentID;
+            DateTime startDate = paymentRow.上次到期月份;
+            int freeMonths = paymentRow.赠送时长月; //赠送月数
+            int months = paymentRow.缴费月数 - freeMonths; //实际收费月数
+            //按月平均费用计算后的余额
+            decimal balance = 0;
+            if (months == 1)
+            {
+                balance = 0;
+            }
+            else
+            {
+                balance = paymentRow.周期性服务费 - months * paymentRow.月平均费;
+            }
+                
+            //如果支付金额小于一个月的服务费
+
+            //开始拆分记录
+            for (int i = 1; i <= months; i++)
+            {
+                var row = this.TW_Payment.NewTW_PaymentRow();
+                row.TW_PaymentID = Guid.NewGuid().ToString();
+                row.上次到期月份 = new DateTime(startDate.Year, startDate.Month, 1);  //一号
+                row.本次到期月份 = new DateTime(startDate.Year, startDate.Month, DateTime.DaysInMonth(startDate.Year, startDate.Month));  //月末
+                row.缴费月数 = 1;
+                row.客户名称ID = paymentRow.客户名称ID;
+                row.支付单位 = paymentRow.支付单位;
+                if (!paymentRow.Is做账会计Null())
+                {
+                    row.做账会计 = paymentRow.做账会计;
+                    row.做账会计ID = paymentRow.做账会计ID;
+                }
+                else
+                {
+                    row.做账会计 = "";
+                    row.做账会计ID = "";
+                }
+
+                if (!paymentRow.Is业务员Null())
+                {
+                    row.业务员 = paymentRow.业务员;
+                    row.业务员ID = paymentRow.业务员ID;
+                }
+                else
+                {
+                    row.业务员 = "";
+                    row.业务员ID = "";
+                }
+                if (!paymentRow.Is注册员Null())
+                {
+                    row.注册员 = paymentRow.注册员;
+                    row.注册员ID = paymentRow.注册员ID;
+                }
+                else
+                {
+                    row.注册员 = "";
+                    row.注册员ID = "";
+                }
+
+
+                if (i == 1) //第一个月，将其他费用算在第一个月，后面的月份均摊
+                {
+                    if (balance == 0)
+                    {
+                        row.月平均费 = paymentRow.月平均费;
+                        row.月做账费 = paymentRow.月平均费;
+                        row.支付金额 = paymentRow.月平均费;
+                    }
+                    else
+                    {
+                        row.月平均费 = paymentRow.月平均费;
+                        row.月做账费 = paymentRow.月平均费 + balance;
+                        row.支付金额 = paymentRow.月平均费 + balance;
+                    }
+
+                }
+                else
+                {
+                    row.月平均费 = paymentRow.月平均费;
+                    row.月做账费 = paymentRow.月平均费;
+                    row.支付金额 = paymentRow.月平均费;
+                }
+
+                if (!paymentRow.Is备注Null())
+                    row.备注 = string.Format("自动拆分,源金额：{0}元", paymentRow.支付总额) + "  " + paymentRow.备注;
+                else
+                    row.备注 = string.Format("自动拆分,源金额：{0}元", paymentRow.支付总额);
+
+                if (paymentRow.Is合同编号Null())
+                    row.合同编号 = "";
+                else
+                    row.合同编号 = paymentRow.合同编号;
+                if (paymentRow.IsContractIDNull())
+                    row.ContractID = "";
+                else
+                    row.ContractID = paymentRow.ContractID;
+                if (!paymentRow.Is首年提成结束期Null())
+                {
+                    row.首年提成结束期 = paymentRow.首年提成结束期;
+                }
+
+                row.支付日期 = paymentRow.支付日期;
+                row.支付单位 = paymentRow.支付单位;
+                row.支付方式 = paymentRow.支付方式;
+                row.收款人 = paymentRow.收款人;
+                row.收款类别 = "常规收款";
+                row.是否审核 = false;
+                row.注册提成月 = 0;
+                row.业务提成月 = 0;
+                row.做账提成月 = 0;
+                row.做账团队提成 = 0;
+                row.业务团队提成 = 0;
+                row.做账主管提成 = 0;
+                row.注册团队提成 = 0;
+                row.注册年提成 = 0;
+                row.业务年提成 = 0;
+                row.工本开票提成 = 0;
+                row.做账业务团队提成 = 0;
+                row.收款团队 = paymentRow.收款团队;
+                row.批次号 = paymentRow.批次号;
+
+
+                if (!paymentRow.Is零申报Null())
+                    row.零申报 = paymentRow.零申报;
+                else
+                    row.零申报 = false;
+                if (!paymentRow.Is首年提成结束期Null())
+                    row.首年提成结束期 = paymentRow.首年提成结束期;
+                else
+                {
+                    row.首年提成结束期 = new DateTime(1900, 1, 1);
+                }
+                if (!paymentRow.Is银行账号Null())
+                    row.银行账号 = paymentRow.银行账号;
+                //if (!paymentRow.Is初始做账时间Null())
+                //    row.初始做账时间 = paymentRow.初始做账时间;
+                if (!paymentRow.Is不收款Null())
+                {
+                    row.不收款 = paymentRow.不收款;
+                }
+                else
+                {
+                    row.不收款 = false;
+                }
+                row.操作人 = Security.UserName;
+                row.操作时间 = paymentRow.操作时间;
+                if (i == 1)
+                {
+                    row.工本费 = paymentRow.工本费;
+                    row.开票费 = paymentRow.开票费;
+                }
+                else
+                {
+                    row.工本费 = 0;
+                    row.开票费 = 0;
+                }
+                GetZCTC(row);
+                this.TW_Payment.AddTW_PaymentRow(row);
+
+                startDate = startDate.AddMonths(1);
+            }
+        }
+
+
+
+
 
         /// <summary>
-        /// 拆分收款，才分成每个月一笔收款
+        /// 拆分收款记录，拆分成每个月一笔收款，审批时用
         /// </summary>
         public void CFPayments(int month, DataRow aRow)
         {
@@ -330,7 +506,7 @@ namespace WangDaDll.Common
             try
             {
                 DataSet dst = DBHelper.WangDaSer.GetNoPaymentReg(accountant, gsName, isPayment);
-                DataManager.ImpDataSet(dst.Tables[0], this.VW_PaymentDetail);
+                DataManager.ImpDataSet(dst.Tables[0], this.VW_BusinessRegNoPay);
             }
             catch (Exception ex)
             {
@@ -363,7 +539,7 @@ namespace WangDaDll.Common
         /// <param name="mainID">付款ID</param>
         public void ImpPaymentDetail(string mainID, out string zclx)
         {
-            foreach (DataRow row in VW_PaymentDetail.Rows)
+            foreach (DataRow row in VW_BusinessRegNoPay.Rows)
             {
                 var newRow = TW_PaymentDetail.NewTW_PaymentDetailRow();
                 newRow.TW_BusinessRegID = row["TW_BusinessRegID"].ToString();
@@ -376,20 +552,20 @@ namespace WangDaDll.Common
                 newRow.做账会计ID = row["做账会计ID"].ToString();
                 newRow.客户名称 = row["公司预核名称"].ToString();
                 newRow.客户名称ID = row["TW_BusinessRegID"].ToString();
-                newRow.注册费 = decimal.Parse(row["注册费未收款"].ToString());
-                newRow.工本费 = decimal.Parse(row["工本费未收款"].ToString());
-                newRow.开票费 = decimal.Parse(row["开票费未收款"].ToString());
-                newRow.月做账费 = decimal.Parse(row["月做账费"].ToString());
+                newRow.注册费 = decimal.Parse(row["欠款金额"].ToString());
+                newRow.工本费 = 0;
+                newRow.开票费 = 0;
+                newRow.月做账费 = 0;
                 newRow.收款日期 = DateTime.Now;
                 newRow.TW_PaymentID = mainID;
                 TW_PaymentDetail.Rows.Add(newRow);
             }
-            if (VW_PaymentDetail.Rows.Count == 1 && TW_Payment.Rows.Count == 1)
+            if (VW_BusinessRegNoPay.Rows.Count == 1 && TW_Payment.Rows.Count == 1)
             {
-                string payCompany = VW_PaymentDetail.Rows[0]["公司预核名称"].ToString();
-                string payCompanyID = VW_PaymentDetail.Rows[0]["TW_BusinessRegID"].ToString();
-                zclx = VW_PaymentDetail.Rows[0]["注册类型"].ToString();
-                DataRow detailRow = VW_PaymentDetail.Rows[0];
+                string payCompany = VW_BusinessRegNoPay.Rows[0]["公司预核名称"].ToString();
+                string payCompanyID = VW_BusinessRegNoPay.Rows[0]["TW_BusinessRegID"].ToString();
+                zclx = VW_BusinessRegNoPay.Rows[0]["注册类型"].ToString();
+                DataRow detailRow = VW_BusinessRegNoPay.Rows[0];
 
                 TW_PaymentRow mainRow = this.TW_Payment.Rows[0] as TW_PaymentRow;
                 mainRow.BeginEdit();
@@ -531,6 +707,273 @@ namespace WangDaDll.Common
             TW_Payment.Rows.Add(mainRow);
             return newID;
         }
+
+        /// <summary>
+        /// 根据客户ID查询客户信息
+        /// </summary>
+        /// <param name="clientID"></param>
+        /// <returns></returns>
+        public DataSet GetClientByID(string clientID)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetTW_ClientByClientId(clientID);
+           return dst; 
+        }
+
+        /// <summary>
+        /// 根据主付款记录，添加一次性付款记录TW_PaymentRow和TW_PaymentDetailRow
+        /// </summary>
+        /// <param name="cRow">合同主记录</param>
+        /// <returns></returns>
+        public string NewPayment(TW_PaymentMainRow cRow, Contract.ContractDataSet.TW_ContractServiceInfoDataTable sTable)
+        {
+            string zclx = "";//注册类型
+            string newID = Guid.NewGuid().ToString();
+            //查询到合同的一次性服务记录
+            Contract.ContractDataSet.TW_ContractServiceInfoRow sRow = null;
+            DataRow[] sRows = sTable.Select("服务类别='一次性服务'");
+            if (sRows.Length > 0)
+            {
+                sRow = sRows[0] as Contract.ContractDataSet.TW_ContractServiceInfoRow;
+            }
+            else
+                return "";
+            var mainRow = TW_Payment.NewTW_PaymentRow();
+            mainRow.操作人 = Security.UserName;
+            mainRow.收款人 = Security.UserName;
+            mainRow.支付日期 = DateTime.Today;
+            mainRow.操作时间 = cRow.操作时间;
+            mainRow.收款类别 = "注册收款";
+            mainRow.支付单位 = cRow.支付单位;
+            mainRow.客户名称ID = cRow.客户名称ID;
+            mainRow.支付金额 = cRow.一次性服务费;
+            mainRow.支付方式 = cRow.支付方式;
+            mainRow.备注 = "合同号：" + cRow.合同编号 + "  " + sRow.服务项目;
+            if (!cRow.Is注册员IDNull())
+            {
+                mainRow.注册员 = cRow.注册员;
+                mainRow.注册员ID = cRow.注册员ID;
+            }
+
+            mainRow.业务员 = "";
+            mainRow.业务员ID = "";
+            if (!cRow.Is做账会计IDNull())
+            {
+                mainRow.做账会计 = cRow.做账会计;
+                mainRow.做账会计ID = cRow.做账会计ID;
+            }
+            mainRow.批次号 = cRow.批次号;
+            mainRow.合同编号 = cRow.合同编号;
+            mainRow.ContractID = cRow.ContractID;
+            mainRow.ContractServiceInfoID = sRow.ContractServiceInfoID;
+
+            //提成初始化设置
+            mainRow.注册提成月 = 0;
+            mainRow.业务提成月 = 0;
+            mainRow.做账提成月 = 0;
+            mainRow.做账团队提成 = 0;
+            mainRow.业务团队提成 = 0;
+            mainRow.做账主管提成 = 0;
+            mainRow.注册团队提成 = 0;
+            mainRow.注册年提成 = 0;
+            mainRow.业务年提成 = 0;
+            mainRow.工本开票提成 = 0;
+            mainRow.做账业务团队提成 = 0;
+
+            switch (zclx)
+            {
+                case "注册":
+                    mainRow.注册提成月 = GetCommissionRow().注册_单价;
+                    mainRow.注册团队提成 = GetCommissionRow().注册_单价 / 2;
+                    break;
+                case "设立":
+                    mainRow.注册提成月 = GetCommissionRow().注册_单价;
+                    mainRow.注册团队提成 = GetCommissionRow().注册_单价 / 2;
+                    break;
+                case "变更":
+                case "注销":
+                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    mainRow.注册团队提成 = GetCommissionRow().注册_变更单价 / 2;
+                    break;
+                case "验资":
+                    mainRow.注册提成月 = GetCommissionRow().注册_验资;
+                    mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务成长版;
+                    break;
+                case "审计":
+                    mainRow.注册提成月 = GetCommissionRow().注册_审计;
+                    mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务其他;
+                    break;
+                case "成长版":
+                    mainRow.注册提成月 = GetCommissionRow().注册_成长版;
+                    mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务成长版;//业务员提1000
+                    break;
+                case "商标":
+                    mainRow.注册提成月 = GetCommissionRow().注册_商标;
+                    mainRow.业务提成月 = mainRow.支付金额 * GetCommissionRow().业务_一次性业务其他;
+                    break;
+                default:
+                    mainRow.注册提成月 = GetCommissionRow().注册_变更单价;
+                    break;
+            }
+            mainRow.TW_PaymentID = newID;
+            TW_Payment.Rows.Add(mainRow);
+            var regDetailRow = TW_PaymentDetail.NewTW_PaymentDetailRow();
+            regDetailRow.TW_PaymentDetailID = Guid.NewGuid().ToString();
+            regDetailRow.TW_BusinessRegID = cRow.ContractID;
+            regDetailRow.TW_PaymentID = cRow.TW_PaymentID;
+            regDetailRow.客户名称 = cRow.支付单位;
+            regDetailRow.客户名称ID = cRow.客户名称ID;
+            regDetailRow.注册费 = cRow.一次性服务费;
+            regDetailRow.工本费 = 0;
+            regDetailRow.开票费 = 0;
+            regDetailRow.缴费月数 = 0;
+            regDetailRow.月平均费 = 0;
+            regDetailRow.开票费收款额 = 0;
+            regDetailRow.工本费收款额 = 0;
+            regDetailRow.收款日期 = cRow.支付日期;
+            regDetailRow.注册费收款额 = cRow.一次性服务费;
+            regDetailRow.注册员 = cRow.注册员;
+            regDetailRow.注册员ID = cRow.注册员ID;
+            TW_PaymentDetail.AddTW_PaymentDetailRow(regDetailRow);
+            return newID;
+        }
+
+
+        public string NewMainPayment(Contract.ContractDataSet.TW_ContractRow cRow, Contract.ContractDataSet.TW_ContractServiceInfoDataTable sTable,
+              Contract.ContractDataSet.vw_ContractReceivablesAccountingRow payRow)
+        {
+            string payType;
+            if (sTable.Rows.Count == 1)
+            {
+                if (sTable.Rows[0]["服务类别"].ToString() == "周期性服务")
+                    payType = "常规收款";
+                else
+                    payType = "注册收款";
+            }
+            else
+                payType = "全部收款";
+
+            string newID = Guid.NewGuid().ToString();
+            var mainRow = TW_PaymentMain.NewTW_PaymentMainRow();
+            mainRow.操作人 = Security.UserName;
+            mainRow.收款人 = Security.UserName;
+            mainRow.支付日期 = DateTime.Today;
+            mainRow.操作时间 = DateTime.Now;
+            mainRow.收款类别 = payType;
+            mainRow.支付单位 = cRow.客户名称;
+            mainRow.客户名称ID = cRow.客户名称ID;
+            mainRow.一次性服务费 = 0.0m;
+            mainRow.周期性服务费 = 0.0m;
+            mainRow.合同编号 = cRow.合同编号;
+            mainRow.ContractID = cRow.ContractID;
+            mainRow.赠送时长月 = 0;
+            mainRow.收款团队 = Security.DeptName;
+            foreach (DataRow row in sTable.Rows)
+            {
+                var sRow = row as Contract.ContractDataSet.TW_ContractServiceInfoRow;
+                if (sRow.服务类别 == "一次性服务")
+                {
+                    //判断已收一次性服务费是否小于服务金额，是，一次性服务费金额=服务金额-已收一次性服务费
+                    if (sRow.服务金额 > payRow.已收一次性服务费)
+                        mainRow.一次性服务费 = sRow.服务金额 - payRow.已收一次性服务费;
+                    //if (sRow.服务金额< payRow.应收款金额)
+                    //    mainRow.一次性服务费 = sRow.服务金额;
+                    //else
+                    //    mainRow.一次性服务费 = payRow.应收款金额;
+                    //判断注册员是否为空
+                    if (cRow.Is注册员Null())
+                    {
+                        //如果合同没有指定注册员，则默认收款人为注册员
+                        mainRow.注册员 = Security.UserName;
+                        mainRow.注册员ID = Security.UserID;
+                    }
+                    else
+                    {
+                        mainRow.注册员 = cRow.注册员;
+                        mainRow.注册员ID = cRow.注册员ID;
+                    }
+                    if (!payRow.Is业务员Null())
+                    {
+                        mainRow.业务员 = payRow.业务员;
+                        mainRow.业务员ID = payRow.业务员ID;
+                    }
+
+
+                }
+                else if (sRow.服务类别 == "周期性服务")
+                {
+                    //判断已收周期性服务费是否小于服务金额*服务期限月，是，周期性服务费金额=服务金额*服务期限月-已收周期性服务费
+                    if (cRow.合同金额 != payRow.已收周期性服务费)
+                    {
+                        mainRow.周期性服务费 = cRow.合同金额 - payRow.已收周期性服务费;
+                        //计算缴费月数=服务期限月-已收周期性服务费/服务金额
+                        int payMonths = int.Parse(Math.Round(payRow.已收周期性服务费 / sRow.服务金额, 0).ToString());
+
+                        int totalMonths = sRow.服务期限月 - payMonths;
+                        //mainRow.周期性服务费 = sRow.服务金额 * sRow.服务期限月;
+                        mainRow.月做账费 = sRow.服务金额;
+                        mainRow.月平均费 = sRow.服务金额;
+                        mainRow.缴费月数 = totalMonths;
+                        mainRow.上次到期月份 = sRow.开始服务月;
+                        mainRow.本次到期月份 = sRow.结束服务月;
+
+                       
+                        if (sRow.Is赠送时长月Null())
+                            mainRow.赠送时长月 = sRow.赠送时长月;
+                        if (!cRow.Is做账会计Null())
+                        {
+                            mainRow.做账会计 = cRow.做账会计;
+                            mainRow.做账会计ID = cRow.做账会计ID;
+                        }
+                        else
+                        {
+                            //如果合同没有指定做账会计，则默认收款人为做账会计
+                            mainRow.做账会计 = Security.UserName;
+                            mainRow.做账会计ID = Security.UserID;
+                        }
+                        if (!payRow.Is业务员Null())
+                        {
+                            mainRow.业务员 = payRow.业务员;
+                            mainRow.业务员ID = payRow.业务员ID;
+                        }
+
+                        if (cRow.Is注册员Null())
+                        {
+                            string clientID = cRow.客户名称ID;
+                            DataSet dst = GetClientByID(clientID);
+                            if (dst.Tables[0].Rows.Count > 0)
+                            {
+                                mainRow.注册员 = dst.Tables[0].Rows[0]["注册员"].ToString();
+                                mainRow.注册员ID = dst.Tables[0].Rows[0]["注册员ID"].ToString();
+                            }
+                        }
+                        else
+                        {
+                            mainRow.注册员 = cRow.注册员;
+                            mainRow.注册员ID = cRow.注册员ID;
+                        }
+
+
+                        if (!payRow.Is首年提成结束期Null())
+                        {
+                            mainRow.首年提成结束期 = payRow.首年提成结束期;
+                        }
+
+                    }
+
+
+                }
+            }
+            mainRow.TW_PaymentID = newID;
+            mainRow.批次号 = newID;
+            mainRow.零申报 = false;
+            mainRow.不收款 = false;
+            mainRow.开票费 = cRow.开票费;
+            mainRow.工本费 = cRow.工本费;
+            mainRow.支付总额 = mainRow.一次性服务费 + mainRow.周期性服务费 + mainRow.工本费 + mainRow.开票费;
+
+            TW_PaymentMain.Rows.Add(mainRow);
+            return newID;
+        }
         /// <summary>
         /// 设置注册提成
         /// </summary>
@@ -602,13 +1045,13 @@ namespace WangDaDll.Common
         public void SaveDataSet()
         {
             DataTable tbm = this.TW_PaymentMain.GetChanges();
-            
+
             if (tbm != null)
             {
                 tbm.TableName = "TW_PaymentMain";
             }
 
-        
+
             DataTable tb1 = TW_Payment.GetChanges();
             if (tb1 != null)
             {
@@ -640,9 +1083,9 @@ namespace WangDaDll.Common
         public void DeletePaymentByPCH(string pch)
         {
             var mainRow = this.TW_PaymentMain.FindByTW_PaymentID(pch);
-            if(mainRow!=null)
-            mainRow.Delete();
-          //  TW_PaymentMain.RemoveTW_PaymentMainRow(mainRow);
+            if (mainRow != null)
+                mainRow.Delete();
+            //  TW_PaymentMain.RemoveTW_PaymentMainRow(mainRow);
             ArrayList list = new ArrayList();
             foreach (DataRow row in this.TW_Payment.Rows)
             {
@@ -686,10 +1129,10 @@ namespace WangDaDll.Common
         {
             DataSet dst = DBHelper.WangDaSer.GetPaymentMainById(id);
             DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
-            
+
         }
         /// <summary>
-        /// 按照批次号删除收款记录
+        /// 按照批次号删除收款记录,包含收款的3章表数据
         /// </summary>
         /// <param name="pch"></param>
         public void DelByPCH(string pch)
@@ -745,13 +1188,76 @@ namespace WangDaDll.Common
 
                 DataSet dst = DBHelper.WangDaSer.GetPaymentByInfo(unitName, account, beginDate, endDate, paymentType, endPaymentDate
                     , manager, isPay, zeroAccount);
-                DataManager.ImpDataSet(dst.Tables[0], this.TW_Payment);
+                DataManager.ImpDataSet(dst.Tables["TW_Payment"], this.TW_Payment);
+                DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        /// <summary>
+        /// 查询收款记录返回TW_PaymentMain
+        /// </summary>
+        /// <param name="unitName"></param>
+        /// <param name="account"></param>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="paymentType"></param>
+        /// <param name="endPaymentDate"></param>
+        /// <param name="manager"></param>
+        /// <param name="isPay"></param>
+        /// <param name="zeroAccount"></param>
+        public void GetPaymentByInfo2025(string unitName, string account, string beginDate, string endDate, string paymentType
+       , string endPaymentDate, string manager, string isPay, string zeroAccount)
+        {
+            try
+            {
+
+                DataSet dst = DBHelper.WangDaSer.GetPaymentByInfo2025(unitName, account, beginDate, endDate, paymentType, endPaymentDate
+                    , manager, isPay, zeroAccount);
+
+                DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        /// <summary>
+        /// 查询收款记录 TW_PaymentMain
+        /// </summary>
+        /// <param name="sp">审批状态</param>
+        /// <param name="clientName">支付单位</param>
+        /// <param name="account">做账会计、注册员，业务员</param>
+        /// <param name="beginDate">支付日期</param>
+        /// <param name="endDate">支付日期</param>
+        /// <param name="paymentType">收款类别</param>
+        /// <param name="endPaymentDate"></param>
+        /// <param name="manager">注册主管</param>
+        /// <param name="isPay">不收款/param>
+        /// <param name="zeroAccount">零申报</param>
+        /// <returns></returns>
+        public void GetPaymentByInfoSP2025(string sp, string clientName, string account, string beginDate, string endDate, string paymentType
+     , string endPaymentDate, string manager, string isPay, string zeroAccount)
+        {
+            try
+            {
+                // 查询收款记录 TW_PaymentMain
+                DataSet dst = DBHelper.WangDaSer.GetPaymentByInfoSP2025(sp, clientName, account, beginDate, endDate, paymentType, endPaymentDate
+                    , manager, isPay, zeroAccount);
+                DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+
+            }
+        }
+
 
         /// <summary>
         /// 获取付款审批信息
@@ -913,7 +1419,7 @@ namespace WangDaDll.Common
 
                 throw ex;
             }
-           
+
         }
 
         /// <summary>
@@ -958,7 +1464,22 @@ namespace WangDaDll.Common
             paymentMain.TW_PaymentID = mainRow.TW_PaymentID;
             paymentMain.批次号 = mainRow.TW_PaymentID;
             paymentMain.支付单位 = mainRow.支付单位;
-            paymentMain.支付金额 = mainRow.支付金额;
+            paymentMain.工本费 = mainRow.工本费;
+            paymentMain.开票费 = mainRow.开票费;
+
+
+            if (mainRow.收款类别 == "常规收款")
+            {
+                paymentMain.周期性服务费 = mainRow.支付金额;
+                paymentMain.一次性服务费 = 0;
+            }
+            else
+            {
+                paymentMain.周期性服务费 = 0;
+                paymentMain.一次性服务费 = mainRow.支付金额;
+            }
+            paymentMain.支付总额 = paymentMain.一次性服务费 + paymentMain.周期性服务费 + paymentMain.工本费 + paymentMain.开票费;
+
             paymentMain.支付日期 = mainRow.支付日期;
             paymentMain.支付方式 = mainRow.支付方式;
             paymentMain.收款人 = mainRow.收款人;
@@ -968,9 +1489,8 @@ namespace WangDaDll.Common
             paymentMain.客户名称ID = mainRow.客户名称ID;
             paymentMain.操作人 = mainRow.操作人;
             paymentMain.操作时间 = mainRow.操作时间;
-            paymentMain.工本费 = mainRow.工本费;
-            paymentMain.开票费 = mainRow.开票费;
-            if(!mainRow.Is做账会计Null())
+
+            if (!mainRow.Is做账会计Null())
                 paymentMain.做账会计 = mainRow.做账会计;
             if (!mainRow.Is上次到期月份Null())
                 paymentMain.上次到期月份 = mainRow.上次到期月份;
@@ -1012,6 +1532,88 @@ namespace WangDaDll.Common
 
             this.TW_PaymentMain.AddTW_PaymentMainRow(paymentMain);
             mainRow.批次号 = paymentMain.批次号;
+            //paymentMain.做账会计已提 = mainRow.做账会计已提;
+            //paymentMain.注册员已提 = mainRow.注册员已提;
+            //paymentMain.业务员已提 = mainRow.业务员已提;
+
+        }
+        /// <summary>
+        /// 根据合同ID获取收款主记录
+        /// </summary>
+        /// <param name="contractId">合同Id</param>
+        public void GetPaymentMainByContractId(string contractId)
+        {
+            DataSet dst = DBHelper.WangDaSer.GetPaymentMainByContractId(contractId);
+            DataManager.ImpDataSet(dst.Tables["TW_PaymentMain"], this.TW_PaymentMain);
+        }
+
+
+        /// <summary>
+        /// 添加一个收款主记录
+        /// </summary>
+        /// <param name="mainRow"></param>
+        /// <param name="contractID">合同ID</param>
+        /// <param name="contractNO">合同编号</param>
+        public void AddPaymentMainRow(string contractID, string contractNO, string 收款类别)
+        {
+            TW_PaymentMainRow paymentMain = this.TW_PaymentMain.NewTW_PaymentMainRow();
+            paymentMain.TW_PaymentID = Guid.NewGuid().ToString();
+            paymentMain.批次号 = paymentMain.TW_PaymentID;
+            paymentMain.是否审核 = false;
+            paymentMain.ContractID = contractID;
+            paymentMain.合同编号 = contractNO;
+            paymentMain.收款类别 = 收款类别;
+            this.TW_PaymentMain.AddTW_PaymentMainRow(paymentMain);
+            //paymentMain.支付单位 = mainRow.支付单位;
+            //paymentMain.支付金额 = mainRow.支付金额;
+            //paymentMain.支付日期 = mainRow.支付日期;
+            //paymentMain.支付方式 = mainRow.支付方式;
+            //paymentMain.收款人 = mainRow.收款人;
+
+            //if (!mainRow.Is备注Null())
+            //    paymentMain.备注 = mainRow.备注;
+            //paymentMain.客户名称ID = mainRow.客户名称ID;
+            //paymentMain.操作人 = mainRow.操作人;
+            //paymentMain.操作时间 = mainRow.操作时间;
+            //paymentMain.工本费 = mainRow.工本费;
+            //paymentMain.开票费 = mainRow.开票费;
+            //if (!mainRow.Is做账会计Null())
+            //    paymentMain.做账会计 = mainRow.做账会计;
+            //if (!mainRow.Is上次到期月份Null())
+            //    paymentMain.上次到期月份 = mainRow.上次到期月份;
+            //if (!mainRow.Is本次到期月份Null())
+            //    paymentMain.本次到期月份 = mainRow.本次到期月份;
+            //if (!mainRow.Is做账会计IDNull())
+            //    paymentMain.做账会计ID = mainRow.做账会计ID;
+            //if (!mainRow.Is业务员Null())
+            //    paymentMain.业务员 = mainRow.业务员;
+            //if (!mainRow.Is业务员IDNull())
+            //    paymentMain.业务员ID = mainRow.业务员ID;
+            //paymentMain.注册员 = mainRow.注册员;
+            //paymentMain.注册员ID = mainRow.注册员ID;
+
+            //paymentMain.缴费月数 = mainRow.缴费月数;
+            //paymentMain.月平均费 = mainRow.月平均费;
+            //paymentMain.月做账费 = mainRow.月平均费;
+
+            //if (!mainRow.Is零申报Null())
+            //    paymentMain.零申报 = mainRow.零申报;
+            //else
+            //    paymentMain.零申报 = false;
+            //if (!mainRow.Is首年提成结束期Null())
+            //    paymentMain.首年提成结束期 = mainRow.首年提成结束期;
+            //if (!mainRow.Is银行账号Null())
+            //    paymentMain.银行账号 = mainRow.银行账号;
+
+            //if (!mainRow.Is不收款Null())
+            //{
+            //    paymentMain.不收款 = mainRow.不收款;
+            //}
+            //else
+            //{
+            //    paymentMain.不收款 = false;
+            //}
+
             //paymentMain.做账会计已提 = mainRow.做账会计已提;
             //paymentMain.注册员已提 = mainRow.注册员已提;
             //paymentMain.业务员已提 = mainRow.业务员已提;

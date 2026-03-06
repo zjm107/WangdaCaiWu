@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Data;
-using System.Runtime.Serialization.Formatters;
 
 using Tiger.Tools;
 
-namespace Tiger.PdrCommon.Basic
+namespace Tiger.PdrCommon
 {
 
 

@@ -1,4 +1,3 @@
-using Tiger.PdrCommon.Basic;
 
 namespace Tiger.PdrCommon
 {
@@ -36,7 +35,7 @@ namespace Tiger.PdrCommon
             this.tvEmployee = new System.Windows.Forms.TreeView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.TCOM_USERBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dstEmployee = new Tiger.PdrCommon.Basic.DstEmployee();
+            this.dstEmployee = new Tiger.PdrCommon.DstEmployee();
             this.tB_EmployeeGridControl = new DevExpress.XtraGrid.GridControl();
             this.gdvEmployee = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDeptName = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,7 +76,7 @@ namespace Tiger.PdrCommon
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
+            this.dstTCONF_WORD = new Tiger.PdrCommon.DstTCONF_WORD();
             ((System.ComponentModel.ISupportInitialize)(this.TCOM_USERBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tB_EmployeeGridControl)).BeginInit();
@@ -782,7 +781,7 @@ namespace Tiger.PdrCommon
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox WorkTypeComboBox;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit TeacherIDItemLookUpEdit;
         private System.Windows.Forms.BindingSource TCOM_USERNameBindingSource;
-        private ConfigApp.DstTCONF_WORD dstTCONF_WORD;
+        private Tiger.PdrCommon.DstTCONF_WORD dstTCONF_WORD;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnDel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;

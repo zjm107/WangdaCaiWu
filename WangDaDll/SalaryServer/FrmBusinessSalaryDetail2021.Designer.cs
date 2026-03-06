@@ -120,20 +120,23 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.tW_SalarySumGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(583, 258, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(878, 393);
+            this.layoutControl1.Size = new System.Drawing.Size(914, 431);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // gridControl2
             // 
             this.gridControl2.DataSource = this.bindingSourceYCX;
+            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(562, 144, 562, 144);
             this.gridControl2.Location = new System.Drawing.Point(24, 47);
             this.gridControl2.MainView = this.gridView3;
+            this.gridControl2.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(830, 322);
+            this.gridControl2.Size = new System.Drawing.Size(866, 360);
             this.gridControl2.TabIndex = 8;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -322,10 +325,12 @@ namespace WangDaDll
             // gridControl1
             // 
             this.gridControl1.DataSource = this.bindingSourceCZ;
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(562, 144, 562, 144);
             this.gridControl1.Location = new System.Drawing.Point(24, 47);
             this.gridControl1.MainView = this.gridView2;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(830, 322);
+            this.gridControl1.Size = new System.Drawing.Size(866, 360);
             this.gridControl1.TabIndex = 6;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -515,10 +520,12 @@ namespace WangDaDll
             // 
             this.tW_SalarySumGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tW_SalarySumGridControl.DataSource = this.tW_SalarySumBindingSourceYW;
+            this.tW_SalarySumGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(562, 144, 562, 144);
             this.tW_SalarySumGridControl.Location = new System.Drawing.Point(24, 47);
             this.tW_SalarySumGridControl.MainView = this.gridView1;
+            this.tW_SalarySumGridControl.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.tW_SalarySumGridControl.Name = "tW_SalarySumGridControl";
-            this.tW_SalarySumGridControl.Size = new System.Drawing.Size(830, 322);
+            this.tW_SalarySumGridControl.Size = new System.Drawing.Size(866, 360);
             this.tW_SalarySumGridControl.TabIndex = 4;
             this.tW_SalarySumGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -899,7 +906,7 @@ namespace WangDaDll
             this.tabbedControlGroup1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(878, 393);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(914, 431);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // tabbedControlGroup1
@@ -908,7 +915,7 @@ namespace WangDaDll
             this.tabbedControlGroup1.Name = "tabbedControlGroup1";
             this.tabbedControlGroup1.SelectedTabPage = this.layoutControlGroup2;
             this.tabbedControlGroup1.SelectedTabPageIndex = 0;
-            this.tabbedControlGroup1.Size = new System.Drawing.Size(858, 373);
+            this.tabbedControlGroup1.Size = new System.Drawing.Size(894, 411);
             this.tabbedControlGroup1.TabPages.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup2,
             this.layoutControlGroup3,
@@ -920,7 +927,7 @@ namespace WangDaDll
             this.layoutControlItem1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(834, 326);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(870, 364);
             this.layoutControlGroup2.Text = "做账/注册明细";
             // 
             // layoutControlItem1
@@ -929,7 +936,7 @@ namespace WangDaDll
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(834, 326);
+            this.layoutControlItem1.Size = new System.Drawing.Size(870, 364);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -939,7 +946,7 @@ namespace WangDaDll
             this.layoutControlItem3});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(834, 326);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(870, 364);
             this.layoutControlGroup3.Text = "成长版明细";
             // 
             // layoutControlItem3
@@ -947,7 +954,7 @@ namespace WangDaDll
             this.layoutControlItem3.Control = this.gridControl1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(834, 326);
+            this.layoutControlItem3.Size = new System.Drawing.Size(870, 364);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -957,7 +964,7 @@ namespace WangDaDll
             this.layoutControlItem4});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(834, 326);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(870, 364);
             this.layoutControlGroup4.Text = "一次性业务明细";
             // 
             // layoutControlItem4
@@ -965,16 +972,17 @@ namespace WangDaDll
             this.layoutControlItem4.Control = this.gridControl2;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(834, 326);
+            this.layoutControlItem4.Size = new System.Drawing.Size(870, 364);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // FrmBusinessSalaryDetail2021
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 393);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(914, 431);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.Name = "FrmBusinessSalaryDetail2021";
             this.Text = "业务员业绩明细";
             this.Load += new System.EventHandler(this.FrmBusinessSalaryDetail_Load);

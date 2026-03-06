@@ -1,16 +1,11 @@
 using System;
 using System.Data;
-using System.Data.OleDb;
-using System.Data.SqlClient;
-using System.Data.OracleClient;
-using System.Data.Common;
-using System.Collections.Generic;
 namespace Tiger.CoreClass.Data
 {
-	/// <summary>
-	/// 数据访问层的数据库操作核心类，该类封装了数据访问操作，该类为抽象类，不能实例化此类。
-	/// </summary>
-	public abstract class AbsDatabase
+    /// <summary>
+    /// 数据访问层的数据库操作核心类，该类封装了数据访问操作，该类为抽象类，不能实例化此类。
+    /// </summary>
+    public abstract class AbsDatabase
 	{
 		/// <summary>
 		/// 连接对象

@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Forms;
-using System.Reflection;
-using System.Configuration;
 using System.Data;
+using System.Reflection;
+using System.Windows.Forms;
 
 
 namespace Tiger.Tools

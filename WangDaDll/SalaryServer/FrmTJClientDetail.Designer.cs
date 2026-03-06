@@ -93,10 +93,12 @@
             // 
             this.vW_PaymentGridControl.DataSource = this.vW_PaymentBindingSource;
             this.vW_PaymentGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vW_PaymentGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.vW_PaymentGridControl.Location = new System.Drawing.Point(0, 0);
             this.vW_PaymentGridControl.MainView = this.gridView1;
+            this.vW_PaymentGridControl.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.vW_PaymentGridControl.Name = "vW_PaymentGridControl";
-            this.vW_PaymentGridControl.Size = new System.Drawing.Size(943, 600);
+            this.vW_PaymentGridControl.Size = new System.Drawing.Size(1035, 505);
             this.vW_PaymentGridControl.TabIndex = 0;
             this.vW_PaymentGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -573,10 +575,11 @@
             // 
             // FrmTJClientDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(943, 600);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1035, 505);
             this.Controls.Add(this.vW_PaymentGridControl);
+            this.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.Name = "FrmTJClientDetail";
             this.Text = "客户统计收款明细";
             this.Load += new System.EventHandler(this.FrmTJClientDetail_Load);

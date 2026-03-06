@@ -4,7 +4,7 @@ using System.Data;
 
 using Tiger.Tools;
 
-namespace Tiger.PdrCommon.ConfigApp
+namespace Tiger.PdrCommon
 {
 
     public partial class DstTCONF_WORD

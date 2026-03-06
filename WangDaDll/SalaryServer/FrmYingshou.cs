@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Tiger.Tools;
 
@@ -63,6 +57,25 @@ namespace WangDaDll.SalaryServer
         {
             beginDatedateEdit.DateTime = new DateTime(DateTime.Today.Year, 1, 1);
             endDatedateEdit.DateTime = new DateTime(DateTime.Today.Year, 12, 31);
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (Security.UserName.ToLower() != "admin")
+            {
+                MessageBox.Show("没有权限！");
+                return;
+            }
+
+            if (xlsSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (xlsSaveFileDialog.FileName != "")
+                {
+                   
+                   gridView1.ExportToXlsx(xlsSaveFileDialog.FileName);
+                 
+                }
+            }
         }
     }
 }

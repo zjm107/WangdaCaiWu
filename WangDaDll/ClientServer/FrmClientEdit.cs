@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using DevExpress.XtraEditors.Controls;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DevExpress.XtraEditors.Mask.MaskSettings;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace WangDaDll
 {
@@ -21,10 +18,33 @@ namespace WangDaDll
         {
             try
             {
+               
+                //判断当前行的状态是否为添加状态
+               var rv = tW_ClientBindingSource.Current as DataRowView; 
+                if (rv.Row.RowState == DataRowState.Added)
+                {
+                    contractDataSet.GetTW_ClientByClientName(客户名称TextEdit.Text.Trim());
+                    if (contractDataSet.TW_Client.Count > 0)
+                    {
+                        //提示用户客户名称已存在，在某某做账会计下
+                        string accountantName = contractDataSet.TW_Client[0]["做账会计"].ToString();
+                        MessageBox.Show("客户名称已存在！做账会计为：" + accountantName + "！");
+                        return;
+                    }
+                }
+
+                //初始做账时间DateEdit不能为空
+                if (初始做账时间DateEdit.DateTime == DateTime.MinValue)
+                {
+                    MessageBox.Show("初始做账时间不能为空！");
+                    return;
+                }
+
                 DateTime endDate = 初始做账时间DateEdit.DateTime.AddMonths(12);
+                //设置成endDate的月的最后一天
+               // endDate = new DateTime(endDate.Year, endDate.Month, 1).AddMonths(1).AddDays(-1);
                 dateEdit1.DateTime = endDate;
                 tW_ClientBindingSource.EndEdit();
-
             }
             catch (Exception ex)
             {
@@ -42,6 +62,11 @@ namespace WangDaDll
 
         }
 
+
+        //默认会计ID
+        public string deafultAccountantID = "";
+        //默认会计名称
+        public string deafultAccountantName = "";
         private void FrmClientEdit_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
@@ -49,6 +74,30 @@ namespace WangDaDll
                 dstTCONF_WORD.FillDevComboBox("公司性质", 公司性质ComboBoxEdit);
                 dstTCONF_WORD.FillDevComboBox("公司类型", 公司类型ComboBoxEdit);
                 dstTCONF_WORD.FillDevComboBox("客户分级", 客户分级ComboBoxEdit);
+                DataRowView wRv = tW_ClientBindingSource.Current as DataRowView;
+                if (!string.IsNullOrEmpty(deafultAccountantName))
+                {
+                    做账会计TextEdit.Text = deafultAccountantName;
+                   
+                    if (wRv != null)
+                    {
+                        wRv.BeginEdit();
+                        wRv["做账会计ID"] = deafultAccountantID;
+                        wRv["做账会计"] = deafultAccountantName;
+
+                        wRv.EndEdit();
+                    }
+                }
+               if( wRv != null && wRv.Row.RowState == DataRowState.Added)
+                {
+                    //初始做账时间为这个月的第一天
+                    初始做账时间DateEdit.DateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                    DateTime endDate = 初始做账时间DateEdit.DateTime.AddMonths(12);
+                    dateEdit1.DateTime = endDate;
+                }
+                    
+
+
             }
             catch (Exception ex)
             {
@@ -73,6 +122,30 @@ namespace WangDaDll
                     wRv["做账会计ID"] = userID;
                     wRv["做账会计"] = userName;
                     wRv.EndEdit();
+                    string clientID = wRv["客户名称ID"].ToString();
+                    //ntractDataSet.GetContractInfoByClientId(clientID);
+                    if (contractDataSet.Tables["TW_Contract"].Rows.Count > 0)
+                    {
+                        DataRow cRow  = contractDataSet.Tables["TW_Contract"].Rows[0];
+                        cRow.BeginEdit();
+                        cRow["做账会计ID"] = userID;
+                        cRow["做账会计"] = userName;
+                        cRow.EndEdit();
+                    }
+                    else
+                        {
+                        contractDataSet.GetLastContractByClientId(clientID);
+                        if (contractDataSet.Tables["TW_Contract"].Rows.Count > 0)
+                        {
+                            DataRow cRow = contractDataSet.Tables["TW_Contract"].Rows[0];
+                            cRow.BeginEdit();
+                            cRow["做账会计ID"] = userID;
+                            cRow["做账会计"] = userName;
+                            cRow.EndEdit();
+                        }
+                    }
+                    //contractDataSet.Tables["TW_Contract"].Rows[0]["做账会计ID"] = userID;
+                    //contractDataSet.Tables["TW_Contract"].Rows[0]["做账会计"] = userName;
                 }
             }
             catch (Exception ex)
@@ -96,6 +169,27 @@ namespace WangDaDll
                     wRv["注册员ID"] = userID;
                     wRv["注册员"] = userName;
                     wRv.EndEdit();
+
+                    if (contractDataSet.Tables["TW_Contract"].Rows.Count > 0)
+                    {
+                        DataRow cRow = contractDataSet.Tables["TW_Contract"].Rows[0];
+                        cRow.BeginEdit();
+                        cRow["注册员ID"] = userID;
+                        cRow["注册员"] = userName;
+                        cRow.EndEdit();
+                    }
+                    else
+                    {
+                        contractDataSet.GetLastContractByClientId(wRv["客户名称ID"].ToString());
+                        if (contractDataSet.Tables["TW_Contract"].Rows.Count > 0)
+                        {
+                            DataRow cRow = contractDataSet.Tables["TW_Contract"].Rows[0];
+                            cRow.BeginEdit();
+                            cRow["注册员ID"] = userID;
+                            cRow["注册员"] = userName;
+                            cRow.EndEdit();
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -138,12 +232,7 @@ namespace WangDaDll
             }
         }
 
-        private void 做账会计TextEdit_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void 做账会计TextEdit_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private void 客户名称TextEdit_EditValueChanged(object sender, EventArgs e)
         {
 
         }

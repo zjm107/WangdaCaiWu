@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using Tiger.CoreClass.Data;
+using System.IO;
 using System.Management;
 using System.Security.Cryptography;
-using System.IO;
+using System.Text;
+using Tiger.CoreClass.Data;
 namespace Tiger.Config
 {
 

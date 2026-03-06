@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
 using WangDaDll.Common;
@@ -171,7 +165,14 @@ namespace WangDaDll
                 {
                     this.tW_ClientBindingSource.EndEdit();
                     csDataSet.SaveData();
+                    //同步收款表，业务员和业务员ID
                     csDataSet.UpdateYWY();
+
+                    //同步合同的做账会计信息
+                    if(frmEdit.contractDataSet.TW_Contract.Rows.Count>0)
+                    {
+                        frmEdit.contractDataSet.SaveDataSet();
+                    }
 
                 }
             }
@@ -210,38 +211,38 @@ namespace WangDaDll
                 DevExpress.XtraGrid.Views.Grid.GridView aGrid = null;
                 FileDataSet dataset = this.fileDataSet;
                // string fileType = "档案";
-                int[] selIndexs;
+               // int[] selIndexs;
                 if (tabbedControlGroup1.SelectedTabPageIndex == 1)
                 {
                    // fileType = "合同";
                     dataset = this.HTfileDataSet;
-                    selIndexs = gridView3.GetSelectedRows();
-                    aGrid = gridView3;
+                   // selIndexs = gridView3.GetSelectedRows();
+                   // aGrid = gridView3;
                 }
                 else
                 {
                     dataset = this.fileDataSet;
                    // fileType = "档案";
-                    selIndexs = gridView2.GetSelectedRows();
+                   // selIndexs = gridView2.GetSelectedRows();
                     aGrid = gridView2;
                 }
 
                  
-                foreach (int i in selIndexs)
-                {
-                    DataRowView rv = aGrid.GetRow(i) as DataRowView;
-                    if (rv != null)
-                    {
-                        string fileID = rv["FILEID"].ToString();
-                        saveFileDialog.DefaultExt = "图片文件 (*.jpg)|*.jpg,*.jpeg";
-                        if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                        {
-                            string fileName = saveFileDialog.FileName;
-                            byte[] bfile = dataset.GetImageByID(fileID);
-                            File.WriteAllBytes(fileName, bfile);
-                        }
-                    }
-                }
+                //foreach (int i in selIndexs)
+                //{
+                //    DataRowView rv = aGrid.GetRow(i) as DataRowView;
+                //    if (rv != null)
+                //    {
+                //        string fileID = rv["FILEID"].ToString();
+                //        saveFileDialog.DefaultExt = "图片文件 (*.jpg)|*.jpg,*.jpeg";
+                //        if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                //        {
+                //            string fileName = saveFileDialog.FileName;
+                //            byte[] bfile = dataset.GetFileByID(fileID);
+                //            File.WriteAllBytes(fileName, bfile);
+                //        }
+                //    }
+                //}
                 
             }
             catch (Exception ex)
@@ -285,8 +286,8 @@ namespace WangDaDll
                         fileStream.Seek(0, SeekOrigin.Begin);
                         Byte[] fileByte = new Byte[(int)fileStream.Length]; //转换字节流
                         fileStream.Read(fileByte, 0, fileByte.Length);
-                        dataset.AddImage(fileByte, fileName, fileType,fkID);
-                        dataset.SaveImage();
+                        dataset.AddFile(fileByte, fileName, fileType,fkID);
+                        dataset.SaveFile();
                     }
                 }
             }
@@ -313,7 +314,7 @@ namespace WangDaDll
                     if (HTtF_FILEBindingSource.Current != null)
                     {
                         HTtF_FILEBindingSource.RemoveCurrent();
-                        this.HTfileDataSet.SaveImage();
+                        this.HTfileDataSet.SaveFile();
                     }
                 }
                 else
@@ -321,7 +322,7 @@ namespace WangDaDll
                     if (tF_FILEBindingSource.Current!=null )
                     {
                         tF_FILEBindingSource.RemoveCurrent();
-                        this.fileDataSet.SaveImage();
+                        this.fileDataSet.SaveFile();
                     }
                     
                 }
@@ -340,7 +341,7 @@ namespace WangDaDll
             {
                 DataRowView rv = this.tF_FILEBindingSource.Current as DataRowView;
                 string fileID = rv["FileID"].ToString();
-                var image = fileDataSet.GetImageByID(fileID);
+                var image = fileDataSet.GetFileByID(fileID);
                 FrmImageView frmImgView = new FrmImageView();
                 frmImgView.ImageBytes = image;
                 frmImgView.ShowDialog();
@@ -357,7 +358,7 @@ namespace WangDaDll
             {
                 DataRowView rv = this.HTtF_FILEBindingSource.Current as DataRowView;
                 string fileID = rv["FileID"].ToString();
-                var image = HTfileDataSet.GetImageByID(fileID);
+                var image = HTfileDataSet.GetFileByID(fileID);
                 FrmImageView frmImgView = new FrmImageView();
                 frmImgView.ImageBytes = image;
                 frmImgView.ShowDialog();
@@ -382,8 +383,8 @@ namespace WangDaDll
                     UserMessages.ShowInfoBox("公司名称不存在客户信息中！");
                     return;
                 }
-                fileDataSet.GetImage(fkID);
-                HTfileDataSet.GetImage(fkID,"合同");
+                fileDataSet.GetFile(fkID);
+                HTfileDataSet.GetFile(fkID,"合同");
 
             }
             catch (Exception ex)
@@ -417,6 +418,40 @@ namespace WangDaDll
                 }
                 this.Cursor = Cursors.Default;
             }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (Security.UserName.ToLower() != "admin")
+            {
+                MessageBox.Show("没有权限！");
+                return;
+            }
+
+            if (xlsSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (xlsSaveFileDialog.FileName != "")
+                {
+
+                    gridView1.ExportToXlsx(xlsSaveFileDialog.FileName);
+
+                }
+            }
+        }
+
+        private void 客户状态ComboBoxEdit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn流失审批_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn流失终审_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

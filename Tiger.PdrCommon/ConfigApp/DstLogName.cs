@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-namespace Tiger.PdrCommon.ConfigApp
+namespace Tiger.PdrCommon
 {
 
 

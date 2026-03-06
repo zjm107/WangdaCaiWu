@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Web;
 using System.Web.Services;
+using System.Web.UI.WebControls;
 using Tiger.CoreClass.Data;
 
 namespace WDServer
@@ -74,6 +76,8 @@ and 首年提成结束期 is null";
 set 首年提成结束期 =(select DATEADD(year,1,初始做账时间)  from [dbo].[TW_Client] where TW_Client.客户名称 = TW_BusinessReg.公司预核名称
 and TW_Client.初始做账时间 is not null )";
             db.ExecuteNonQuery(exeSql);
+
+
 
         }
 
@@ -149,6 +153,48 @@ and TW_Client.初始做账时间 is not null )";
             else
                 return "";
         }
+        /// <summary>
+        /// 根据客户ID获取客户信息
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetTW_ClientByClientId(string clientId)
+        {
+            string strSql = string.Format(
+                @"select * from TW_Client t where t.客户名称ID='{0}'", clientId);
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Client");
+            return dst;
+
+        }
+        /// <summary>
+        /// 根据客户ID获取客户信息,并且该用户是该客户的业务员,注册员,做账会计
+        /// </summary>
+        /// <param name="clientId"></param>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetTW_ClientByUser(string clientId, string userId)
+        {
+            string strSql = string.Format(
+                @"select * from TW_Client t where t.客户名称ID='{0}' and (t.注册员ID='{1}' or t.业务员ID='{1}' or t.做账会计ID='{1}')", clientId, userId);
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Client");
+            return dst;
+        }
+        /// <summary>
+        /// 根据客户名称获取客户信息,并且该用户是该客户的业务员,注册员,做账会计
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetTW_ClientByUserName(string clientName, string userName)
+        {
+            string strSql = string.Format(
+                @"select * from TW_Client t where t.客户名称 like '{0}%' and (t.注册员='{1}' or t.业务员='{1}' or t.做账会计='{1}')", clientName, userName);
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Client");
+            return dst;
+        }
 
         /// <summary>
         /// 根据外键查询附件
@@ -163,17 +209,29 @@ and TW_Client.初始做账时间 is not null )";
             return dst;
         }
         /// <summary>
+        /// 删除文件附件
+        /// </summary>
+        /// <param name="fkID"></param>
+        [WebMethod]
+        public void DelFile(string fkID)
+        {
+            string strSql = string.Format(@"delete from [dbo].[TF_FILE] where FKID='{0}'", fkID);
+            ServiceManager.GetDatabase("FileDB").ExecuteNonQuery(strSql);
+        }
+        /// <summary>
         /// 按照批次号删除
         /// </summary>
         /// <param name="pch"></param>
         [WebMethod]
         public void DelByPCH(string pch)
         {
-           
+
             var db = ServiceManager.GetDatabase();
             string strsql = "delete from [TW_Payment] where 批次号='" + pch + "'";
             db.ExecuteNonQuery(strsql);
-            strsql = "delete from [TW_PaymentMain] where 批次号='"+ pch + "'";
+            strsql = "delete from [TW_PaymentMain] where 批次号='" + pch + "'";
+            db.ExecuteNonQuery(strsql);
+            strsql = "delete from [TW_PaymentDetail] where [TW_PaymentID]='" + pch + "'";
             db.ExecuteNonQuery(strsql);
         }
 
@@ -186,6 +244,19 @@ and TW_Client.初始做账时间 is not null )";
         public DataSet GetImagebyID(string FileID)
         {
             string strSql = string.Format(@"select * from TF_FILE where FileID ='{0}'", FileID);
+            DataSet dst = ServiceManager.GetDatabase("FileDB").GetEntity(strSql, "TF_FILE");
+            return dst;
+        }
+
+        /// <summary>
+        /// 根据fkId获取文件列表,不含文件流
+        /// </summary>
+        /// <param name="fkId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetFileListByFkId(string fkId)
+        {
+            string strSql = string.Format(@"select FILENAME,FILETYPE,FILEID,FKID,Uploader,Upload_Date from TF_FILE where FKID ='{0}'", fkId);
             DataSet dst = ServiceManager.GetDatabase("FileDB").GetEntity(strSql, "TF_FILE");
             return dst;
         }
@@ -228,10 +299,10 @@ and TW_Client.初始做账时间 is not null )";
 
                 if (!string.IsNullOrEmpty(clientState))
                 {
-                    if(clientState=="全部")
+                    if (clientState == "全部")
                     { }
                     else
-                    strSql += " and isnull(客户状态,'')='" + clientState + "'";
+                        strSql += " and isnull(客户状态,'正常')='" + clientState + "'";
                 }
                 else
                 {
@@ -248,6 +319,50 @@ and TW_Client.初始做账时间 is not null )";
                 throw ex;
             }
         }
+        /// <summary>
+        /// 根据审批状态查询客户信息
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="clientType"></param>
+        /// <param name="accountant"></param>
+        /// <param name="spState"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetClientInfoSP(string clientName, string clientType , string accountant, string spState)
+        {
+            try
+            {
+                string strSql = "select * from VTW_Client where 1=1 ";
+                if (!string.IsNullOrEmpty(clientName))
+                {
+                    strSql += " and [客户名称] like '%" + clientName + "%'";
+                }
+                if (!string.IsNullOrEmpty(clientType))
+                {
+                    strSql += " and [公司类型] like '%" + clientType + "%'";
+                }
+              
+                if (!string.IsNullOrEmpty(accountant))
+                {
+                    strSql += " and (业务员 like '%" + accountant + "%' or 注册员 like '%" + accountant + "%' or 做账会计 like '%" + accountant + "%')";
+                }
+
+                if (!string.IsNullOrEmpty(spState))
+                {
+
+                        strSql += " and 流失审批状态 ='" + spState + "'";
+                }
+                
+                DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Client");
+                return dst;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
         /// <summary>
         /// 查询到期做账客户信息
@@ -480,7 +595,7 @@ and TW_Client.初始做账时间 is not null )";
                 }
                 else if (regWC == "未完成")
                 {
-                    strSql += " and (注册进度 is null or 注册进度!='完成' or 注册进度!='做账') ";
+                    strSql += " and  (isnull(注册进度,'')!='完成' and isnull(注册进度,'')!='做账')   ";
                 }
 
                 if (!string.IsNullOrEmpty(businessMan))
@@ -691,27 +806,85 @@ and TW_Client.初始做账时间 is not null )";
         [WebMethod]
         public DataSet GetNoPaymentReg(string accountant, string gsName, string isPayment)
         {
-            string strSql = "select * from VW_PaymentDetail as t where 1=1 ";
+            string strSql = @"SELECT 
+                        t.[公司预核名称],
+                        t.[业务员],
+                        t.[注册费],
+                           ISNULL(p.已收款金额,0) AS 已收款金额,
+                        (ISNULL(t.[注册费],0) - ISNULL(p.已收款金额,0)) AS 欠款金额,
+                        t.[图章],
+                        t.[银行],
+                        t.[其他],
+                        t.[注册利润],
+                        t.[月做账费],
+                        t.[工本费],
+                        t.[开票费],
+                        t.[开始时间],
+                        t.[预计注册完成时间],
+                        t.[备注],
+                        t.[登记日期],
+                        t.[修改人],
+                        t.[修改时间],
+                        t.[TW_BusinessRegID],
+                        t.[办理成本],
+                        t.[年做账费],
+                        t.[注册进度],
+                        t.[外勤进度],
+                        t.[业务员ID],
+                        t.[注册员ID],
+                        t.[注册员],
+                        t.[做账会计],
+                        t.[做账会计ID],
+                        t.[部门],
+                        t.[注册派单标记],
+                        t.[外勤派单标记],
+                        t.[零申报],
+                        t.[公司类型],
+                        t.[交接确认完成],
+                        t.[外勤审批确认],
+                        t.[外勤审批完成时间],
+                        t.[收款情况],
+                        t.[首年提成结束期],
+                        t.[注册员已提],
+                        t.[业务员已提],
+                        t.[做账会计已提],
+                        t.[注册类型],
+                        t.[外勤员],
+                        t.[外勤员ID],
+                        t.[注册完成时间]
+                    FROM [dbo].[TW_BusinessReg] t
+                    LEFT JOIN (
+                        SELECT 
+                            TW_BusinessRegID,
+                            SUM(ISNULL([注册费收款额],0)) AS 已收款金额
+                        FROM [dbo].[TW_PaymentDetail]
+                        GROUP BY TW_BusinessRegID
+                    ) p ON p.TW_BusinessRegID = t.TW_BusinessRegID
+                    WHERE t.[登记日期] >= DATEADD(MONTH, -24, CAST(GETDATE() AS date)) 
+                        {0}
+                    ORDER BY t.[登记日期] DESC, t.[TW_BusinessRegID] ";
+            string SqlPara = "";
             if (!string.IsNullOrEmpty(accountant))
             {
-                strSql += " and  (t.做账会计 ='" + accountant + "' or t.业务员='" + accountant + "' or t.注册员='" + accountant + "') ";
+                SqlPara += " and  (t.做账会计 ='" + accountant + "' or t.业务员='" + accountant + "' or t.注册员='" + accountant + "') ";
             }
             if (!string.IsNullOrEmpty(isPayment))
             {
                 if (isPayment == "未收款")
                 {
-                    strSql += " and t.注册费 > isnull(t.注册费收款额,0)  ";
+                    SqlPara += " and ISNULL(p.已收款金额,0) < ISNULL(t.[注册费],0)  ";
                 }
                 else
                 {
-                    strSql += " and t.注册费 <= isnull(t.注册费收款额,0)  ";
+                    SqlPara += " and ISNULL(p.已收款金额,0) >= ISNULL(t.[注册费],0)  ";
                 }
             }
 
             if (!string.IsNullOrEmpty(gsName))
             {
-                strSql += " and t.公司预核名称 like '%" + gsName + "%' ";
+                SqlPara += " and t.公司预核名称 like '%" + gsName + "%' ";
             }
+            strSql = string.Format(strSql, SqlPara);
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_PaymentDetail");
             return dst;
         }
@@ -835,7 +1008,208 @@ and TW_Client.初始做账时间 is not null )";
             }
 
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Payment");
-            ServiceManager.GetDatabase().FillEntity(strSql, dst, "TW_PaymentMain");
+            ServiceManager.GetDatabase().FillEntity(strSqlMain, dst, "TW_PaymentMain");
+            return dst;
+        }
+
+
+        /// <summary>
+        /// 获取付款信息
+        /// </summary>
+        /// <param name="clinetName">支付名称</param>
+        /// <param name="account">做账会计</param>
+        /// <param name="beginDate">支付开始时间</param>
+        /// <param name="endDate">支付结束时间</param>
+        /// <param name="paymentType">付款类型</param>
+        /// <param name="endPaymentDate">到期月份</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetPaymentByInfo2025(string unitName, string account, string beginDate, string endDate, string paymentType
+            , string endPaymentDate, string manager, string isPay, string zeroAccount)
+        {
+            string strPrc = "CalUserProc";
+            SqlStruct prc = new SqlStruct(strPrc, CommandType.StoredProcedure);
+            ServiceManager.GetDatabase().ExecuteNonQuery(prc);
+
+
+
+            string strSqlMain = @"select t.*,tc.初始做账时间,tc.首年提成结束期 from TW_PaymentMain t  
+                                left join TW_Client tc
+                                on t.客户名称ID = tc.客户名称ID where 1 = 1";
+            if (!string.IsNullOrEmpty(unitName))
+            {
+
+                strSqlMain += " and t.支付单位 like '%" + unitName + "%'";
+            }
+            if (manager == "注册主管")
+            {
+                if (!string.IsNullOrEmpty(account))
+                {
+
+                    strSqlMain += " and  (t.注册员='" + account + "') ";
+                }
+
+            }
+            else
+            if (!string.IsNullOrEmpty(account))
+            {
+
+                strSqlMain += " and  ((t.做账会计 = '" + account + "' or t.业务员='" + account + "' or t.注册员='" + account +
+                @"') or t.TW_PaymentID in ( select t2.TW_PaymentID from [dbo].[TW_PaymentDetail] t2 where t2.业务员 = '" + account + "' or 注册员 = '" + account + "' or 做账会计 = '" + account + "')) ";
+            }
+            if (!string.IsNullOrEmpty(beginDate))
+            {
+
+                strSqlMain += " and t.支付日期>='" + beginDate + "'";
+
+            }
+            if (!string.IsNullOrEmpty(endDate))
+            {
+
+                strSqlMain += " and t.支付日期<='" + endDate + "'";
+            }
+            if (!string.IsNullOrEmpty(paymentType))
+            {
+
+                strSqlMain += " and t.收款类别 ='" + paymentType + "'";
+            }
+            if (!string.IsNullOrEmpty(endPaymentDate))
+            {
+                DateTime paymentEndDate = DateTime.Parse(endPaymentDate);
+                int year = paymentEndDate.Year;
+                int month = paymentEndDate.Month;
+
+                strSqlMain += " and Year(t.本次到期月份)=" + year.ToString() + " and Month(t.本次到期月份)=" + month;
+            }
+
+            if (isPay == "是")
+            {
+
+                strSqlMain += " and t.不收款=1 ";
+            }
+            else if (isPay == "否")
+            {
+
+                strSqlMain += " and ( t.不收款=0 or t.不收款 is null ) ";
+            }
+            if (zeroAccount == "是")
+            {
+
+                strSqlMain += " and t.零申报=1 ";
+            }
+            else if (zeroAccount == "否")
+            {
+
+                strSqlMain += " and ( t.零申报=0 or t.零申报 is null ) ";
+            }
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSqlMain, "TW_PaymentMain");
+            return dst;
+        }
+
+
+        /// <summary>
+        /// 查询收款记录 TW_PaymentMain
+        /// </summary>
+        /// <param name="sp">审批状态</param>
+        /// <param name="clientName">支付单位</param>
+        /// <param name="account">做账会计、注册员，业务员</param>
+        /// <param name="beginDate">支付日期</param>
+        /// <param name="endDate">支付日期</param>
+        /// <param name="paymentType">收款类别</param>
+        /// <param name="endPaymentDate"></param>
+        /// <param name="manager">注册主管</param>
+        /// <param name="isPay">不收款/param>
+        /// <param name="zeroAccount">零申报</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetPaymentByInfoSP2025(string sp, string clientName, string account, string beginDate, string endDate, string paymentType
+     , string endPaymentDate, string manager, string isPay, string zeroAccount)
+        {
+            string strPrc = "CalUserProc";
+            SqlStruct prc = new SqlStruct(strPrc, CommandType.StoredProcedure);
+            ServiceManager.GetDatabase().ExecuteNonQuery(prc);
+
+
+
+            string strSqlMain = @"select t.*,tc.初始做账时间,tc.首年提成结束期 from TW_PaymentMain t  
+                                left join TW_Client tc
+                                on t.客户名称ID = tc.客户名称ID where 1 = 1";
+            if (!string.IsNullOrEmpty(clientName))
+            {
+
+                strSqlMain += " and t.支付单位 like '%" + clientName + "%'";
+            }
+            if (manager == "注册主管")
+            {
+                if (!string.IsNullOrEmpty(account))
+                {
+
+                    strSqlMain += " and  (t.注册员='" + account + "') ";
+                }
+
+            }
+            else
+            if (!string.IsNullOrEmpty(account))
+            {
+
+                strSqlMain += " and  ((t.做账会计 = '" + account + "' or t.业务员='" + account + "' or t.注册员='" + account +
+                @"') or t.TW_PaymentID in ( select t2.TW_PaymentID from [dbo].[TW_PaymentDetail] t2 where t2.业务员 = '" + account + "' or 注册员 = '" + account + "' or 做账会计 = '" + account + "')) ";
+            }
+            if (!string.IsNullOrEmpty(beginDate))
+            {
+
+                strSqlMain += " and t.支付日期>='" + beginDate + "'";
+
+            }
+            if (!string.IsNullOrEmpty(endDate))
+            {
+
+                strSqlMain += " and t.支付日期<='" + endDate + "'";
+            }
+            if (!string.IsNullOrEmpty(paymentType))
+            {
+
+                strSqlMain += " and t.收款类别 ='" + paymentType + "'";
+            }
+            if (!string.IsNullOrEmpty(endPaymentDate))
+            {
+                DateTime paymentEndDate = DateTime.Parse(endPaymentDate);
+                int year = paymentEndDate.Year;
+                int month = paymentEndDate.Month;
+
+                strSqlMain += " and Year(t.本次到期月份)=" + year.ToString() + " and Month(t.本次到期月份)=" + month;
+            }
+
+            if (isPay == "是")
+            {
+
+                strSqlMain += " and t.不收款=1 ";
+            }
+            else if (isPay == "否")
+            {
+
+                strSqlMain += " and ( t.不收款=0 or t.不收款 is null ) ";
+            }
+            if (zeroAccount == "是")
+            {
+
+                strSqlMain += " and t.零申报=1 ";
+            }
+            else if (zeroAccount == "否")
+            {
+
+                strSqlMain += " and ( t.零申报=0 or t.零申报 is null ) ";
+            }
+            if (sp == "未审批")
+            {
+                strSqlMain += " and ( t.是否审核=0 or t.是否审核 is null )";
+            }
+            else if (sp == "已审批")
+            {
+                strSqlMain += " and t.是否审核=1 ";
+            }
+
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSqlMain, "TW_PaymentMain");
             return dst;
         }
 
@@ -1065,7 +1439,7 @@ and TW_Client.初始做账时间 is not null )";
         and  year(t.操作时间)= " + year + " and month(t.操作时间) = " + month + @"
         and t.收款类别 = '常规收款'
         and t.业务员ID = '{0}'
-        and t.是否审核=1  ",businessID);
+        and t.是否审核=1  ", businessID);
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_SalarySum");
             return dst;
         }
@@ -2482,7 +2856,7 @@ or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办�
                       from [TW_Payment] t,[TW_Client] t2
                       where   t.客户名称ID=t2.客户名称ID
                       and t.本次到期月份>  t2.首年提成结束期
-                      and ((year(操作时间)="+Year+" and year(t.本次到期月份)<"+ jYear + ") or year(t.本次到期月份)="+Year+@")
+                      and ((year(操作时间)=" + Year + " and year(t.本次到期月份)<" + jYear + ") or year(t.本次到期月份)=" + Year + @")
                       and t.收款类别='常规收款'
                       and t.是否审核=1
                       and t.业务员ID='" + businessManID + "'";
@@ -2533,7 +2907,7 @@ or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办�
                       and t.收款类别='常规收款'
                       and tu.DEPTNAME='业务部' ) ts
 					  group by ts.员工,ts.员工ID) tt,[dbo].[TWS_Commission] tc
-					  where tc.TWS_CommissionID='1' ", year,jYear ,year);
+					  where tc.TWS_CommissionID='1' ", year, jYear, year);
             }
             else
             {
@@ -2569,7 +2943,7 @@ or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办�
                       and t.收款类别='常规收款'
                       and tu.DEPTNAME='业务部' ) ts
 					  group by ts.员工,ts.员工ID) tt,[dbo].[TWS_Commission] tc
-					  where tc.TWS_CommissionID='1' ", userName, year,jYear,year);
+					  where tc.TWS_CommissionID='1' ", userName, year, jYear, year);
             }
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllBusinessSalaryYear");
             return dst;
@@ -2957,7 +3331,7 @@ or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办�
             t.收款类别,
             t.月做账费,
             t.月做账费 * 12 as 年做账费,
-            0 as 注册费,
+            0 as 注册费,       
             '注册员做账费' as 工资统计类型,
             '无' as 注册类型
             from TW_Payment  t,TW_Client t2,[TW_BusinessReg] t3
@@ -3068,8 +3442,8 @@ or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办�
            0 as 注册费收款额,
            0 as 注册提成,
            t.收款类别,
-           t.月平均费 as 月做账费,
-           t.月做账费 * 12 as 年做账费,
+           t.支付金额 as 月做账费,
+           t.月平均费 * 12 as 年做账费,
            '业务员做账费' as 工资统计类型
            from TW_Payment  t,[dbo].[TW_Client] t2,TCOM_USER tuu
            where
@@ -4195,7 +4569,7 @@ or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办�
             DateTime pdate = date.AddMonths(-1);//减少一个月
             pdate = new DateTime(pdate.Year, pdate.Month, DateTime.DaysInMonth(pdate.Year, pdate.Month));
             string strSql = @" select
-          	t.TW_PaymentID,
+          	t.TW_PaymentID,             
           t.支付单位 as 客户名称,
           newid() as  客户名称ID,
           t.支付金额 as 做账收款额,
@@ -4209,8 +4583,8 @@ or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办�
           0 as 注册费收款额,
           0 as 注册提成,
           t.收款类别,
-          t.月平均费 as 月做账费,
-          t.月平均费 * 12 as 年做账费,
+          t.支付金额-t.工本费-t.开票费 as 月做账费,
+          t.月做账费 * 12 as 年做账170703费,
           '做账会计常规' as 工资统计类型
            ,t.上次到期月份 as 开始时间,
 		   t.本次到期月份 as 结束时间
@@ -4635,8 +5009,8 @@ or 注册类型='变更' or 注册类型='注销' or 注册类型='进出口办�
           where
           t.客户名称ID = t2.客户名称ID
           and isnull(t.零申报,0) = 0
-          and  ((year(t.操作时间)=" + year + " and year(t.本次到期月份)<="+ year + @" )
-          or (year(t.本次到期月份)="+year+ " and year(t.操作时间)<"+year+"))"
+          and  ((year(t.操作时间)=" + year + " and year(t.本次到期月份)<=" + year + @" )
+          or (year(t.本次到期月份)=" + year + " and year(t.操作时间)<" + year + "))"
           + @" and (t.工本费>0 or t.开票费>0)
           and t.做账会计ID='" + userID + @"' ";
             DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "VW_AllAccountantSalaryDetail");
@@ -5445,7 +5819,7 @@ from
         [WebMethod]
         public DataSet GetGongbenKaipiao(string year, string userId, string deptName)
         {
-            string strSql = string.Format("select max(年) 年 ,做账会计ID,做账会计,DEPTNAME,sum(工本开票费) as 工本开票费 ,sum(工本开票提成) as 工本开票提成  ,sum(工本费) as 工本费,sum(开票费) as 开票费,sum(工本费提成) as 工本费提成,sum(开票费提成) as 开票费提成 from VW_工本开票费提成 where ((年 = {0} and 费用年<={1}) or (费用年={2} and 年<{3}))", year,year,year,year);
+            string strSql = string.Format("select max(年) 年 ,做账会计ID,做账会计,DEPTNAME,sum(工本开票费) as 工本开票费 ,sum(工本开票提成) as 工本开票提成  ,sum(工本费) as 工本费,sum(开票费) as 开票费,sum(工本费提成) as 工本费提成,sum(开票费提成) as 开票费提成 from VW_工本开票费提成 where ((年 = {0} and 费用年<={1}) or (费用年={2} and 年<{3}))", year, year, year, year);
             if (!string.IsNullOrEmpty(userId))
             {
                 strSql += " and 做账会计ID='" + userId + "'";
@@ -5506,7 +5880,7 @@ from
         [WebMethod]
         public DataSet GetPaymentByPch(string pch)
         {
-            string strSql = string.Format("select * from [dbo].[TW_Payment] where 批次号='{0}'", pch);
+            string strSql = string.Format("select * from [dbo].[TW_Payment] where 批次号='{0}' and 收款类别='常规收款' order by 本次到期月份", pch);
             var db = ServiceManager.GetDatabase();
             DataSet dst = db.GetEntity(strSql, "TW_Payment");
             return dst;
@@ -5647,17 +6021,986 @@ from
         {
             string strSql = string.Format(@"update
                     [dbo].[TW_PaymentMain]
-                    set 支付金额=t2.支付金额,
+                    set 支付总额=t2.支付金额,
                     开票费=t2.开票费,
                     工本费=t2.工本费,
                     本次到期月份 =t2.本次到期月份,
                     上次到期月份=t2.上次到期月份
                     from [TW_PaymentMain] t1,(
-                    select  批次号, sum(支付金额) 支付金额,SUM(开票费) 开票费,sum(工本费) 工本费,
+                    select  批次号, sum(支付总额) 支付金额,SUM(开票费) 开票费,sum(工本费) 工本费,
                     max([本次到期月份]) [本次到期月份],min([上次到期月份]) [上次到期月份] from [TW_Payment]
                     where 批次号='{0}' group by 批次号) t2
                     where t1.TW_PaymentID = t2.批次号 and t1.TW_PaymentID='{1}'", pch, pch);
             ServiceManager.GetDatabase().ExecuteNonQuery(strSql);
+        }
+
+        /// <summary>
+        /// 生成一个新的合同编号，格式为：四位年份 + 四位流水号。
+        /// </summary>
+        /// <param name="dt">包含合同信息的DataTable。</param>
+        /// <returns>生成的合同编号字符串，例如 "20250001"。</returns>
+        [WebMethod]
+        public string GenerateNewContractNumber()
+        {
+            var db = ServiceManager.GetDatabase();
+            // 使用存储过程原子获取下一个编号
+            var sqlCmd = new SqlStruct("dbo.GetNextContractNumber", CommandType.StoredProcedure);
+            object result = db.ExecuteScalar(sqlCmd);
+            return Convert.ToString(result);
+        }
+        [WebMethod]
+        public void DoMaxSQ()
+        {
+
+            var db = ServiceManager.GetDatabase();
+            var result =db.GetEntity("select max(合同编号) from [TW_Contract]", "ts");
+            if (result != null)
+            {   DataRow row = result.Tables["ts"].Rows[0];
+                string maxsq = row[0].ToString();
+                int seq = int.Parse(maxsq.Substring(4));
+              //初始化这个存储过程的序列号，执行SEQ次
+                for(int i = 0; i < seq; i++)
+                {
+                    var sqlCmd = new SqlStruct("dbo.GetNextContractNumber", CommandType.StoredProcedure);
+                    db.ExecuteNonQuery(sqlCmd);
+                }
+                
+            }
+        }
+        /// <summary>
+        /// 查询合同信息
+        /// </summary>
+        /// <param name="clientName">客户名称</param>
+        /// <param name="accountant">做账会计</param>
+        /// <param name="endMonth">到期月</param>
+        /// <param name="unpaidAmount">未付款情况：大于0 或 等于0</param>
+        /// <param name="spState">审批情况</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetContract(string clientName, string accountant, int endMonth, string unpaidAmount, string spState)
+        {
+            try
+            {
+                string strSql = "select * from TW_Contract where 1=1 ";
+                string strsql2 = "select ContractID from TW_Contract where 1=1 ";
+                if (!string.IsNullOrEmpty(clientName))
+                {
+                    strSql += " and [客户名称] like '%" + clientName + "%'";
+                    strsql2 += " and [客户名称] like '%" + clientName + "%'";
+                }
+
+                if (!string.IsNullOrEmpty(accountant))
+                {
+                    strSql += " and (做账会计 like '%" + accountant + "%' )";
+                    strsql2 += " and (做账会计 like '%" + accountant + "%' )";
+                }
+
+
+                if (endMonth > 0)
+                {
+                    strSql += @"and [ContractID] in (
+                                    select [ContractID] from [dbo].[TW_ContractServiceInfo] where 结束服务月 >= GETDATE() AND 结束服务月 <= DATEADD(month, " + endMonth + ", GETDATE()) )";
+                    strsql2 += @"and [ContractID] in (
+                                    select [ContractID] from [dbo].[TW_ContractServiceInfo] where 结束服务月 >= GETDATE() AND 结束服务月 <= DATEADD(month, " + endMonth + ", GETDATE()) )";
+
+                }
+                if (!string.IsNullOrEmpty(unpaidAmount))
+                {
+                    switch (unpaidAmount)
+                    {
+                        case "大于0":
+                            strSql += "and 已付款金额<合同金额";
+                            strsql2 += "and 已付款金额<合同金额";
+                            break;
+                        case "等于0":
+                            strSql += "and 已付款金额=合同金额";
+                            strsql2 += "and 已付款金额=合同金额";
+                            break;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(spState))
+                {
+                    //如果有审批状态不等于全部
+                    if (spState == "未提交")
+                    {
+                        strSql += "and ( 审批状态='未提交' or 审批状态='已驳回') ";
+                        strsql2 += string.Format("and 审批状态='{0}'", spState);
+                    }
+                    else
+                    if (spState != "全部")
+                    {
+                        strSql += string.Format("and 审批状态='{0}'", spState);
+                        strsql2 += string.Format("and 审批状态='{0}'", spState);
+                    }
+
+                }
+
+                strsql2 = string.Format("select * from [dbo].[TW_ContractServiceInfo] where [ContractID] in ({0})", strsql2);
+                strSql += " order by 合同编号";
+                DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Contract");
+                if (dst != null)
+                {
+                    ServiceManager.GetDatabase().FillEntity(strsql2, dst, "TW_ContractServiceInfo");
+                }
+                return dst;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        /// <summary>
+        /// 根据合同ID查询合同信息
+        /// </summary>
+        /// <param name="contractID"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetContractByID(string contractID)
+        {
+            string strSql = string.Format("select * from TW_Contract where ContractID='{0}'", contractID);
+            DataSet dst = ServiceManager.GetDatabase().GetEntity(strSql, "TW_Contract");
+            string strsql2 = string.Format("select * from TW_ContractServiceInfo where ContractID='{0}'", contractID);
+            ServiceManager.GetDatabase().FillEntity(strsql2, dst, "TW_ContractServiceInfo");
+            return dst;
+        }
+        /// <summary>
+        /// 需求：查询仍有应收款余额的合同
+        ///     输出列：
+        ///  客户名称，合同编号，签约日期，合同金额，
+        ///  已收款金额，应收款金额，最后收款日期，费用截止月，合同结束服务月
+        ///说明：
+        ///  1. 已收款金额：TW_PaymentMain 中 已审核(是否审核= 1) 的支付金额汇总
+        /// 2. 最后收款日期：同一聚合内最大支付日期
+        ///  3. 费用截止月：支付记录中最大 本次到期月份
+        /// 4. 合同结束服务月：TW_ContractServiceInfo 中同合同最大 结束服务月
+        ///  5. 仅返回(合同金额 - 已收款金额) > 0 的合同
+        ///  6. 排序：签约日期，合同编号
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetReceivables(string beginDate, string endDate, string clientName)
+        {
+
+            string strSql = @"SELECT
+    c.客户名称,
+    c.合同编号,
+    c.签约日期,
+    c.合同金额,
+    ISNULL(p.已收款金额, 0) AS 已收款金额,
+    c.合同金额 - ISNULL(p.已收款金额, 0) AS 应收款金额,
+	isNull(p.已收一次性服务费,0) as 已收一次性服务费,isnull(p.已收周期性服务费,0) as 已收周期性服务费,
+    p.最后收款日期,
+    p.费用截止月,
+    cs.合同结束服务月,
+    newid() as CID,isnull(c.续签,0) as 续签
+FROM dbo.TW_Contract c
+LEFT JOIN (
+    SELECT
+        pm.ContractID,
+        SUM(pm.支付总额)    AS 已收款金额,sum(pm.一次性服务费) as 已收一次性服务费,sum(pm.周期性服务费) as 已收周期性服务费,
+        MAX(pm.支付日期)    AS 最后收款日期,
+        MAX(pm.本次到期月份) AS 费用截止月
+    FROM dbo.TW_PaymentMain pm
+    WHERE 1 = 1
+      AND pm.ContractID IS NOT NULL
+    GROUP BY pm.ContractID
+) p ON c.ContractID = p.ContractID
+LEFT JOIN (
+    SELECT
+        csi.ContractID,
+        MAX(csi.结束服务月) AS 合同结束服务月
+    FROM dbo.TW_ContractServiceInfo csi
+    GROUP BY csi.ContractID
+) cs ON c.ContractID = cs.ContractID
+WHERE c.合同金额 - ISNULL(p.已收款金额, 0) <> 0
+{0}
+ORDER BY  c.合同编号 ";
+
+            string strpara = "";
+            if (!string.IsNullOrWhiteSpace(clientName))
+            {
+                strpara = " AND ISNULL(c.客户名称, '') LIKE '%" + clientName + "%'";
+            }
+
+            if (!string.IsNullOrWhiteSpace(beginDate) && !string.IsNullOrWhiteSpace(endDate))
+            {
+                strpara += string.Format(" AND c.签约日期 >= '{0}' AND c.签约日期 <= '{1}' ", beginDate, endDate);
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(beginDate))
+                {
+                    strpara += string.Format(" AND c.签约日期 >= '{0}' ", beginDate);
+                }
+                if (!string.IsNullOrWhiteSpace(endDate))
+                {
+                    strpara += string.Format(" AND c.签约日期 <= '{0}' ", endDate);
+                }
+            }
+            strSql = string.Format(strSql, strpara);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "VW_Receivables");
+            return dst;
+        }
+        /// <summary>
+        /// 需求：查询仍有应收款余额的合同
+        ///     输出列：
+        ///  客户名称，合同编号，签约日期，合同金额，
+        ///  已收款金额，应收款金额，最后收款日期，费用截止月，合同结束服务月,做账会计
+        ///说明：
+        ///  1. 已收款金额：TW_PaymentMain 中 已审核(是否审核= 1) 的支付金额汇总
+        /// 2. 最后收款日期：同一聚合内最大支付日期
+        ///  3. 费用截止月：支付记录中最大 本次到期月份
+        /// 4. 合同结束服务月：TW_ContractServiceInfo 中同合同最大 结束服务月
+        ///  5. 仅返回(合同金额 - 已收款金额) > 0 的合同
+        ///  6. 排序：签约日期，合同编号
+        /// </summary>
+        /// <param name="beginDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="accounting"></param>
+        /// <param name="clientName"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetReceivablesByAccounting(string beginDate, string endDate, string accounting, string clientName)
+        {
+            string strSql = @"SELECT
+    c.客户名称,
+    c.合同编号,
+    c.签约日期,
+    c.合同金额,
+    ISNULL(p.已收款金额, 0) AS 已收款金额,
+    c.合同金额 - ISNULL(p.已收款金额, 0) AS 应收款金额,
+    isNull(p.已收一次性服务费,0) as 已收一次性服务费,isnull(p.已收周期性服务费,0) as 已收周期性服务费,
+    p.最后收款日期,
+    p.费用截止月,
+    cs.合同结束服务月,
+        c.做账会计,c.做账会计ID,u.DEPTNAME,
+     newid() as CID,isnull(c.续签,0) as 续签,tc.业务员,tc.业务员ID,tc.首年提成结束期
+FROM dbo.TW_Contract c
+LEFT JOIN (
+    SELECT
+        pm.ContractID,
+        SUM(pm.支付总额)    AS 已收款金额,sum(pm.一次性服务费) as 已收一次性服务费,sum(pm.周期性服务费) as 已收周期性服务费,
+        MAX(pm.支付日期)    AS 最后收款日期,
+        MAX(pm.本次到期月份) AS 费用截止月
+    FROM dbo.TW_PaymentMain pm
+    WHERE 1 = 1
+      AND pm.ContractID IS NOT NULL
+    GROUP BY pm.ContractID
+) p ON c.ContractID = p.ContractID
+LEFT JOIN (
+    SELECT
+        csi.ContractID,
+        MAX(csi.结束服务月) AS 合同结束服务月
+    FROM dbo.TW_ContractServiceInfo csi
+    GROUP BY csi.ContractID
+) cs ON c.ContractID = cs.ContractID
+left join [dbo].[TCOM_USER] u
+on c.做账会计ID=u.USERID
+left join [dbo].[TW_Client] tc
+on c.客户名称ID=tc.客户名称ID
+WHERE c.合同金额 - ISNULL(p.已收款金额, 0) <> 0
+{0} 
+ORDER BY c.合同编号 ";
+            string strpara = "";
+            //Accounting不为空时
+            if (!string.IsNullOrWhiteSpace(accounting))
+            {
+                strpara = "AND ISNULL(c.做账会计, '') = '" + accounting + "'";
+            }
+            string strpara2 = "";
+            if (!string.IsNullOrWhiteSpace(clientName))
+            {
+                strpara += " AND ISNULL(c.客户名称, '') LIKE '%" + clientName + "%'";
+            }
+
+            if (!string.IsNullOrWhiteSpace(beginDate) && !string.IsNullOrWhiteSpace(endDate))
+            {
+                strpara += string.Format(" AND c.签约日期 >= '{0}' AND c.签约日期 <= '{1}' ", beginDate, endDate);
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(beginDate))
+                {
+                    strpara += string.Format(" AND c.签约日期 >= '{0}' ", beginDate);
+                }
+                if (!string.IsNullOrWhiteSpace(endDate))
+                {
+                    strpara += string.Format(" AND c.签约日期 <= '{0}' ", endDate);
+                }
+            }
+            strSql = string.Format(strSql, strpara);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "VW_Receivables");
+            return dst;
+        }
+
+        /// <summary>
+        /// 查询一个时间段的已收款情况，包括客户名称，合同编号，签约日期，已收款金额,最后收款日期，应收款金额
+        /// </summary>
+        /// <param name="clientName">客户名称</param>
+        /// <param name="contractNo">合同编号</param>
+        /// <param name="receiptDate1">支付日期1</param>
+        /// <param name="receiptDate2">支付日期2</param>
+        /// <param name="signDate1">签约日期1</param>
+        /// <param name="signDate2">签约日期2</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetReceivedPayment(string clientName, string receiptDate1, string receiptDate2, string signDate1, string signDate2, string contractNo)
+        {
+            string strpara = "";
+            string strpara2 = "";
+            if (!string.IsNullOrWhiteSpace(clientName))
+            {
+                strpara = "AND ISNULL(pm.支付单位, '') LIKE '%" + clientName + "%'";
+                strpara2 = "AND ISNULL(c.客户名称, '') LIKE '%" + clientName + "%'";
+            }
+            string receiptDatePara = "";
+            if (!string.IsNullOrWhiteSpace(receiptDate1) && !string.IsNullOrWhiteSpace(receiptDate2))
+            {
+                receiptDatePara = string.Format(" AND pm.支付日期 >= '{0}' AND pm.支付日期 <= '{1}' ", receiptDate1, receiptDate2);
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(receiptDate1))
+                {
+                    receiptDatePara = string.Format(" AND pm.支付日期 >= '{0}' ", receiptDate1);
+                }
+                if (!string.IsNullOrWhiteSpace(receiptDate2))
+                {
+                    receiptDatePara = string.Format(" AND pm.支付日期 <= '{0}' ", receiptDate2);
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(signDate1) && !string.IsNullOrWhiteSpace(signDate2))
+            {
+                strpara2 += string.Format(" AND c.签约日期 >= '{0}' AND c.签约日期 <= '{1}' ", signDate1, signDate2);
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(signDate1))
+                {
+                    strpara2 += string.Format(" AND c.签约日期 >= '{0}' ", signDate1);
+                }
+                if (!string.IsNullOrWhiteSpace(signDate2))
+                {
+                    strpara2 += string.Format(" AND c.签约日期 <= '{0}' ", signDate2);
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(contractNo))
+            {
+                strpara2 += string.Format(" AND c.合同编号 = '{0}' ", contractNo);
+            }
+
+
+            string strSql = @"WITH PayOverall AS (
+                                    SELECT
+                                        pm.ContractID,
+                                        SUM(pm.支付总额) AS 总已收款金额,
+	                                    sum(pm.周期性服务费) as 已收周期性服务费,
+										sum(pm.一次性服务费) as 已收一次性服务费
+                                    FROM dbo.TW_PaymentMain pm
+                                    WHERE (1 = 1 )
+                                        {0}
+                                      AND pm.ContractID IS NOT NULL
+                                    GROUP BY pm.ContractID
+                                ),
+                                PayPeriod AS (
+                                    SELECT
+                                        pm.ContractID,
+                                        SUM(pm.支付总额)          AS 期间已收款金额,
+                                        MAX(pm.支付日期)          AS 期间最后收款日期
+                                    FROM dbo.TW_PaymentMain pm
+                                    WHERE (1 = 1 )
+                                      AND pm.ContractID IS NOT NULL
+                                        {1}{2}
+                                    GROUP BY pm.ContractID
+                                )
+                                SELECT
+                                    c.客户名称,
+                                    c.合同编号,
+                                    c.签约日期,
+                                    ISNULL(pp.期间已收款金额, 0)                        AS 期间已收款金额,
+                                    pp.期间最后收款日期                                 AS 最后收款日期,
+                                    c.合同金额 - ISNULL(po.总已收款金额, 0)             AS 应收款金额,
+                                    c.合同金额,
+                                    po.总已收款金额 AS 累计已收款金额,
+                                    po.已收一次性服务费,
+									po.已收周期性服务费,    
+                                        newid() as CID,isnull(c.续签,0) as 续签  
+                                FROM dbo.TW_Contract c
+                                INNER JOIN PayPeriod pp ON c.ContractID = pp.ContractID       -- 仅含本期有收款的合同
+                                LEFT  JOIN PayOverall po ON c.ContractID = po.ContractID
+                                where 1=1 {3} 
+                                ORDER BY  c.合同编号";
+            strSql = string.Format(strSql, strpara, strpara, receiptDatePara, strpara2);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "VW_ReceivedPayment");
+            return dst;
+
+        }
+
+        /// <summary>
+        /// 查询一个时间段的已收款情况，包括：
+        /// 客户名称，合同编号，签约日期，期间已收款金额，期间最后收款日期，剩余应收款金额，期间涉及的做账会计(去重拼接),合同金额，累计已收款金额
+        /// </summary>
+        /// <param name="receiptDate1">支付日期</param>
+        /// <param name="receiptDate2">支付日期</param>
+        ///<param name="signDate1">签约日期</param>
+        ///<param name="signDate2">签约日期</param>
+        /// <param name="clientName"></param>
+        /// <param name="Accounting"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetReceivedPaymentByAccounting(string clientName, string Accounting, string receiptDate1, string receiptDate2, string signDate1, string signDate2)
+        {
+            string pm2Para = "AND ISNULL(p.做账会计, '') <> ''";
+            //Accounting不为空时
+            if (!string.IsNullOrWhiteSpace(Accounting))
+            {
+                pm2Para += "AND ISNULL(p.做账会计, '') = '" + Accounting + "'";
+            }
+            string clientPara = "";
+            if (!string.IsNullOrWhiteSpace(clientName))
+            {
+                pm2Para += "AND ISNULL(p.支付单位, '') LIKE '%" + clientName + "%'";
+            }
+
+            if (!string.IsNullOrWhiteSpace(receiptDate1) && !string.IsNullOrWhiteSpace(receiptDate2))
+            {
+                pm2Para += string.Format(" AND p.支付日期 >= '{0}' AND p.支付日期 <= '{1}' ", receiptDate1, receiptDate2);
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(receiptDate1))
+                {
+                    pm2Para += string.Format(" AND p.支付日期 >= '{0}' ", receiptDate1);
+                }
+                if (!string.IsNullOrWhiteSpace(receiptDate2))
+                {
+                    pm2Para += string.Format(" AND p.支付日期 <= '{0}' ", receiptDate2);
+                }
+            }
+
+            
+            string cPara = "";
+            if (!string.IsNullOrWhiteSpace(signDate1) && !string.IsNullOrWhiteSpace(signDate2))
+            {
+                cPara += string.Format(" AND c.签约日期 >= '{0}' AND c.签约日期 <= '{1}' ", signDate1, signDate2);
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(signDate1))
+                {
+                    cPara += string.Format(" AND c.签约日期 >= '{0}' ", signDate1);
+                }
+                if (!string.IsNullOrWhiteSpace(signDate2))
+                {
+                    cPara += string.Format(" AND c.签约日期 <= '{0}' ", signDate2);
+                }
+            }
+            if (!string.IsNullOrWhiteSpace(cPara))
+            {
+                cPara = "AND ISNULL(c.客户名称, '') LIKE '%" + clientName + "%'";
+            }
+
+
+            string strSql = @" SELECT 
+        c.合同编号,
+        c.客户名称,
+        c.签约日期,
+        c.合同金额,
+        SUM(p.支付总额) AS 累计已收款金额,
+        c.做账会计,
+        p.收款团队 as DEPTNAME,
+        c.业务员,
+        c.注册员,isnull(c.续签,0) 续签,
+        MAX(p.支付日期) AS 最后收款日期,
+        SUM(CASE WHEN p.一次性服务费 IS NOT NULL THEN p.一次性服务费 ELSE 0 END) AS 已收一次性服务费,
+        SUM(CASE WHEN p.周期性服务费 IS NOT NULL THEN p.周期性服务费 ELSE 0 END) AS 已收周期性服务费
+        FROM
+        TW_Contract c
+        JOIN TW_PaymentMain p ON c.ContractID = p.ContractID
+        WHERE
+        p.支付总额 > 0 {1} {2}
+        GROUP BY
+        c.合同编号,
+        c.客户名称,
+        c.签约日期,
+        c.合同金额,
+        c.做账会计,
+        p.收款团队,
+        c.业务员,
+        c.注册员,
+        c.续签
+        HAVING
+        SUM(p.支付总额) > 0
+        ORDER BY
+        合同编号 DESC ";
+            strSql = string.Format(strSql, clientPara, pm2Para,  cPara);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "VW_ReceivedPaymentAccounting");
+            return dst;
+        }
+
+        /// <summary>
+        /// 查询没有在注册表TW_BusinessReg中登记的合同
+        /// </summary>
+        /// <param name="clientName">客户名称</param>
+        /// <param name="signDate1">签约日期1</param>
+        /// <param name="signDate2">签约日期2</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetNoRegContract(string clientName, string signDate1, string signDate2)
+        {
+            string strSql = @"select * from [dbo].[VM_一次性服务合同明细]   
+where ContractID not in (select[TW_BusinessRegID]  from [dbo].[TW_BusinessReg])
+ {0}";
+            string strpara = "";
+            if (!string.IsNullOrWhiteSpace(signDate1))
+            {
+                strpara += string.Format(" AND 签约日期 >= '{0}' ", signDate1);
+            }
+            if (!string.IsNullOrWhiteSpace(signDate2))
+            {
+                strpara += string.Format(" AND 签约日期 <= '{0}' ", signDate2);
+            }
+            if (!string.IsNullOrWhiteSpace(clientName))
+            {
+                strpara += " AND ISNULL(客户名称, '') LIKE '%" + clientName + "%'";
+            }
+            strSql = string.Format(strSql, strpara);
+
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "VM_一次性服务合同明细");
+            return dst;
+        }
+
+        /// <summary>
+        /// 更新合同的注册员和注册员ID
+        /// </summary>
+        /// <param name="regId"></param>
+        [WebMethod]
+        public void UpdateRegName(string[] regId)
+        {
+            //TW_BusinessReg的TW_BusinessRegID与TW_Contract的ContractID关联,用TW_BusinessReg表的注册员和注册员ID更新TW_Contract表的注册员和注册员ID
+            string strSql = @"update TW_Contract set 注册员=a.注册员,注册员ID=a.注册员ID from TW_Contract b
+                            inner join TW_BusinessReg a on b.ContractID=a.TW_BusinessRegID
+                            where a.TW_BusinessRegID in ({0});";
+            string ids = "";
+            //将数组转换为逗号分隔的字符串
+            for (int i = 0; i < regId.Length; i++)
+            {
+                ids += "'" + regId[i] + "'";
+                if (i < regId.Length - 1)
+                {
+                    ids += ",";
+                }
+            }
+            strSql = string.Format(strSql, ids);
+            var db = ServiceManager.GetDatabase();
+            db.ExecuteNonQuery(strSql);
+
+
+        }
+
+        /// <summary>
+        /// 根据合同ID获取合同变更记录
+        /// </summary>
+        /// <param name="constractId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetContractChanged(string constractId)
+        {
+            string strSql = string.Format("select * from TW_ContractChanged where ContractID='{0}'", constractId);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_ContractChanged");
+            return dst;
+        }
+        /// <summary>
+        /// // 根据合同编号，客户名称，创建时间查询合同变更记录
+        /// </summary>
+        /// <param name="constractNo">合同编号</param>
+        /// <param name="clientName">客户名称</param>
+        /// <param name="beginDate">创建时间1</param>
+        /// <param name="endDate">创建时间2</param>
+        /// <param name="creater">创建人</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetTW_ContractChanged(string constractNo, string clientName, string beginDate, string endDate,string creater)
+        {
+            string strSql = "select * from TW_ContractChanged where 1=1 ";
+            if (!string.IsNullOrEmpty(constractNo))
+            {
+                strSql += string.Format(" and 合同编号='{0}'", constractNo);
+            }
+            if (!string.IsNullOrEmpty(clientName))
+            {
+                strSql += string.Format(" and 客户名称 like '%{0}%'", clientName);
+            }
+            if (!string.IsNullOrEmpty(beginDate))
+            {
+                strSql += string.Format(" and 创建时间>='{0}'", beginDate);
+            }
+            if (!string.IsNullOrEmpty(endDate))
+            {
+                strSql += string.Format(" and 创建时间<='{0}'", endDate);
+            }
+            if (!string.IsNullOrEmpty(creater))
+                {
+                strSql += string.Format(" and 创建人 = '{0}'", creater);
+            }
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_ContractChanged");
+            return dst;
+        }
+        /// <summary>
+        /// 根据客户名称查询客户信息
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetTW_ClientByClientName(string clientName)
+        {
+            string strSql = string.Format("select * from TW_Client where 客户名称='{0}'", clientName);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_Client");
+            return dst;
+        }
+        /// <summary>
+        /// 根据合同编号获取合同信息
+        /// </summary>
+        /// <param name="contractNo"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetContractByNo(string contractNo)
+        {
+            string strSql = string.Format("select * from TW_Contract where 合同编号='{0}'", contractNo);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_Contract");
+            string strSql2 = string.Format("select * from TW_ContractServiceInfo where ContractID in (select ContractID from TW_Contract where 合同编号='{0}')", contractNo);
+            db.FillEntity(strSql2, dst, "TW_ContractServiceInfo");
+            return dst;
+
+
+        }
+        /// <summary>
+        /// 查询收款支付主记录，根据合同ID
+        /// </summary>
+        /// <param name="contractId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetPaymentMainByContractId(string contractId)
+        {
+            string strSql = string.Format("select * from TW_PaymentMain where ContractID='{0}'", contractId);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_PaymentMain");
+            return dst;
+        }
+        /// <summary>
+        /// 查询合同服务信息，根据客户名称ID
+        /// </summary>
+        /// <param name="ClientId">客户名称ID</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetContractInfoByClientId(string ClientId)
+        {
+            string strSql = string.Format("select * from TW_ContractServiceInfo where 客户名称ID='{0}' order by 结束服务月 desc", ClientId);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_ContractServiceInfo");
+            return dst;
+        }
+        /// <summary>
+        /// 查询最后一个签约的合同信息
+        /// </summary>
+        /// <param name="ClientId"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetLastContractByClientId(string ClientId)
+        {
+            string strSql = string.Format("select top 1 * from TW_Contract where 客户名称ID='{0}' order by 签约日期 desc", ClientId);
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "TW_Contract");
+            return dst;
+
+        }
+        /// <summary>
+        /// 查询合同已经到期，但没有签订新合同的合同
+        /// </summary>
+        /// <param name="clientName">客户名称</param>
+        /// <param name="endDate">服务到期月</param>
+        /// <param name="Accounting">做账会计</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetNoSignContract(string clientName, string endDate, string Accounting)
+        {
+            string strSql = string.Format(@"  SELECT a.[ContractID]
+      ,a.[客户名称ID]
+      ,a.[服务类别]
+      ,a.[服务分类]
+      ,a.[服务类型]
+      ,a.[服务金额]
+      ,a.[服务期限月]
+      ,a.[开始服务月]
+      ,a.[结束服务月]
+      ,a.[赠送时长月]
+      ,a.[服务总时长月]
+      ,a.[创建人]
+      ,a.[创建时间]
+      ,a.[最后修改人]
+      ,a.[最后修改时间]
+      ,a.[ContractServiceInfoID]
+      ,a.[服务项目] 
+      ,c.合同编号
+      ,c.客户名称
+      ,c.签约日期
+      ,c.合同金额
+      ,c.做账会计
+      ,c.做账会计ID
+      ,c.联系人
+      ,c.联系人联系方式
+      FROM [dbo].[TW_ContractServiceInfo] a
+      join TW_Contract c
+      on a.ContractID=c.ContractID
+      LEFT JOIN [dbo].[TW_ContractServiceInfo] b
+      ON a.客户名称ID=b.客户名称ID
+      AND b.服务类别='周期性服务'
+      AND b.开始服务月>a.结束服务月
+      WHERE a.服务类别='周期性服务'
+      AND a.结束服务月<='{0}'
+      AND b.ContractServiceInfoID IS NULL", endDate);
+            if (!string.IsNullOrWhiteSpace(clientName))
+            {
+                strSql += " AND ISNULL(c.客户名称, '') LIKE '%" + clientName + "%'";
+            }
+            if (!string.IsNullOrWhiteSpace(Accounting))
+            {
+                strSql += " AND ISNULL(c.做账会计, '') = '" + Accounting + "'";
+            }
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "NoSignContract");
+            return dst;
+        }
+
+
+
+        /// <summary>
+        /// 查询一个时间段内，新签订或者续签的周期类服务合同
+        /// </summary>
+        /// <param name="startDate">合同签订开始时间</param>
+        /// <param name="endDate">合同签订结束时间</param>
+        /// <param name="Accounting">做账会计</param>
+        /// <param name="signState">合同续签状态,true false</param>
+        /// <returns></returns>
+        [WebMethod]
+        public DataSet GetNewCycleContract(string startDate, string endDate, string Accounting,string signState)
+        {
+            string strSql =string.Format(@" SELECT a.[ContractID]
+      ,a.[客户名称ID]
+      ,a.[服务类别]
+      ,a.[服务分类]
+      ,a.[服务类型]
+      ,a.[服务金额]
+      ,a.[服务期限月]
+      ,a.[开始服务月]
+      ,a.[结束服务月]
+      ,a.[赠送时长月]
+      ,a.[服务总时长月]
+      ,a.[创建人]
+      ,a.[创建时间]
+      ,a.[最后修改人]
+      ,a.[最后修改时间]
+      ,a.[ContractServiceInfoID]
+      ,a.[服务项目] 
+      ,c.合同编号
+      ,c.客户名称
+      ,c.签约日期
+      ,c.合同金额
+      ,c.做账会计
+      ,c.做账会计ID
+      ,c.联系人
+      ,c.联系人联系方式,isnull(c.续签,0) as 续签
+      FROM [dbo].[TW_ContractServiceInfo] a
+      join TW_Contract c
+      on a.ContractID=c.ContractID
+      WHERE a.服务类别='周期性服务'
+      AND c.签约日期>='{0}'
+      AND c.签约日期<='{1}' ", startDate, endDate);
+
+            if (!string.IsNullOrWhiteSpace(Accounting))
+            {
+                strSql += " AND ISNULL(c.做账会计, '') = '" + Accounting + "'";
+            }
+            if(signState=="续签")
+            {
+                strSql += " AND ISNULL(c.续签, 0) = 1 ";
+            }
+            else if (signState=="新签")
+            {
+                strSql += " AND ISNULL(c.续签, 0) = 0 ";
+            }
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "NewCycleContract");
+            return dst;
+
+        }
+
+        /// <summary>
+        /// 根据服务起始月，客户名称，客户ID，合同ID，更新合同的付款记录的做账会计名称和做账会计ID
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="accountName"></param>
+        /// <param name="accountId"></param>
+        /// <param name="contractNo"></param>
+        /// <param name="clientId"></param>
+        [WebMethod]
+        public void UpdatePaymentAccount(string startDate,string accountName,string accountId,string contractNo,string clientId)
+        {
+            string strSql = @" update TW_Payment
+    set 做账会计='{0}',做账会计ID='{1}'
+    where 上次到期月份>='{2}' and 客户名称ID='{3}' and 合同编号='{4}'";
+            strSql = string.Format(strSql, accountName, accountId, startDate, clientId, contractNo);
+            var db = ServiceManager.GetDatabase();
+            string strSql2 = @"update [TW_PaymentMain]
+set 做账会计='{0}',做账会计ID='{1}'
+where 上次到期月份>='{2}' and 客户名称ID='{3}' and 合同编号='{4}'";
+            strSql2 = string.Format(strSql2,accountName,accountId, startDate, clientId, contractNo);
+
+            db.BeginTrans();
+            db.ExecuteNonQuery(strSql);
+
+           
+            db.ExecuteNonQuery(strSql2);
+            db.CommitTrans();
+
+
+        }
+        [WebMethod]
+        public string ImpContract()
+        {
+            //查询每个客户最后一次的付款记录
+            string strSql = @"SELECT c.客户名称ID,
+       c.支付单位,
+       p.[TW_PaymentID],
+       p.支付日期,
+       p.支付总额,
+       p.收款类别,p.做账会计,p.做账会计ID,
+       p.备注,p.缴费月数,p.上次到期月份,p.本次到期月份,p.注册员
+       ,p.注册员ID,p.业务员,p.业务员ID,月做账费
+       ,p.工本费,p.开票费
+FROM (
+    -- 客户维度（从付款表去重得到客户列表；也可改为从客户表）
+    SELECT DISTINCT 客户名称ID, 支付单位
+    FROM [dbo].[TW_PaymentMain] 
+) AS c
+CROSS APPLY (
+    SELECT TOP (1) pm.*
+    FROM [dbo].[TW_PaymentMain] pm
+    WHERE pm.客户名称ID = c.客户名称ID and  [本次到期月份]>'2025-1-1' and 支付总额>0
+    ORDER BY pm.支付日期 DESC, pm.[TW_PaymentID] DESC
+) AS p ORDER by p.做账会计,p.支付日期";
+
+            var db = ServiceManager.GetDatabase();
+            DataSet dst = db.GetEntity(strSql, "LastPayment");
+            strSql = "select * from TW_Contract";
+            db.FillEntity(strSql, dst, "TW_Contract");
+            strSql = "select * from TW_ContractServiceInfo";
+            db.FillEntity(strSql, dst, "TW_ContractServiceInfo");
+            //将最后一笔付款记录，生成新的合同记录
+            //合同的签约日期为付款记录的支付日期
+            //合同开始服务月为付款记录的上次到期月份
+            //合同的结束服务月为2026-12-31
+            //服务类别为周期性服务，服务分类为财税，服务类型为代理记账
+            //服务总时长=结束服务月-开始服务月
+            //服务金额为月做账费
+            //合同金额=服务总时长*服务金额
+            //备注=TW_PaymentID,续签=1
+            //工本费=工本费
+            //开票费=开票费
+            int seq= 1;
+            foreach (DataRow dr in dst.Tables["LastPayment"].Rows)
+            {
+                string contractId = Guid.NewGuid().ToString();
+                string clientId = dr["客户名称ID"].ToString();
+                string signDate = "";
+                string startServiceMonth = "";
+                string endServiceMonth = "2026-12-31";
+                //判断本次到期月份是否大于2025-12-31，如果大于，合同开始服务月为上次到期月份+1个月
+                //如果小于等于2025-12-31，合同开始服务月为付款记录的上次到期月份
+                DateTime endDate = Convert.ToDateTime(dr["本次到期月份"]);
+                string remark = "";
+                if (endDate <= Convert.ToDateTime("2025-12-31"))
+                {
+                    startServiceMonth = endDate.AddMonths(1).Year + "-" + endDate.AddMonths(1).Month + "-01";
+                    signDate = startServiceMonth;
+                }
+                else
+                {
+                    signDate = Convert.ToDateTime(dr["支付日期"]).ToString("yyyy-MM-dd");
+                    startServiceMonth = Convert.ToDateTime(dr["上次到期月份"]).ToString("yyyy-MM-dd");
+                    remark = dr["TW_PaymentID"].ToString();
+                }
+
+                int serviceTotalMonths = ((2026 - Convert.ToDateTime(startServiceMonth).Year) * 12 + (12 - Convert.ToDateTime(startServiceMonth).Month))+1;
+                decimal serviceAmount = Convert.ToDecimal(dr["月做账费"]);
+                decimal contractAmount = serviceTotalMonths * serviceAmount;
+                
+                var TW_Contract = dst.Tables["TW_Contract"];
+                var TW_ContractServiceInfo = dst.Tables["TW_ContractServiceInfo"];
+                DataRow newContractRow = TW_Contract.NewRow();
+                newContractRow["ContractID"] = contractId;
+                newContractRow["客户名称ID"] = clientId;
+                //生成一个新的合同编号，格式为：四位年份 + 四位流水号。
+                string seqNO = seq.ToString().PadLeft(4, '0');
+                newContractRow["合同编号"] = DateTime.Now.Year.ToString() +seqNO;
+                seq++;
+                newContractRow["客户名称"] = dr["支付单位"];
+                newContractRow["签约日期"] = signDate;
+                newContractRow["合同金额"] = contractAmount;
+                newContractRow["定金金额"] = 0;
+                newContractRow["客户单价"]= serviceAmount;
+                newContractRow["做账会计"] = dr["做账会计"];
+                newContractRow["做账会计ID"] = dr["做账会计ID"];
+                newContractRow["注册员"]= dr["注册员"];
+                newContractRow["注册员ID"] = dr["注册员ID"];
+                newContractRow["业务员"] = dr["业务员"];
+                newContractRow["业务员ID"] = dr["业务员ID"];
+                newContractRow["联系人"] = "";
+                newContractRow["联系人联系方式"] = "";
+                newContractRow["备注"] = remark;
+                newContractRow["续签"] = 1;
+                newContractRow["工本费"] = dr["工本费"];
+                newContractRow["开票费"] = dr["开票费"];
+                newContractRow["创建人"] = "system";
+                newContractRow["创建时间"] = DateTime.Now;
+
+                TW_Contract.Rows.Add(newContractRow);
+                DataRow newServiceInfoRow = TW_ContractServiceInfo.NewRow();
+                newServiceInfoRow["ContractServiceInfoID"] = Guid.NewGuid().ToString();
+                newServiceInfoRow["ContractID"] = contractId;
+                newServiceInfoRow["客户名称ID"] = clientId;
+                newServiceInfoRow["服务类别"] = "周期性服务";
+                newServiceInfoRow["服务分类"] = "财税";
+                newServiceInfoRow["服务类型"] = "代理记账";
+                newServiceInfoRow["服务金额"] = serviceAmount;
+                newServiceInfoRow["服务期限月"] = serviceTotalMonths;
+                newServiceInfoRow["开始服务月"] = startServiceMonth;
+                newServiceInfoRow["结束服务月"] = endServiceMonth;
+                newServiceInfoRow["赠送时长月"] = 0;
+                newServiceInfoRow["服务总时长月"] = serviceTotalMonths;
+                newServiceInfoRow["服务项目"] = "代理记账";
+                newServiceInfoRow["创建人"] = "system";
+                newServiceInfoRow["创建时间"] = DateTime.Now;
+                TW_ContractServiceInfo.Rows.Add(newServiceInfoRow);
+
+            }
+            db.BeginTrans();
+            db.StoreTable(dst.Tables["TW_Contract"]);
+            db.StoreTable(dst.Tables["TW_ContractServiceInfo"]);
+            db.CommitTrans();   
+            return "成功生成"+ dst.Tables["LastPayment"].Rows.Count+"条合同记录" ;
+
+
         }
 
     }

@@ -221,8 +221,8 @@ namespace WangDaDll
                         fileStream.Seek(0, SeekOrigin.Begin);
                         Byte[] fileByte = new Byte[(int)fileStream.Length]; //转换字节流
                         fileStream.Read(fileByte, 0, fileByte.Length);
-                        dataset.AddImage(fileByte, fileName, fileType, fkID);
-                        dataset.SaveImage();
+                        dataset.AddFile(fileByte, fileName, fileType, fkID);
+                        dataset.SaveFile();
                     }
                 }
             }
@@ -256,7 +256,7 @@ namespace WangDaDll
                         if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                         {
                             string fileName = saveFileDialog.FileName;
-                            byte[] bfile = dataset.GetImageByID(fileID);
+                            byte[] bfile = dataset.GetFileByID(fileID);
                             File.WriteAllBytes(fileName, bfile);
                         }
                     }
@@ -286,7 +286,7 @@ namespace WangDaDll
                 if (tF_FILEBindingSource.Current != null)
                 {
                     tF_FILEBindingSource.RemoveCurrent();
-                    this.fileDataSet.SaveImage();
+                    this.fileDataSet.SaveFile();
                 }
 
             }
@@ -311,7 +311,7 @@ namespace WangDaDll
                     UserMessages.ShowInfoBox("公司名称不存在客户信息中！");
                     return;
                 }
-                fileDataSet.GetImage(fkID);
+                fileDataSet.GetFile(fkID);
             }
             catch (Exception ex)
             {
@@ -325,7 +325,7 @@ namespace WangDaDll
             {
                 DataRowView rv = this.tF_FILEBindingSource.Current as DataRowView;
                 string fileID = rv["FileID"].ToString();
-                var image = fileDataSet.GetImageByID(fileID);
+                var image = fileDataSet.GetFileByID(fileID);
                 FrmImageView frmImgView = new FrmImageView();
                 frmImgView.ImageBytes = image;
                 frmImgView.ShowDialog();

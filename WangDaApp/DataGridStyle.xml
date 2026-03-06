@@ -1,0 +1,220 @@
+﻿<XtraSerializer version="1.0" application="Appearances">
+  <property name="FilterCloseButton" iskey="true" value="FilterCloseButton">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBorderColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BorderColor">221, 236, 254</property>
+    <property name="BackColor">221, 236, 254</property>
+    <property name="BackColor2">132, 171, 228</property>
+    <property name="GradientMode">Vertical</property>
+  </property>
+  <property name="SelectedRow" iskey="true" value="SelectedRow">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="ForeColor">White</property>
+    <property name="BackColor">69, 126, 217</property>
+    <property name="Font">Tahoma, 11pt</property>
+  </property>
+  <property name="HideSelectionRow" iskey="true" value="HideSelectionRow">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="ForeColor">208, 224, 251</property>
+    <property name="BackColor">106, 153, 228</property>
+    <property name="Font">Tahoma, 11pt</property>
+  </property>
+  <property name="OddRow" iskey="true" value="OddRow">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BackColor">White</property>
+  </property>
+  <property name="RowSeparator" iskey="true" value="RowSeparator">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="BackColor">White</property>
+  </property>
+  <property name="HorzLine" iskey="true" value="HorzLine">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="BackColor">99, 127, 196</property>
+  </property>
+  <property name="FocusedCell" iskey="true" value="FocusedCell">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BackColor">White</property>
+    <property name="Font">Tahoma, 11pt</property>
+  </property>
+  <property name="ColumnFilterButtonActive" iskey="true" value="ColumnFilterButtonActive">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBorderColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BorderColor">247, 251, 255</property>
+    <property name="BackColor">247, 251, 255</property>
+    <property name="BackColor2">154, 190, 243</property>
+    <property name="GradientMode">Vertical</property>
+  </property>
+  <property name="EvenRow" iskey="true" value="EvenRow">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BackColor">231, 242, 254</property>
+  </property>
+  <property name="GroupButton" iskey="true" value="GroupButton">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBorderColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BorderColor">193, 216, 247</property>
+    <property name="BackColor">193, 216, 247</property>
+  </property>
+  <property name="FilterPanel" iskey="true" value="FilterPanel">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">White</property>
+    <property name="BackColor">62, 109, 185</property>
+  </property>
+  <property name="FocusedRow" iskey="true" value="FocusedRow">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="ForeColor">White</property>
+    <property name="BackColor">49, 106, 197</property>
+    <property name="Font">Tahoma, 11pt</property>
+  </property>
+  <property name="GroupRow" iskey="true" value="GroupRow">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBorderColor">true</property>
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BorderColor">193, 216, 247</property>
+    <property name="BackColor">193, 216, 247</property>
+    <property name="Font">Tahoma, 11.25pt, style=Bold</property>
+  </property>
+  <property name="GroupPanel" iskey="true" value="GroupPanel">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">221, 236, 254</property>
+    <property name="BackColor">62, 109, 185</property>
+  </property>
+  <property name="ColumnFilterButton" iskey="true" value="ColumnFilterButton">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBorderColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BorderColor">221, 236, 254</property>
+    <property name="BackColor">221, 236, 254</property>
+    <property name="BackColor2">132, 171, 228</property>
+    <property name="GradientMode">Vertical</property>
+  </property>
+  <property name="Empty" iskey="true" value="Empty">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="BackColor">White</property>
+    <property name="Font">Tahoma, 10.5pt</property>
+  </property>
+  <property name="Row" iskey="true" value="Row">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BackColor">White</property>
+    <property name="Font">Tahoma, 10.5pt</property>
+  </property>
+  <property name="FixedLine" iskey="true" value="FixedLine">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="BackColor">59, 97, 156</property>
+  </property>
+  <property name="GroupFooter" iskey="true" value="GroupFooter">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBorderColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BorderColor">193, 216, 247</property>
+    <property name="BackColor">193, 216, 247</property>
+  </property>
+  <property name="VertLine" iskey="true" value="VertLine">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="BackColor">99, 127, 196</property>
+  </property>
+  <property name="HeaderPanel" iskey="true" value="HeaderPanel">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBorderColor">true</property>
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BorderColor">221, 236, 254</property>
+    <property name="BackColor">221, 236, 254</property>
+    <property name="BackColor2">132, 171, 228</property>
+    <property name="Font">Tahoma, 11pt</property>
+    <property name="GradientMode">Vertical</property>
+  </property>
+  <property name="FooterPanel" iskey="true" value="FooterPanel">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBorderColor">true</property>
+      <property name="UseBackColor">true</property>
+      <property name="UseFont">true</property>
+    </property>
+    <property name="ForeColor">Black</property>
+    <property name="BorderColor">221, 236, 254</property>
+    <property name="BackColor">221, 236, 254</property>
+    <property name="BackColor2">132, 171, 228</property>
+    <property name="Font">Tahoma, 10.5pt</property>
+    <property name="GradientMode">Vertical</property>
+  </property>
+  <property name="Preview" iskey="true" value="Preview">
+    <property name="Options" isnull="true" iskey="true">
+      <property name="UseForeColor">true</property>
+      <property name="UseBackColor">true</property>
+    </property>
+    <property name="ForeColor">88, 129, 185</property>
+    <property name="BackColor">249, 252, 255</property>
+  </property>
+</XtraSerializer>

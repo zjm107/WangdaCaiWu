@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Utils.DPI;
+using System;
 using System.Data;
 using Tiger.Tools;
 namespace WangDaDll.Common
@@ -7,6 +8,10 @@ namespace WangDaDll.Common
 
     partial class CsDataSet
     {
+        partial class TW_ClientDataTable
+        {
+        }
+
         /// <summary>
         /// 更新业务员信息
         /// </summary>
@@ -41,6 +46,27 @@ namespace WangDaDll.Common
                 throw ex;
             }
         }
+        /// <summary>
+        /// 查询待审批的流失客户
+        /// </summary>
+        /// <param name="clientName"></param>
+        /// <param name="clientType"></param>
+        /// <param name="accountant"></param>
+        /// <param name="spState">审批状态</param>
+        public void GetClientInfoSP(string clientName, string clientType,string accountant, string spState)
+        {
+            try
+            {
+                DataSet dst = DBHelper.WangDaSer.GetClientInfoSP(clientName, clientType,   accountant, spState);
+                DataManager.ImpDataSet(dst.Tables[0], this.tableTW_Client);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         /// <summary>
         /// 同步注册信息和客户信息
@@ -127,6 +153,35 @@ namespace WangDaDll.Common
                 TW_Client.AcceptChanges();
             }
 
+        }
+
+        /// <summary>
+        /// 审批流失客户
+        /// </summary>
+        /// <param name="approvalType">审批类型：审批，终审</param>
+        /// <param name="clientId">客户ID</param>
+        public void ApprovalChurn(string approvalType, string clientId)
+        {
+            var cRow = this.TW_Client.FindBy客户名称ID(clientId);
+            if (cRow != null)
+            {
+                {
+                    if (approvalType == "审批")
+                    {
+                        cRow.流失审批状态 = "待终审";
+                        cRow.流失审批人 = Security.UserName;
+                        cRow.流失审批时间 = DateTime.Now;
+                    }
+                    else if (approvalType == "终审")
+                    {
+                        cRow.流失审批状态 = "已终审";
+                        cRow.流失终审人 = Security.UserName;
+                        cRow.流失终审时间 = DateTime.Now;
+                    }
+
+                }
+            }
+           
         }
 
 

@@ -1,19 +1,8 @@
+using DevExpress.XtraBars;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.Skins;
-using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraBars.Ribbon.Gallery;
-using DevExpress.Utils.Drawing;
-using DevExpress.Utils;
 using Tiger.PdrCommon;
 using Tiger.Tools;
-using DevExpress.XtraBars;
 using WangDaDll;
 
 namespace WangDaApp
@@ -166,7 +155,7 @@ namespace WangDaApp
                     Application.ExitThread();
                     throw new Exception("菜单配置失败：" + ex.Message);
                 }
-                Application.Idle += new EventHandler(Application_Idle);
+                //Application.Idle += new EventHandler(Application_Idle);
 
 
 
@@ -209,23 +198,23 @@ namespace WangDaApp
            
         }
 
-        void Application_Idle(object sender, EventArgs e)
-        {
-            try {
-                if (ActiveMdiChild != null)
-                {
-                    Form bForm = ActiveMdiChild as Form;
-                    if (bForm!=null)
-                    {
+        //void Application_Idle(object sender, EventArgs e)
+        //{
+        //    try {
+        //        if (ActiveMdiChild != null)
+        //        {
+        //            Form bForm = ActiveMdiChild as Form;
+        //            if (bForm!=null)
+        //            {
                       
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("刷新窗体出错："+ex.Message);
-            }
-        }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine("刷新窗体出错："+ex.Message);
+        //    }
+        //}
 
         /// <summary>
         /// 系统菜单树

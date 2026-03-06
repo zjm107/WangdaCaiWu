@@ -45,28 +45,18 @@ namespace WangDaDll
             this.col公司预核名称 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col业务员 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col注册费 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col图章 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col银行 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col其他 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col注册利润 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col月做账费 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col工本费 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col开票费 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col开始时间 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col预计注册完成时间 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col备注 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col登记日期 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col办理成本 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col年做账费 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col注册员 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col做账会计 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col收款情况 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col工本费收款额 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col开票费收款额 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col收款日期 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col注册费收款额 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col做账到期月 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col做账费收款额 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col注册进度 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col注册类型 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col已收款金额 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col欠款金额 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.是否收款comboBoxEdit = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -114,15 +104,17 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.是否收款comboBoxEdit);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1133, 785);
+            this.layoutControl1.Size = new System.Drawing.Size(969, 571);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(105, 12);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(89, 22);
             this.btnClear.StyleController = this.layoutControl1;
@@ -133,6 +125,7 @@ namespace WangDaDll
             // btnQuery
             // 
             this.btnQuery.Location = new System.Drawing.Point(12, 12);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(89, 22);
             this.btnQuery.StyleController = this.layoutControl1;
@@ -143,6 +136,7 @@ namespace WangDaDll
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(198, 12);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(89, 22);
             this.btnOK.StyleController = this.layoutControl1;
@@ -153,6 +147,7 @@ namespace WangDaDll
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(291, 12);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(89, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -162,17 +157,19 @@ namespace WangDaDll
             // 
             // 公司预核名称TextEdit
             // 
-            this.公司预核名称TextEdit.Location = new System.Drawing.Point(316, 38);
+            this.公司预核名称TextEdit.Location = new System.Drawing.Point(325, 38);
+            this.公司预核名称TextEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.公司预核名称TextEdit.Name = "公司预核名称TextEdit";
-            this.公司预核名称TextEdit.Size = new System.Drawing.Size(132, 20);
+            this.公司预核名称TextEdit.Size = new System.Drawing.Size(207, 20);
             this.公司预核名称TextEdit.StyleController = this.layoutControl1;
             this.公司预核名称TextEdit.TabIndex = 10;
             // 
             // 业务员TextEdit
             // 
-            this.业务员TextEdit.Location = new System.Drawing.Point(536, 38);
+            this.业务员TextEdit.Location = new System.Drawing.Point(629, 38);
+            this.业务员TextEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.业务员TextEdit.Name = "业务员TextEdit";
-            this.业务员TextEdit.Size = new System.Drawing.Size(138, 20);
+            this.业务员TextEdit.Size = new System.Drawing.Size(129, 20);
             this.业务员TextEdit.StyleController = this.layoutControl1;
             this.业务员TextEdit.TabIndex = 7;
             // 
@@ -180,17 +177,19 @@ namespace WangDaDll
             // 
             this.vW_PaymentDetailGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.vW_PaymentDetailGridControl.DataSource = this.vW_PaymentDetailBindingSource;
+            this.vW_PaymentDetailGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(562, 144, 562, 144);
             this.vW_PaymentDetailGridControl.Location = new System.Drawing.Point(12, 62);
             this.vW_PaymentDetailGridControl.MainView = this.gridView1;
+            this.vW_PaymentDetailGridControl.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.vW_PaymentDetailGridControl.Name = "vW_PaymentDetailGridControl";
-            this.vW_PaymentDetailGridControl.Size = new System.Drawing.Size(1109, 711);
+            this.vW_PaymentDetailGridControl.Size = new System.Drawing.Size(945, 497);
             this.vW_PaymentDetailGridControl.TabIndex = 5;
             this.vW_PaymentDetailGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // vW_PaymentDetailBindingSource
             // 
-            this.vW_PaymentDetailBindingSource.DataMember = "VW_PaymentDetail";
+            this.vW_PaymentDetailBindingSource.DataMember = "VW_BusinessRegNoPay";
             this.vW_PaymentDetailBindingSource.DataSource = this.proceedsDataSet;
             // 
             // proceedsDataSet
@@ -314,28 +313,18 @@ namespace WangDaDll
             this.col公司预核名称,
             this.col业务员,
             this.col注册费,
-            this.col图章,
-            this.col银行,
-            this.col其他,
-            this.col注册利润,
-            this.col月做账费,
             this.col工本费,
             this.col开票费,
             this.col开始时间,
             this.col预计注册完成时间,
             this.col备注,
             this.col登记日期,
-            this.col办理成本,
-            this.col年做账费,
             this.col注册员,
             this.col做账会计,
-            this.col收款情况,
-            this.col工本费收款额,
-            this.col开票费收款额,
-            this.col收款日期,
-            this.col注册费收款额,
-            this.col做账到期月,
-            this.col做账费收款额});
+            this.col注册进度,
+            this.col注册类型,
+            this.col已收款金额,
+            this.col欠款金额});
             this.gridView1.GridControl = this.vW_PaymentDetailGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 30;
@@ -353,15 +342,14 @@ namespace WangDaDll
             this.col公司预核名称.Caption = "公司名称";
             this.col公司预核名称.FieldName = "公司预核名称";
             this.col公司预核名称.Name = "col公司预核名称";
-            this.col公司预核名称.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col公司预核名称.Visible = true;
             this.col公司预核名称.VisibleIndex = 1;
+            this.col公司预核名称.Width = 288;
             // 
             // col业务员
             // 
             this.col业务员.FieldName = "业务员";
             this.col业务员.Name = "col业务员";
-            this.col业务员.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col业务员.Visible = true;
             this.col业务员.VisibleIndex = 2;
             // 
@@ -370,116 +358,59 @@ namespace WangDaDll
             this.col注册费.Caption = "注册/一次性业务费";
             this.col注册费.FieldName = "注册费";
             this.col注册费.Name = "col注册费";
-            this.col注册费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col注册费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "注册费", "{0:0.##}")});
             this.col注册费.Visible = true;
             this.col注册费.VisibleIndex = 5;
             // 
-            // col图章
-            // 
-            this.col图章.FieldName = "图章";
-            this.col图章.Name = "col图章";
-            this.col图章.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            // 
-            // col银行
-            // 
-            this.col银行.FieldName = "银行";
-            this.col银行.Name = "col银行";
-            this.col银行.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            // 
-            // col其他
-            // 
-            this.col其他.FieldName = "其他";
-            this.col其他.Name = "col其他";
-            this.col其他.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            // 
-            // col注册利润
-            // 
-            this.col注册利润.FieldName = "注册利润";
-            this.col注册利润.Name = "col注册利润";
-            this.col注册利润.OptionsColumn.ReadOnly = true;
-            this.col注册利润.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            // 
-            // col月做账费
-            // 
-            this.col月做账费.FieldName = "月做账费";
-            this.col月做账费.Name = "col月做账费";
-            this.col月做账费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col月做账费.Visible = true;
-            this.col月做账费.VisibleIndex = 7;
-            // 
             // col工本费
             // 
             this.col工本费.FieldName = "工本费";
             this.col工本费.Name = "col工本费";
-            this.col工本费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col工本费.Visible = true;
-            this.col工本费.VisibleIndex = 11;
+            this.col工本费.VisibleIndex = 8;
             // 
             // col开票费
             // 
             this.col开票费.FieldName = "开票费";
             this.col开票费.Name = "col开票费";
-            this.col开票费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col开票费.Visible = true;
-            this.col开票费.VisibleIndex = 13;
+            this.col开票费.VisibleIndex = 9;
             // 
             // col开始时间
             // 
             this.col开始时间.FieldName = "开始时间";
             this.col开始时间.Name = "col开始时间";
-            this.col开始时间.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col开始时间.Visible = true;
-            this.col开始时间.VisibleIndex = 15;
+            this.col开始时间.VisibleIndex = 10;
             // 
             // col预计注册完成时间
             // 
             this.col预计注册完成时间.Caption = "预计完成时间";
             this.col预计注册完成时间.FieldName = "预计注册完成时间";
             this.col预计注册完成时间.Name = "col预计注册完成时间";
-            this.col预计注册完成时间.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col预计注册完成时间.Visible = true;
-            this.col预计注册完成时间.VisibleIndex = 16;
+            this.col预计注册完成时间.VisibleIndex = 11;
             this.col预计注册完成时间.Width = 116;
             // 
             // col备注
             // 
             this.col备注.FieldName = "备注";
             this.col备注.Name = "col备注";
-            this.col备注.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col备注.Visible = true;
-            this.col备注.VisibleIndex = 18;
+            this.col备注.VisibleIndex = 12;
             // 
             // col登记日期
             // 
             this.col登记日期.FieldName = "登记日期";
             this.col登记日期.Name = "col登记日期";
-            this.col登记日期.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col登记日期.Visible = true;
-            this.col登记日期.VisibleIndex = 19;
-            // 
-            // col办理成本
-            // 
-            this.col办理成本.FieldName = "办理成本";
-            this.col办理成本.Name = "col办理成本";
-            this.col办理成本.OptionsColumn.ReadOnly = true;
-            this.col办理成本.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            // 
-            // col年做账费
-            // 
-            this.col年做账费.FieldName = "年做账费";
-            this.col年做账费.Name = "col年做账费";
-            this.col年做账费.OptionsColumn.ReadOnly = true;
-            this.col年做账费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col年做账费.Visible = true;
-            this.col年做账费.VisibleIndex = 8;
+            this.col登记日期.VisibleIndex = 13;
             // 
             // col注册员
             // 
             this.col注册员.FieldName = "注册员";
             this.col注册员.Name = "col注册员";
-            this.col注册员.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col注册员.Visible = true;
             this.col注册员.VisibleIndex = 3;
             // 
@@ -487,83 +418,49 @@ namespace WangDaDll
             // 
             this.col做账会计.FieldName = "做账会计";
             this.col做账会计.Name = "col做账会计";
-            this.col做账会计.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col做账会计.Visible = true;
             this.col做账会计.VisibleIndex = 4;
             // 
-            // col收款情况
+            // col注册进度
             // 
-            this.col收款情况.FieldName = "收款情况";
-            this.col收款情况.Name = "col收款情况";
-            this.col收款情况.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
+            this.col注册进度.FieldName = "注册进度";
+            this.col注册进度.Name = "col注册进度";
+            this.col注册进度.Visible = true;
+            this.col注册进度.VisibleIndex = 14;
             // 
-            // col工本费收款额
+            // col注册类型
             // 
-            this.col工本费收款额.FieldName = "工本费收款额";
-            this.col工本费收款额.Name = "col工本费收款额";
-            this.col工本费收款额.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col工本费收款额.Visible = true;
-            this.col工本费收款额.VisibleIndex = 12;
-            this.col工本费收款额.Width = 92;
+            this.col注册类型.FieldName = "注册类型";
+            this.col注册类型.Name = "col注册类型";
+            this.col注册类型.Visible = true;
+            this.col注册类型.VisibleIndex = 15;
             // 
-            // col开票费收款额
+            // col已收款金额
             // 
-            this.col开票费收款额.FieldName = "开票费收款额";
-            this.col开票费收款额.Name = "col开票费收款额";
-            this.col开票费收款额.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col开票费收款额.Visible = true;
-            this.col开票费收款额.VisibleIndex = 14;
-            this.col开票费收款额.Width = 92;
+            this.col已收款金额.FieldName = "已收款金额";
+            this.col已收款金额.Name = "col已收款金额";
+            this.col已收款金额.Visible = true;
+            this.col已收款金额.VisibleIndex = 6;
             // 
-            // col收款日期
+            // col欠款金额
             // 
-            this.col收款日期.FieldName = "收款日期";
-            this.col收款日期.Name = "col收款日期";
-            this.col收款日期.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col收款日期.Visible = true;
-            this.col收款日期.VisibleIndex = 17;
-            // 
-            // col注册费收款额
-            // 
-            this.col注册费收款额.Caption = "已收款";
-            this.col注册费收款额.FieldName = "注册费收款额";
-            this.col注册费收款额.Name = "col注册费收款额";
-            this.col注册费收款额.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col注册费收款额.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "注册费收款额", "{0:0.##}")});
-            this.col注册费收款额.Visible = true;
-            this.col注册费收款额.VisibleIndex = 6;
-            this.col注册费收款额.Width = 92;
-            // 
-            // col做账到期月
-            // 
-            this.col做账到期月.FieldName = "做账到期月";
-            this.col做账到期月.Name = "col做账到期月";
-            this.col做账到期月.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col做账到期月.Visible = true;
-            this.col做账到期月.VisibleIndex = 10;
-            this.col做账到期月.Width = 80;
-            // 
-            // col做账费收款额
-            // 
-            this.col做账费收款额.FieldName = "做账费收款额";
-            this.col做账费收款额.Name = "col做账费收款额";
-            this.col做账费收款额.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col做账费收款额.Visible = true;
-            this.col做账费收款额.VisibleIndex = 9;
-            this.col做账费收款额.Width = 92;
+            this.col欠款金额.FieldName = "欠款金额";
+            this.col欠款金额.Name = "col欠款金额";
+            this.col欠款金额.Visible = true;
+            this.col欠款金额.VisibleIndex = 7;
             // 
             // 是否收款comboBoxEdit
             // 
             this.是否收款comboBoxEdit.EditValue = "未收款";
-            this.是否收款comboBoxEdit.Location = new System.Drawing.Point(96, 38);
+            this.是否收款comboBoxEdit.Location = new System.Drawing.Point(105, 38);
+            this.是否收款comboBoxEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.是否收款comboBoxEdit.Name = "是否收款comboBoxEdit";
             this.是否收款comboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.是否收款comboBoxEdit.Properties.Items.AddRange(new object[] {
             "未收款",
             "已收款"});
-            this.是否收款comboBoxEdit.Size = new System.Drawing.Size(132, 20);
+            this.是否收款comboBoxEdit.Size = new System.Drawing.Size(123, 20);
             this.是否收款comboBoxEdit.StyleController = this.layoutControl1;
             this.是否收款comboBoxEdit.TabIndex = 4;
             // 
@@ -583,9 +480,8 @@ namespace WangDaDll
             this.layoutControlItem9,
             this.layoutControlItem10,
             this.layoutControlItem4});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1133, 785);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(969, 571);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -594,7 +490,7 @@ namespace WangDaDll
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 50);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1113, 715);
+            this.layoutControlItem2.Size = new System.Drawing.Size(949, 501);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -603,10 +499,12 @@ namespace WangDaDll
             this.layoutControlItem7.Control = this.公司预核名称TextEdit;
             this.layoutControlItem7.CustomizationFormText = "公司名称:";
             this.layoutControlItem7.Location = new System.Drawing.Point(220, 26);
+            this.layoutControlItem7.MaxSize = new System.Drawing.Size(304, 24);
+            this.layoutControlItem7.MinSize = new System.Drawing.Size(304, 24);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(220, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(304, 24);
+            this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.Text = "公司名称:";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem1
             // 
@@ -619,16 +517,13 @@ namespace WangDaDll
             this.layoutControlItem1.Size = new System.Drawing.Size(220, 24);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.Text = "是否收款:";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(81, 14);
             // 
             // emptySpaceItem2
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(666, 26);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(750, 26);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(447, 24);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(199, 24);
             // 
             // layoutControlItem8
             // 
@@ -658,12 +553,10 @@ namespace WangDaDll
             // 
             // emptySpaceItem3
             // 
-            this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
             this.emptySpaceItem3.Location = new System.Drawing.Point(372, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(741, 26);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(577, 26);
             // 
             // layoutControlItem9
             // 
@@ -695,21 +588,21 @@ namespace WangDaDll
             // 
             this.layoutControlItem4.Control = this.业务员TextEdit;
             this.layoutControlItem4.CustomizationFormText = "业务员:";
-            this.layoutControlItem4.Location = new System.Drawing.Point(440, 26);
+            this.layoutControlItem4.Location = new System.Drawing.Point(524, 26);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(226, 24);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(226, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(226, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "做账会计/其他:";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(81, 14);
             // 
             // FrmNoPaymentDlg
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1133, 785);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(969, 571);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.Name = "FrmNoPaymentDlg";
             this.Text = "未付款单位选择";
             this.Load += new System.EventHandler(this.FrmNoPaymentDlg_Load);
@@ -747,28 +640,14 @@ namespace WangDaDll
         private DevExpress.XtraGrid.Columns.GridColumn col公司预核名称;
         private DevExpress.XtraGrid.Columns.GridColumn col业务员;
         private DevExpress.XtraGrid.Columns.GridColumn col注册费;
-        private DevExpress.XtraGrid.Columns.GridColumn col图章;
-        private DevExpress.XtraGrid.Columns.GridColumn col银行;
-        private DevExpress.XtraGrid.Columns.GridColumn col其他;
-        private DevExpress.XtraGrid.Columns.GridColumn col注册利润;
-        private DevExpress.XtraGrid.Columns.GridColumn col月做账费;
         private DevExpress.XtraGrid.Columns.GridColumn col工本费;
         private DevExpress.XtraGrid.Columns.GridColumn col开票费;
         private DevExpress.XtraGrid.Columns.GridColumn col开始时间;
         private DevExpress.XtraGrid.Columns.GridColumn col预计注册完成时间;
         private DevExpress.XtraGrid.Columns.GridColumn col备注;
         private DevExpress.XtraGrid.Columns.GridColumn col登记日期;
-        private DevExpress.XtraGrid.Columns.GridColumn col办理成本;
-        private DevExpress.XtraGrid.Columns.GridColumn col年做账费;
         private DevExpress.XtraGrid.Columns.GridColumn col注册员;
         private DevExpress.XtraGrid.Columns.GridColumn col做账会计;
-        private DevExpress.XtraGrid.Columns.GridColumn col收款情况;
-        private DevExpress.XtraGrid.Columns.GridColumn col工本费收款额;
-        private DevExpress.XtraGrid.Columns.GridColumn col开票费收款额;
-        private DevExpress.XtraGrid.Columns.GridColumn col收款日期;
-        private DevExpress.XtraGrid.Columns.GridColumn col注册费收款额;
-        private DevExpress.XtraGrid.Columns.GridColumn col做账到期月;
-        private DevExpress.XtraGrid.Columns.GridColumn col做账费收款额;
         private DevExpress.XtraEditors.ComboBoxEdit 是否收款comboBoxEdit;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
@@ -788,5 +667,9 @@ namespace WangDaDll
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraSplashScreen.SplashScreenManager splash;
+        private DevExpress.XtraGrid.Columns.GridColumn col注册进度;
+        private DevExpress.XtraGrid.Columns.GridColumn col注册类型;
+        private DevExpress.XtraGrid.Columns.GridColumn col已收款金额;
+        private DevExpress.XtraGrid.Columns.GridColumn col欠款金额;
     }
 }

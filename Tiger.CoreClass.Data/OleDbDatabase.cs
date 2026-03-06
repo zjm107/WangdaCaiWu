@@ -1,15 +1,13 @@
 using System;
-using System.Collections;
-using System.Text.RegularExpressions;
 using System.Data;
 using System.Data.OleDb;
 
 namespace Tiger.CoreClass.Data
 {
-	/// <summary>
-	/// OleDbDatabase 的摘要说明。
-	/// </summary>
-	internal class OleDbDatabase : AbsDatabase
+    /// <summary>
+    /// OleDbDatabase 的摘要说明。
+    /// </summary>
+    internal class OleDbDatabase : AbsDatabase
 	{
 		/// <summary>
 		/// 构造函数

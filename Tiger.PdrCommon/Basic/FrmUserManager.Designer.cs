@@ -1,5 +1,3 @@
-using Tiger.PdrCommon.Basic;
-
 namespace Tiger.PdrCommon
 {
     partial class FrmUserManager
@@ -30,24 +28,23 @@ namespace Tiger.PdrCommon
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUserManager));
             this.UserTree = new System.Windows.Forms.TreeView();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnDeleteUserRole = new DevExpress.XtraEditors.SimpleButton();
             this.TCOM_ROLE1GridControl = new DevExpress.XtraGrid.GridControl();
-            this.TCOM_ROLE1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.TCOM_ROLE1BindingSource = new System.Windows.Forms.BindingSource();
             this.dstUserRole1 = new Tiger.PdrCommon.DstUserRole();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRoleID1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleDescription1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRoleName1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TCOM_USER_bindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dstEmployee = new DstEmployee();
             this.btnAddUserRole = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.txtDepartment = new DevExpress.XtraEditors.TextEdit();
+            this.TCOM_USER_bindingSource = new System.Windows.Forms.BindingSource();
+            this.dstEmployee = new Tiger.PdrCommon.DstEmployee();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.txtNewPassword = new DevExpress.XtraEditors.TextEdit();
             this.txtLongName = new DevExpress.XtraEditors.TextEdit();
@@ -64,10 +61,10 @@ namespace Tiger.PdrCommon
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.TCOM_ROLEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.imglist = new System.Windows.Forms.ImageList(this.components);
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.TCOM_ROLEBindingSource = new System.Windows.Forms.BindingSource();
+            this.imageList2 = new System.Windows.Forms.ImageList();
+            this.imglist = new System.Windows.Forms.ImageList();
+            this.toolTip = new System.Windows.Forms.ToolTip();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -75,9 +72,9 @@ namespace Tiger.PdrCommon
             ((System.ComponentModel.ISupportInitialize)(this.TCOM_ROLE1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstUserRole1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepartment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TCOM_USER_bindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstEmployee)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepartment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNewPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLongName.Properties)).BeginInit();
@@ -108,7 +105,7 @@ namespace Tiger.PdrCommon
             this.UserTree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UserTree.Name = "UserTree";
             this.UserTree.SelectedImageIndex = 0;
-            this.UserTree.Size = new System.Drawing.Size(155, 732);
+            this.UserTree.Size = new System.Drawing.Size(155, 521);
             this.UserTree.TabIndex = 0;
             this.UserTree.Click += new System.EventHandler(this.UserTree_Click);
             // 
@@ -134,7 +131,7 @@ namespace Tiger.PdrCommon
             this.layoutControl1.Location = new System.Drawing.Point(2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(870, 756);
+            this.layoutControl1.Size = new System.Drawing.Size(870, 545);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -142,7 +139,7 @@ namespace Tiger.PdrCommon
             // 
             this.btnDeleteUserRole.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteUserRole.Appearance.Options.UseFont = true;
-            this.btnDeleteUserRole.Location = new System.Drawing.Point(305, 720);
+            this.btnDeleteUserRole.Location = new System.Drawing.Point(305, 509);
             this.btnDeleteUserRole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDeleteUserRole.Name = "btnDeleteUserRole";
             this.btnDeleteUserRole.Size = new System.Drawing.Size(139, 24);
@@ -161,7 +158,7 @@ namespace Tiger.PdrCommon
             this.TCOM_ROLE1GridControl.MainView = this.gridView2;
             this.TCOM_ROLE1GridControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TCOM_ROLE1GridControl.Name = "TCOM_ROLE1GridControl";
-            this.TCOM_ROLE1GridControl.Size = new System.Drawing.Size(682, 628);
+            this.TCOM_ROLE1GridControl.Size = new System.Drawing.Size(682, 417);
             this.TCOM_ROLE1GridControl.TabIndex = 12;
             this.TCOM_ROLE1GridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -344,21 +341,11 @@ namespace Tiger.PdrCommon
             this.colRoleName1.VisibleIndex = 0;
             this.colRoleName1.Width = 232;
             // 
-            // TCOM_USER_bindingSource
-            // 
-            this.TCOM_USER_bindingSource.DataMember = "TCOM_USER";
-            this.TCOM_USER_bindingSource.DataSource = this.dstEmployee;
-            // 
-            // dstEmployee
-            // 
-            this.dstEmployee.DataSetName = "DstEmployee";
-            this.dstEmployee.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // btnAddUserRole
             // 
             this.btnAddUserRole.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddUserRole.Appearance.Options.UseFont = true;
-            this.btnAddUserRole.Location = new System.Drawing.Point(176, 720);
+            this.btnAddUserRole.Location = new System.Drawing.Point(176, 509);
             this.btnAddUserRole.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddUserRole.Name = "btnAddUserRole";
             this.btnAddUserRole.Size = new System.Drawing.Size(125, 24);
@@ -392,6 +379,16 @@ namespace Tiger.PdrCommon
             this.txtDepartment.Size = new System.Drawing.Size(287, 20);
             this.txtDepartment.StyleController = this.layoutControl1;
             this.txtDepartment.TabIndex = 0;
+            // 
+            // TCOM_USER_bindingSource
+            // 
+            this.TCOM_USER_bindingSource.DataMember = "TCOM_USER";
+            this.TCOM_USER_bindingSource.DataSource = this.dstEmployee;
+            // 
+            // dstEmployee
+            // 
+            this.dstEmployee.DataSetName = "DstEmployee";
+            this.dstEmployee.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtUserName
             // 
@@ -445,8 +442,7 @@ namespace Tiger.PdrCommon
             this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(870, 756);
-            this.layoutControlGroup1.Text = "Root";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(870, 545);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -455,10 +451,8 @@ namespace Tiger.PdrCommon
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(159, 736);
-            this.layoutControlItem1.Text = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(159, 525);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -467,10 +461,8 @@ namespace Tiger.PdrCommon
             this.layoutControlItem2.CustomizationFormText = "layoutControlItem2";
             this.layoutControlItem2.Location = new System.Drawing.Point(164, 76);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(686, 632);
-            this.layoutControlItem2.Text = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(686, 421);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextToControlDistance = 0;
             this.layoutControlItem2.TextVisible = false;
             // 
             // splitterItem1
@@ -479,35 +471,31 @@ namespace Tiger.PdrCommon
             this.splitterItem1.CustomizationFormText = "splitterItem1";
             this.splitterItem1.Location = new System.Drawing.Point(159, 0);
             this.splitterItem1.Name = "splitterItem1";
-            this.splitterItem1.Size = new System.Drawing.Size(5, 736);
+            this.splitterItem1.Size = new System.Drawing.Size(5, 525);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnAddUserRole;
             this.layoutControlItem3.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem3.Location = new System.Drawing.Point(164, 708);
+            this.layoutControlItem3.Location = new System.Drawing.Point(164, 497);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(99, 28);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(129, 28);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnDeleteUserRole;
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
-            this.layoutControlItem4.Location = new System.Drawing.Point(293, 708);
+            this.layoutControlItem4.Location = new System.Drawing.Point(293, 497);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(143, 28);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(143, 28);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(143, 28);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem4.Text = "layoutControlItem4";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
@@ -560,9 +548,7 @@ namespace Tiger.PdrCommon
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(111, 28);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem12.Text = "layoutControlItem12";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem12.TextToControlDistance = 0;
             this.layoutControlItem12.TextVisible = false;
             // 
             // emptySpaceItem1
@@ -572,17 +558,15 @@ namespace Tiger.PdrCommon
             this.emptySpaceItem1.Location = new System.Drawing.Point(275, 48);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(575, 28);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(436, 708);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(436, 497);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(414, 28);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // TCOM_ROLEBindingSource
@@ -615,13 +599,13 @@ namespace Tiger.PdrCommon
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(874, 760);
+            this.panelControl3.Size = new System.Drawing.Size(874, 549);
             this.panelControl3.TabIndex = 3;
             // 
             // FrmUserManager
             // 
             this.Appearance.Options.UseFont = true;
-            this.ClientSize = new System.Drawing.Size(874, 760);
+            this.ClientSize = new System.Drawing.Size(874, 549);
             this.Controls.Add(this.panelControl3);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -634,9 +618,9 @@ namespace Tiger.PdrCommon
             ((System.ComponentModel.ISupportInitialize)(this.TCOM_ROLE1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstUserRole1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDepartment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TCOM_USER_bindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstEmployee)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDepartment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNewPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLongName.Properties)).EndInit();

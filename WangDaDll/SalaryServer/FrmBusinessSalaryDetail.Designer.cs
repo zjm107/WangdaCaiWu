@@ -80,9 +80,10 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.tW_SalarySumGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(992, 698);
+            this.layoutControl1.Size = new System.Drawing.Size(1031, 576);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -90,10 +91,12 @@ namespace WangDaDll
             // 
             this.tW_SalarySumGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tW_SalarySumGridControl.DataSource = this.tW_SalarySumBindingSourceYW;
+            this.tW_SalarySumGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(562, 144, 562, 144);
             this.tW_SalarySumGridControl.Location = new System.Drawing.Point(12, 12);
             this.tW_SalarySumGridControl.MainView = this.gridView1;
+            this.tW_SalarySumGridControl.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.tW_SalarySumGridControl.Name = "tW_SalarySumGridControl";
-            this.tW_SalarySumGridControl.Size = new System.Drawing.Size(968, 674);
+            this.tW_SalarySumGridControl.Size = new System.Drawing.Size(1007, 552);
             this.tW_SalarySumGridControl.TabIndex = 4;
             this.tW_SalarySumGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -448,7 +451,7 @@ namespace WangDaDll
             this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(992, 698);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1031, 576);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -457,16 +460,17 @@ namespace WangDaDll
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(972, 678);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1011, 556);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // FrmBusinessSalaryDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 698);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1031, 576);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.Name = "FrmBusinessSalaryDetail";
             this.Text = "业务员业绩明细";
             this.Load += new System.EventHandler(this.FrmBusinessSalaryDetail_Load);

@@ -28,21 +28,22 @@ namespace WangDaApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMDIX));
-            this.dockManagerSysBar = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManagerSysBar = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPlSysMenu = new DevExpress.XtraBars.Docking.DockPanel();
             this.SysMenuContainer = new DevExpress.XtraBars.Docking.ControlContainer();
             this.tvNavigator = new System.Windows.Forms.TreeView();
-            this.imageList2 = new System.Windows.Forms.ImageList();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.imageSmall = new DevExpress.Utils.ImageCollection();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            this.imageSmall = new DevExpress.Utils.ImageCollection(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.Closebutton = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.toolTip = new System.Windows.Forms.ToolTip();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.lblDepartment = new DevExpress.XtraBars.BarStaticItem();
             this.lblUser = new DevExpress.XtraBars.BarStaticItem();
@@ -59,7 +60,7 @@ namespace WangDaApp
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.imageList1 = new System.Windows.Forms.ImageList();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dockManagerSysBar)).BeginInit();
             this.dockPlSysMenu.SuspendLayout();
             this.SysMenuContainer.SuspendLayout();
@@ -87,18 +88,18 @@ namespace WangDaApp
             this.dockPlSysMenu.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
             this.dockPlSysMenu.Hint = "菜单";
             this.dockPlSysMenu.ID = new System.Guid("48ffc232-a8e3-4abf-9f36-980d80f37919");
-            this.dockPlSysMenu.Location = new System.Drawing.Point(0, 31);
+            this.dockPlSysMenu.Location = new System.Drawing.Point(0, 46);
             this.dockPlSysMenu.Name = "dockPlSysMenu";
             this.dockPlSysMenu.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPlSysMenu.Size = new System.Drawing.Size(200, 728);
+            this.dockPlSysMenu.Size = new System.Drawing.Size(200, 713);
             this.dockPlSysMenu.Text = "菜单";
             // 
             // SysMenuContainer
             // 
             this.SysMenuContainer.Controls.Add(this.tvNavigator);
-            this.SysMenuContainer.Location = new System.Drawing.Point(4, 23);
+            this.SysMenuContainer.Location = new System.Drawing.Point(6, 35);
             this.SysMenuContainer.Name = "SysMenuContainer";
-            this.SysMenuContainer.Size = new System.Drawing.Size(192, 701);
+            this.SysMenuContainer.Size = new System.Drawing.Size(185, 672);
             this.SysMenuContainer.TabIndex = 0;
             // 
             // tvNavigator
@@ -112,7 +113,7 @@ namespace WangDaApp
             this.tvNavigator.Location = new System.Drawing.Point(0, 0);
             this.tvNavigator.Name = "tvNavigator";
             this.tvNavigator.SelectedImageIndex = 0;
-            this.tvNavigator.Size = new System.Drawing.Size(192, 701);
+            this.tvNavigator.Size = new System.Drawing.Size(185, 672);
             this.tvNavigator.StateImageList = this.imageList2;
             this.tvNavigator.TabIndex = 0;
             this.tvNavigator.DoubleClick += new System.EventHandler(this.tvNavigator_DoubleClick);
@@ -227,27 +228,27 @@ namespace WangDaApp
             // btnLogOut
             // 
             this.btnLogOut.Caption = "注销";
-            this.btnLogOut.Glyph = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Glyph")));
             this.btnLogOut.Id = 5;
-            this.btnLogOut.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnLogOut.LargeGlyph")));
+            this.btnLogOut.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.ImageOptions.Image")));
+            this.btnLogOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.ImageOptions.LargeImage")));
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogOut_ItemClick_1);
             // 
             // btnChangePassword
             // 
             this.btnChangePassword.Caption = "修改密码";
-            this.btnChangePassword.Glyph = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.Glyph")));
             this.btnChangePassword.Id = 6;
-            this.btnChangePassword.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.LargeGlyph")));
+            this.btnChangePassword.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.ImageOptions.Image")));
+            this.btnChangePassword.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnChangePassword.ImageOptions.LargeImage")));
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePassword_ItemClick_1);
             // 
             // barButtonItem1
             // 
             this.barButtonItem1.Caption = "锁定";
-            this.barButtonItem1.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.Glyph")));
             this.barButtonItem1.Id = 17;
-            this.barButtonItem1.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.LargeGlyph")));
+            this.barButtonItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
             // 
@@ -276,7 +277,7 @@ namespace WangDaApp
             // 
             this.iCascade.Caption = "层叠";
             this.iCascade.Id = 12;
-            this.iCascade.ImageIndex = 5;
+            this.iCascade.ImageOptions.ImageIndex = 5;
             this.iCascade.Name = "iCascade";
             this.iCascade.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
             // 
@@ -284,7 +285,7 @@ namespace WangDaApp
             // 
             this.iTileHorizontal.Caption = "水平";
             this.iTileHorizontal.Id = 13;
-            this.iTileHorizontal.ImageIndex = 6;
+            this.iTileHorizontal.ImageOptions.ImageIndex = 6;
             this.iTileHorizontal.Name = "iTileHorizontal";
             this.iTileHorizontal.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
@@ -292,7 +293,7 @@ namespace WangDaApp
             // 
             this.iTileVertical.Caption = "垂直";
             this.iTileVertical.Id = 14;
-            this.iTileVertical.ImageIndex = 7;
+            this.iTileVertical.ImageOptions.ImageIndex = 7;
             this.iTileVertical.Name = "iTileVertical";
             this.iTileVertical.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
@@ -307,28 +308,32 @@ namespace WangDaApp
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(1012, 31);
+            this.barDockControlTop.Manager = this.barManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(1012, 46);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 759);
+            this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1012, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 31);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 728);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 46);
+            this.barDockControlLeft.Manager = this.barManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 713);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1012, 31);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 728);
+            this.barDockControlRight.Location = new System.Drawing.Point(1012, 46);
+            this.barDockControlRight.Manager = this.barManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 713);
             // 
             // imageList1
             // 
@@ -360,6 +365,8 @@ namespace WangDaApp
             this.Appearance.BackColor = System.Drawing.SystemColors.ControlDark;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseImage = true;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1012, 759);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.Closebutton);
@@ -384,6 +391,7 @@ namespace WangDaApp
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

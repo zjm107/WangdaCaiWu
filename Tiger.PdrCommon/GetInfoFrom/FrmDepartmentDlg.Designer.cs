@@ -28,12 +28,13 @@ namespace Tiger.PdrCommon
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnFind = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.TCOM_DEPTbindingSource = new System.Windows.Forms.BindingSource();
+            this.TCOM_DEPTbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dstDepartment1 = new Tiger.PdrCommon.DstDepartment();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colDEPTNAME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,14 +89,14 @@ namespace Tiger.PdrCommon
             this.layoutControl1.Location = new System.Drawing.Point(2, 2);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(577, 380);
+            this.layoutControl1.Size = new System.Drawing.Size(817, 503);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(469, 346);
+            this.btnCancel.Location = new System.Drawing.Point(709, 469);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -106,7 +107,7 @@ namespace Tiger.PdrCommon
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(367, 346);
+            this.btnOK.Location = new System.Drawing.Point(607, 469);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(98, 22);
             this.btnOK.StyleController = this.layoutControl1;
@@ -120,7 +121,7 @@ namespace Tiger.PdrCommon
             this.gridControl1.Location = new System.Drawing.Point(12, 38);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(553, 304);
+            this.gridControl1.Size = new System.Drawing.Size(793, 427);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -170,9 +171,9 @@ namespace Tiger.PdrCommon
             // 
             // txtDepartmentNmae
             // 
-            this.txtDepartmentNmae.Location = new System.Drawing.Point(63, 12);
+            this.txtDepartmentNmae.Location = new System.Drawing.Point(72, 12);
             this.txtDepartmentNmae.Name = "txtDepartmentNmae";
-            this.txtDepartmentNmae.Size = new System.Drawing.Size(176, 20);
+            this.txtDepartmentNmae.Size = new System.Drawing.Size(167, 20);
             this.txtDepartmentNmae.StyleController = this.layoutControl1;
             this.txtDepartmentNmae.TabIndex = 3;
             // 
@@ -189,10 +190,8 @@ namespace Tiger.PdrCommon
             this.layoutControlItem6,
             this.emptySpaceItem1,
             this.emptySpaceItem2});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(577, 380);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(817, 503);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -206,7 +205,6 @@ namespace Tiger.PdrCommon
             this.layoutControlItem2.Size = new System.Drawing.Size(231, 26);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "≤ø√≈√˚≥∆";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(48, 14);
             // 
             // layoutControlItem3
             // 
@@ -218,9 +216,7 @@ namespace Tiger.PdrCommon
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(86, 26);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
@@ -229,61 +225,49 @@ namespace Tiger.PdrCommon
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(557, 308);
-            this.layoutControlItem4.Text = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(797, 431);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnOK;
             this.layoutControlItem5.CustomizationFormText = "layoutControlItem5";
-            this.layoutControlItem5.Location = new System.Drawing.Point(355, 334);
+            this.layoutControlItem5.Location = new System.Drawing.Point(595, 457);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(102, 26);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(102, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(102, 26);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.Text = "layoutControlItem5";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextToControlDistance = 0;
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnCancel;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
-            this.layoutControlItem6.Location = new System.Drawing.Point(457, 334);
+            this.layoutControlItem6.Location = new System.Drawing.Point(697, 457);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(100, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(100, 26);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem6.Text = "layoutControlItem6";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextToControlDistance = 0;
             this.layoutControlItem6.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 334);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 457);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(355, 26);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(595, 26);
             // 
             // emptySpaceItem2
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
             this.emptySpaceItem2.Location = new System.Drawing.Point(317, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(240, 26);
-            this.emptySpaceItem2.Text = "emptySpaceItem2";
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(480, 26);
             // 
             // panelControl3
             // 
@@ -291,12 +275,12 @@ namespace Tiger.PdrCommon
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(581, 384);
+            this.panelControl3.Size = new System.Drawing.Size(821, 507);
             this.panelControl3.TabIndex = 7;
             // 
             // FrmDepartmentDlg
             // 
-            this.ClientSize = new System.Drawing.Size(581, 384);
+            this.ClientSize = new System.Drawing.Size(821, 507);
             this.Controls.Add(this.panelControl3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

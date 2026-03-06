@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Xml;
-using System.IO;
 
 namespace Tiger.Tools
 {

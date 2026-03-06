@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.ServiceModel;
+using System.Text;
 using System.Xml;
-using System.Runtime.Serialization;
 //using System.Windows.Forms;
 
 namespace Tiger.Tools
@@ -65,21 +62,29 @@ namespace Tiger.Tools
         
 
         public static string aUserSerURL = "/UserSer.asmx";
-
+        
         public static string aWangDaSerURL = "/WangDaSer.asmx";
 
         public static string BaseSerURL = "/BaseSer.asmx";
-        
 
+        /// <summary>
+        /// 基础服务地址
+        /// </summary>
         public static string BasicServiceURL = "/BasicService.asmx";
-        
 
+        /// <summary>
+        /// 系统配置服务地址
+        /// </summary>
         public static string ConfigURL = "/Config.asmx";
         
-
+        /// <summary>
+        /// 用户权限服务地址
+        /// </summary>
         public static string UserSerURL = "/UserSer.asmx";
 
-
+        /// <summary>
+        /// 主要业务服务地址
+        /// </summary>
         public static string WangDaSerURL = "/WangDaSer.asmx";
 
 

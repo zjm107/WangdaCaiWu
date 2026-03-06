@@ -88,7 +88,7 @@ namespace WangDaDll
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
-            this.dstTCONF_WORD = new Tiger.PdrCommon.ConfigApp.DstTCONF_WORD();
+            this.dstTCONF_WORD = new Tiger.PdrCommon.DstTCONF_WORD();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.不收款CheckEdit.Properties)).BeginInit();
@@ -146,16 +146,18 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.支付单位TextEdit);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(925, 616);
+            this.layoutControl1.Size = new System.Drawing.Size(1064, 712);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // 不收款CheckEdit
             // 
             this.不收款CheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "不收款", true));
-            this.不收款CheckEdit.Location = new System.Drawing.Point(12, 467);
+            this.不收款CheckEdit.Location = new System.Drawing.Point(12, 563);
+            this.不收款CheckEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.不收款CheckEdit.Name = "不收款CheckEdit";
             this.不收款CheckEdit.Properties.Caption = "不收款";
             this.不收款CheckEdit.Size = new System.Drawing.Size(63, 19);
@@ -174,7 +176,8 @@ namespace WangDaDll
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(12, 441);
+            this.btnRefresh.Location = new System.Drawing.Point(12, 537);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(35, 22);
             this.btnRefresh.StyleController = this.layoutControl1;
@@ -184,7 +187,8 @@ namespace WangDaDll
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(12, 582);
+            this.btnOK.Location = new System.Drawing.Point(12, 678);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(89, 22);
             this.btnOK.StyleController = this.layoutControl1;
@@ -194,7 +198,8 @@ namespace WangDaDll
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(105, 582);
+            this.btnCancel.Location = new System.Drawing.Point(105, 678);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(89, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -205,6 +210,7 @@ namespace WangDaDll
             // btnPayAll
             // 
             this.btnPayAll.Location = new System.Drawing.Point(255, 12);
+            this.btnPayAll.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnPayAll.Name = "btnPayAll";
             this.btnPayAll.Size = new System.Drawing.Size(89, 22);
             this.btnPayAll.StyleController = this.layoutControl1;
@@ -215,6 +221,7 @@ namespace WangDaDll
             // btnPayhalf
             // 
             this.btnPayhalf.Location = new System.Drawing.Point(162, 12);
+            this.btnPayhalf.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnPayhalf.Name = "btnPayhalf";
             this.btnPayhalf.Size = new System.Drawing.Size(89, 22);
             this.btnPayhalf.StyleController = this.layoutControl1;
@@ -225,6 +232,7 @@ namespace WangDaDll
             // btnSelectClient
             // 
             this.btnSelectClient.Location = new System.Drawing.Point(12, 12);
+            this.btnSelectClient.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnSelectClient.Name = "btnSelectClient";
             this.btnSelectClient.Size = new System.Drawing.Size(146, 22);
             this.btnSelectClient.StyleController = this.layoutControl1;
@@ -236,10 +244,12 @@ namespace WangDaDll
             // 
             this.tW_PaymentDetailGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tW_PaymentDetailGridControl.DataSource = this.tW_PaymentDetailBindingSource;
+            this.tW_PaymentDetailGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(562, 144, 562, 144);
             this.tW_PaymentDetailGridControl.Location = new System.Drawing.Point(12, 38);
             this.tW_PaymentDetailGridControl.MainView = this.gridView1;
+            this.tW_PaymentDetailGridControl.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.tW_PaymentDetailGridControl.Name = "tW_PaymentDetailGridControl";
-            this.tW_PaymentDetailGridControl.Size = new System.Drawing.Size(901, 375);
+            this.tW_PaymentDetailGridControl.Size = new System.Drawing.Size(1040, 471);
             this.tW_PaymentDetailGridControl.TabIndex = 17;
             this.tW_PaymentDetailGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -524,7 +534,8 @@ namespace WangDaDll
             // 支付金额CalcEdit
             // 
             this.支付金额CalcEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "支付金额", true));
-            this.支付金额CalcEdit.Location = new System.Drawing.Point(106, 441);
+            this.支付金额CalcEdit.Location = new System.Drawing.Point(106, 537);
+            this.支付金额CalcEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.支付金额CalcEdit.Name = "支付金额CalcEdit";
             this.支付金额CalcEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -536,7 +547,8 @@ namespace WangDaDll
             // 
             this.支付日期DateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "支付日期", true));
             this.支付日期DateEdit.EditValue = null;
-            this.支付日期DateEdit.Location = new System.Drawing.Point(134, 467);
+            this.支付日期DateEdit.Location = new System.Drawing.Point(134, 563);
+            this.支付日期DateEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.支付日期DateEdit.Name = "支付日期DateEdit";
             this.支付日期DateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -549,7 +561,8 @@ namespace WangDaDll
             // 支付方式ComboBoxEdit
             // 
             this.支付方式ComboBoxEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "支付方式", true));
-            this.支付方式ComboBoxEdit.Location = new System.Drawing.Point(470, 441);
+            this.支付方式ComboBoxEdit.Location = new System.Drawing.Point(470, 537);
+            this.支付方式ComboBoxEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.支付方式ComboBoxEdit.Name = "支付方式ComboBoxEdit";
             this.支付方式ComboBoxEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -560,7 +573,8 @@ namespace WangDaDll
             // 收款人TextEdit
             // 
             this.收款人TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "收款人", true));
-            this.收款人TextEdit.Location = new System.Drawing.Point(471, 467);
+            this.收款人TextEdit.Location = new System.Drawing.Point(471, 563);
+            this.收款人TextEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.收款人TextEdit.Name = "收款人TextEdit";
             this.收款人TextEdit.Size = new System.Drawing.Size(300, 20);
             this.收款人TextEdit.StyleController = this.layoutControl1;
@@ -569,7 +583,8 @@ namespace WangDaDll
             // 备注TextEdit
             // 
             this.备注TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "备注", true));
-            this.备注TextEdit.Location = new System.Drawing.Point(67, 491);
+            this.备注TextEdit.Location = new System.Drawing.Point(67, 587);
+            this.备注TextEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.备注TextEdit.Name = "备注TextEdit";
             this.备注TextEdit.Size = new System.Drawing.Size(703, 87);
             this.备注TextEdit.StyleController = this.layoutControl1;
@@ -578,7 +593,8 @@ namespace WangDaDll
             // 支付单位TextEdit
             // 
             this.支付单位TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.tW_PaymentBindingSource, "支付单位", true));
-            this.支付单位TextEdit.Location = new System.Drawing.Point(67, 417);
+            this.支付单位TextEdit.Location = new System.Drawing.Point(67, 513);
+            this.支付单位TextEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.支付单位TextEdit.Name = "支付单位TextEdit";
             this.支付单位TextEdit.Size = new System.Drawing.Size(703, 20);
             this.支付单位TextEdit.StyleController = this.layoutControl1;
@@ -612,14 +628,14 @@ namespace WangDaDll
             this.layoutControlItem15});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(925, 616);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1064, 712);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.支付单位TextEdit;
             this.layoutControlItem2.CustomizationFormText = "支付单位:";
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 405);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 501);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(762, 24);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(762, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -632,7 +648,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem4.Control = this.支付金额CalcEdit;
             this.layoutControlItem4.CustomizationFormText = "支付金额:";
-            this.layoutControlItem4.Location = new System.Drawing.Point(39, 429);
+            this.layoutControlItem4.Location = new System.Drawing.Point(39, 525);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(364, 26);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(364, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -645,7 +661,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem6.Control = this.支付日期DateEdit;
             this.layoutControlItem6.CustomizationFormText = "支付日期:";
-            this.layoutControlItem6.Location = new System.Drawing.Point(67, 455);
+            this.layoutControlItem6.Location = new System.Drawing.Point(67, 551);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(337, 24);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(337, 24);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -658,7 +674,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem14.Control = this.备注TextEdit;
             this.layoutControlItem14.CustomizationFormText = "备注:";
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 479);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 575);
             this.layoutControlItem14.MaxSize = new System.Drawing.Size(762, 91);
             this.layoutControlItem14.MinSize = new System.Drawing.Size(762, 91);
             this.layoutControlItem14.Name = "layoutControlItem14";
@@ -673,7 +689,7 @@ namespace WangDaDll
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(905, 379);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1044, 475);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -722,14 +738,14 @@ namespace WangDaDll
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(336, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(569, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(708, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.收款人TextEdit;
             this.layoutControlItem10.CustomizationFormText = "收款人:";
-            this.layoutControlItem10.Location = new System.Drawing.Point(404, 455);
+            this.layoutControlItem10.Location = new System.Drawing.Point(404, 551);
             this.layoutControlItem10.MaxSize = new System.Drawing.Size(359, 24);
             this.layoutControlItem10.MinSize = new System.Drawing.Size(359, 24);
             this.layoutControlItem10.Name = "layoutControlItem10";
@@ -742,7 +758,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem8.Control = this.支付方式ComboBoxEdit;
             this.layoutControlItem8.CustomizationFormText = "支付方式:";
-            this.layoutControlItem8.Location = new System.Drawing.Point(403, 429);
+            this.layoutControlItem8.Location = new System.Drawing.Point(403, 525);
             this.layoutControlItem8.MaxSize = new System.Drawing.Size(359, 26);
             this.layoutControlItem8.MinSize = new System.Drawing.Size(359, 26);
             this.layoutControlItem8.Name = "layoutControlItem8";
@@ -755,7 +771,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem9.Control = this.btnCancel;
             this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem9.Location = new System.Drawing.Point(93, 570);
+            this.layoutControlItem9.Location = new System.Drawing.Point(93, 666);
             this.layoutControlItem9.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem9.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem9.Name = "layoutControlItem9";
@@ -768,7 +784,7 @@ namespace WangDaDll
             // 
             this.layoutControlItem11.Control = this.btnOK;
             this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
-            this.layoutControlItem11.Location = new System.Drawing.Point(0, 570);
+            this.layoutControlItem11.Location = new System.Drawing.Point(0, 666);
             this.layoutControlItem11.MaxSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(93, 26);
             this.layoutControlItem11.Name = "layoutControlItem11";
@@ -781,16 +797,16 @@ namespace WangDaDll
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.CustomizationFormText = "emptySpaceItem2";
-            this.emptySpaceItem2.Location = new System.Drawing.Point(186, 570);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(186, 666);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(719, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(858, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.btnRefresh;
             this.layoutControlItem12.CustomizationFormText = "layoutControlItem12";
-            this.layoutControlItem12.Location = new System.Drawing.Point(0, 429);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 525);
             this.layoutControlItem12.MaxSize = new System.Drawing.Size(39, 26);
             this.layoutControlItem12.MinSize = new System.Drawing.Size(39, 26);
             this.layoutControlItem12.Name = "layoutControlItem12";
@@ -803,43 +819,43 @@ namespace WangDaDll
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.CustomizationFormText = "emptySpaceItem3";
-            this.emptySpaceItem3.Location = new System.Drawing.Point(762, 479);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(762, 575);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(143, 91);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(282, 91);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.CustomizationFormText = "emptySpaceItem4";
-            this.emptySpaceItem4.Location = new System.Drawing.Point(762, 429);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(762, 525);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(143, 26);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(282, 26);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
             this.emptySpaceItem5.CustomizationFormText = "emptySpaceItem5";
-            this.emptySpaceItem5.Location = new System.Drawing.Point(762, 405);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(762, 501);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(143, 24);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(282, 24);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
             this.emptySpaceItem6.CustomizationFormText = "emptySpaceItem6";
-            this.emptySpaceItem6.Location = new System.Drawing.Point(763, 455);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(763, 551);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(142, 24);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(281, 24);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.不收款CheckEdit;
             this.layoutControlItem15.CustomizationFormText = "不收款:";
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 455);
+            this.layoutControlItem15.Location = new System.Drawing.Point(0, 551);
             this.layoutControlItem15.MaxSize = new System.Drawing.Size(67, 24);
             this.layoutControlItem15.MinSize = new System.Drawing.Size(67, 24);
             this.layoutControlItem15.Name = "layoutControlItem15";
@@ -856,10 +872,11 @@ namespace WangDaDll
             // 
             // FrmPayMentRegEdit
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 616);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1064, 712);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.Name = "FrmPayMentRegEdit";
             this.Text = "注册/一次性业务收款";
             this.Load += new System.EventHandler(this.FrmPayMentReg_Load);
@@ -952,7 +969,7 @@ namespace WangDaDll
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private Tiger.PdrCommon.ConfigApp.DstTCONF_WORD dstTCONF_WORD;
+        private Tiger.PdrCommon.DstTCONF_WORD dstTCONF_WORD;
         private DevExpress.XtraEditors.SimpleButton btnRefresh;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
 
@@ -51,7 +44,7 @@ namespace WangDaDll
                 业务员TextEdit.Text = "";
                 注册员TextEdit.Text = "";
                 做账会计TextEdit.Text = "";
-                proceedsDataSet.VW_PaymentDetail.Clear();
+                proceedsDataSet.VW_BusinessRegNoPay.Clear();
             }
             catch (Exception ex)
             {
@@ -74,6 +67,18 @@ namespace WangDaDll
                 UserMessages.ShowErrorBox(ex.Message);
             }
 
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (xlsSaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (xlsSaveFileDialog.FileName != "")
+                {
+                    gridView1.ExportToXlsx(xlsSaveFileDialog.FileName);
+
+                }
+            }
         }
     }
 }

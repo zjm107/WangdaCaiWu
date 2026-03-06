@@ -59,6 +59,8 @@
             this.支付日期DateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.本次到期月份DateEdit = new DevExpress.XtraEditors.DateEdit();
             this.上次到期月份DateEdit = new DevExpress.XtraEditors.DateEdit();
+            this.btnShowDetail = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -68,11 +70,12 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
-            this.btnShowDetail = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
+            this.xlsSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -97,9 +100,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -113,21 +117,25 @@
             this.layoutControl1.Controls.Add(this.本次到期月份DateEdit);
             this.layoutControl1.Controls.Add(this.上次到期月份DateEdit);
             this.layoutControl1.Controls.Add(this.btnShowDetail);
+            this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(851, 594);
+            this.layoutControl1.Size = new System.Drawing.Size(969, 532);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.vW_客户收支表BindingSource;
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.gridControl1.Location = new System.Drawing.Point(12, 86);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(827, 496);
+            this.gridControl1.Size = new System.Drawing.Size(945, 434);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -468,6 +476,7 @@
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(140, 60);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(128, 22);
             this.btnClear.StyleController = this.layoutControl1;
@@ -478,6 +487,7 @@
             // btnQuery
             // 
             this.btnQuery.Location = new System.Drawing.Point(12, 60);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(124, 22);
             this.btnQuery.StyleController = this.layoutControl1;
@@ -488,8 +498,9 @@
             // 支付单位TextEdit
             // 
             this.支付单位TextEdit.Location = new System.Drawing.Point(79, 36);
+            this.支付单位TextEdit.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.支付单位TextEdit.Name = "支付单位TextEdit";
-            this.支付单位TextEdit.Size = new System.Drawing.Size(553, 20);
+            this.支付单位TextEdit.Size = new System.Drawing.Size(642, 20);
             this.支付单位TextEdit.StyleController = this.layoutControl1;
             this.支付单位TextEdit.TabIndex = 9;
             // 
@@ -497,6 +508,7 @@
             // 
             this.支付日期DateEdit2.EditValue = null;
             this.支付日期DateEdit2.Location = new System.Drawing.Point(703, 12);
+            this.支付日期DateEdit2.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.支付日期DateEdit2.Name = "支付日期DateEdit2";
             this.支付日期DateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -510,6 +522,7 @@
             // 
             this.支付日期DateEdit1.EditValue = null;
             this.支付日期DateEdit1.Location = new System.Drawing.Point(495, 12);
+            this.支付日期DateEdit1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.支付日期DateEdit1.Name = "支付日期DateEdit1";
             this.支付日期DateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -523,6 +536,7 @@
             // 
             this.本次到期月份DateEdit.EditValue = null;
             this.本次到期月份DateEdit.Location = new System.Drawing.Point(292, 12);
+            this.本次到期月份DateEdit.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.本次到期月份DateEdit.Name = "本次到期月份DateEdit";
             this.本次到期月份DateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -536,6 +550,7 @@
             // 
             this.上次到期月份DateEdit.EditValue = null;
             this.上次到期月份DateEdit.Location = new System.Drawing.Point(79, 12);
+            this.上次到期月份DateEdit.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.上次到期月份DateEdit.Name = "上次到期月份DateEdit";
             this.上次到期月份DateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -544,6 +559,28 @@
             this.上次到期月份DateEdit.Size = new System.Drawing.Size(142, 20);
             this.上次到期月份DateEdit.StyleController = this.layoutControl1;
             this.上次到期月份DateEdit.TabIndex = 5;
+            // 
+            // btnShowDetail
+            // 
+            this.btnShowDetail.Location = new System.Drawing.Point(272, 60);
+            this.btnShowDetail.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
+            this.btnShowDetail.Name = "btnShowDetail";
+            this.btnShowDetail.Size = new System.Drawing.Size(125, 22);
+            this.btnShowDetail.StyleController = this.layoutControl1;
+            this.btnShowDetail.TabIndex = 13;
+            this.btnShowDetail.Text = "明细";
+            this.btnShowDetail.Click += new System.EventHandler(this.btnShowDetail_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(401, 60);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(138, 22);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 14;
+            this.simpleButton1.Text = "导出";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // layoutControlGroup1
             // 
@@ -560,10 +597,11 @@
             this.layoutControlItem6,
             this.emptySpaceItem1,
             this.emptySpaceItem2,
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.layoutControlItem10});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(851, 594);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(969, 532);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -583,7 +621,7 @@
             this.layoutControlItem8.Control = this.gridControl1;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 74);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(831, 500);
+            this.layoutControlItem8.Size = new System.Drawing.Size(949, 438);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -642,7 +680,7 @@
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(207, 24);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(207, 24);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(207, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(325, 24);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.Text = "到：";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(64, 14);
@@ -652,23 +690,25 @@
             this.layoutControlItem6.Control = this.支付单位TextEdit;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(624, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(713, 24);
             this.layoutControlItem6.Text = "客户名称：";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(64, 14);
             // 
-            // splash
+            // emptySpaceItem1
             // 
-            this.splash.ClosingDelay = 500;
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(713, 24);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(236, 24);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // btnShowDetail
+            // emptySpaceItem2
             // 
-            this.btnShowDetail.Location = new System.Drawing.Point(272, 60);
-            this.btnShowDetail.Name = "btnShowDetail";
-            this.btnShowDetail.Size = new System.Drawing.Size(125, 22);
-            this.btnShowDetail.StyleController = this.layoutControl1;
-            this.btnShowDetail.TabIndex = 13;
-            this.btnShowDetail.Text = "明细";
-            this.btnShowDetail.Click += new System.EventHandler(this.btnShowDetail_Click);
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(531, 48);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(418, 26);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem9
             // 
@@ -682,29 +722,30 @@
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
-            // emptySpaceItem1
+            // layoutControlItem10
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(624, 24);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(207, 24);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.Control = this.simpleButton1;
+            this.layoutControlItem10.Location = new System.Drawing.Point(389, 48);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Size = new System.Drawing.Size(142, 26);
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextVisible = false;
             // 
-            // emptySpaceItem2
+            // splash
             // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(389, 48);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(442, 26);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.splash.ClosingDelay = 500;
+            // 
+            // xlsSaveFileDialog
+            // 
+            this.xlsSaveFileDialog.Filter = "Excel文件 (*.xlsx)|所有文件(*.*)";
             // 
             // FrmTJClient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 594);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(969, 532);
             this.Controls.Add(this.layoutControl1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(32, 16, 32, 16);
             this.Name = "FrmTJClient";
             this.Text = "按客户统计";
             this.Load += new System.EventHandler(this.FrmTJClient_Load);
@@ -732,9 +773,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -785,5 +827,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private System.Windows.Forms.SaveFileDialog xlsSaveFileDialog;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
     }
 }

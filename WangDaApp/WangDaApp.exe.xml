@@ -2,7 +2,7 @@
 <DstUrl xmlns="http://tempuri.org/DstUrl.xsd">
 	<ServiceURL>
 		<URLKey>ServerIP</URLKey>
-		<URLValue>win-onuj1v8ac54</URLValue>
+		<URLValue>localhost:2857</URLValue>
 		<MEMO>服务器地址</MEMO>
 	</ServiceURL>
 </DstUrl>

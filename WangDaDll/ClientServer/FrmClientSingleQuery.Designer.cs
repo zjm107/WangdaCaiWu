@@ -87,9 +87,10 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.客户名称TextEdit);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(593, 459);
+            this.layoutControl1.Size = new System.Drawing.Size(1064, 692);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -97,10 +98,12 @@ namespace WangDaDll
             // 
             this.tW_ClientGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tW_ClientGridControl.DataSource = this.tW_ClientBindingSource;
+            this.tW_ClientGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(562, 144, 562, 144);
             this.tW_ClientGridControl.Location = new System.Drawing.Point(12, 38);
             this.tW_ClientGridControl.MainView = this.cardView1;
+            this.tW_ClientGridControl.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.tW_ClientGridControl.Name = "tW_ClientGridControl";
-            this.tW_ClientGridControl.Size = new System.Drawing.Size(569, 409);
+            this.tW_ClientGridControl.Size = new System.Drawing.Size(1040, 642);
             this.tW_ClientGridControl.TabIndex = 7;
             this.tW_ClientGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cardView1});
@@ -185,7 +188,6 @@ namespace WangDaDll
             this.col修改人,
             this.col修改时间,
             this.col做账时间});
-            this.cardView1.FocusedCardTopFieldIndex = 0;
             this.cardView1.GridControl = this.tW_ClientGridControl;
             this.cardView1.Name = "cardView1";
             this.cardView1.PaintStyleName = "Style3D";
@@ -338,6 +340,7 @@ namespace WangDaDll
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(422, 12);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(96, 22);
             this.btnClear.StyleController = this.layoutControl1;
@@ -348,6 +351,7 @@ namespace WangDaDll
             // btnQuery
             // 
             this.btnQuery.Location = new System.Drawing.Point(322, 12);
+            this.btnQuery.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(96, 22);
             this.btnQuery.StyleController = this.layoutControl1;
@@ -357,9 +361,10 @@ namespace WangDaDll
             // 
             // 客户名称TextEdit
             // 
-            this.客户名称TextEdit.Location = new System.Drawing.Point(67, 12);
+            this.客户名称TextEdit.Location = new System.Drawing.Point(76, 12);
+            this.客户名称TextEdit.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.客户名称TextEdit.Name = "客户名称TextEdit";
-            this.客户名称TextEdit.Size = new System.Drawing.Size(251, 20);
+            this.客户名称TextEdit.Size = new System.Drawing.Size(242, 20);
             this.客户名称TextEdit.StyleController = this.layoutControl1;
             this.客户名称TextEdit.TabIndex = 5;
             // 
@@ -374,10 +379,8 @@ namespace WangDaDll
             this.layoutControlItem3,
             this.emptySpaceItem1,
             this.layoutControlItem4});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(593, 459);
-            this.layoutControlGroup1.Text = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1064, 692);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem2
@@ -391,7 +394,6 @@ namespace WangDaDll
             this.layoutControlItem2.Size = new System.Drawing.Size(310, 26);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.Text = "客户名称:";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(52, 14);
             // 
             // layoutControlItem1
             // 
@@ -403,9 +405,7 @@ namespace WangDaDll
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(100, 26);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem1.Text = "layoutControlItem1";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextToControlDistance = 0;
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem3
@@ -418,20 +418,15 @@ namespace WangDaDll
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(100, 26);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "layoutControlItem3";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
             this.emptySpaceItem1.Location = new System.Drawing.Point(510, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(63, 26);
-            this.emptySpaceItem1.Text = "emptySpaceItem1";
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(534, 26);
             // 
             // layoutControlItem4
             // 
@@ -439,20 +434,20 @@ namespace WangDaDll
             this.layoutControlItem4.CustomizationFormText = "layoutControlItem4";
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(573, 413);
-            this.layoutControlItem4.Text = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(1044, 646);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextToControlDistance = 0;
             this.layoutControlItem4.TextVisible = false;
             // 
             // FrmClientSingleQuery
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 459);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1064, 692);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.Name = "FrmClientSingleQuery";
             this.Text = "客户信息单一查询";
+            this.Load += new System.EventHandler(this.FrmClientSingleQuery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tW_ClientGridControl)).EndInit();

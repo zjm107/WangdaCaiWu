@@ -35,7 +35,7 @@ namespace WangDaDll
             this.tW_SalarySumBindingSourceYW = new System.Windows.Forms.BindingSource(this.components);
             this.salaryDataSetYW = new WangDaDll.SalaryServer.SalaryDataSet();
             this.tW_SalarySumGridControl = new DevExpress.XtraGrid.GridControl();
-            this.tW_SalarySumBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tW_SalarySumRegBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col做账收款额 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col工本收款费 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -57,6 +57,7 @@ namespace WangDaDll
             this.col工资统计类型 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col客户名称 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col注册类型 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tW_SalarySumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -104,13 +105,13 @@ namespace WangDaDll
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tW_SalarySumRegBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.salaryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumBindingSourceYW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDataSetYW)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumRegBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -119,7 +120,6 @@ namespace WangDaDll
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumRegBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // salaryDataSet
@@ -142,18 +142,20 @@ namespace WangDaDll
             this.tW_SalarySumGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.tW_SalarySumGridControl.DataSource = this.tW_SalarySumRegBindingSource;
             this.tW_SalarySumGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tW_SalarySumGridControl.Location = new System.Drawing.Point(3, 3);
+            this.tW_SalarySumGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
+            this.tW_SalarySumGridControl.Location = new System.Drawing.Point(2, 2);
             this.tW_SalarySumGridControl.MainView = this.gridView1;
+            this.tW_SalarySumGridControl.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.tW_SalarySumGridControl.Name = "tW_SalarySumGridControl";
-            this.tW_SalarySumGridControl.Size = new System.Drawing.Size(1251, 629);
+            this.tW_SalarySumGridControl.Size = new System.Drawing.Size(927, 507);
             this.tW_SalarySumGridControl.TabIndex = 4;
             this.tW_SalarySumGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
-            // tW_SalarySumBindingSource
+            // tW_SalarySumRegBindingSource
             // 
-            this.tW_SalarySumBindingSource.DataMember = "TW_SalarySum";
-            this.tW_SalarySumBindingSource.DataSource = this.salaryDataSet;
+            this.tW_SalarySumRegBindingSource.DataMember = "TW_SalarySumReg";
+            this.tW_SalarySumRegBindingSource.DataSource = this.salaryDataSet;
             // 
             // gridView1
             // 
@@ -473,6 +475,11 @@ namespace WangDaDll
             this.col注册类型.Visible = true;
             this.col注册类型.VisibleIndex = 16;
             // 
+            // tW_SalarySumBindingSource
+            // 
+            this.tW_SalarySumBindingSource.DataMember = "TW_SalarySum";
+            this.tW_SalarySumBindingSource.DataSource = this.salaryDataSet;
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -480,18 +487,20 @@ namespace WangDaDll
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1265, 662);
+            this.tabControl1.Size = new System.Drawing.Size(939, 538);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tW_SalarySumGridControl);
             this.tabPage1.Location = new System.Drawing.Point(4, 23);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1257, 635);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(931, 511);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "注册明细";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -500,9 +509,10 @@ namespace WangDaDll
             // 
             this.tabPage2.Controls.Add(this.gridControl2);
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1257, 635);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(931, 511);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "做账明细";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -512,10 +522,12 @@ namespace WangDaDll
             this.gridControl2.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl2.DataSource = this.tW_SalarySumBindingSource;
             this.gridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl2.Location = new System.Drawing.Point(3, 3);
+            this.gridControl2.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
+            this.gridControl2.Location = new System.Drawing.Point(2, 2);
             this.gridControl2.MainView = this.gridView3;
+            this.gridControl2.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1251, 629);
+            this.gridControl2.Size = new System.Drawing.Size(927, 507);
             this.gridControl2.TabIndex = 5;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -842,9 +854,10 @@ namespace WangDaDll
             // 
             this.tabPage3.Controls.Add(this.gridControl1);
             this.tabPage3.Location = new System.Drawing.Point(4, 23);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1257, 635);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage3.Size = new System.Drawing.Size(931, 511);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "业务明细";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -854,10 +867,12 @@ namespace WangDaDll
             this.gridControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gridControl1.DataSource = this.tW_SalarySumBindingSourceYW;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(3, 3);
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
+            this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView2;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1251, 629);
+            this.gridControl1.Size = new System.Drawing.Size(927, 507);
             this.gridControl1.TabIndex = 6;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -1171,17 +1186,13 @@ namespace WangDaDll
             this.gridColumn20.Visible = true;
             this.gridColumn20.VisibleIndex = 1;
             // 
-            // tW_SalarySumRegBindingSource
-            // 
-            this.tW_SalarySumRegBindingSource.DataMember = "TW_SalarySumReg";
-            this.tW_SalarySumRegBindingSource.DataSource = this.salaryDataSet;
-            // 
             // FrmRegSalaryDetail
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1265, 662);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(939, 538);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(41, 21, 41, 21);
             this.Name = "FrmRegSalaryDetail";
             this.Text = "注册员业绩明细";
             this.Load += new System.EventHandler(this.FrmRegSalaryDetail_Load);
@@ -1189,8 +1200,9 @@ namespace WangDaDll
             ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumBindingSourceYW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salaryDataSetYW)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumRegBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -1199,7 +1211,6 @@ namespace WangDaDll
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tW_SalarySumRegBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

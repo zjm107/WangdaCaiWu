@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Data;
-using System.Windows.Forms;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Tiger.Tools
 {

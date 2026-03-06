@@ -49,13 +49,13 @@ namespace WangDaDll
             this.col工资统计类型 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col开始时间1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col结束时间1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col操作时间 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.splash = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::WangDaDll.CWaitForm), true, true);
             this.xlsSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.col操作时间 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vW_AllAccountantSalaryDetailGridControl)).BeginInit();
@@ -74,19 +74,20 @@ namespace WangDaDll
             this.layoutControl1.Controls.Add(this.vW_AllAccountantSalaryDetailGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Margin = new System.Windows.Forms.Padding(62, 32, 62, 32);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(-8, -8, 1936, 1096);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(1002, 683);
+            this.layoutControl1.Size = new System.Drawing.Size(1413, 764);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnExp
             // 
-            this.btnExp.Location = new System.Drawing.Point(12, 12);
-            this.btnExp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExp.Location = new System.Drawing.Point(18, 18);
+            this.btnExp.Margin = new System.Windows.Forms.Padding(62, 21, 62, 21);
             this.btnExp.Name = "btnExp";
-            this.btnExp.Size = new System.Drawing.Size(102, 25);
+            this.btnExp.Size = new System.Drawing.Size(153, 37);
             this.btnExp.StyleController = this.layoutControl1;
             this.btnExp.TabIndex = 9;
             this.btnExp.Text = "导出";
@@ -96,10 +97,12 @@ namespace WangDaDll
             // 
             this.vW_AllAccountantSalaryDetailGridControl.Cursor = System.Windows.Forms.Cursors.Default;
             this.vW_AllAccountantSalaryDetailGridControl.DataSource = this.vW_AllAccountantSalaryDetailBindingSource;
-            this.vW_AllAccountantSalaryDetailGridControl.Location = new System.Drawing.Point(12, 41);
+            this.vW_AllAccountantSalaryDetailGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(843, 216, 843, 216);
+            this.vW_AllAccountantSalaryDetailGridControl.Location = new System.Drawing.Point(18, 61);
             this.vW_AllAccountantSalaryDetailGridControl.MainView = this.gridView1;
+            this.vW_AllAccountantSalaryDetailGridControl.Margin = new System.Windows.Forms.Padding(62, 32, 62, 32);
             this.vW_AllAccountantSalaryDetailGridControl.Name = "vW_AllAccountantSalaryDetailGridControl";
-            this.vW_AllAccountantSalaryDetailGridControl.Size = new System.Drawing.Size(978, 630);
+            this.vW_AllAccountantSalaryDetailGridControl.Size = new System.Drawing.Size(1377, 685);
             this.vW_AllAccountantSalaryDetailGridControl.TabIndex = 4;
             this.vW_AllAccountantSalaryDetailGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -240,8 +243,11 @@ namespace WangDaDll
             this.col开始时间1,
             this.col结束时间1,
             this.col操作时间});
+            this.gridView1.DetailHeight = 525;
+            this.gridView1.FixedLineWidth = 1;
             this.gridView1.GridControl = this.vW_AllAccountantSalaryDetailGridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsEditForm.PopupEditFormWidth = 1200;
             this.gridView1.OptionsView.ColumnAutoWidth = false;
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView1.OptionsView.EnableAppearanceOddRow = true;
@@ -252,108 +258,128 @@ namespace WangDaDll
             // col员工
             // 
             this.col员工.FieldName = "员工";
+            this.col员工.MinWidth = 30;
             this.col员工.Name = "col员工";
-            this.col员工.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col员工.Visible = true;
             this.col员工.VisibleIndex = 0;
+            this.col员工.Width = 112;
             // 
             // col客户名称
             // 
             this.col客户名称.FieldName = "客户名称";
+            this.col客户名称.MinWidth = 30;
             this.col客户名称.Name = "col客户名称";
-            this.col客户名称.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col客户名称.Visible = true;
             this.col客户名称.VisibleIndex = 1;
+            this.col客户名称.Width = 138;
             // 
             // col做账收款额
             // 
             this.col做账收款额.FieldName = "做账收款额";
+            this.col做账收款额.MinWidth = 30;
             this.col做账收款额.Name = "col做账收款额";
-            this.col做账收款额.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col做账收款额.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "做账收款额", "{0:0.##}")});
-            this.col做账收款额.Width = 80;
+            this.col做账收款额.Width = 120;
             // 
             // col工本收款费
             // 
             this.col工本收款费.FieldName = "工本收款费";
+            this.col工本收款费.MinWidth = 30;
             this.col工本收款费.Name = "col工本收款费";
-            this.col工本收款费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col工本收款费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "工本收款费", "{0:0.##}")});
             this.col工本收款费.Visible = true;
             this.col工本收款费.VisibleIndex = 2;
-            this.col工本收款费.Width = 80;
+            this.col工本收款费.Width = 165;
             // 
             // col开票收款费
             // 
             this.col开票收款费.FieldName = "开票收款费";
+            this.col开票收款费.MinWidth = 30;
             this.col开票收款费.Name = "col开票收款费";
-            this.col开票收款费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col开票收款费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "开票收款费", "{0:0.##}")});
             this.col开票收款费.Visible = true;
             this.col开票收款费.VisibleIndex = 3;
-            this.col开票收款费.Width = 80;
+            this.col开票收款费.Width = 165;
             // 
             // col支付日期
             // 
             this.col支付日期.FieldName = "支付日期";
+            this.col支付日期.MinWidth = 30;
             this.col支付日期.Name = "col支付日期";
-            this.col支付日期.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col支付日期.Visible = true;
             this.col支付日期.VisibleIndex = 4;
+            this.col支付日期.Width = 138;
             // 
             // col收款类别
             // 
             this.col收款类别.FieldName = "收款类别";
+            this.col收款类别.MinWidth = 30;
             this.col收款类别.Name = "col收款类别";
-            this.col收款类别.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col收款类别.Visible = true;
             this.col收款类别.VisibleIndex = 5;
+            this.col收款类别.Width = 138;
             // 
             // col月做账费
             // 
             this.col月做账费.DisplayFormat.FormatString = "{0:0.##}";
             this.col月做账费.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col月做账费.FieldName = "月做账费";
+            this.col月做账费.MinWidth = 30;
             this.col月做账费.Name = "col月做账费";
-            this.col月做账费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col月做账费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "月做账费", "{0:0.##}")});
             this.col月做账费.Visible = true;
             this.col月做账费.VisibleIndex = 6;
+            this.col月做账费.Width = 138;
             // 
             // col年做账费
             // 
             this.col年做账费.FieldName = "年做账费";
+            this.col年做账费.MinWidth = 30;
             this.col年做账费.Name = "col年做账费";
-            this.col年做账费.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
             this.col年做账费.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "年做账费", "{0:0.##}")});
+            this.col年做账费.Width = 112;
             // 
             // col工资统计类型
             // 
             this.col工资统计类型.FieldName = "工资统计类型";
+            this.col工资统计类型.MinWidth = 30;
             this.col工资统计类型.Name = "col工资统计类型";
-            this.col工资统计类型.OptionsFilter.AutoFilterCondition = DevExpress.XtraGrid.Columns.AutoFilterCondition.Contains;
-            this.col工资统计类型.Width = 92;
+            this.col工资统计类型.Width = 138;
             // 
             // col开始时间1
             // 
             this.col开始时间1.FieldName = "开始时间";
+            this.col开始时间1.MinWidth = 30;
             this.col开始时间1.Name = "col开始时间1";
             this.col开始时间1.OptionsColumn.ReadOnly = true;
             this.col开始时间1.Visible = true;
             this.col开始时间1.VisibleIndex = 7;
+            this.col开始时间1.Width = 138;
             // 
             // col结束时间1
             // 
             this.col结束时间1.FieldName = "结束时间";
+            this.col结束时间1.MinWidth = 30;
             this.col结束时间1.Name = "col结束时间1";
             this.col结束时间1.OptionsColumn.ReadOnly = true;
             this.col结束时间1.Visible = true;
             this.col结束时间1.VisibleIndex = 8;
+            this.col结束时间1.Width = 138;
+            // 
+            // col操作时间
+            // 
+            this.col操作时间.FieldName = "操作时间";
+            this.col操作时间.MinWidth = 30;
+            this.col操作时间.Name = "col操作时间";
+            this.col操作时间.OptionsColumn.ReadOnly = true;
+            this.col操作时间.Visible = true;
+            this.col操作时间.VisibleIndex = 9;
+            this.col操作时间.Width = 138;
             // 
             // layoutControlGroup1
             // 
@@ -364,18 +390,17 @@ namespace WangDaDll
             this.layoutControlItem1,
             this.layoutControlItem6,
             this.emptySpaceItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1002, 683);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1413, 764);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.vW_AllAccountantSalaryDetailGridControl;
             this.layoutControlItem1.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 29);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 43);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(982, 634);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1383, 691);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -384,41 +409,32 @@ namespace WangDaDll
             this.layoutControlItem6.Control = this.btnExp;
             this.layoutControlItem6.CustomizationFormText = "layoutControlItem6";
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem6.MaxSize = new System.Drawing.Size(106, 29);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(106, 29);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(159, 43);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(159, 43);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(106, 29);
+            this.layoutControlItem6.Size = new System.Drawing.Size(159, 43);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
-            this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.CustomizationFormText = "emptySpaceItem1";
-            this.emptySpaceItem1.Location = new System.Drawing.Point(106, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(159, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(876, 29);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1224, 43);
             // 
             // xlsSaveFileDialog
             // 
             this.xlsSaveFileDialog.Filter = "Excel文件 (*.xlsx)|所有文件(*.*)";
             // 
-            // col操作时间
-            // 
-            this.col操作时间.FieldName = "操作时间";
-            this.col操作时间.Name = "col操作时间";
-            this.col操作时间.OptionsColumn.ReadOnly = true;
-            this.col操作时间.Visible = true;
-            this.col操作时间.VisibleIndex = 9;
-            // 
             // FrmAccountantSalaryDetail2022
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 683);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1413, 764);
             this.Controls.Add(this.layoutControl1);
+            this.Margin = new System.Windows.Forms.Padding(62, 32, 62, 32);
             this.Name = "FrmAccountantSalaryDetail2022";
             this.Text = "做账会计业绩统计明细";
             this.Load += new System.EventHandler(this.FrmAccountantSalaryDetail2021_Load);

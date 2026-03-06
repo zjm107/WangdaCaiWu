@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
+using WangDaDll.BusinessStart;
 
 namespace WangDaDll
 {
@@ -21,6 +17,10 @@ namespace WangDaDll
         private void btnQuery_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
+            if(!splash.IsSplashFormVisible) 
+                {
+                    splash.ShowWaitForm(); 
+            }
             try {
                 if (Security.UserBusiness.Contains("总经理"))
                 {
@@ -49,6 +49,7 @@ namespace WangDaDll
             }
             finally {
                 this.Cursor = Cursors.Default;
+                if (splash.IsSplashFormVisible) splash.CloseWaitForm();
             }
         }
 
@@ -258,6 +259,28 @@ namespace WangDaDll
             finally
             {
                 this.Cursor = Cursors.Default;
+            }
+        }
+        /// <summary>
+        /// 弹出导入合同对话框，合同导入业务登记
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImpData_Click(object sender, EventArgs e)
+        {
+         
+            using(FrmImpContract frmImp = new FrmImpContract())
+            {
+                if (frmImp.ShowDialog() == DialogResult.OK)
+                {
+                  //  businessDataSet.TW_BusinessReg.ImpDataSet(frmImp.businessDataSet.TW_BusinessReg);
+                   // btnQuery_Click(null, null);
+                   foreach(DataRow row in frmImp.businessDataSet.TW_BusinessReg.Rows)
+                    {
+                        businessDataSet.TW_BusinessReg.ImportRow(row);
+                    }
+                    businessDataSet.AcceptChanges();
+                }
             }
         }
     }

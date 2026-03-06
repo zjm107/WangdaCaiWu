@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tiger.Tools;
 using WangDaDll.Common;
@@ -38,11 +32,11 @@ namespace WangDaDll
             splash.SetWaitFormDescription("正在处理选择的注册单信息……");
             try
             {
-                MProceedsDataSet.VW_PaymentDetail.Clear();
+                MProceedsDataSet.VW_BusinessRegNoPay.Clear();
                 foreach (int i in rowHandles)
                 {
                     DataRowView rv = gridView1.GetRow(i) as DataRowView;
-                    MProceedsDataSet.VW_PaymentDetail.ImportRow(rv.Row);
+                    MProceedsDataSet.VW_BusinessRegNoPay.ImportRow(rv.Row);
                 }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -120,7 +114,7 @@ namespace WangDaDll
                 公司预核名称TextEdit.Text = "";
                 业务员TextEdit.Text = "";
              
-                proceedsDataSet.VW_PaymentDetail.Clear();
+                proceedsDataSet.VW_BusinessRegNoPay.Clear();
             }
             catch (Exception ex)
             {

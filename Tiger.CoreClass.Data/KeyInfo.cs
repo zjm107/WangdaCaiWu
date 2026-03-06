@@ -1,13 +1,12 @@
 using System;
-using System.Data;
 using System.Runtime.CompilerServices;
 
 namespace Tiger.CoreClass.Data
 {
-	/// <summary>
-	/// KeyInfo 的摘要说明。
-	/// </summary>
-	internal class KeyInfo
+    /// <summary>
+    /// KeyInfo 的摘要说明。
+    /// </summary>
+    internal class KeyInfo
 	{
         private int keyMax;
         private int keyMin;

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WangDaDll</RootNamespace>
     <AssemblyName>WangDaDll</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,17 +30,24 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Printing.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Sparkline.v16.2.Core, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Utils.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpo.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v16.2, Version=16.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Drawing.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v24.2.Export, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v24.2.Core, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v24.2, Version=24.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -80,17 +88,47 @@
     <Compile Include="BusinessStart\FrmBusinessRegQuery.Designer.cs">
       <DependentUpon>FrmBusinessRegQuery.cs</DependentUpon>
     </Compile>
+    <Compile Include="BusinessStart\FrmImpContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BusinessStart\FrmImpContract.Designer.cs">
+      <DependentUpon>FrmImpContract.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientServer\FrmClientFile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientServer\FrmClientFile.Designer.cs">
       <DependentUpon>FrmClientFile.cs</DependentUpon>
     </Compile>
+    <Compile Include="ClientServer\FrmClientManagerSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientManagerSP.Designer.cs">
+      <DependentUpon>FrmClientManagerSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmClientView.Designer.cs">
+      <DependentUpon>FrmClientView.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClientServer\FrmImageView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ClientServer\FrmImageView.Designer.cs">
       <DependentUpon>FrmImageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmLossClientView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmLossClientView.Designer.cs">
+      <DependentUpon>FrmLossClientView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientServer\FrmLossClientViewSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientServer\FrmLossClientViewSP.Designer.cs">
+      <DependentUpon>FrmLossClientViewSP.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\BusinessDataSet.cs">
       <DependentUpon>BusinessDataSet.xsd</DependentUpon>
@@ -193,6 +231,140 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractDataSet.cs">
+      <DependentUpon>ContractDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\ContractDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContractDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContract.Designer.cs">
+      <DependentUpon>FrmContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractAssign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractAssign.Designer.cs">
+      <DependentUpon>FrmContractAssign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractChanged.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractChanged.Designer.cs">
+      <DependentUpon>FrmContractChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractChangedEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractChangedEdit.Designer.cs">
+      <DependentUpon>FrmContractChangedEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractChangedRc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractChangedRc.Designer.cs">
+      <DependentUpon>FrmContractChangedRc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractEdit.Designer.cs">
+      <DependentUpon>FrmContractEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractEditPp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractEditPp.Designer.cs">
+      <DependentUpon>FrmContractEditPp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractReceivables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractReceivables.Designer.cs">
+      <DependentUpon>FrmContractReceivables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractReceivablesAccountant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractReceivablesAccountant.Designer.cs">
+      <DependentUpon>FrmContractReceivablesAccountant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractReceivablesPeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractReceivablesPeriod.Designer.cs">
+      <DependentUpon>FrmContractReceivablesPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractReceivablesPeriodAccountant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractReceivablesPeriodAccountant.Designer.cs">
+      <DependentUpon>FrmContractReceivablesPeriodAccountant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractQuery.Designer.cs">
+      <DependentUpon>FrmContractQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractReg.Designer.cs">
+      <DependentUpon>FrmContractReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmContractSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmContractSP.Designer.cs">
+      <DependentUpon>FrmContractSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmCycleContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmCycleContract.Designer.cs">
+      <DependentUpon>FrmCycleContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmNoSignCycleContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmNoSignCycleContract.Designer.cs">
+      <DependentUpon>FrmNoSignCycleContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract\FrmRejected.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contract\FrmRejected.Designer.cs">
+      <DependentUpon>FrmRejected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\ContractPay\FrmContractPayManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\ContractPay\FrmContractPayManager.Designer.cs">
+      <DependentUpon>FrmContractPayManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\ContractPay\FrmPaymentAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\ContractPay\FrmPaymentAll.Designer.cs">
+      <DependentUpon>FrmPaymentAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\ContractPay\FrmPaymentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\ContractPay\FrmPaymentView.Designer.cs">
+      <DependentUpon>FrmPaymentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proceeds\ContractPay\FrmSelectContractDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proceeds\ContractPay\FrmSelectContractDlg.Designer.cs">
+      <DependentUpon>FrmSelectContractDlg.cs</DependentUpon>
     </Compile>
     <Compile Include="Proceeds\FrmEndDateQuery.cs">
       <SubType>Form</SubType>
@@ -485,7 +657,20 @@
       <DependentUpon>FXDataSet.xsd</DependentUpon>
     </None>
     <None Include="Connected Services\BaseSerReference\BaseSer.disco" />
+    <None Include="Connected Services\WangDaReference\WangDaSer.wsdl" />
+    <None Include="Contract\ContractDataSet.xsc">
+      <DependentUpon>ContractDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Contract\ContractDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ContractDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Contract\ContractDataSet.xss">
+      <DependentUpon>ContractDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\DataSources\WangDaDll.Contract.ContractDataSet.datasource" />
     <None Include="SalaryServer\SalaryDataSet.xsc">
       <DependentUpon>SalaryDataSet.xsd</DependentUpon>
     </None>
@@ -497,6 +682,7 @@
     <None Include="SalaryServer\SalaryDataSet.xss">
       <DependentUpon>SalaryDataSet.xsd</DependentUpon>
     </None>
+    <None Include="需求记录.md" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AccontManager\FrmAccountExamine.resx">
@@ -514,6 +700,9 @@
     <EmbeddedResource Include="BusinessStart\FrmBusinessRegQuery.resx">
       <DependentUpon>FrmBusinessRegQuery.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BusinessStart\FrmImpContract.resx">
+      <DependentUpon>FrmImpContract.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BusinessStart\FrmRegBusiness.resx">
       <DependentUpon>FrmRegBusiness.cs</DependentUpon>
     </EmbeddedResource>
@@ -523,17 +712,92 @@
     <EmbeddedResource Include="ClientServer\FrmClientManager.resx">
       <DependentUpon>FrmClientManager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmClientManagerSP.resx">
+      <DependentUpon>FrmClientManagerSP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientServer\FrmClientQuery.resx">
       <DependentUpon>FrmClientQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClientServer\FrmClientSingleQuery.resx">
       <DependentUpon>FrmClientSingleQuery.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmClientView.resx">
+      <DependentUpon>FrmClientView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ClientServer\FrmImageView.resx">
       <DependentUpon>FrmImageView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmLossClientView.resx">
+      <DependentUpon>FrmLossClientView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientServer\FrmLossClientViewSP.resx">
+      <DependentUpon>FrmLossClientViewSP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Common\FrmClientSelectDlg.resx">
       <DependentUpon>FrmClientSelectDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContract.resx">
+      <DependentUpon>FrmContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractAssign.resx">
+      <DependentUpon>FrmContractAssign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractChanged.resx">
+      <DependentUpon>FrmContractChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractChangedEdit.resx">
+      <DependentUpon>FrmContractChangedEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractChangedRc.resx">
+      <DependentUpon>FrmContractChangedRc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractEdit.resx">
+      <DependentUpon>FrmContractEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractEditPp.resx">
+      <DependentUpon>FrmContractEditPp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractReceivables.resx">
+      <DependentUpon>FrmContractReceivables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractReceivablesAccountant.resx">
+      <DependentUpon>FrmContractReceivablesAccountant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractReceivablesPeriod.resx">
+      <DependentUpon>FrmContractReceivablesPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractReceivablesPeriodAccountant.resx">
+      <DependentUpon>FrmContractReceivablesPeriodAccountant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractQuery.resx">
+      <DependentUpon>FrmContractQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractReg.resx">
+      <DependentUpon>FrmContractReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmContractSP.resx">
+      <DependentUpon>FrmContractSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmCycleContract.resx">
+      <DependentUpon>FrmCycleContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmNoSignCycleContract.resx">
+      <DependentUpon>FrmNoSignCycleContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contract\FrmRejected.resx">
+      <DependentUpon>FrmRejected.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\ContractPay\FrmContractPayManager.resx">
+      <DependentUpon>FrmContractPayManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\ContractPay\FrmPaymentAll.resx">
+      <DependentUpon>FrmPaymentAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\ContractPay\FrmPaymentView.resx">
+      <DependentUpon>FrmPaymentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proceeds\ContractPay\FrmSelectContractDlg.resx">
+      <DependentUpon>FrmSelectContractDlg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proceeds\FrmEndDateQuery.resx">
       <DependentUpon>FrmEndDateQuery.cs</DependentUpon>
@@ -699,7 +963,6 @@
     </None>
     <None Include="Connected Services\BaseSerReference\BaseSer.wsdl" />
     <None Include="Connected Services\UserSerReference\UserSer.wsdl" />
-    <None Include="Connected Services\WangDaReference\WangDaSer.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -765,6 +1028,8 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Contract\生成合同的SQL.SQL" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

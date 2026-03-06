@@ -1,15 +1,14 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Tiger.CoreClass.Data
 {
-	/// <summary>
-	/// Sql对象
-	/// </summary>
-	public class SqlStruct : System.ICloneable
+    /// <summary>
+    /// Sql对象
+    /// </summary>
+    public class SqlStruct : System.ICloneable
 	{
 		private string m_SqlString;
 		//private string[] m_ParamNameList;

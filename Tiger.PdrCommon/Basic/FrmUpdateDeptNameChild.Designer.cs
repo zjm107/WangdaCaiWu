@@ -1,5 +1,4 @@
-﻿using Tiger.PdrCommon.Basic;
-
+﻿
 namespace Tiger.PdrCommon
 {
     partial class FrmUpdateDeptNameChild
@@ -30,13 +29,12 @@ namespace Tiger.PdrCommon
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnOK = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmbDeptNameList = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.dstEmployee = new DstEmployee();
-            this.tCOM_DEPTBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dstEmployee = new Tiger.PdrCommon.DstEmployee();
+            this.tCOM_DEPTBindingSource = new System.Windows.Forms.BindingSource();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDeptNameList.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dstEmployee)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCOM_DEPTBindingSource)).BeginInit();
@@ -45,24 +43,27 @@ namespace Tiger.PdrCommon
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnCancel.Location = new System.Drawing.Point(221, 61);
+            this.btnCancel.Location = new System.Drawing.Point(3536, 488);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(58, 23);
+            this.btnCancel.Size = new System.Drawing.Size(928, 184);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "取消";
             // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(127, 61);
+            this.btnOK.Location = new System.Drawing.Point(2032, 488);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(58, 23);
+            this.btnOK.Size = new System.Drawing.Size(928, 184);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "确定";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(13, 26);
+            this.labelControl1.Location = new System.Drawing.Point(15, 15);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(84, 14);
             this.labelControl1.TabIndex = 2;
@@ -70,11 +71,12 @@ namespace Tiger.PdrCommon
             // 
             // cmbDeptNameList
             // 
-            this.cmbDeptNameList.Location = new System.Drawing.Point(103, 23);
+            this.cmbDeptNameList.Location = new System.Drawing.Point(116, 12);
+            this.cmbDeptNameList.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.cmbDeptNameList.Name = "cmbDeptNameList";
             this.cmbDeptNameList.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbDeptNameList.Size = new System.Drawing.Size(176, 21);
+            this.cmbDeptNameList.Size = new System.Drawing.Size(300, 20);
             this.cmbDeptNameList.TabIndex = 3;
             // 
             // dstEmployee
@@ -90,14 +92,15 @@ namespace Tiger.PdrCommon
             // FrmUpdateDeptNameChild
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(301, 96);
+            this.ClientSize = new System.Drawing.Size(573, 242);
             this.Controls.Add(this.cmbDeptNameList);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
+            this.Margin = new System.Windows.Forms.Padding(48, 24, 48, 24);
             this.Name = "FrmUpdateDeptNameChild";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "重置部门名";
